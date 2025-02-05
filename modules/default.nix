@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hyperland
+    #./hyprland
     ./programs
     ./services
     ./system

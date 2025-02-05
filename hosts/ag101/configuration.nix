@@ -11,7 +11,7 @@
   user = "amr";
 in {
   imports = [
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix  REENABLE
     ./packages.nix
     (
       lib.mkAliasOptionModule
