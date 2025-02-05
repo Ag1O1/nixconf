@@ -70,7 +70,7 @@
         modules = concatLists [
           moduleInputs
           [
-            ./hosts/ag101
+            ./hosts/ag101/configuration.nix
             ./modules
           ]
         ];
