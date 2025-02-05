@@ -1,5 +1,5 @@
 {
-  description = "ag101's flake (attempted refactor) with flake-parts";
+  description = "ag101's flake (attempted refactor)";
 
   inputs = {
     # hjem
