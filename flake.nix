@@ -2,6 +2,12 @@
   description = "ag101's flake (attempted refactor) with flake-parts";
 
   inputs = {
+    # hjem
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nix pkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -40,17 +46,28 @@
     nixpkgs,
   } @ inputs: let
     system = "x86_64-linux";
-    inherit (self) outputs;
+    specialArgs = {
+      inherit inputs;
+    };
+    moduleInputs = with inputs; [
+      hjem.nixosModules.default
+      spicetify-nix.nixosModules.default
+      nvf.nixosModules.default
+      nix-colors.nixosModules.default
+    ];
+    inherit (builtins) concatLists;
   in {
     nixosConfigurations = {
       ag101 = nixpkgs.libs.nixosSystem {
-        modules = [
-          ./hosts/ag101
+        inherit specialArgs;
+        modules = concatLists [
+          moduleInputs
+          [
+            ./hosts/ag101
+            ./modules
+          ]
         ];
       };
     };
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
   };
 }
