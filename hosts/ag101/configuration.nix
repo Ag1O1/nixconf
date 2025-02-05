@@ -12,6 +12,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./packages.nix
     (
       lib.mkAliasOptionModule
       ["hj"]

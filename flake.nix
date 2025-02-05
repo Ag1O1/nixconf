@@ -8,6 +8,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # nvf
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nix pkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -22,9 +28,9 @@
 
     # spicetify flake
     # for spotify customization
-    spicetify = {
+    spicetify-nix = {
       url = "github:gerg-l/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs-small";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # hyprland stuff
@@ -41,9 +47,11 @@
       };
     };
   };
+
   outputs = {
     self,
     nixpkgs,
+    ...
   } @ inputs: let
     system = "x86_64-linux";
     specialArgs = {
@@ -53,12 +61,11 @@
       hjem.nixosModules.default
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default
-      nix-colors.nixosModules.default
     ];
     inherit (builtins) concatLists;
   in {
     nixosConfigurations = {
-      ag101 = nixpkgs.libs.nixosSystem {
+      ag101 = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = concatLists [
           moduleInputs
