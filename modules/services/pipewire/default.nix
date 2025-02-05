@@ -8,10 +8,10 @@ with lib; let
   cfg = config.modules.services.pipewire;
 in {
   options.modules.services.pipewire = {
-    enable = lib.mkEnableOption "pipewire";
+    enable = lib.mkEnableOption true "pipewire";
   };
   config = mkIf cfg.enable {
-    services.rtkit.enable = true;
+    security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
       audio.enable = true;

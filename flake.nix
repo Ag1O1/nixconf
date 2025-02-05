@@ -2,6 +2,9 @@
   description = "ag101's flake (attempted refactor)";
 
   inputs = {
+    # nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
     # hjem
     hjem = {
       url = "github:feel-co/hjem";
@@ -14,11 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix pkgs
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    # nix colors
-    nix-colors.url = "github:misterio77/nix-colors";
+    # basix
+    basix = {
+      url = "github:notashelf/basix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # aylur's gtk kit
     ags = {

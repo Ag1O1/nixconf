@@ -1,7 +1,7 @@
 {
   imports = [
-    #./hyprland
-    #./programs
+    ./hyprland
+    ./programs
     ./services
     ./system
     ./theming

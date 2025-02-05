@@ -11,7 +11,7 @@
   user = "amr";
 in {
   imports = [
-    #./hardware-configuration.nix  REENABLE
+    ./hardware-configuration.nix
     ./packages.nix
     (
       lib.mkAliasOptionModule
@@ -23,7 +23,6 @@ in {
       ]
     )
   ];
-
   networking.hostName = "ag101/nixos";
 
   # user
@@ -32,6 +31,27 @@ in {
       initialPassword = "password";
       isNormalUser = true;
       extraGroups = ["wheel" "audio" "networkmanager" "scanner"];
+    };
+  };
+
+  modules = {
+    hyprland.enable = true;
+
+    programs = {
+      gui = {
+        firefox.enable = true;
+        discord.enable = true;
+      };
+      tui = {
+        foot.enable = true;
+      };
+    };
+
+    system = {
+      hardware = {
+        nvidia.enable = true;
+        printing.enable = true;
+      };
     };
   };
 
