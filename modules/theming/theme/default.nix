@@ -1,3 +1,5 @@
+# Theme settings heavily inspired by Lunarnovaa's config
+# (this whole file is basically copied)
 {
   lib,
   config,

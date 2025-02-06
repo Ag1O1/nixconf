@@ -11,12 +11,14 @@ in {
     enable = lib.mkEnableOption "networking";
   };
   config = mkIf cfg.enable {
-    networkmanager = {
-      enable = true;
-    };
-    firewall = {
-      enable = true;
-      #allowedTCPPorts = [];
+    networking = {
+      networkmanager = {
+        enable = true;
+      };
+      firewall = {
+        enable = true;
+        #allowedTCPPorts = [];
+      };
     };
   };
 }

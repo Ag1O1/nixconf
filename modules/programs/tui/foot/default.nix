@@ -19,8 +19,7 @@ in {
       theme = "catppuccin-mocha";
       settings = {
         main = {
-          #font = "${fonts.monospace.name}:size=${fonts.size}"; use this after you figure out how to change int to string
-          font = "${fonts.monospace.name}:size=11";
+          font = "${fonts.monospace.name}:size=${toString fonts.size}";
         };
         colors = with colors; {
           background = base00; # base color

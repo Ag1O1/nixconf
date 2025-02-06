@@ -24,6 +24,8 @@ in {
     )
   ];
   networking.hostName = "nixos";
+  services.desktopManager.plasma6.enable = true; # TEMP
+  services.displayManager.sddm.enable = true; # TEMP
 
   # user
   users.users = {
