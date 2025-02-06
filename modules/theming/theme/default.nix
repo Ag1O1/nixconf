@@ -21,7 +21,7 @@ in {
     };
     fonts = {
       monospace = {
-        package = mkPackageOption pkgs ["nerd-fonts" "fira-code"] {}; #defaults to nerd-fonts.fira-code
+        package = mkPackageOption pkgs ["nerd-fonts" "fira-code" "cascadia-code"] {}; #defaults to nerd-fonts.fira-code
         name = mkOption {
           type = str;
           default = "Fira Code Nerdfont";
@@ -89,12 +89,4 @@ in {
       };
     };
   };
-
-  # not sure what this is..?
-  /*
-  config.theme.fonts.monospace = {
-    package = pkgs.cascadia-code;
-    name = "CascadiaCode";
-  };
-  */
 }

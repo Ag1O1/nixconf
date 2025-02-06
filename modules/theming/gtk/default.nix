@@ -1,16 +1,56 @@
+# copied from lunarnova
 {
-  pkgs,
   config,
+  pkgs,
   lib,
   ...
-}:
-with lib; let
-  cfg = config.modules.theming.gtk;
-in {
-  options.modules.theming.gtk = {
-    enable = lib.mkEnableOption true "gtk";
+}: let
+  inherit (config.theme) fonts;
+  inherit (lib.extendedLib.generators.gtk) finalGtk2Text toGtk3Ini;
+  inherit (builtins) toString;
+
+  gtk-settings = {
+    gtk-icon-theme-name = "Papirus-Dark";
+
+    gtk-theme-name = "catppuccin-mocha-green-standard+normal";
+
+    gtk-font-name = "${fonts.sans.name} ${toString fonts.size}";
+
+    gtk-cursor-theme-name = "Bibata-Modern-Classic";
+
+    gtk-application-prefer-dark-theme = true;
   };
-  config = mkIf cfg.enable {
-    # TODO: gtk config
+
+  gtk-theme-pkg = pkgs.catppuccin-gtk.override {
+    accents = ["green"];
+    variant = "mocha";
+    size = "standard";
+    tweaks = ["normal"];
+  };
+in {
+  hj = {
+    files = {
+      ".gtkrc-2.0".text = finalGtk2Text {attrs = gtk-settings;};
+      ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
+        Settings = gtk-settings;
+      };
+      ".config/gtk-4.0/settings.ini".text = toGtk3Ini {
+        Settings = gtk-settings;
+      };
+      ".config/gtk-4.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-settings.gtk-theme-name}/gtk-4.0/gtk-dark.css";
+    };
+    packages = [
+      (pkgs.catppuccin-papirus-folders.override {
+        accent = "green";
+        flavor = "mocha";
+      })
+      pkgs.bibata-cursors
+      gtk-theme-pkg
+    ];
+  };
+
+  environment.sessionVariables = {
+    GTK2_RC_FILES = "${config.hjem.users.ag101.directory}/.gtkrc-2.0";
+    GTK_THEME = "${gtk-settings.gtk-theme-name}";
   };
 }
