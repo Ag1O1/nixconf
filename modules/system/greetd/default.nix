@@ -7,20 +7,18 @@
 with lib; let
   cfg = config.modules.system.greetd;
   username = "amr";
+  session = "${pkgs.hyprland}/bin/Hyprland";
   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
 in {
   options.modules.system.greetd = {
     enable = lib.mkEnableOption "greetd";
-    session = lib.mkOption {
-      default = "${pkgs.hyprland}/bin/Hyprland";
-    };
   };
   config = mkIf cfg.enable {
     services.greetd = {
       enable = true;
       settings = {
         initial_session = {
-          command = "${cfg.session}";
+          command = "${session}";
           user = "${username}";
         };
         default_session = {

@@ -8,7 +8,6 @@
 with lib; let
   cfg = config.modules.programs.tui.nvf;
 in {
-  imports = [inputs.nvf.nixosModules.default];
   options.modules.programs.tui.nvf = {
     enable = lib.mkEnableOption "nvf";
   };

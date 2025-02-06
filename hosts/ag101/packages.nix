@@ -82,4 +82,13 @@
     pkgs.usbutils
     pkgs.libwacom
   ];
+  fonts.packages = with pkgs; [
+  cascadia-code
+  fira-code
+  inter
+  roboto-serif
+  noto-fonts-color-emoji
+  noto-fonts-cjk-sans
+  noto-fonts-cjk-serif
+];
 }

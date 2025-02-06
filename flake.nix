@@ -70,6 +70,7 @@
       hjem.nixosModules.default
       hjem-rum.nixosModules.default
       spicetify-nix.nixosModules.default
+      nvf.nixosModules.default
     ];
     inherit (builtins) concatLists;
   in {

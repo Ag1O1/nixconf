@@ -6,10 +6,11 @@
 }:
 with lib; let
   cfg = config.modules.hyprland;
+  inherit (config.theme) cursor;
 in {
   config = mkIf cfg.enable {
     hj.files = {
-      ".config/hypr/hyprland.conf".text = [
+      ".config/hypr/hyprland.conf".text =
         ''
 
           ################
@@ -24,15 +25,18 @@ in {
           ### MY PROGRAMS ###
           ###################
 
-          $terminal = alacritty
+          $terminal = foot
           $fileManager = nautilus
           $menu = fuzzel
           $browser = firefox-developer-edition
 
+
+	  
           ### etc
           render {
-            explicit-sync = 0;
+            explicit_sync = 0
           }
+
           #################
           ### AUTOSTART ###
           #################
@@ -56,8 +60,8 @@ in {
 
           # See https://wiki.hyprland.org/Configuring/Environment-variables/
 
-          env = XCURSOR_SIZE,${cursor.size}
-          env = HYPRCURSOR_SIZE,${cursor.size}
+          env = XCURSOR_SIZE,${toString cursor.size}
+          env = HYPRCURSOR_SIZE,${toString cursor.size}
           env = HYPRCURSOR_THEME,${cursor.name}
 
 
@@ -69,10 +73,11 @@ in {
 
           # https://wiki.hyprland.org/Configuring/Variables/#general
           general {
-              gaps_in = 5
-              gaps_out = 20
 
-              border_size = 2
+              gaps_in = 0
+              gaps_out = 0
+
+              border_size = 1
 
               # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
               col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
@@ -276,8 +281,8 @@ in {
           windowrulev2 = workspace 4 silent,class:^(discord)$
           windowrulev2 = float, class:^(org.gnome.Nautilus)$
           windowrulev2 = float, class:^(explorer.exe)$
-        ''
-      ];
+        '';
+
     };
   };
 }
