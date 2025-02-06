@@ -4,5 +4,6 @@
     ./hardware
     ./networking
     ./nix
+    ./greetd
   ];
 }

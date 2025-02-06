@@ -4,8 +4,6 @@
   lib,
   ...
 }: {
-  # TEMP TEST
-  hj.packages = [pkgs.fastfetch];
   boot = {
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelParams = ["nvidia_drm.fbdev=1"];

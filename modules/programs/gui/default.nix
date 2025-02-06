@@ -3,6 +3,6 @@
     ./discord
     ./firefox
     ./spicetify
-    ./fuzzle
+    ./fuzzel
   ];
 }

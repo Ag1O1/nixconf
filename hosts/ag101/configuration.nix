@@ -81,6 +81,7 @@ in {
         nvidia.enable = true;
         printing.enable = true;
         opentablet.enable = true;
+        greetd.enable = true;
       };
       networking.enable = true;
     };

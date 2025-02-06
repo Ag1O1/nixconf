@@ -7,6 +7,7 @@
 }:
 with lib; let
   cfg = config.modules.hyprland;
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   options.modules.hyprland = {
     enable = lib.mkEnableOption "hyprland";
