@@ -18,7 +18,9 @@ in {
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     hj.files = {
-      ".config/hypr".source = pkgs.writeTextFile "hyprland.conf" ./hyprland.conf;
+      #".config/hypr".source = pkgs.writeTextFile "hyprland.conf" [./hyprland.conf];
+      ".config/hypr/hyprland.conf".text = builtins.readFile ./hyprland.conf;
+      #".config/bar".source = pkgs.writeTextFile "file-foo" "file contents";
     };
   };
 }

@@ -23,6 +23,10 @@ in {
       ]
     )
   ];
+  #hjem stuff
+  hjem.clobberByDefault = true;
+
+  # hostname
   networking.hostName = "nixos";
 
   # user
@@ -33,6 +37,8 @@ in {
       extraGroups = ["wheel" "audio" "networkmanager" "scanner"];
     };
   };
+
+  # module configurations
 
   modules = {
     hyprland.enable = true;

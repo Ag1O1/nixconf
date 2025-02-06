@@ -19,6 +19,20 @@ in {
         Default is in base24 however any labeling and definitions will work.
       '';
     };
+    cursor = {
+      package = mkPackageOption pkgs ["bibata-cursors"];
+      name = mkOption {
+        type = str;
+        default = "Bibata-Modern-Ice";
+        description = "Defines cursor theme";
+      };
+      size = mkOption {
+        type = int;
+        default = 24;
+        description = "Defines cursor size";
+      };
+    };
+
     fonts = {
       monospace = {
         package = mkPackageOption pkgs ["nerd-fonts" "fira-code" "cascadia-code"] {}; #defaults to nerd-fonts.fira-code
@@ -84,7 +98,7 @@ in {
     wallpapers = {
       primary = mkOption {
         type = path;
-        default = "${config.hjem.users.ag101.directory}/Pictures/wallpapers/nix-dark-purple-compos-mediumcontrast4Kv2.png";
+        default = "${config.hj.directory}/Pictures/wallpapers/nix-dark-purple-compos-mediumcontrast4Kv2.png";
         description = "Defines the primary wallpaper";
       };
     };
