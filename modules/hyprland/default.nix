@@ -2,10 +2,11 @@
   pkgs,
   config,
   lib,
+  inputs,
   ...
 }:
 with lib; let
-  cfg = config.modules.modules.hyprland;
+  cfg = config.modules.hyprland;
 in {
   options.modules.hyprland = {
     enable = lib.mkEnableOption "hyprland";

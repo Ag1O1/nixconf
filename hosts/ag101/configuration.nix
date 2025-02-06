@@ -23,7 +23,7 @@ in {
       ]
     )
   ];
-  networking.hostName = "ag101/nixos";
+  networking.hostName = "nixos";
 
   # user
   users.users = {
@@ -36,6 +36,10 @@ in {
 
   modules = {
     hyprland.enable = true;
+
+    services = {
+      pipewire.enable = true;
+    };
 
     programs = {
       gui = {

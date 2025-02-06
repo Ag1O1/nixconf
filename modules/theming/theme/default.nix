@@ -8,7 +8,7 @@
   inherit (lib.options) mkOption mkPackageOption;
   inherit (lib.types) attrs str int path;
 in {
-  modules.theming.theme = {
+  options.modules.theming.theme = {
     colors = mkOption {
       type = attrs;
       default = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
@@ -88,8 +88,11 @@ in {
     };
   };
 
+  # not sure what this is..?
+  /*
   config.theme.fonts.monospace = {
-    package = inputs.ioshelfka.packages.x86_64-linux.ioshelfka-mono-nerd;
-    name = "Ioshelfka Mono Nerdfont";
+    package = pkgs.cascadia-code;
+    name = "CascadiaCode";
   };
+  */
 }

@@ -17,7 +17,7 @@
     #pkgs.  cudaSupport = true;
     #pkgs.  waylandSupport = true;
     #pkgs.})
-    pkgs.blender_4_2
+    #pkgs.blender_4_2 TODO: readd blender
     pkgs.ryujinx
     pkgs.hyprpaper
     pkgs.slurp

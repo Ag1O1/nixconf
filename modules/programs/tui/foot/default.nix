@@ -6,7 +6,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.tui.foot;
-  inherit (config.theme) colors fonts;
+  inherit (config.modules.theming.theme) colors fonts;
 in {
   options.modules.programs.tui.foot = {
     enable = lib.mkEnableOption "foot";
@@ -19,7 +19,8 @@ in {
       theme = "catppuccin-mocha";
       settings = {
         main = {
-          font = "${fonts.monospace.name}:size=${fonts.size}";
+          #font = "${fonts.monospace.name}:size=${fonts.size}"; use this after you figure out how to change int to string
+          font = "${fonts.monospace.name}:size=11";
         };
         colors = with colors; {
           background = base00; # base color

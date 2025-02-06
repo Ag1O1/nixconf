@@ -6,6 +6,14 @@
 }:
 with lib; let
   cfg = config.modules.programs.gui.firefox;
+  lock-false = {
+    Value = false;
+    Status = "locked";
+  };
+  lock-true = {
+    Value = true;
+    Status = "locked";
+  };
 in {
   options.modules.programs.gui.firefox = {
     enable = lib.mkEnableOption "firefox";
