@@ -6,7 +6,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.tui.foot;
-  inherit (config.modules.theming.theme) colors fonts;
+  inherit (config.theme) colors fonts;
 in {
   options.modules.programs.tui.foot = {
     enable = lib.mkEnableOption "foot";

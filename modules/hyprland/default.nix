@@ -17,10 +17,20 @@ in {
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-    hj.files = {
-      #".config/hypr".source = pkgs.writeTextFile "hyprland.conf" [./hyprland.conf];
-      ".config/hypr/hyprland.conf".text = builtins.readFile ./hyprland.conf;
-      #".config/bar".source = pkgs.writeTextFile "file-foo" "file contents";
+    hardware.graphics = {
+      package = pkgs-unstable.mesa.drivers;
+
+      enable32Bit = true;
+      package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    };
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+      config = {
+        common.default = ["gtk" "hyprland"];
+      };
     };
   };
 }

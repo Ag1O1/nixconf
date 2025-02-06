@@ -45,15 +45,26 @@ in {
 
     services = {
       pipewire.enable = true;
+      bluetooth.enable = true;
     };
 
     programs = {
       gui = {
         firefox.enable = true;
         discord.enable = true;
+        fuzzle.enable = true;
+        spicetify.enable = true;
       };
       tui = {
         foot.enable = true;
+        alacritty.enable = true;
+        tmux.enable = true;
+        nvf.enable = true;
+      };
+
+      misc = {
+        gaming.enable = true;
+        vm.enable = true;
       };
     };
 
@@ -62,6 +73,7 @@ in {
         nvidia.enable = true;
         printing.enable = true;
       };
+      networking.enable = true;
     };
   };
 

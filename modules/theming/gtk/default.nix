@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  inherit (config.modules.theming.theme) fonts cursor;
+  inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
 
   gtk-theme-pkg = pkgs.catppuccin-gtk.override {
@@ -60,6 +60,6 @@ in {
 
   environment.sessionVariables = {
     GTK2_RC_FILES = "${config.hj.directory}/.gtkrc-2.0";
-    GTK_THEME = "${gtk-settings.gtk-theme-name}";
+    GTK_THEME = "${gtk-theme-name}";
   };
 }

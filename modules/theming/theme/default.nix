@@ -10,7 +10,7 @@
   inherit (lib.options) mkOption mkPackageOption;
   inherit (lib.types) attrs str int path;
 in {
-  options.modules.theming.theme = {
+  options.theme = {
     colors = mkOption {
       type = attrs;
       default = inputs.basix.schemeData.base24.catppuccin-mocha.palette;

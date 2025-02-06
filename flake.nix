@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hjem-rum = {
+      url = "github:snugnug/hjem-rum/";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hjem.follows = "hjem";
+    };
+
     # nvf
     nvf = {
       url = "github:notashelf/nvf";
@@ -62,6 +68,7 @@
     };
     moduleInputs = with inputs; [
       hjem.nixosModules.default
+      hjem-rum.nixosModules.default
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default
     ];
