@@ -225,6 +225,29 @@
         "type": "github"
       }
     },
+    "hjem-rum": {
+      "inputs": {
+        "hjem": [
+          "hjem"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1738267499,
+        "narHash": "sha256-qgOJU297NYvRiBSSnYcZikNq3R3FlN6HISFDwbCJK6E=",
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "rev": "52a0a8cb33e2194eb49d30e78aad99bc7787b213",
+        "type": "github"
+      },
+      "original": {
+        "owner": "snugnug",
+        "repo": "hjem-rum",
+        "type": "github"
+      }
+    },
     "hyprcursor": {
       "inputs": {
         "hyprlang": [
@@ -3795,6 +3818,7 @@
         "ags": "ags",
         "basix": "basix",
         "hjem": "hjem",
+        "hjem-rum": "hjem-rum",
         "hyprland": "hyprland",
         "hyprpaper": "hyprpaper",
         "hyprpicker": "hyprpicker",

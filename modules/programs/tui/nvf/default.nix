@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   config,
   lib,
   ...
@@ -13,7 +14,7 @@ in {
   };
   config = mkIf cfg.enable {
     programs.nvf = {
-      config.vim = {
+      settings.vim = {
         keymaps = [
           {
             key = "<SPACE>a";
@@ -138,12 +139,12 @@ in {
 
         minimap = {
           minimap-vim.enable = false;
-          codewindow.enable = isMaximal; # lighter, faster, and uses lua for configuration
+          codewindow.enable = true; # lighter, faster, and uses lua for configuration
         };
 
         dashboard = {
           dashboard-nvim.enable = false;
-          alpha.enable = isMaximal;
+          alpha.enable = true;
         };
 
         notify = {
@@ -191,8 +192,8 @@ in {
           modes-nvim.enable = false; # the theme looks terrible with catppuccin
           illuminate.enable = true;
           breadcrumbs = {
-            enable = isMaximal;
-            navbuddy.enable = isMaximal;
+            enable = true;
+            navbuddy.enable = true;
           };
           smartcolumn = {
             enable = true;

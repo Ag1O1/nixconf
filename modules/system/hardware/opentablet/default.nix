@@ -5,9 +5,9 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.hardware.opentablet;
+  cfg = config.modules.system.hardware.opentablet;
 in {
-  options.modules.hardware.opentablet = {
+  options.modules.system.hardware.opentablet = {
     enable = lib.mkEnableOption "opentablet";
   };
   config = mkIf cfg.enable {

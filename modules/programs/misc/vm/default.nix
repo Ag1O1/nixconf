@@ -7,7 +7,7 @@
 with lib; let
   cfg = config.modules.programs.misc.vm;
 in {
-  options.modules.misc.vm = {
+  options.modules.programs.misc.vm = {
     enable = lib.mkEnableOption "vm";
   };
   config = mkIf cfg.enable {

@@ -1,13 +1,14 @@
 {
   pkgs,
+  inputs,
   config,
   lib,
   ...
 }:
 with lib; let
-  cfg = config.modules.gui.spicetify;
+  cfg = config.modules.programs.gui.spicetify;
 in {
-  options.modules.gui.spicetify = {
+  options.modules.programs.gui.spicetify = {
     enable = lib.mkEnableOption "spicetify";
   };
   imports = [inputs.spicetify-nix.nixosModules.default];

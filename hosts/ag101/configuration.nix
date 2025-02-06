@@ -50,7 +50,7 @@ in {
       gui = {
         firefox.enable = true;
         discord.enable = true;
-        fuzzle.enable = true;
+        fuzzel.enable = true;
         spicetify.enable = true;
       };
 

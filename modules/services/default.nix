@@ -3,5 +3,6 @@
     ./bluetooth
     ./pipewire
     ./ai
+    ./polkit
   ];
 }

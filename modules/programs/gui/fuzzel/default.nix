@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.programs.gui.fuzzle;
+  cfg = config.modules.programs.gui.fuzzel;
   inherit (config.theme) fonts colors;
   fuzzle-conf = ''
     dpi-aware=no
@@ -31,12 +31,12 @@ with lib; let
     exit-immediately-if-empty=yes
   '';
 in {
-  options.modules.programs.gui.fuzzle = {
-    enable = lib.mkEnableOption "fuzzle";
+  options.modules.programs.gui.fuzzel = {
+    enable = lib.mkEnableOption "fuzzel";
   };
   config = mkIf cfg.enable {
     hj = {
-      packages = [pkgs.fuzzle];
+      packages = [pkgs.fuzzel];
       files = {
         "~/.config/fuzzel/fuzzel.ini".text = fuzzle-conf;
       };
