@@ -11,6 +11,7 @@ in {
     enable = lib.mkEnableOption "gaming";
   };
   config = mkIf cfg.enable {
+    programs.appimage.enable = true;
     programs.steam.enable = true;
     programs.steam.gamescopeSession.enable = true;
     environment.systemPackages = with pkgs; [

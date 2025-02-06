@@ -15,5 +15,9 @@ in {
       enable = true;
       drivers = [pkgs.hplipWithPlugin];
     };
+    hardware.sane = {
+      enable = true;
+      extraBackends = [pkgs.hplipWithPlugin];
+    };
   };
 }

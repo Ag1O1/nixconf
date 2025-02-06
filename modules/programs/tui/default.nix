@@ -4,5 +4,7 @@
     ./alacritty
     ./nvf
     ./tmux
+    ./direnv
+    ./fish
   ];
 }

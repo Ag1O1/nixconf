@@ -30,9 +30,12 @@ in {
   networking.hostName = "nixos";
 
   # user
+  time.timeZone = "Africa/Cairo";
+  i18n.defaultLocale = "en_US.UTF-8";
   users.users = {
     amr = {
       initialPassword = "password";
+      shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = ["wheel" "audio" "networkmanager" "scanner"];
     };
@@ -43,11 +46,6 @@ in {
   modules = {
     hyprland.enable = true;
 
-    services = {
-      pipewire.enable = true;
-      bluetooth.enable = true;
-    };
-
     programs = {
       gui = {
         firefox.enable = true;
@@ -55,11 +53,14 @@ in {
         fuzzle.enable = true;
         spicetify.enable = true;
       };
+
       tui = {
         foot.enable = true;
         alacritty.enable = true;
         tmux.enable = true;
         nvf.enable = true;
+        direnv.enable = true;
+        fish.enable = true;
       };
 
       misc = {
@@ -68,10 +69,18 @@ in {
       };
     };
 
+    services = {
+      pipewire.enable = true;
+      bluetooth.enable = true;
+      ai.enable = true;
+      polkit.enable = true;
+    };
+
     system = {
       hardware = {
         nvidia.enable = true;
         printing.enable = true;
+        opentablet.enable = true;
       };
       networking.enable = true;
     };
