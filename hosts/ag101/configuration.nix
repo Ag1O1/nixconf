@@ -67,6 +67,7 @@ in {
       misc = {
         gaming.enable = true;
         vm.enable = true;
+        git.enable = true;
       };
     };
 
