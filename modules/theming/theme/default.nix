@@ -35,10 +35,10 @@ in {
 
     fonts = {
       monospace = {
-        package = mkPackageOption pkgs ["nerd-fonts" "fira-code" "cascadia-code"] {}; #defaults to nerd-fonts.fira-code
+        package = mkPackageOption pkgs ["cascadia-code"] {};
         name = mkOption {
           type = str;
-          default = "Fira Code Nerdfont";
+          default = "CascadiaCode";
           description = "Defines the monospace font";
         };
       };

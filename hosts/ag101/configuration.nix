@@ -12,6 +12,7 @@
 in {
   imports = [
     ./hardware-configuration.nix
+    ./hardware
     ./packages.nix
     (
       lib.mkAliasOptionModule

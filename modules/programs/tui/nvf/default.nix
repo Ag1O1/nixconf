@@ -1,6 +1,4 @@
 {
-  pkgs,
-  inputs,
   config,
   lib,
   ...
@@ -13,6 +11,7 @@ in {
   };
   config = mkIf cfg.enable {
     programs.nvf = {
+      enable = true;
       settings.vim = {
         keymaps = [
           {
@@ -156,7 +155,7 @@ in {
 
         utility = {
           ccc.enable = false;
-          new-file-template = true;
+          new-file-template.enable = true;
           vim-wakatime.enable = false;
           icon-picker.enable = true;
           surround.enable = true;
@@ -171,10 +170,6 @@ in {
           images = {
             image-nvim.enable = false;
           };
-        };
-
-        notes = {
-          obsidian.enable = false; # FIXME: neovim fails to build if obsidian is enabled
         };
 
         terminal = {
@@ -193,16 +188,6 @@ in {
           breadcrumbs = {
             enable = true;
             navbuddy.enable = true;
-          };
-          smartcolumn = {
-            enable = true;
-            setupOpts.custom_colorcolumn = {
-              # this is a freeform module, it's `buftype = int;` for configuring column position
-              nix = "110";
-              ruby = "120";
-              java = "130";
-              go = ["90" "130"];
-            };
           };
           fastaction.enable = true;
         };
