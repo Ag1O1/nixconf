@@ -40,7 +40,7 @@ in {
         ### AUTOSTART ###
         #################
 
-        exec-once = ags -c ~/.c
+        exec-once = ags
         exec-once = sleep 8 ; discord
         exec-once = ngrok http --url=goose-neat-sponge.ngrok-free.app 8080
         exec-once = hyprctl setcursor Bibata-Modern-Ice 24
@@ -208,6 +208,7 @@ in {
 
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         bind = $mainMod, Q, exec, $terminal
+        bind = $mainMod, W, exec, $browser
         bind = $mainMod SHIFT, C, killactive,
         bind = $mainMod SHIFT, M, exit,
         bind = $mainMod, E, exec, $fileManager
@@ -281,7 +282,21 @@ in {
         windowrulev2 = noborder, onworkspace:w[t1]
         windowrulev2 = workspace 4 silent,class:^(discord)$
         windowrulev2 = float, class:^(org.gnome.Nautilus)$
+
+        # kinito pet stuff
+        windowrulev2 = float, class:^(kinitopet.exe)$
+        windowrulev2 = noblur, class:^(kinitopet.exe)$
+        windowrulev2 = noshadow, class:^(kinitopet.exe)$
+        windowrulev2 = noborder, class:^(kinitopet.exe)$
+
+        windowrulev2 = float, class:^(conhost.exe)$
         windowrulev2 = float, class:^(explorer.exe)$
+
+        windowrule = float, com-group_finity-mascot-Main
+        windowrule = noblur, com-group_finity-mascot-Main
+        windowrule = nofocus, com-group_finity-mascot-Main
+        windowrule = noshadow, com-group_finity-mascot-Main
+        windowrule = noborder, com-group_finity-mascot-Main
       '';
     };
   };

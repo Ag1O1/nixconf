@@ -30,32 +30,32 @@ in {
         };
         colors = {
           bright = {
-            black = "${colors.base00}";
-            blue = "${colors.base0D}";
-            cyan = "${colors.base0C}";
-            green = "${colors.base0B}";
-            magenta = "${colors.base0E}";
-            red = "${colors.base08}";
-            white = "${colors.base06}";
-            yellow = "${colors.base09}";
+            black = "#${colors.base00}";
+            blue = "#${colors.base0D}";
+            cyan = "#${colors.base0C}";
+            green = "#${colors.base0B}";
+            magenta = "#${colors.base0E}";
+            red = "#${colors.base08}";
+            white = "#${colors.base06}";
+            yellow = "#${colors.base09}";
           };
           cursor = {
-            cursor = "${colors.base06}";
-            text = "${colors.base06}";
+            cursor = "#${colors.base06}";
+            text = "#${colors.base06}";
           };
           normal = {
-            black = "${colors.base00}";
-            blue = "${colors.base0D}";
-            cyan = "${colors.base0C}";
-            green = "${colors.base0B}";
-            magenta = "${colors.base0E}";
-            red = "${colors.base08}";
-            white = "${colors.base06}";
-            yellow = "${colors.base0A}";
+            black = "#${colors.base00}";
+            blue = "#${colors.base0D}";
+            cyan = "#${colors.base0C}";
+            green = "#${colors.base0B}";
+            magenta = "#${colors.base0E}";
+            red = "#${colors.base08}";
+            white = "#${colors.base06}";
+            yellow = "#${colors.base0A}";
           };
           primary = {
-            background = "${colors.base00}";
-            foreground = "${colors.base06}";
+            background = "#${colors.base00}";
+            foreground = "#${colors.base06}";
           };
         };
       };

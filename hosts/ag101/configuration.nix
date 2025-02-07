@@ -38,7 +38,16 @@ in {
       initialPassword = "password";
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = ["wheel" "audio" "networkmanager" "scanner"];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "libvirtd"
+        "scanner"
+        "lp"
+        "vidio"
+        "kvm"
+        "libvirt"
+      ];
     };
   };
 

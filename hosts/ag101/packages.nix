@@ -13,10 +13,10 @@
     #pkgs.mission-center fails to build.
     #pkgs.lime3ds fails to build..
     pkgs.godot_4
-    #pkgs.(blender.override {
-    #pkgs.  cudaSupport = true;
-    #pkgs.  waylandSupport = true;
-    #pkgs.})
+    (pkgs.blender.override {
+      cudaSupport = true;
+      waylandSupport = true;
+    })
     #pkgs.blender_4_2 TODO: readd blender
     pkgs.ryujinx
     pkgs.hyprpaper
@@ -83,12 +83,12 @@
     pkgs.libwacom
   ];
   fonts.packages = with pkgs; [
-  cascadia-code
-  fira-code
-  inter
-  roboto-serif
-  noto-fonts-color-emoji
-  noto-fonts-cjk-sans
-  noto-fonts-cjk-serif
-];
+    cascadia-code
+    fira-code
+    inter
+    roboto-serif
+    noto-fonts-color-emoji
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
 }

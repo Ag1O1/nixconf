@@ -47,7 +47,8 @@ in {
       ".gtkrc-2.0".text = gtk2-settings;
       ".config/gtk-3.0/settings.ini".text = gtk-settings;
       ".config/gtk-4.0/settings.ini".text = gtk-settings;
-      ".config/gtk-4.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
+      #"config/gtk-4.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
+      "config/gtk-4.0/gtk.css".source = ./gtk.css;
     };
     packages = [
       (pkgs.catppuccin-papirus-folders.override {
