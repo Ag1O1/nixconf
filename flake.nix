@@ -42,6 +42,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Declarative flatpaks
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
+
     # hyprland stuff
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -71,6 +74,7 @@
       hjem-rum.nixosModules.default
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default
+      flatpaks.nixosModules.declarative-flatpak
     ];
     inherit (builtins) concatLists;
   in {

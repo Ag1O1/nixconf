@@ -3,6 +3,7 @@
     ./discord
     ./firefox
     ./spicetify
+    ./sober
     ./fuzzel
   ];
 }
