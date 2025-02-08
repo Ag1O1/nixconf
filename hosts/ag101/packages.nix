@@ -17,7 +17,6 @@
       cudaSupport = true;
       waylandSupport = true;
     })
-    #pkgs.blender_4_2 TODO: readd blender
     pkgs.ryujinx
     pkgs.hyprpaper
     pkgs.slurp

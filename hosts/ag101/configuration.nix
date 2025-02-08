@@ -62,6 +62,7 @@ in {
         discord.enable = true;
         fuzzel.enable = true;
         spicetify.enable = true;
+        sober.enable = true;
       };
 
       tui = {
