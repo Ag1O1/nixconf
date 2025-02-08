@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   hj.packages = [
-    pkgs.xorg.xorgserver
-    pkgs.xorg.xinit
+    pkgs.git-credential-oauth
+
     pkgs.pkg-config
     pkgs.tree
     pkgs.vim

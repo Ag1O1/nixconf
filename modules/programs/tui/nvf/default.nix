@@ -13,6 +13,12 @@ in {
     programs.nvf = {
       enable = true;
       settings.vim = {
+        options = {
+          expandtab = true;
+          shiftwidth = 2;
+          tabstop = 2;
+          softtabstop = 2;
+        };
         keymaps = [
           {
             key = "<SPACE>a";
