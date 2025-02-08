@@ -12,7 +12,6 @@ in {
   };
   config = mkIf cfg.enable {
     security.polkit.enable = true;
-    programs.git.enable = true;
     programs.seahorse.enable = true;
     systemd.user.services.polkit-pantheon-authentication-agent-1 = {
       description = "Pantheon PolicyKit agent";
