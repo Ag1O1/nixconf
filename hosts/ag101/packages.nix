@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   hj.packages = [
-    pkgs.git-credential-oauth
+    pkgs.inkscape
 
     pkgs.pkg-config
     pkgs.tree
@@ -13,10 +13,12 @@
     #pkgs.mission-center fails to build.
     #pkgs.lime3ds fails to build..
     pkgs.godot_4
+
     (pkgs.blender.override {
       cudaSupport = true;
       waylandSupport = true;
     })
+
     pkgs.ryujinx
     pkgs.hyprpaper
     pkgs.slurp

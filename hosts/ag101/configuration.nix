@@ -86,6 +86,7 @@ in {
       bluetooth.enable = true;
       ai.enable = true;
       polkit.enable = true;
+      mime.enable = true;
     };
 
     system = {

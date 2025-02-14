@@ -4,7 +4,7 @@
   hj.packages = [
     (pkgs.catppuccin-kde.override {
       flavour = ["mocha"];
-      accents = ["green"];
+      accents = ["blue"];
     })
   ];
 }

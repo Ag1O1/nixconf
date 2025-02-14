@@ -4,5 +4,6 @@
     ./pipewire
     ./ai
     ./polkit
+    ./mime
   ];
 }
