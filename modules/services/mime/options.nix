@@ -13,7 +13,7 @@ in {
 
     text = mkOption {
       type = str;
-      default = "Neovim";
+      default = "nvim";
       description = "Defines text editor";
     };
     browser = mkOption {
