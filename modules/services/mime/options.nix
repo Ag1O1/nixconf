@@ -38,7 +38,7 @@ in {
     };
     svg = mkOption {
       type = str;
-      default = "inkscape";
+      default = "org.inkscape.Inkscape.desktop";
       description = "Defines svg editor";
     };
   };
