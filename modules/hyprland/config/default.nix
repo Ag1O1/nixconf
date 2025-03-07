@@ -4,6 +4,6 @@
     ./decorations.nix
     ./exec.nix
     ./general.nix
-    ./ags
+    #./ags
   ];
 }

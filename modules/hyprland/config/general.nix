@@ -1,7 +1,7 @@
 {config, ...}: let
   inherit (config.theme) cursor;
 in {
-  hj.rum.programs.hyprland = {
+  hj.rum.programs.hyprland.settings = {
     monitor = [
       "HDMI-A-1, preferred, 0x0, 1"
       "DVI-D-1, preferred, auto-right, 1"

@@ -1,5 +1,5 @@
 {
-  hj.rum.programs.hyprland = {
+  hj.rum.programs.hyprland.settings = {
     general = {
       gaps_in = 0; #3
       gaps_out = 0; #6

@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  hj.rum.programs.hyprland = {
+  hj.rum.programs.hyprland.settings = {
     exec-once = [
       "ags -c ~/.config/ags/config.js"
       "sleep 8 ; discordcanary"
