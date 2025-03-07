@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   hj.packages = [
+    pkgs.zoxide
     pkgs.inkscape
 
     pkgs.pkg-config
@@ -12,14 +13,15 @@
     pkgs.unrar
     #pkgs.mission-center fails to build.
     #pkgs.lime3ds fails to build..
-    pkgs.godot_4
+    pkgs.godot_4-mono
+    pkgs.godot_4-export-templates
 
     (pkgs.blender.override {
       cudaSupport = true;
       waylandSupport = true;
     })
 
-    pkgs.ryujinx
+    pkgs.ryubing #ryujinx
     pkgs.hyprpaper
     pkgs.slurp
     pkgs.grim

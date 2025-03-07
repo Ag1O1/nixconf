@@ -20,7 +20,7 @@ in {
             nix run nixpkgs#$argv[1] -- $argv[2..]
         end
       '')
-      (pkgs.writers.writeFishBin "nshell" ''
+      (pkgs.writers.writeFishBin "nsh" ''
         if echo "$argv[1]" | grep -Eq '^[a-z]+:.+/.+$'
           nix shell $argv[1] -- $argv[2..]
         else

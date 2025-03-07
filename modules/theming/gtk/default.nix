@@ -14,7 +14,7 @@
     size = "standard";
     tweaks = ["normal"];
   };
-  gtk-theme-name = "catppuccin-mocha-green-standard+normal";
+  gtk-theme-name = "catppuccin-mocha-blue-standard+normal";
   # I have no idea if this is correct.
   # Seems to me that the only difference between gtkrc and 3,4's settings is the [Settings] part.
   # I am not sure if that's actually the case.

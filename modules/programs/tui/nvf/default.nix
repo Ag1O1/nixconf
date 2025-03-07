@@ -67,6 +67,8 @@ in {
           nix.enable = true;
           markdown.enable = true;
 
+          csharp.enable = true;
+          clang.enable = true;
           bash.enable = true;
           css.enable = true;
           java.enable = true;
@@ -120,10 +122,6 @@ in {
           neo-tree = {
             enable = true;
           };
-        };
-
-        tabline = {
-          nvimBufferline.enable = true;
         };
 
         treesitter.context.enable = true;

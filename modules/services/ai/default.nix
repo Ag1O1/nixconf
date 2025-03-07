@@ -21,7 +21,7 @@ in {
           OLLAMA_KV_CACHE_TYPE = "q4_0";
         };
       };
-      #open-webui.enable = true; # fails to build... again
+      open-webui.enable = true;
     };
   };
 }
