@@ -14,6 +14,10 @@ in {
     enable = lib.mkEnableOption "hyprland";
   };
   config = mkIf cfg.enable {
+    hj.rum.programs.hyprland = {
+      plugins = [pkgs.hyprlandPlugins.hyprsplit];
+      enable = true;
+    };
     programs.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;

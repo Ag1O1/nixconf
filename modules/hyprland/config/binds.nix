@@ -62,8 +62,8 @@
             i: let
               ws = i + 1;
             in [
-              "ALT, code:1${toString i}, workspace, ${toString ws}"
-              "ALT SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+              "ALT, code:1${toString i}, split:workspace, ${toString ws}"
+              "ALT SHIFT, code:1${toString i}, split:movetoworkspace, ${toString ws}"
             ]
           )
           9

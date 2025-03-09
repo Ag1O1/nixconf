@@ -17,7 +17,7 @@ in {
       enable = true;
       enableFishIntegration = true;
       enableBashIntegration = true;
-      #theme = "catppuccin-mocha";
+      theme = "catppuccin-mocha";
       settings = {
         main = {
           font = "${fonts.monospace.name}:size=14";
@@ -27,6 +27,7 @@ in {
         };
 
         # TODO: use colors
+        /*
         colors = with colors; {
           background = base00; # base color
           foreground = base05; # text color
@@ -48,9 +49,7 @@ in {
           bright5 = base0F; # pink
           bright6 = base0C; # teal
           bright7 = base07; # Subtext 0
-
-          alpha = 0.9;
-        };
+        */
       };
     };
   };
