@@ -54,7 +54,7 @@ in {
   # module configurations
 
   modules = {
-    hyprland.enable = true;
+    #hyprland.enable = true;
 
     programs = {
       gui = {
@@ -95,10 +95,34 @@ in {
         printing.enable = true;
         opentablet.enable = true;
       };
-      greetd.enable = true;
+      #greetd.enable = true;
       networking.enable = true;
     };
   };
 
+  environment.variables = {
+    PROTONPATH = "GE-Proton";
+    GAMEID = "0";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.kdePackages.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-wlr
+    ];
+  };
+  environment.systemPackages = with pkgs; [
+    xdg-desktop-portal-gnome
+    xdg-desktop-portal-gtk
+    kdePackages.xdg-desktop-portal-kde
+    xdg-desktop-portal-wlr
+  ];
+
+  programs.niri.enable = true;
+  programs.xwayland.enable = lib.mkForce true;
+  services.displayManager.ly.enable = true;
   system.stateVersion = "24.05";
 }

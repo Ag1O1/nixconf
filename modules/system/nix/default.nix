@@ -24,7 +24,10 @@
   nixpkgs.config.allowUnfree = true; # its a pain to manage a system without unfree software
   environment.systemPackages = [
     pkgs.nixd
+    pkgs.nixos-rebuild-ng
   ];
-
+  environment.shellAliases = {
+    nixos-rebuild = "nixos-rebuild --flake ~/nixos#ag101 --use-remote-sudo";
+  };
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

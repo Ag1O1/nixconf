@@ -13,6 +13,7 @@ in {
   config = mkIf cfg.enable {
     security.rtkit.enable = true;
     services.pipewire = {
+      alsa.enable = true;
       enable = true;
       audio.enable = true;
       extraConfig.pipewire."92-low-latency" = {

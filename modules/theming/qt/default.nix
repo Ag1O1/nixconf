@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.variables.QT_STYLE_OVERRIDE = "Catppuccin-Macchiato-Dark";
+  environment.variables.QT_STYLE_OVERRIDE = "kvantum-dark";
 
   hj.packages = [
     (pkgs.catppuccin-kde.override {

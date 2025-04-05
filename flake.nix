@@ -45,6 +45,12 @@
     # Declarative flatpaks
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
 
+    # Cosmic desktop (beta)
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
+    # umu
+    umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
+
     # hyprland stuff
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
@@ -71,6 +77,7 @@
     };
     moduleInputs = with inputs; [
       hjem.nixosModules.default
+      nixos-cosmic.nixosModules.default
       hjem-rum.nixosModules.default
       spicetify-nix.nixosModules.default
       nvf.nixosModules.default

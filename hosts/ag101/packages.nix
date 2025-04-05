@@ -1,7 +1,21 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   hj.packages = [
+    inputs.umu.packages.x86_64-linux.umu-launcher
+    pkgs.playerctl
+    pkgs.udiskie
+    pkgs.mako
+    pkgs.xwayland-satellite
+    pkgs.cosmic-edit
+    pkgs.cosmic-files
+    pkgs.gthumb
     pkgs.zoxide
     pkgs.inkscape
+    pkgs.wl-screenrec
+    pkgs.audacity
 
     pkgs.pkg-config
     pkgs.tree
