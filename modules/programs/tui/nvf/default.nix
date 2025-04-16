@@ -64,9 +64,7 @@ in {
           lightbulb.enable = true;
           lspsaga.enable = false;
           trouble.enable = true;
-          lspSignature.enable = true;
           otter-nvim.enable = true;
-          lsplines.enable = true;
         };
 
         debugger = {
@@ -142,7 +140,7 @@ in {
           };
         };
 
-        treesitter.context.enable = true;
+        #treesitter.context.enable = true;
 
         binds = {
           whichKey.enable = true;

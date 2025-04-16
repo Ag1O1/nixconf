@@ -4,6 +4,8 @@
   ...
 }: {
   hj.packages = [
+    pkgs.waypaper
+    pkgs.swww
     inputs.umu.packages.x86_64-linux.umu-launcher
     pkgs.playerctl
     pkgs.udiskie
@@ -36,7 +38,6 @@
     })
 
     pkgs.ryubing #ryujinx
-    pkgs.hyprpaper
     pkgs.slurp
     pkgs.grim
     pkgs.cbonsai
@@ -100,6 +101,10 @@
     pkgs.libwacom
   ];
   fonts.packages = with pkgs; [
+    wineWow64Packages.fonts
+    corefonts
+    vista-fonts
+    unifont
     cascadia-code
     fira-code
     inter

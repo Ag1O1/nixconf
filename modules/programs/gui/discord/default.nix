@@ -10,7 +10,7 @@ with lib; let
     (pkgs.discord.override {
       nss = pkgs.nss_latest;
       withOpenASAR = true;
-      #withVencord = true; vencord broken after latest update
+      withVencord = true;
     })
     .overrideAttrs
     (old: {

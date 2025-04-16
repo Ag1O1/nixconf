@@ -14,7 +14,7 @@
     hjem-rum = {
       url = "github:snugnug/hjem-rum/";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.hjem.follows = "hjem";
+      #inputs.hjem.follows = "hjem";
     };
 
     # nvf
@@ -37,10 +37,7 @@
 
     # spicetify flake
     # for spotify customization
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    spicetify-nix.url = "github:gerg-l/spicetify-nix";
 
     # Declarative flatpaks
     flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
@@ -78,8 +75,8 @@
     moduleInputs = with inputs; [
       hjem.nixosModules.default
       nixos-cosmic.nixosModules.default
-      hjem-rum.nixosModules.default
-      spicetify-nix.nixosModules.default
+      #hjem-rum.nixosModules.default
+      #spicetify-nix.nixosModules.default
       nvf.nixosModules.default
       flatpaks.nixosModules.declarative-flatpak
     ];

@@ -25,8 +25,17 @@ in {
     )
   ];
   #hjem stuff
-  hjem.clobberByDefault = true;
-
+  hjem = {
+    users.amr = {
+      enable = true;
+      directory = "/home/amr";
+      user = "amr";
+    };
+    clobberByDefault = true;
+    extraModules = [
+      inputs.hjem-rum.hjemModules.default
+    ];
+  };
   # hostname
   networking.hostName = "nixos";
 
