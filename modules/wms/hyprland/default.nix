@@ -6,11 +6,11 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.hyprland;
+  cfg = config.modules.wms.hyprland;
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   imports = [./config];
-  options.modules.hyprland = {
+  options.modules.wms.hyprland = {
     enable = lib.mkEnableOption "hyprland";
   };
   config = mkIf cfg.enable {

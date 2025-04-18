@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hyprland
+    ./wms
     ./programs
     ./services
     ./system

@@ -2,8 +2,10 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   hj.packages = [
+    pkgs.zed-editor
     pkgs.waypaper
     pkgs.swww
     inputs.umu.packages.x86_64-linux.umu-launcher
@@ -37,7 +39,7 @@
       waylandSupport = true;
     })
 
-    pkgs.ryubing #ryujinx
+    pkgs.ryubing # ryujinx
     pkgs.slurp
     pkgs.grim
     pkgs.cbonsai
@@ -53,7 +55,7 @@
     pkgs.fzf
     pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override {cudaSupport = true;})
+    (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.tldr
     pkgs.eza

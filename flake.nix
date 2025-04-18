@@ -48,6 +48,9 @@
     # umu
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
 
+    # niri
+    niri.url = "github:sodiboo/niri-flake";
+
     # hyprland stuff
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";

@@ -7,16 +7,17 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   user = "amr";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (
-      lib.mkAliasOptionModule
-      ["hj"]
+    (lib.mkAliasOptionModule
+      [ "hj" ]
       [
         "hjem"
         "users"
@@ -88,6 +89,9 @@ in {
         vm.enable = true;
         git.enable = true;
       };
+      wms = {
+        niri.enable = true;
+      };
     };
 
     services = {
@@ -130,8 +134,6 @@ in {
     xdg-desktop-portal-wlr
   ];
 
-  programs.niri.enable = true;
-  programs.xwayland.enable = lib.mkForce true;
   services.displayManager.ly.enable = true;
   system.stateVersion = "24.05";
 }
