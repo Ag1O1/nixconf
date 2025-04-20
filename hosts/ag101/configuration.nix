@@ -89,9 +89,6 @@ in
         vm.enable = true;
         git.enable = true;
       };
-      wms = {
-        niri.enable = true;
-      };
     };
 
     services = {
@@ -110,6 +107,9 @@ in
       };
       #greetd.enable = true;
       networking.enable = true;
+    };
+    wms = {
+      niri.enable = true;
     };
   };
 

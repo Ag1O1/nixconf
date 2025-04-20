@@ -2,12 +2,13 @@
   lib,
   config,
   ...
-}: {
-  config = lib.mkIf config.modules.hyprland.enable {
+}:
+{
+  config = lib.mkIf config.modules.wms.hyprland.enable {
     hj.rum.programs.hyprland.settings = {
       general = {
-        gaps_in = 0; #3
-        gaps_out = 0; #6
+        gaps_in = 0; # 3
+        gaps_out = 0; # 6
 
         border_size = 1; # 2
 
@@ -25,7 +26,7 @@
       };
 
       decoration = {
-        rounding = 0; #5
+        rounding = 0; # 5
 
         # Change transparency of focused and unfocused windows
         active_opacity = 1;
@@ -47,7 +48,7 @@
       };
 
       animations = {
-        enabled = false; #true
+        enabled = false; # true
 
         # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 

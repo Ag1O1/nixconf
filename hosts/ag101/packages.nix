@@ -6,6 +6,7 @@
 {
   hj.packages = [
     pkgs.zed-editor
+    pkgs.nil
     pkgs.waypaper
     pkgs.swww
     inputs.umu.packages.x86_64-linux.umu-launcher

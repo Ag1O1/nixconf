@@ -1,5 +1,5 @@
 {
-  description = "ag101's flake (attempted refactor)";
+  description = "ag101's flake";
 
   inputs = {
     # nixpkgs
@@ -49,7 +49,7 @@
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
 
     # niri
-    niri.url = "github:sodiboo/niri-flake";
+    #niri.url = "github:sodiboo/niri-flake"; #requires HM
 
     # hyprland stuff
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -66,36 +66,41 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    specialArgs = {
-      inherit inputs;
-    };
-    moduleInputs = with inputs; [
-      hjem.nixosModules.default
-      nixos-cosmic.nixosModules.default
-      #hjem-rum.nixosModules.default
-      #spicetify-nix.nixosModules.default
-      nvf.nixosModules.default
-      flatpaks.nixosModules.declarative-flatpak
-    ];
-    inherit (builtins) concatLists;
-  in {
-    nixosConfigurations = {
-      ag101 = nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        modules = concatLists [
-          moduleInputs
-          [
-            ./hosts/ag101/configuration.nix
-            ./modules
-          ]
-        ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      specialArgs = {
+        inherit inputs;
+      };
+      moduleInputs = with inputs; [
+        hjem.nixosModules.default
+        nixos-cosmic.nixosModules.default
+        #hjem-rum.nixosModules.default
+        #spicetify-nix.nixosModules.default
+        nvf.nixosModules.default
+
+        flatpaks.nixosModules.declarative-flatpak
+      ];
+      inherit (builtins) concatLists;
+    in
+    {
+      nixosConfigurations = {
+        nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+        ag101 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = concatLists [
+            moduleInputs
+            [
+              ./hosts/ag101/configuration.nix
+              ./modules
+            ]
+          ];
+        };
       };
     };
-  };
 }

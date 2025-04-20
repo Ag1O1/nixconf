@@ -3,8 +3,9 @@
   pkgs,
   config,
   ...
-}: {
-  config = lib.mkIf config.modules.hyprland.enable {
+}:
+{
+  config = lib.mkIf config.modules.wms.hyprland.enable {
     hj.rum.programs.hyprland.settings = {
       "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
       bind =
@@ -43,43 +44,44 @@
           "$mainMod,KP_Up, exec, hyprctl keyword cursor:use_cpu_buffer 1"
         ]
         /*
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-          builtins.concatLists (builtins.genList (i:
-              let ws = i + 1;
-              in [
-                "ALT, code:1${toString i}, split-workspace, ${toString ws}"
-                "ALT SHIFT, code:1${toString i}, split-movetoworkspace, ${toString ws}"
-              ]
-            )
-            9)
-        )
+          ++ (
+            # workspaces
+            # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+            builtins.concatLists (builtins.genList (i:
+                let ws = i + 1;
+                in [
+                  "ALT, code:1${toString i}, split-workspace, ${toString ws}"
+                  "ALT SHIFT, code:1${toString i}, split-movetoworkspace, ${toString ws}"
+                ]
+              )
+              9)
+          )
         */
         ++ (
           # workspaces
           # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
           builtins.concatLists (
             builtins.genList (
-              i: let
+              i:
+              let
                 ws = i + 1;
-              in [
+              in
+              [
                 "ALT, code:1${toString i}, split:workspace, ${toString ws}"
                 "ALT SHIFT, code:1${toString i}, split:movetoworkspace, ${toString ws}"
               ]
-            )
-            9
+            ) 9
           )
         );
       /*
-      plugin = {
-        split-monitor-workspaces = {
-          count = 10;
-          keep_focused = 0;
-          enable_notifications = 0;
-          enable_persistent_workspaces = 0;
+        plugin = {
+          split-monitor-workspaces = {
+            count = 10;
+            keep_focused = 0;
+            enable_notifications = 0;
+            enable_persistent_workspaces = 0;
+          };
         };
-      };
       */
       bindm = [
         "$mainMod, mouse:272, movewindow"
