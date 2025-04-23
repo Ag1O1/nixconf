@@ -5,6 +5,7 @@
 }:
 {
   hj.packages = [
+    pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
     pkgs.nil
     pkgs.waypaper
@@ -32,8 +33,8 @@
     pkgs.unrar
     #pkgs.mission-center fails to build.
     #pkgs.lime3ds fails to build..
-    pkgs.godot_4-mono
-    pkgs.godot_4-export-templates
+    #pkgs.godot_4
+    #pkgs.godot_4-export-templates both broken
 
     (pkgs.blender.override {
       cudaSupport = true;

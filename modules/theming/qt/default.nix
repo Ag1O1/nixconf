@@ -1,10 +1,15 @@
-{pkgs, ...}: {
-  environment.variables.QT_STYLE_OVERRIDE = "kvantum-dark";
+{ pkgs, ... }:
+{
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+    style = "kvantum";
+  };
 
   hj.packages = [
     (pkgs.catppuccin-kde.override {
-      flavour = ["mocha"];
-      accents = ["blue"];
+      flavour = [ "mocha" ];
+      accents = [ "blue" ];
     })
   ];
 }

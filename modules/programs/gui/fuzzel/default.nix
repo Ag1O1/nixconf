@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.gui.fuzzel;
   inherit (config.theme) fonts colors;
   fuzzle-conf = ''
@@ -18,7 +19,6 @@ with lib; let
     prompt="❯   "
     show-actions=yes
     exit-on-keyboard-focus-loss=no
-
     [colors]
     background=${colors.base00}
     selection=${colors.base0B}
@@ -30,13 +30,14 @@ with lib; let
     [dmenu]
     exit-immediately-if-empty=yes
   '';
-in {
+in
+{
   options.modules.programs.gui.fuzzel = {
     enable = lib.mkEnableOption "fuzzel";
   };
   config = mkIf cfg.enable {
     hj = {
-      packages = [pkgs.fuzzel];
+      packages = [ pkgs.fuzzel ];
       files = {
         "~/.config/fuzzel/fuzzel.ini".text = fuzzle-conf;
       };

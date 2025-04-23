@@ -133,6 +133,7 @@ in
     kdePackages.xdg-desktop-portal-kde
     xdg-desktop-portal-wlr
   ];
+  services.onlyoffice.enable = true;
 
   services.displayManager.ly.enable = true;
   system.stateVersion = "24.05";

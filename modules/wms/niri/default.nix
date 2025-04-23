@@ -7,8 +7,7 @@
 }:
 let
   cfg = config.modules.wms.niri;
-  auto-start-script = import ./autostart.nix { inherit pkgs; };
-  niri-config = import ./config.nix { inherit pkgs; };
+  niri-config = import ./config.nix { inherit pkgs lib; };
 in
 {
   #imports = [
@@ -25,7 +24,7 @@ in
     programs.niri.enable = true;
     hj = {
       files = {
-        ".config/niri/config.kdl" = ./config.kdl;
+        ".config/niri/config.kdl".text = niri-config;
       };
     };
 

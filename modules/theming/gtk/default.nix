@@ -2,17 +2,17 @@
 {
   config,
   pkgs,
-  lib,
   ...
-}: let
+}:
+let
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
 
   gtk-theme-pkg = pkgs.catppuccin-gtk.override {
-    accents = ["blue"];
+    accents = [ "blue" ];
     variant = "mocha";
     size = "standard";
-    tweaks = ["normal"];
+    tweaks = [ "normal" ];
   };
   gtk-theme-name = "catppuccin-mocha-blue-standard+normal";
   # I have no idea if this is correct.
@@ -41,13 +41,15 @@
     [Settings]
     ${gtk2-settings}
   ";
-in {
+in
+{
   hj = {
     files = {
       ".gtkrc-2.0".text = gtk2-settings;
       ".config/gtk-3.0/settings.ini".text = gtk-settings;
       ".config/gtk-4.0/settings.ini".text = gtk-settings;
-      ".config/gtk-4.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
+      ".config/gtk-4.0/gtk.css".source =
+        "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
     };
     packages = [
       (pkgs.catppuccin-papirus-folders.override {
