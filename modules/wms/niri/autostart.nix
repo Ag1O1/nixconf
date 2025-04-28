@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 pkgs.writeShellApplication {
   name = "auto-start-script";
   runtimeInputs = [
@@ -7,7 +7,8 @@ pkgs.writeShellApplication {
     pkgs.swww
     pkgs.xwayland-satellite
   ];
-  text = # bash
+  text =
+    # bash
     ''
       xwayland-satellite &
       /home/amr/projects/rust/discord-ollama/target/release/discord-ollama &

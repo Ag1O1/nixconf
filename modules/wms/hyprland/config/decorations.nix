@@ -2,8 +2,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   config = lib.mkIf config.modules.wms.hyprland.enable {
     hj.rum.programs.hyprland.settings = {
       general = {

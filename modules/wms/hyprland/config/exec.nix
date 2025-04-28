@@ -3,8 +3,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   config = lib.mkIf config.modules.wms.hyprland.enable {
     hj.rum.programs.hyprland.settings = {
       exec-once = [

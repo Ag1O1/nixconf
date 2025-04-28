@@ -3,11 +3,9 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (config.theme) cursor;
-in
-{
+in {
   config = lib.mkIf config.modules.wms.hyprland.enable {
     hj.rum.programs.hyprland = {
       settings = {

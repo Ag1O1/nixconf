@@ -12,6 +12,12 @@ in {
   };
   config = mkIf cfg.enable {
     services = {
+      /*
+      llama-cpp = {
+      enable = true;
+      openFirewall = true;
+      };
+      */
       ollama = {
         enable = true;
         acceleration = "cuda";

@@ -30,11 +30,12 @@
     pkgs.git
     pkgs.gh
     pkgs.ngrok
+
     pkgs.unrar
-    #pkgs.mission-center fails to build.
-    #pkgs.lime3ds fails to build..
-    #pkgs.godot_4
-    #pkgs.godot_4-export-templates both broken
+    pkgs.mission-center
+    pkgs.azahar
+    pkgs.godot
+    pkgs.godot-export-templates
 
     (pkgs.blender.override {
       cudaSupport = true;

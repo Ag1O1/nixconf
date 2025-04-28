@@ -1,7 +1,18 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   auto-start-script = import ./autostart.nix { inherit pkgs; };
+  inherit (config.modules.services.mime)
+    browser
+    terminal
+    file-manager
+    ;
 in
+#kdl
 ''
   workspace "browser"
   workspace "main"
@@ -72,7 +83,7 @@ in
   }
 
   spawn-at-startup "${lib.getExe auto-start-script}"
-  spawn-at-startup "firefox-developer-edition"
+  spawn-at-startup "${browser}"
   spawn-at-startup "discord"
   environment {
       DISPLAY ":0"
@@ -137,7 +148,7 @@ in
       open-maximized true
   }
   window-rule {
-      match app-id="discord" at-startup=true
+      match app-id="discord"
       open-on-workspace "chat"
       open-maximized true
   }
@@ -152,10 +163,10 @@ in
       Mod+Shift+Slash { show-hotkey-overlay; }
 
       // Suggested binds for running programs: terminal, app launcher, screen locker.
-      Mod+Q { spawn "foot"; }
+      Mod+Q { spawn "${terminal}"; }
       Mod+R { spawn "fuzzel"; }
       Super+Alt+L { spawn "swaylock"; }
-      Mod+W { spawn "firefox-developer-edition"; }
+      Mod+W { spawn "${browser}"; }
 
       // You can also use a shell. Do this if you need pipes, multiple commands, etc.
       // Note: the entire command goes as a single argument in the end.
@@ -178,13 +189,15 @@ in
       Mod+Down  { focus-window-down; }
       Mod+Up    { focus-window-up; }
       Mod+Right { focus-column-right; }
+      Mod+C      { focus-workspace-down; }
+      Mod+D      { focus-workspace-up; }
       Mod+Z     { focus-column-left; }
       Mod+X     { focus-column-right; }
       Mod+H     { focus-column-left; }
       Mod+J     { focus-window-down; }
       Mod+K     { focus-window-up; }
       Mod+L     { focus-column-right; }
-      Mod+E     { spawn "cosmic-files"; }
+      Mod+E     { spawn "${file-manager}"; }
 
       Mod+Ctrl+Left  { move-column-left; }
       Mod+Ctrl+Down  { move-window-down; }
@@ -337,7 +350,7 @@ in
       // Makes the column "fill the rest of the space".
       Mod+Ctrl+F { expand-column-to-available-width; }
 
-      Mod+C { center-column; }
+      Mod+B { center-column; }
 
       // Finer width adjustments.
       // This command can also:

@@ -76,8 +76,9 @@ in
       };
 
       tui = {
+        ghostty.enable = true;
         foot.enable = true;
-        alacritty.enable = true;
+        #alacritty.enable = true;
         tmux.enable = true;
         nvf.enable = true;
         direnv.enable = true;

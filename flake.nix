@@ -66,41 +66,38 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
-      moduleInputs = with inputs; [
-        hjem.nixosModules.default
-        nixos-cosmic.nixosModules.default
-        #hjem-rum.nixosModules.default
-        #spicetify-nix.nixosModules.default
-        nvf.nixosModules.default
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    specialArgs = {
+      inherit inputs;
+    };
+    moduleInputs = with inputs; [
+      hjem.nixosModules.default
+      nixos-cosmic.nixosModules.default
+      #hjem-rum.nixosModules.default
+      #spicetify-nix.nixosModules.default
+      nvf.nixosModules.default
 
-        flatpaks.nixosModules.declarative-flatpak
-      ];
-      inherit (builtins) concatLists;
-    in
-    {
-      nixosConfigurations = {
-        nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-        ag101 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = concatLists [
-            moduleInputs
-            [
-              ./hosts/ag101/configuration.nix
-              ./modules
-            ]
-          ];
-        };
+      flatpaks.nixosModules.declarative-flatpak
+    ];
+    inherit (builtins) concatLists;
+  in {
+    nixosConfigurations = {
+      nixpkgs.overlays = [inputs.niri.overlays.niri];
+      ag101 = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = concatLists [
+          moduleInputs
+          [
+            ./hosts/ag101/configuration.nix
+            ./modules
+          ]
+        ];
       };
     };
+  };
 }
