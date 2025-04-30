@@ -5,6 +5,7 @@
 }:
 {
   hj.packages = [
+    pkgs.bitwarden-desktop
     pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
     pkgs.nil

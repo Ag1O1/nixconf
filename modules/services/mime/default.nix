@@ -13,7 +13,9 @@ let
     pdf
     image
     video
+    audio
     svg
+    zip
     ;
 in
 {

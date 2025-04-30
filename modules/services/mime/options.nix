@@ -3,13 +3,11 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   inherit (options) mkOption;
   inherit (types) str;
-  inherit (config.modules.services.mime) browser;
-in
-{
+  inherit (config.modules.services.mime) browser video;
+in {
   options.modules.services.mime = {
     enable = lib.mkEnableOption "mime";
 
@@ -20,7 +18,7 @@ in
     };
     terminal = mkOption {
       type = str;
-      default = "ghostty";
+      default = "foot";
       description = "Defines terminal";
     };
     browser = mkOption {
