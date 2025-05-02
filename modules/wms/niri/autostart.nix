@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.writeShellApplication {
   name = "auto-start-script";
   runtimeInputs = [
@@ -15,6 +15,7 @@ pkgs.writeShellApplication {
       swww-daemon &
       waypaper --restore &
       udiskie &
+      bitwarden &
 
     '';
 }
