@@ -72,7 +72,7 @@ in
         discord.enable = true;
         fuzzel.enable = true;
         spicetify.enable = true;
-        sober.enable = true;
+        sober.enable = false;
       };
 
       tui = {
@@ -135,6 +135,7 @@ in
     xdg-desktop-portal-wlr
   ];
   services.onlyoffice.enable = true;
+  services.flatpak.enable = true;
 
   services.displayManager.ly.enable = true;
   system.stateVersion = "24.05";
