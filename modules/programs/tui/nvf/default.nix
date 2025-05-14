@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.tui.nvf;
-in {
+in
+{
   options.modules.programs.tui.nvf = {
     enable = lib.mkEnableOption "nvf";
   };
@@ -15,11 +17,9 @@ in {
       enable = true;
 
       settings.vim = {
-        startPlugins = [pkgs.vimPlugins.vim-godot];
+        startPlugins = [ pkgs.vimPlugins.vim-godot ];
         luaConfigRC.myconfig =
-          /*
-          lua
-          */
+          # lua
           ''
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force',capabilities, require('cmp_nvim_lsp').default_capabilities())
@@ -45,7 +45,6 @@ in {
             action = ":Neotree<CR>";
           }
         ];
-        useSystemClipboard = true;
         viAlias = true;
         vimAlias = true;
         debugMode = {

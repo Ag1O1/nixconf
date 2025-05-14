@@ -143,6 +143,17 @@ in
   window-rule {
       match title="Open File"
       match title="Open Folder"
+      match app-id="Godot" title="Create New Node"
+      match app-id="Godot" title="Project Settings"
+      match app-id="Godot" title="Editor Settings"
+      match app-id="Godot" title="Export"
+      match app-id="Godot" title="Run Instances"
+      match app-id="Godot" title="Attach Node Script"
+      match app-id="Godot" title="Select Scene"
+      match app-id="Godot" title="Event Configuration"
+      match app-id="Godot" title="Save"
+      match app-id="Godot" title="Please Confirm"
+      match app-id="Godot" title="Pick Root Node Type"
       open-floating true
   }
   window-rule {
