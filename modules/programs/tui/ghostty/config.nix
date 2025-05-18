@@ -4,6 +4,6 @@ let
 in
 ''
   font-family = ${fonts.monospace.name}
-  font-size = 1x4
+  font-size = 14
   theme = catppuccin-mocha
 ''
