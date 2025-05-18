@@ -16,8 +16,9 @@
     pkgs.udiskie
     pkgs.mako
     pkgs.xwayland-satellite
-    pkgs.cosmic-edit
-    pkgs.cosmic-files
+    # cosmic apps currently broken (unresponsive)
+    #pkgs.cosmic-edit
+    #pkgs.cosmic-files
     pkgs.gthumb
     pkgs.zoxide
     pkgs.inkscape
