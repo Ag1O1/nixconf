@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   hj.packages = [
     pkgs.oneshot # for zeditor
     pkgs.alejandra # for zeditor
@@ -38,7 +39,7 @@
     pkgs.mission-center
     pkgs.azahar
     pkgs.godot
-    pkgs.godot-export-templates
+    pkgs.godot-export-templates-bin
 
     (pkgs.blender.override {
       cudaSupport = true;
@@ -61,7 +62,7 @@
     pkgs.fzf
     pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override {cudaSupport = true;})
+    (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.tldr
     pkgs.eza
