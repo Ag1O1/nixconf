@@ -7,17 +7,16 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   user = "amr";
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (lib.mkAliasOptionModule
-      [ "hj" ]
+    (
+      lib.mkAliasOptionModule
+      ["hj"]
       [
         "hjem"
         "users"

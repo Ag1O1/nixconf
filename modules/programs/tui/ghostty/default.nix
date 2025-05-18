@@ -3,12 +3,10 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   cfg = config.modules.programs.tui.ghostty;
-  ghostty-config = import ./config.nix { inherit config; };
-in
-{
+  ghostty-config = import ./config.nix {inherit config;};
+in {
   options.modules.programs.tui.ghostty = {
     enable = lib.mkEnableOption "ghostty";
   };

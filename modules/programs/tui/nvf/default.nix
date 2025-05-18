@@ -58,7 +58,7 @@ in
         };
 
         lsp = {
-          formatOnSave = true;
+          #formatOnSave = true;
           lspkind.enable = false;
           lightbulb.enable = true;
           lspsaga.enable = false;
@@ -75,7 +75,7 @@ in
 
         languages = {
           enableLSP = true;
-          enableFormat = true;
+          #enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 

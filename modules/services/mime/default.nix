@@ -3,11 +3,11 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.services.mime;
 
-  inherit (config.modules.services.mime)
+  inherit
+    (config.modules.services.mime)
     text
     browser
     pdf
@@ -17,9 +17,8 @@ let
     svg
     zip
     ;
-in
-{
-  imports = [ ./options.nix ];
+in {
+  imports = [./options.nix];
   config = mkIf cfg.enable {
     xdg.mime = {
       enable = true;

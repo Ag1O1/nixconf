@@ -2,9 +2,10 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   hj.packages = [
+    pkgs.oneshot # for zeditor
+    pkgs.alejandra # for zeditor
     pkgs.bitwarden-desktop
     pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
@@ -60,7 +61,7 @@
     pkgs.fzf
     pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override { cudaSupport = true; })
+    (pkgs.btop.override {cudaSupport = true;})
     pkgs.bat
     pkgs.tldr
     pkgs.eza
