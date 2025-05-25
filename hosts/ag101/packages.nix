@@ -50,7 +50,7 @@
     pkgs.slurp
     pkgs.grim
     pkgs.cbonsai
-    pkgs.gimp
+    pkgs.gimp3
     pkgs.kdePackages.wacomtablet
     pkgs.nautilus # file manager
     pkgs.pavucontrol

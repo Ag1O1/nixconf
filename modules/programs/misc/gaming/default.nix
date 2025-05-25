@@ -17,7 +17,7 @@ in {
     environment.systemPackages = with pkgs; [
       mangohud
       lutris
-      wineWowPackages.waylandFull
+      winePackages.stagingFull
       winetricks
     ];
 
