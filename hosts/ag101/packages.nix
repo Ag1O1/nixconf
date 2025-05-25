@@ -12,6 +12,7 @@
     pkgs.zed-editor
     pkgs.nil
     pkgs.waypaper
+    pkgs.swaybg
     pkgs.swww
     inputs.umu.packages.x86_64-linux.umu-launcher
     pkgs.playerctl

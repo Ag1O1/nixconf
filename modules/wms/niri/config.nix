@@ -166,6 +166,16 @@ in
       open-on-workspace "chat"
       open-maximized true
   }
+  layer-rule {
+      match namespace="^wallpaper$"
+
+      place-within-backdrop true
+  }
+  layer-rule {
+      match namespace="^launcher$"
+
+      baba-is-float true
+  }
   clipboard {
       disable-primary
   }
@@ -213,6 +223,7 @@ in
       Mod+K     { focus-window-up; }
       Mod+L     { focus-column-right; }
       Mod+E     { spawn "${file-manager}"; }
+      Mod+Tab { toggle-overview; }
 
       Mod+Ctrl+Left  { move-column-left; }
       Mod+Ctrl+Down  { move-window-down; }
@@ -364,7 +375,7 @@ in
 
       // Expand the focused column to space not taken up by other fully visible columns.
       // Makes the column "fill the rest of the space".
-      Mod+Ctrl+F { expand-column-to-available-width; }
+      //Mod+Ctrl+F { expand-column-to-available-width; }
 
       Mod+B { center-column; }
 
