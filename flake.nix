@@ -50,8 +50,10 @@
     umu.url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
 
     # niri
-    #niri.url = "github:sodiboo/niri-flake"; #requires HM
-
+    niri = {
+      url = "github:sodiboo/niri-flake"; # module requires HM
+      #inputs.rust-overlay.follows = "";
+    };
     # hyprland stuff
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";

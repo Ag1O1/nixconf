@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.gui.firefox;
   lock-false = {
     Value = false;
@@ -14,7 +15,8 @@ with lib; let
     Value = true;
     Status = "locked";
   };
-in {
+in
+{
   options.modules.programs.gui.firefox = {
     enable = lib.mkEnableOption "firefox";
   };
@@ -114,6 +116,13 @@ in {
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
             "sidebar.revamp" = lock-true;
             "sidebar.verticalTabs" = lock-true;
+            # Performance enhancements
+            "gfx.webrender.all" = lock-true;
+            "media.hardware-video-decoding.enabled" = lock-true;
+            # Privacy enhancements
+            "network.dns.disablePrefetch" = lock-false;
+            "network.predictor.enabled" = lock-false;
+            "browser.safebrowsing.downloads.remote.enabled" = lock-false;
           };
         };
       };

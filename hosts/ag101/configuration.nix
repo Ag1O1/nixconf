@@ -7,16 +7,17 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   user = "amr";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (
-      lib.mkAliasOptionModule
-      ["hj"]
+    (lib.mkAliasOptionModule
+      [ "hj" ]
       [
         "hjem"
         "users"
@@ -53,7 +54,7 @@ in {
         "libvirtd"
         "scanner"
         "lp"
-        "vidio"
+        "video"
         "kvm"
         "libvirt"
       ];
@@ -63,7 +64,6 @@ in {
   # module configurations
 
   modules = {
-    #hyprland.enable = true;
 
     programs = {
       gui = {
@@ -77,7 +77,7 @@ in {
       tui = {
         ghostty.enable = true;
         foot.enable = true;
-        #alacritty.enable = true;
+
         tmux.enable = true;
         nvf.enable = true;
         direnv.enable = true;
@@ -105,7 +105,7 @@ in {
         printing.enable = true;
         opentablet.enable = true;
       };
-      #greetd.enable = true;
+
       networking.enable = true;
     };
     wms = {
@@ -118,21 +118,6 @@ in {
     GAMEID = "0";
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.kdePackages.xdg-desktop-portal-kde
-      pkgs.xdg-desktop-portal-wlr
-    ];
-  };
-  environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
-    kdePackages.xdg-desktop-portal-kde
-    xdg-desktop-portal-wlr
-  ];
   services.onlyoffice.enable = true;
   services.flatpak.enable = true;
 
