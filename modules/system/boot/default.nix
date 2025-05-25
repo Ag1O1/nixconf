@@ -5,8 +5,9 @@
   ...
 }: {
   boot = {
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelParams = ["nvidia_drm.fbdev=1"];
+    #kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
