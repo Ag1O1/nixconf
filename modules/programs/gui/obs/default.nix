@@ -18,9 +18,9 @@ in
       enableVirtualCamera = true;
       plugins = [
         pkgs.obs-studio-plugins.wlrobs
-        pkgs.obs-obs-studio-plugins.obs-vaapi
-        pkgs.obs-obs-studio-plugins.input-overlay
-        pkgs.obs-obs-studio-plugins.vkcapture
+        pkgs.obs-studio-plugins.obs-vaapi
+        pkgs.obs-studio-plugins.input-overlay
+        pkgs.obs-studio-plugins.vkcapture
       ];
     };
   };
