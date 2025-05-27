@@ -72,6 +72,7 @@ in
         fuzzel.enable = true;
         spicetify.enable = true;
         sober.enable = false;
+        obs.enable = true;
       };
 
       tui = {

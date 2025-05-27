@@ -100,7 +100,6 @@
     pkgs.microfetch
     pkgs.obsidian
     pkgs.prismlauncher
-    pkgs.obs-studio
     pkgs.vlc
     pkgs.bun
     #pkgs.davinci-resolve

@@ -5,5 +5,6 @@
     ./spicetify
     ./sober
     ./fuzzel
+    ./obs
   ];
 }
