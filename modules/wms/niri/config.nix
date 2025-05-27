@@ -41,7 +41,15 @@ in
            accel-profile "flat"
       }
   }
-
+  output "HDMI-A-1" {
+    mode "1920x1080@60.000"
+    focus-at-startup
+    position x=0 y=0
+  }
+  output "DVI-D-1" {
+    mode "1600x900@60.000"
+    position x=1920 y=110
+  }
   layout {
       gaps 7
       //center-focused-column "on-overflow"
