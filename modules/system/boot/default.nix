@@ -7,7 +7,8 @@
 {
   boot = {
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    #kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     kernelParams = [ "nvidia_drm.fbdev=1" ];
     loader = {
       efi = {
