@@ -4,6 +4,7 @@
   inputs = {
     # nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # hjem
