@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   nixpkgs.config.permittedInsecurePackages = [
     "dotnet-sdk-6.0.428"
   ];
@@ -21,7 +22,10 @@
   };
   nix.channel.enable = false; # nix channels are not needed when using flakes
   programs.nix-ld.enable = false;
-  nixpkgs.config.allowUnfree = true; # its a pain to manage a system without unfree software
+  nixpkgs.config = {
+    allowUnfree = true; # its a pain to manage a system without unfree software
+    cudaSupport = true;
+  };
   environment.systemPackages = [
     pkgs.nixd
     pkgs.nixos-rebuild-ng
@@ -29,5 +33,5 @@
   environment.shellAliases = {
     nixos-rebuild = "nixos-rebuild --flake ~/nixos#ag101 --use-remote-sudo";
   };
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }
