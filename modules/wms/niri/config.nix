@@ -6,6 +6,8 @@
 }:
 let
   auto-start-script = import ./autostart.nix { inherit pkgs; };
+  inherit (config.theme) fonts cursor;
+  inherit (builtins) toString;
   inherit (config.modules.services.mime)
     browser
     terminal
@@ -51,7 +53,7 @@ in
     position x=1920 y=110
   }
   layout {
-      gaps 7
+      gaps 5
       //center-focused-column "on-overflow"
       default-column-width { proportion 0.5; }
       focus-ring {
@@ -61,12 +63,12 @@ in
           inactive-color "#505050"
       }
       border {
-          width 5
-          active-color " #5e4bb4 "
+          width 3
+          active-color " #4f2211 "
           inactive-color "#505050"
 
-           active-gradient from="#4853C7" to="#39338B" angle=140 relative-to="workspace-view"
-           inactive-gradient from="#505050" to="#808080" angle=140 relative-to="workspace-view"
+           active-gradient from="#d16d17" to="#775117" angle=140 relative-to="workspace-view"
+           inactive-gradient from="#404040" to="#202020" angle=140 relative-to="workspace-view"
       }
 
       shadow {
@@ -93,6 +95,10 @@ in
   spawn-at-startup "${lib.getExe auto-start-script}"
   spawn-at-startup "${browser}"
   spawn-at-startup "discord"
+  cursor {
+      xcursor-theme "${cursor.name}"
+      xcursor-size ${toString cursor.size}
+  }
   environment {
       DISPLAY ":0"
       PROTONPATH "GE-Proton"
