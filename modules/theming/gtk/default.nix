@@ -63,6 +63,7 @@ in
         flavor = "mocha";
       })
       gtk-theme-pkg
+      pkgs.bibata-cursors
     ];
   };
 
