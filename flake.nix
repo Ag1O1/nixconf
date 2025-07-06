@@ -91,7 +91,7 @@
         nvf.nixosModules.default
         chaotic.nixosModules.default
 
-        flatpaks.nixosModules.declarative-flatpak
+        flatpaks.nixosModule
       ];
       inherit (builtins) concatLists;
     in

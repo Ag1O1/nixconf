@@ -4,7 +4,6 @@ pkgs.writeShellApplication {
   runtimeInputs = [
     pkgs.udiskie
     pkgs.waypaper
-    pkgs.swww
     pkgs.swaybg
     pkgs.xwayland-satellite
   ];
@@ -12,12 +11,15 @@ pkgs.writeShellApplication {
     # bash
     ''
       xwayland-satellite &
-      /home/amr/projects/rust/discord-ollama/target/release/discord-ollama &
+      cd /home/amr/projects/rust/discord-ollama && target/release/discord-ollama &
       swww-daemon &
       swaybg &
       waypaper --restore &
       udiskie &
       bitwarden &
+      xrdb ~/.Xresources &
+      xsettingsd &
+      docker run -d --rm --device=nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama &
 
     '';
 }

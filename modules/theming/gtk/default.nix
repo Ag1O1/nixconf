@@ -47,6 +47,7 @@ in
     XCURSOR_THEME = cursor.name;
     XCURSOR_SIZE = cursor.size;
   };
+  xdg.icons.fallbackCursorThemes = [ cursor.name ];
   hj = {
     files = {
       ".gtkrc-2.0".text = gtk2-settings;
@@ -64,6 +65,8 @@ in
       })
       gtk-theme-pkg
       pkgs.bibata-cursors
+      pkgs.xsettingsd
+      pkgs.xorg.xrdb
     ];
   };
 

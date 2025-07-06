@@ -22,9 +22,9 @@ in
           terminal = "foot -e";
           icon-theme = "Papirus-Dark";
           dpi-aware = "no";
-          width = "20";
-          font = "${fonts.sans.name}weight:bold:size=15";
-          line-height = "25";
+          width = "15";
+          font = "${fonts.sans.name}weight:bold:size=10";
+          line-height = "20";
           fields = "name,generic,comment,categories,filename,keywords";
           prompt = "❯   ";
           show-actions = "yes";

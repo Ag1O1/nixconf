@@ -57,6 +57,7 @@ in
         "video"
         "kvm"
         "libvirt"
+        "docker"
       ];
     };
   };

@@ -24,7 +24,7 @@ in
     programs = {
       firefox = {
         enable = true;
-        package = pkgs.firefox-devedition-bin;
+        package = pkgs.firefox-devedition;
         languagePacks = [
           "ar"
           "en-US"

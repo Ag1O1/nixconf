@@ -94,7 +94,7 @@ in
 
   spawn-at-startup "${lib.getExe auto-start-script}"
   spawn-at-startup "${browser}"
-  spawn-at-startup "discord"
+  spawn-at-startup "vesktop"
   cursor {
       xcursor-theme "${cursor.name}"
       xcursor-size ${toString cursor.size}
@@ -102,7 +102,6 @@ in
   environment {
       DISPLAY ":0"
       PROTONPATH "GE-Proton"
-      GAMEID "0"
       SSH_AUTH_SOCK "/home/amr/.bitwarden-ssh-agent.sock"
   }
 
@@ -168,15 +167,18 @@ in
       match app-id="Godot" title="Save"
       match app-id="Godot" title="Please Confirm"
       match app-id="Godot" title="Pick Root Node Type"
+      match app-id="org.kde.ark" title="Extracting"
+      match app-id="org.gnome.Nautilus" title="Open"
       open-floating true
   }
   window-rule {
-      match app-id="firefox-aurora" at-startup=true
+      match app-id="firefox-devedition" at-startup=true
       open-on-workspace "browser"
       open-maximized true
   }
   window-rule {
       match app-id="discord"
+      match app-id="vesktop"
       open-on-workspace "chat"
       open-maximized true
   }

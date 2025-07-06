@@ -3,8 +3,17 @@
   inputs,
   ...
 }:
+let
+  pkgs-stable = import inputs.nixpkgs-stable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   hj.packages = [
+    inputs.zen-browser.packages."${pkgs.system}".specific
+    pkgs.distrobox
+    pkgs.grayjay
     pkgs.oneshot # for zeditor
     pkgs.alejandra # for zeditor
     pkgs.bitwarden-desktop
@@ -13,7 +22,7 @@
     pkgs.nil
     pkgs.waypaper
     pkgs.swaybg
-    pkgs.swww
+    pkgs-stable.swww
     inputs.umu.packages.x86_64-linux.umu-launcher
     pkgs.playerctl
     pkgs.udiskie
