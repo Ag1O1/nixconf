@@ -11,7 +11,6 @@ let
 in
 {
   hj.packages = [
-    inputs.zen-browser.packages."${pkgs.system}".specific
     pkgs.distrobox
     pkgs.grayjay
     pkgs.oneshot # for zeditor

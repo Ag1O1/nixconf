@@ -2,8 +2,6 @@
   description = "ag101's flake";
 
   inputs = {
-    # TEMP
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
     # nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";

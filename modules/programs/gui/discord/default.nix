@@ -11,7 +11,7 @@ let
     (pkgs.discord.override {
       nss = pkgs.nss_latest;
       withOpenASAR = true;
-      withVencord = true;
+      withMoonlight = true;
     }).overrideAttrs
       (old: {
         libPath = old.libPath + ":${pkgs.libglvnd}/lib";
