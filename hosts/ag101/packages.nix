@@ -11,14 +11,14 @@ let
 in
 {
   hj.packages = [
-    pkgs.distrobox
+    #pkgs.distrobox
     pkgs.grayjay
-    pkgs.oneshot # for zeditor
-    pkgs.alejandra # for zeditor
+    #pkgs.oneshot # for zeditor
+    #pkgs.alejandra # for zeditor
     pkgs.bitwarden-desktop
-    pkgs.onlyoffice-desktopeditors
+    #pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
-    pkgs.nil
+    #pkgs.nil
     pkgs.waypaper
     pkgs.swaybg
     pkgs-stable.swww
@@ -33,7 +33,6 @@ in
     pkgs.gthumb
     pkgs.zoxide
     pkgs.inkscape
-    pkgs.wl-screenrec
     pkgs.audacity
 
     pkgs.pkg-config
@@ -42,7 +41,6 @@ in
     pkgs.wget
     pkgs.git
     pkgs.gh
-    pkgs.ngrok
 
     pkgs.unrar
     pkgs.mission-center
@@ -56,66 +54,55 @@ in
     })
 
     pkgs.ryubing # ryujinx
-    pkgs.slurp
-    pkgs.grim
-    pkgs.cbonsai
+    #pkgs.cbonsai
     pkgs.gimp3
-    pkgs.kdePackages.wacomtablet
     pkgs.nautilus # file manager
     pkgs.pavucontrol
     pkgs.qbittorrent
     pkgs.libsForQt5.ark
-    pkgs.telegram-desktop
-    pkgs.bc
-    pkgs.minesweep-rs
-    pkgs.fzf
-    pkgs.atuin
-    pkgs.dust
+    #pkgs.fzf
+    #pkgs.atuin
+    #pkgs.dust
     (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.tldr
     pkgs.eza
-    pkgs.uget # download manager
-    pkgs.scrcpy
-    pkgs.nixfmt-rfc-style
+    #pkgs.uget # download manager
+    #pkgs.scrcpy
+    #pkgs.nixfmt-rfc-style
     pkgs.libreoffice
     pkgs.simple-scan
-    pkgs.gnome-calendar
-    #pkgs.equibop
-    pkgs.element-desktop
-    pkgs.aseprite
-    pkgs.kdePackages.kdenlive
-    pkgs.zapzap
-    pkgs.uget-integrator
+    #pkgs.gnome-calendar
+    #pkgs.element-desktop
+    #pkgs.aseprite
+    #pkgs.kdePackages.kdenlive
+    #pkgs.uget-integrator
     pkgs.gparted
     pkgs.lzip
-    pkgs.python3
-    pkgs.krita
-    pkgs.jre8
-    pkgs.jdk8
-    pkgs.haxe
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.gcc
-    pkgs.qalculate-gtk
-    pkgs.libqalculate
-    pkgs.zapzap
+    #pkgs.python3
+    #pkgs.krita
+    #pkgs.jre8
+    #pkgs.jdk8
+    #pkgs.haxe
+    #pkgs.rustc
+    #pkgs.cargo
+    #pkgs.gcc
+    #pkgs.qalculate-gtk
+    #pkgs.libqalculate
+    #pkgs.zapzap
 
-    pkgs.vscode
-    pkgs.thunderbird
-    pkgs.vesktop
-    pkgs.google-chrome
+    #pkgs.thunderbird
+    #pkgs.google-chrome
     pkgs.microfetch
     pkgs.obsidian
-    pkgs.prismlauncher
     pkgs.vlc
-    pkgs.bun
+    #pkgs.bun
     #pkgs.davinci-resolve
     pkgs.udiskie
     pkgs.gvfs
     pkgs.udisks
     pkgs.usbutils
-    pkgs.libwacom
+    #pkgs.libwacom
   ];
   fonts.packages = with pkgs; [
     wineWow64Packages.fonts
