@@ -52,6 +52,7 @@ in
     };
 
     hardware = {
+      nvidia-container-toolkit.enable = true;
       nvidia = {
         package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
         modesetting.enable = mkDefault true;

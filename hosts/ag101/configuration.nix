@@ -72,7 +72,7 @@ in
         discord.enable = true;
         fuzzel.enable = true;
         spicetify.enable = true;
-        sober.enable = false;
+        #sober.enable = false;
         obs.enable = true;
       };
 
@@ -81,14 +81,15 @@ in
         foot.enable = true;
 
         tmux.enable = true;
-        nvf.enable = true;
+        #nvf.enable = true;
         direnv.enable = true;
         fish.enable = true;
       };
 
       misc = {
+        docker.enable = true;
         gaming.enable = true;
-        vm.enable = true;
+        #vm.enable = true;
         git.enable = true;
       };
     };
@@ -96,7 +97,7 @@ in
     services = {
       pipewire.enable = true;
       bluetooth.enable = true;
-      ai.enable = true;
+      ai.enable = false;
       polkit.enable = true;
       mime.enable = true;
     };
@@ -120,7 +121,6 @@ in
     GAMEID = "0";
   };
 
-  services.onlyoffice.enable = true;
   services.flatpak.enable = true;
 
   services.displayManager.ly.enable = true;

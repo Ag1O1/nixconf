@@ -20,10 +20,6 @@ in
   };
   config = mkIf cfg.enable {
 
-    # ollama cuda seems to currently be broken, using docker for now
-    virtualisation.docker = {
-      enable = true;
-    };
     hardware.nvidia-container-toolkit.enable = true;
     environment.systemPackages = [ pkgs.nvidia-container-toolkit ];
     services = {
@@ -33,7 +29,6 @@ in
         openFirewall = true;
         };
       */
-      /*
         ollama = {
           enable = true;
           acceleration = false;
@@ -45,7 +40,6 @@ in
             OLLAMA_KV_CACHE_TYPE = "q4_0";
           };
         };
-      */
       open-webui = {
         enable = true;
         package = nixpkgs-stable.open-webui;
