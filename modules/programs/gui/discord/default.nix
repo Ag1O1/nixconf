@@ -29,6 +29,6 @@ in
   };
   config = mkIf cfg.enable {
     #hj.packages = [discord-wrapped];
-    hj.packages = [ pkgs.vesktop ];
+    hj.packages = [ discord-wrapped ];
   };
 }
