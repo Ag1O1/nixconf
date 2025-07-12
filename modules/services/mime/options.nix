@@ -25,7 +25,7 @@ in
     };
     browser = mkOption {
       type = str;
-      default = "firefox-devedition";
+      default = "librewolf";
       description = "Defines browser";
     };
     pdf = mkOption {

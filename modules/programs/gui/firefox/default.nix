@@ -24,7 +24,7 @@ in
     programs = {
       firefox = {
         enable = true;
-        package = pkgs.firefox-devedition;
+        package = pkgs.librewolf;
         languagePacks = [
           "ar"
           "en-US"
