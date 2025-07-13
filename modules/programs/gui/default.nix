@@ -6,5 +6,6 @@
     ./sober
     ./fuzzel
     ./obs
+    ./mako
   ];
 }
