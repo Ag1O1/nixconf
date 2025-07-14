@@ -4,12 +4,10 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.gui.fuzzel;
   inherit (config.theme) fonts colors;
-in
-{
+in {
   options.modules.programs.gui.fuzzel = {
     enable = lib.mkEnableOption "fuzzel";
   };

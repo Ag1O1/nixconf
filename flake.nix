@@ -57,57 +57,61 @@
     };
     # hyprland stuff
     /*
-      hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-      hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
 
-      hyprpaper = {
-        url = "github:hyprwm/hyprpaper";
-        inputs = {
-          hyprlang.follows = "hyprland/hyprlang";
-          nixpkgs.follows = "hyprland/nixpkgs";
-          systems.follows = "hyprland/systems";
-        };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs = {
+        hyprlang.follows = "hyprland/hyprlang";
+        nixpkgs.follows = "hyprland/nixpkgs";
+        systems.follows = "hyprland/systems";
       };
+    };
     */
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      specialArgs = {
-        inherit inputs;
-      };
-      moduleInputs = with inputs; [
-        hjem.nixosModules.default
-        nixos-cosmic.nixosModules.default
-        #hjem-rum.nixosModules.default
-        #spicetify-nix.nixosModules.default
-        nvf.nixosModules.default
-        chaotic.nixosModules.default
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = {
+      inherit inputs;
+    };
+    moduleInputs = with inputs; [
+      hjem.nixosModules.default
+      nixos-cosmic.nixosModules.default
+      #hjem-rum.nixosModules.default
+      #spicetify-nix.nixosModules.default
+      nvf.nixosModules.default
+      chaotic.nixosModules.default
 
-        flatpaks.nixosModule
-      ];
-      inherit (builtins) concatLists;
-    in
-    {
-      nixosConfigurations = {
-        nixpkgs.overlays = [ inputs.niri.overlays.niri ];
-        ag101 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = concatLists [
-            moduleInputs
-            [
-              ./hosts/ag101/configuration.nix
-              ./modules
-            ]
-          ];
-        };
+      flatpaks.nixosModule
+    ];
+    inherit (builtins) concatLists;
+  in {
+    nixosConfigurations = {
+      nixpkgs.overlays = [inputs.niri.overlays.niri];
+      ag101 = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = concatLists [
+          moduleInputs
+          [
+            ./hosts/ag101/configuration.nix
+            ./modules
+          ]
+        ];
       };
     };
+    devShells.x86_64-linux.default = pkgs.mkShell {
+      packages = with pkgs; [
+        nil
+        alejandra
+      ];
+    };
+  };
 }

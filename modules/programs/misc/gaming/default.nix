@@ -4,11 +4,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.misc.gaming;
-in
-{
+in {
   options.modules.programs.misc.gaming = {
     enable = lib.mkEnableOption "gaming";
   };

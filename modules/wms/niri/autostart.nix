@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 pkgs.writeShellApplication {
   name = "auto-start-script";
   runtimeInputs = [
@@ -19,7 +19,9 @@ pkgs.writeShellApplication {
       bitwarden &
       xrdb ~/.Xresources &
       xsettingsd &
-      docker run -d --rm --device=nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama &
+      docker run -d --device=nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama &
+      cd /home/amr/.local/share/self-hosting/searxng-docker/searxng/ && docker compose up -d &
+
 
     '';
 }

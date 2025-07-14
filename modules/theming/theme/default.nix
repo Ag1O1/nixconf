@@ -6,17 +6,16 @@
   inputs,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib.options) mkOption mkPackageOption;
-  inherit (lib.types)
+  inherit
+    (lib.types)
     attrs
     str
     int
     path
     ;
-in
-{
+in {
   options.theme = {
     colors = mkOption {
       type = attrs;
@@ -27,7 +26,7 @@ in
       '';
     };
     cursor = {
-      package = mkPackageOption pkgs [ "bibata-cursors" ];
+      package = mkPackageOption pkgs ["bibata-cursors"];
       name = mkOption {
         type = str;
         default = "Bibata-Modern-Ice";
@@ -42,7 +41,7 @@ in
 
     fonts = {
       monospace = {
-        package = mkPackageOption pkgs [ "cascadia-code" ] { };
+        package = mkPackageOption pkgs ["cascadia-code"] {};
         name = mkOption {
           type = str;
           default = "CascadiaCode";
@@ -51,7 +50,7 @@ in
       };
 
       sans = {
-        package = mkPackageOption pkgs "inter" { };
+        package = mkPackageOption pkgs "inter" {};
         name = mkOption {
           type = str;
           default = "Inter";
@@ -60,7 +59,7 @@ in
       };
 
       serif = {
-        package = mkPackageOption pkgs "roboto-serif" { };
+        package = mkPackageOption pkgs "roboto-serif" {};
         name = mkOption {
           type = str;
           default = "Roboto Serif";
@@ -69,7 +68,7 @@ in
       };
 
       emoji = {
-        package = mkPackageOption pkgs "noto-fonts-color-emoji" { };
+        package = mkPackageOption pkgs "noto-fonts-color-emoji" {};
         name = mkOption {
           type = str;
           default = "Noto Color Emoji";
@@ -79,7 +78,7 @@ in
 
       cjk = {
         sans = {
-          package = mkPackageOption pkgs "noto-fonts-cjk-sans" { };
+          package = mkPackageOption pkgs "noto-fonts-cjk-sans" {};
           name = mkOption {
             type = str;
             default = "Noto Sans CJK SC";
@@ -87,7 +86,7 @@ in
           };
         };
         serif = {
-          package = mkPackageOption pkgs "noto-fonts-cjk-serif" { };
+          package = mkPackageOption pkgs "noto-fonts-cjk-serif" {};
           name = mkOption {
             type = str;
             default = "Noto Serif CJK SC";

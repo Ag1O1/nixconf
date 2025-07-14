@@ -4,11 +4,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.system.hardware.nvidia;
-in
-{
+in {
   options.modules.system.hardware.nvidia = {
     enable = lib.mkEnableOption "nvidia";
   };
@@ -18,11 +16,11 @@ in
 
     services.xserver = mkMerge [
       {
-        videoDrivers = [ "nvidia" ];
+        videoDrivers = ["nvidia"];
       }
     ];
 
-    boot.blacklistedKernelModules = [ "nouveau" ];
+    boot.blacklistedKernelModules = ["nouveau"];
 
     environment = {
       sessionVariables = mkMerge [
@@ -69,8 +67,8 @@ in
       };
 
       graphics = {
-        extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-        extraPackages32 = with pkgs.pkgsi686Linux; [ nvidia-vaapi-driver ];
+        extraPackages = with pkgs; [nvidia-vaapi-driver];
+        extraPackages32 = with pkgs.pkgsi686Linux; [nvidia-vaapi-driver];
       };
     };
   };

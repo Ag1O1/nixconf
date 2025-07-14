@@ -4,11 +4,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.gui.obs;
-in
-{
+in {
   options.modules.programs.gui.obs = {
     enable = lib.mkEnableOption "obs studio";
   };

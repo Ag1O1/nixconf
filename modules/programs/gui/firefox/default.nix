@@ -4,8 +4,7 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.gui.firefox;
   lock-false = {
     Value = false;
@@ -15,8 +14,7 @@ let
     Value = true;
     Status = "locked";
   };
-in
-{
+in {
   options.modules.programs.gui.firefox = {
     enable = lib.mkEnableOption "firefox";
   };

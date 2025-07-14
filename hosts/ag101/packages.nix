@@ -2,31 +2,26 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in
-{
+in {
   hj.packages = [
     #pkgs.distrobox
+    pkgs.cemu #wii u emulator
     pkgs.grayjay
     #pkgs.oneshot # for zeditor
-    #pkgs.alejandra # for zeditor
     pkgs.bitwarden-desktop
     #pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
-    #pkgs.nil
     pkgs.waypaper
     pkgs.swaybg
     pkgs-stable.swww
     inputs.umu.packages.x86_64-linux.umu-launcher
     pkgs.playerctl
     pkgs.udiskie
-    pkgs.mako
-    pkgs.xwayland-satellite
     # cosmic apps currently broken (unresponsive)
     #pkgs.cosmic-edit
     #pkgs.cosmic-files
@@ -62,8 +57,8 @@ in
     pkgs.libsForQt5.ark
     #pkgs.fzf
     #pkgs.atuin
-    #pkgs.dust
-    (pkgs.btop.override { cudaSupport = true; })
+    pkgs.dust
+    (pkgs.btop.override {cudaSupport = true;})
     pkgs.bat
     pkgs.tldr
     pkgs.eza
@@ -87,22 +82,15 @@ in
     #pkgs.rustc
     #pkgs.cargo
     #pkgs.gcc
-    #pkgs.qalculate-gtk
-    #pkgs.libqalculate
-    #pkgs.zapzap
 
     #pkgs.thunderbird
-    #pkgs.google-chrome
     pkgs.microfetch
     pkgs.obsidian
     pkgs.vlc
-    #pkgs.bun
-    #pkgs.davinci-resolve
     pkgs.udiskie
     pkgs.gvfs
     pkgs.udisks
     pkgs.usbutils
-    #pkgs.libwacom
   ];
   fonts.packages = with pkgs; [
     wineWow64Packages.fonts

@@ -7,17 +7,16 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   user = "amr";
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (lib.mkAliasOptionModule
-      [ "hj" ]
+    (
+      lib.mkAliasOptionModule
+      ["hj"]
       [
         "hjem"
         "users"
@@ -65,7 +64,6 @@ in
   # module configurations
 
   modules = {
-
     programs = {
       gui = {
         firefox.enable = true;
@@ -74,6 +72,7 @@ in
         spicetify.enable = true;
         #sober.enable = false;
         obs.enable = true;
+        mako.enable = true;
       };
 
       tui = {
@@ -97,7 +96,7 @@ in
     services = {
       pipewire.enable = true;
       bluetooth.enable = true;
-      ai.enable = false;
+      ai.enable = true;
       polkit.enable = true;
       mime.enable = true;
     };

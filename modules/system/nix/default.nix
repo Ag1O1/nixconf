@@ -2,8 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   nixpkgs.config.permittedInsecurePackages = [
     "dotnet-sdk-6.0.428"
   ];
@@ -38,5 +37,5 @@
   environment.shellAliases = {
     nixos-rebuild = "nixos-rebuild --flake ~/nixos#ag101 --use-remote-sudo";
   };
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

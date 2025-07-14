@@ -3,14 +3,10 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
-  inherit (config.modules.services.mime)
-    ;
-in
-''
+in ''
 
   border-radius=2
   default-timeout=2500
@@ -28,5 +24,5 @@ in
   border-size=3
   icon-location=left
   max-icon-size=64
-  font=${fonts.sans} 13
+  font=${fonts.sans.name} 13
 ''

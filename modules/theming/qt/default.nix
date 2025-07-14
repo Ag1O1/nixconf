@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   qt = {
     enable = true;
     style = "kvantum";
@@ -12,10 +11,9 @@
         accent = "blue";
       })
       (pkgs.catppuccin-kde.override {
-        flavour = [ "mocha" ];
-        accents = [ "blue" ];
+        flavour = ["mocha"];
+        accents = ["blue"];
       })
     ];
-
   };
 }

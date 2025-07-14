@@ -4,11 +4,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.tui.nvf;
-in
-{
+in {
   options.modules.programs.tui.nvf = {
     enable = lib.mkEnableOption "nvf";
   };
@@ -17,7 +15,7 @@ in
       enable = true;
 
       settings.vim = {
-        startPlugins = [ pkgs.vimPlugins.vim-godot ];
+        startPlugins = [pkgs.vimPlugins.vim-godot];
         luaConfigRC.myconfig =
           # lua
           ''

@@ -4,12 +4,10 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.gui.mako;
-  mako-config = import ./config.nix { inherit pkgs lib config; }
-in
-{
+  mako-config = import ./config.nix {inherit pkgs lib config;};
+in {
   options.modules.programs.gui.mako = {
     enable = lib.mkEnableOption "mako";
   };
