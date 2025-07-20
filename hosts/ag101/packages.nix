@@ -2,15 +2,18 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in {
+in
+{
   hj.packages = [
+    pkgs.libsForQt5.xp-pen-g430-driver
     #pkgs.distrobox
-    pkgs.cemu #wii u emulator
+    pkgs.cemu # wii u emulator
     pkgs.grayjay
     #pkgs.oneshot # for zeditor
     pkgs.bitwarden-desktop
@@ -58,7 +61,7 @@ in {
     #pkgs.fzf
     #pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override {cudaSupport = true;})
+    (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.tldr
     pkgs.eza

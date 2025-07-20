@@ -3,17 +3,26 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
 
   gtk-theme-pkg = pkgs.catppuccin-gtk.override {
-    accents = ["blue"];
+    accents = [ "blue" ];
     variant = "mocha";
     size = "standard";
-    tweaks = ["normal"];
+    tweaks = [ "normal" ];
   };
+  gtk-icon-pkg = pkgs.catppuccin-papirus-folders.override {
+    accent = "blue";
+    flavor = "mocha";
+  };
+  gtk-fallback-icon-pkg = pkgs.kdePackages.breeze-icons;
+
   gtk-theme-name = "catppuccin-mocha-blue-standard+normal";
+  gtk-icon-name = "Papirus-Dark";
+  gtk-fallback-icon-name = "breeze-dark";
   # I have no idea if this is correct.
   # Seems to me that the only difference between gtkrc and 3,4's settings is the [Settings] part.
   # I am not sure if that's actually the case.
@@ -27,7 +36,7 @@
     gtk-enable-event-sounds=0
     gtk-enable-input-feedback-sounds=0
     gtk-error-bell=0
-    gtk-icon-theme-name=Papirus-Dark
+    gtk-icon-theme-name=${gtk-icon-name}
     gtk-menu-images=1
     gtk-theme-name=${gtk-theme-name}
     gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
@@ -40,25 +49,28 @@
     [Settings]
     ${gtk2-settings}
   ";
-in {
+in
+{
   environment.variables = {
     XCURSOR_THEME = cursor.name;
     XCURSOR_SIZE = cursor.size;
   };
-  xdg.icons.fallbackCursorThemes = [cursor.name];
+  xdg.icons.fallbackCursorThemes = [ cursor.name ];
   hj = {
     files = {
       ".gtkrc-2.0".text = gtk2-settings;
       ".config/gtk-3.0/settings.ini".text = gtk-settings;
       ".config/gtk-4.0/settings.ini".text = gtk-settings;
-      ".config/gtk-4.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
-      ".config/gtk-3.0/gtk.css".source = "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-3.0/gtk-dark.css";
+      ".config/gtk-4.0/gtk.css".source =
+        "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
+      ".config/gtk-3.0/gtk.css".source =
+        "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-3.0/gtk-dark.css";
+      ".local/share/icons/${gtk-icon-name}".source = "${gtk-icon-pkg}/share/icons/${gtk-icon-name}";
+      ".local/share/icons/${gtk-fallback-icon-name}".source =
+        "${gtk-fallback-icon-pkg}/share/icons/${gtk-fallback-icon-name}";
     };
     packages = [
-      (pkgs.catppuccin-papirus-folders.override {
-        accent = "blue";
-        flavor = "mocha";
-      })
+      gtk-icon-pkg
       gtk-theme-pkg
       pkgs.bibata-cursors
       pkgs.xsettingsd

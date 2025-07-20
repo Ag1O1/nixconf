@@ -5,5 +5,6 @@
     ./ai
     ./polkit
     ./mime
+    ./security
   ];
 }

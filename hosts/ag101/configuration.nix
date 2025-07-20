@@ -7,16 +7,17 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   user = "amr";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (
-      lib.mkAliasOptionModule
-      ["hj"]
+    (lib.mkAliasOptionModule
+      [ "hj" ]
       [
         "hjem"
         "users"
@@ -88,7 +89,7 @@ in {
       misc = {
         docker.enable = true;
         gaming.enable = true;
-        #vm.enable = true;
+        vm.enable = false;
         git.enable = true;
       };
     };
@@ -99,6 +100,7 @@ in {
       ai.enable = true;
       polkit.enable = true;
       mime.enable = true;
+      security.enable = true;
     };
 
     system = {
@@ -118,6 +120,12 @@ in {
   environment.variables = {
     PROTONPATH = "GE-Proton";
     GAMEID = "0";
+  };
+  environment.shellAliases = {
+    rebuild = "sudo nixos-rebuild switch --flake /home/amr/nixos#ag101";
+    ls = "${lib.getExe pkgs.lsd}";
+    cat = "${lib.getExe pkgs.bat}";
+    grep = "grep --color=auto";
   };
 
   services.flatpak.enable = true;
