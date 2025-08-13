@@ -13,11 +13,11 @@ let
     config.allowUnfree = true;
   };
   discord-wrapped =
-    (pkgs-stable.discord.override {
+    (pkgs.discord.override {
       nss = pkgs.nss_latest;
       withOpenASAR = true;
-      withVencord = true;
-      #withMoonlight = true;
+      #withVencord = true;
+      withMoonlight = true;
     }).overrideAttrs
       (old: {
         libPath = old.libPath + ":${pkgs.libglvnd}/lib";
@@ -34,7 +34,7 @@ in
     enable = lib.mkEnableOption "discord";
   };
   config = mkIf cfg.enable {
-    #hj.packages = [discord-wrapped];
     hj.packages = [ discord-wrapped ];
+    #hj.packages = [ pkgs.equibop ];
   };
 }

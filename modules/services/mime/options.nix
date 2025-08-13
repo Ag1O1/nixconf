@@ -3,11 +3,13 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (options) mkOption;
   inherit (types) str;
   inherit (config.modules.services.mime) browser video;
-in {
+in
+{
   options.modules.services.mime = {
     enable = lib.mkEnableOption "mime";
 
@@ -58,7 +60,7 @@ in {
     };
     file-manager = mkOption {
       type = str;
-      default = "nautilus";
+      default = "nemo";
       description = "Defines file manager";
     };
   };
