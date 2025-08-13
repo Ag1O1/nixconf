@@ -14,11 +14,16 @@ let
     file-manager
     ;
 in
-#java
 ''
-  workspace "browser"
-  workspace "main"
-  workspace "chat"
+  workspace "browser" {
+      open-on-output "DP-1"
+  }
+  workspace "main" {
+      open-on-output "DP-1"
+  }
+  workspace "chat" {
+      open-on-output "DP-1"
+  }
 
     input {
         focus-follows-mouse max-scroll-amount="10%"
@@ -43,7 +48,7 @@ in
            accel-profile "flat"
       }
   }
-  output "HDMI-A-1" {
+  output "DP-1" {
     mode "1920x1080@60.000"
     focus-at-startup
     position x=0 y=0
@@ -52,12 +57,12 @@ in
     mode "1600x900@60.000"
     position x=1920 y=110
   }
-  output "DP-1" {
+  output "HDMI-A-1" {
     mode "1920x1080@60.000"
     position x=-300 y=300
   }
   layout {
-      gaps 5
+      gaps 3
       //center-focused-column "on-overflow"
       default-column-width { proportion 0.5; }
       focus-ring {
@@ -67,7 +72,7 @@ in
           inactive-color "#505050"
       }
       border {
-          width 3
+          width 2
           active-color " #4f2211 "
           inactive-color "#505050"
 
@@ -236,8 +241,8 @@ in
       Mod+Right { focus-column-right; }
       Mod+C      { focus-workspace-down; }
       Mod+D      { focus-workspace-up; }
-      Mod+Shift+Z { focus-monitor-left; }
-      Mod+Shift+X { focus-monitor-right; }
+      Mod+Ctrl+Z { focus-monitor-left; }
+      Mod+Ctrl+X { focus-monitor-right; }
       Mod+Z     { focus-column-left; }
       Mod+X     { focus-column-right; }
       Mod+H     { focus-column-left; }

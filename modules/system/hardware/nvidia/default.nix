@@ -52,7 +52,8 @@ in {
     hardware = {
       nvidia-container-toolkit.enable = true;
       nvidia = {
-        package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+        #package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+        package = mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
         modesetting.enable = mkDefault true;
 
         powerManagement = {
