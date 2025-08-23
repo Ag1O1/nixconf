@@ -26,6 +26,7 @@ in {
       sessionVariables = mkMerge [
         {
           LIBVA_DRIVER_NAME = "nvidia";
+          GSK_RENDERER = "ngl";
           #WLR_NO_HARDWARE_CURSORS = "1";
           #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
           #GBM_BACKEND = "nvidia-drm";
@@ -52,6 +53,7 @@ in {
     hardware = {
       nvidia-container-toolkit.enable = true;
       nvidia = {
+        #package = mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
         #package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
         package = mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
         modesetting.enable = mkDefault true;
@@ -62,7 +64,7 @@ in {
         };
 
         open = mkDefault false;
-        nvidiaSettings = false; # add nvidia-settings to pkgs, useless on nixos
+        nvidiaSettings = true; # add nvidia-settings to pkgs, useless on nixos
         nvidiaPersistenced = true;
         forceFullCompositionPipeline = true;
       };

@@ -39,6 +39,7 @@ in
   };
   # hostname
   networking.hostName = "nixos";
+  #networking.useDHCP = lib.mkDefault true;
 
   # user
   time.timeZone = "Africa/Cairo";
@@ -67,6 +68,7 @@ in
   modules = {
     programs = {
       gui = {
+        eden.enable = true;
         firefox.enable = true;
         discord.enable = true;
         fuzzel.enable = true;
@@ -81,7 +83,7 @@ in
         foot.enable = true;
 
         tmux.enable = true;
-        #nvf.enable = true;
+        nvf.enable = true;
         direnv.enable = true;
         fish.enable = true;
       };
@@ -116,13 +118,17 @@ in
       niri.enable = true;
     };
   };
+  networking.firewall.allowedUDPPorts = [ 10999 ]; # 10999 for don't starve together
+  networking.firewall.allowedTCPPorts = [ 10999 ];
 
   environment.variables = {
     PROTONPATH = "GE-Proton";
+    NIXPKGS_ALLOW_UNFREE = 1;
     GAMEID = "0";
   };
   environment.shellAliases = {
-    rebuild = "sudo nixos-rebuild switch --flake /home/amr/nixos#ag101";
+    os-rebuild = "sudo nixos-rebuild switch --flake /home/amr/nixos#ag101";
+    os-rebuild-boot = "sudo nixos-rebuild boot --flake /home/amr/nixos#ag101";
     ls = "${lib.getExe pkgs.lsd}";
     cat = "${lib.getExe pkgs.bat}";
     grep = "grep --color=auto";

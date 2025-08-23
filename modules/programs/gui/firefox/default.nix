@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.gui.firefox;
   lock-false = {
     Value = false;
@@ -14,15 +15,18 @@ with lib; let
     Value = true;
     Status = "locked";
   };
-in {
+in
+{
   options.modules.programs.gui.firefox = {
     enable = lib.mkEnableOption "firefox";
   };
   config = mkIf cfg.enable {
+    hj.packages = [ pkgs.firefoxpwa ];
     programs = {
       firefox = {
         enable = true;
         package = pkgs.librewolf;
+        nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
         languagePacks = [
           "ar"
           "en-US"

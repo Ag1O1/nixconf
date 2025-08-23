@@ -11,7 +11,11 @@ let
 in
 {
   hj.packages = [
+    pkgs.galculator # Calculator
+    pkgs.nautilus # Apparently required for file picking
+    pkgs.lumafly # Hollow knight modder
     pkgs.ungoogled-chromium
+    pkgs.element-desktop
     pkgs.thunderbird
     pkgs.r2modman
     pkgs.xp-pen-g430-driver

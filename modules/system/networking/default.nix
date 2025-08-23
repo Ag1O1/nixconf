@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.system.networking;
-in {
+in
+{
   options.modules.system.networking = {
     enable = lib.mkEnableOption "networking";
   };

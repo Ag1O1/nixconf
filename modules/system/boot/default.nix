@@ -32,7 +32,7 @@
 
       grub = {
         enable = true;
-        default = 2;
+        default = 0;
         efiSupport = true;
         useOSProber = true;
         device = "nodev";

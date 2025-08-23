@@ -4,9 +4,11 @@
   lib,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.tui.fish;
-in {
+in
+{
   options.modules.programs.tui.fish = {
     enable = lib.mkEnableOption "fish";
   };
