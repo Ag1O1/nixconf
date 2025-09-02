@@ -3,25 +3,16 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
 
-  gtk-theme-pkg = pkgs.catppuccin-gtk.override {
-    accents = [ "blue" ];
-    variant = "mocha";
-    size = "standard";
-    tweaks = [ "normal" ];
-  };
-  gtk-icon-pkg = pkgs.catppuccin-papirus-folders.override {
-    accent = "yellow";
-    flavor = "mocha";
-  };
+  gtk-theme-pkg = pkgs.dracula-theme;
+  gtk-icon-pkg = pkgs.dracula-icon-theme;
   gtk-fallback-icon-pkg = pkgs.kdePackages.breeze-icons;
 
-  gtk-theme-name = "catppuccin-mocha-blue-standard+normal";
-  gtk-icon-name = "Papirus-Dark";
+  gtk-theme-name = "Dracula";
+  gtk-icon-name = "Papirus";
   gtk-fallback-icon-name = "breeze-dark";
   # I have no idea if this is correct.
   # Seems to me that the only difference between gtkrc and 3,4's settings is the [Settings] part.
@@ -44,32 +35,30 @@ gtk-font-name = ${fonts.sans.name} ${toString fonts.size}
 gtk-fallback-icon-theme = ${gtk-fallback-icon-name}
 gtk-icon-theme-name = ${gtk-icon-name}
 gtk-theme-name = ${gtk-theme-name}";
-in
-{
+in {
   environment.variables = {
     XCURSOR_THEME = cursor.name;
     XCURSOR_SIZE = cursor.size;
   };
-  xdg.icons.fallbackCursorThemes = [ cursor.name ];
+  xdg.icons.fallbackCursorThemes = [cursor.name];
   hj = {
     # switched to using nwg-look instead
     /*
-      files = {
-        ".gtkrc-2.0".text = gtk2-settings;
-        ".config/gtk-3.0/settings.ini".text = gtk-settings;
-        ".config/gtk-4.0/settings.ini".text = gtk-settings;
-        ".config/gtk-4.0/gtk.css".source =
-          "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
-        ".config/gtk-3.0/gtk.css".source =
-          "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-3.0/gtk-dark.css";
-        ".local/share/icons/${gtk-icon-name}".source = "${gtk-icon-pkg}/share/icons/${gtk-icon-name}";
-        ".local/share/icons/${gtk-fallback-icon-name}".source =
-          "${gtk-fallback-icon-pkg}/share/icons/${gtk-fallback-icon-name}";
-      };
+    files = {
+      ".gtkrc-2.0".text = gtk2-settings;
+      ".config/gtk-3.0/settings.ini".text = gtk-settings;
+      ".config/gtk-4.0/settings.ini".text = gtk-settings;
+      ".config/gtk-4.0/gtk.css".source =
+        "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-4.0/gtk-dark.css";
+      ".config/gtk-3.0/gtk.css".source =
+        "${gtk-theme-pkg}/share/themes/${gtk-theme-name}/gtk-3.0/gtk-dark.css";
+      ".local/share/icons/${gtk-icon-name}".source = "${gtk-icon-pkg}/share/icons/${gtk-icon-name}";
+      ".local/share/icons/${gtk-fallback-icon-name}".source =
+        "${gtk-fallback-icon-pkg}/share/icons/${gtk-fallback-icon-name}";
+    };
     */
     packages = [
       gtk-icon-pkg
-      pkgs.windows10-icons
       gtk-theme-pkg
       pkgs.bibata-cursors
       pkgs.xsettingsd

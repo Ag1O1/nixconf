@@ -19,7 +19,7 @@ in {
   options.theme = {
     colors = mkOption {
       type = attrs;
-      default = inputs.basix.schemeData.base24.catppuccin-mocha.palette;
+      default = inputs.basix.schemeData.base16.dracula.palette;
       description = ''
         Defines a set of attributes for colors.
         Default is in base24 however any labeling and definitions will work.

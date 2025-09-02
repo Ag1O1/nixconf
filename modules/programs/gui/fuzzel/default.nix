@@ -18,7 +18,7 @@ in {
       settings = {
         main = {
           terminal = "foot -e";
-          icon-theme = "Papirus-Dark";
+          icon-theme = "Dracula";
           dpi-aware = "no";
           width = "15";
           font = "${fonts.sans.name}weight:bold:size=10";

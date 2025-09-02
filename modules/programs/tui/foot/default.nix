@@ -6,6 +6,7 @@
 with lib; let
   cfg = config.modules.programs.tui.foot;
   inherit (config.theme) colors fonts;
+  foot_colors = mapAttrs (_: v: removePrefix "#" v) colors;
 in {
   options.modules.programs.tui.foot = {
     enable = lib.mkEnableOption "foot";
@@ -17,7 +18,9 @@ in {
       enable = true;
       enableFishIntegration = true;
       enableBashIntegration = true;
-      theme = "catppuccin-mocha";
+    };
+    hj.rum.programs.foot = {
+      enable = true;
       settings = {
         main = {
           font = "${fonts.monospace.name}:size=14";
@@ -26,9 +29,7 @@ in {
           lines = 100000;
         };
 
-        # TODO: use colors
-        /*
-        colors = with colors; {
+        colors = with foot_colors; {
           background = base00; # base color
           foreground = base05; # text color
 
@@ -49,7 +50,7 @@ in {
           bright5 = base0F; # pink
           bright6 = base0C; # teal
           bright7 = base07; # Subtext 0
-        */
+        };
       };
     };
   };

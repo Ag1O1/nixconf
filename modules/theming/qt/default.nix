@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    style = "kvantum";
+    style = "gtk2";
     platformTheme = "qt5ct";
   };
   hj = {

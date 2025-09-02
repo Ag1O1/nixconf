@@ -30,8 +30,7 @@ in {
         lyricsPlus
         newReleases
       ];
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
+      theme = spicePkgs.themes.dracula;
     };
   };
 }

@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.modules.programs.tui.nvf;
+  inherit (config.theme) colors;
 in {
   options.modules.programs.tui.nvf = {
     enable = lib.mkEnableOption "nvf";
@@ -56,7 +57,7 @@ in {
         };
 
         lsp = {
-          #formatOnSave = true;
+          formatOnSave = true;
           enable = true;
           lspkind.enable = false;
           lightbulb.enable = true;
@@ -72,8 +73,15 @@ in {
           };
         };
 
+        diagnostics = {
+          enable = true;
+          config = {
+            virtual_text = true;
+          };
+        };
+
         languages = {
-          #enableFormat = true;
+          enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
@@ -115,14 +123,14 @@ in {
         statusline = {
           lualine = {
             enable = true;
-            theme = "catppuccin";
+            theme = "dracula";
           };
         };
 
         theme = {
           enable = true;
-          name = "catppuccin";
-          style = "mocha";
+          name = "dracula";
+          base16-colors = colors;
           transparent = false;
         };
 
