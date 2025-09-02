@@ -15,6 +15,9 @@ in {
       enable = true;
       baseIndex = 1;
       keyMode = "vi";
+      extraConfig = "
+        set-option -g escape-time 10
+        ";
     };
   };
 }

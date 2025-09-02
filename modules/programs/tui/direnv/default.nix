@@ -17,6 +17,11 @@ in {
       nix-direnv.enable = true;
       enableBashIntegration = true;
       enableFishIntegration = true;
+      settings = {
+        whitelist = {
+          prefix = ["/home/user/amr/projects"];
+        };
+      };
     };
   };
 }

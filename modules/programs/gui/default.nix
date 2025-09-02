@@ -7,5 +7,6 @@
     ./fuzzel
     ./obs
     ./mako
+    ./eden
   ];
 }

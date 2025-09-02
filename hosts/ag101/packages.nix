@@ -2,18 +2,16 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in
-{
+in {
   hj.packages = [
     pkgs.galculator # Calculator
     pkgs.nautilus # Apparently required for file picking
-    pkgs.lumafly # Hollow knight modder
+    pkgs.scarab # Hollow knight modder
     pkgs.ungoogled-chromium
     pkgs.element-desktop
     pkgs.thunderbird
@@ -25,9 +23,7 @@ in
     #pkgs.oneshot # for zeditor
     pkgs.bitwarden-desktop
     #pkgs.onlyoffice-desktopeditors
-    pkgs.zed-editor
-    pkgs.vscode # might switch to
-    pkgs.neovim
+    pkgs.zed-editor-fhs
     pkgs.waypaper
     pkgs.swaybg
     pkgs-stable.swww
@@ -43,14 +39,13 @@ in
 
     pkgs.pkg-config
     pkgs.tree
-    pkgs.vim
     pkgs.wget
     pkgs.git
     pkgs.gh
 
     pkgs.unrar
     pkgs.mission-center
-    pkgs.azahar
+    #pkgs.azahar #Fail to build
     pkgs.godot
     pkgs.godot-export-templates-bin
 
@@ -65,11 +60,11 @@ in
     pkgs.nemo-with-extensions # file manager
     pkgs.pavucontrol
     pkgs.qbittorrent
-    pkgs.libsForQt5.ark
+    pkgs.kdePackages.ark
     #pkgs.fzf
     #pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override { cudaSupport = true; })
+    (pkgs.btop.override {cudaSupport = true;})
     pkgs.bat
     pkgs.tldr
     pkgs.eza
