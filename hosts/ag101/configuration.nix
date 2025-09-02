@@ -136,6 +136,12 @@ in
 
   services.flatpak.enable = true;
 
+  services.hardware.openrgb = {
+    enable = true;
+    #package = pkgs.openrgb-hardwaresync;
+    motherboard = "amd";
+  };
+
   services.displayManager.ly.enable = true;
   system.stateVersion = "24.05";
 }
