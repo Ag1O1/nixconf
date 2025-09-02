@@ -7,7 +7,7 @@
 }: let
   inherit (lib) mkIf mkEnableOption optionalString;
   inherit (pkgs) fetchurl stdenv;
-  cfg = config.modules.programs.eden;
+  cfg = config.modules.programs.gui.eden;
   eden = stdenv.mkDerivation rec {
     pname = "eden";
     version = "0.0.3-rc3";
@@ -36,14 +36,14 @@
       mkdir -p $out/share/{applications,icons/hicolor/scalable/apps}
       cp ${desktopItem} $out/share/applications/org.eden_emu.eden.desktop
       cp ${desktopIcon} $out/share/icons/hicolor/scalable/apps/org.eden_emu.eden.svg
-      ${optionalString config.cfg.hardware.nvidia.enable ''
+      ${optionalString config.modules.system.hardware.nvidia.enable ''
         wrapProgramShell $out/bin/${pname} \
         --set XDG_DATA_DIRS "\$XDG_DATA_DIRS:${config.hardware.nvidia.package}/share"
       ''}
     '';
   };
 in {
-  options.modules.programs.eden.enable = mkEnableOption "Eden Emulator";
+  options.modules.programs.gui.eden.enable = mkEnableOption "Eden Emulator";
   config = mkIf cfg.enable {
     hj.packages = [eden];
   };
