@@ -7,17 +7,16 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   user = "amr";
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix
     ./hardware
     ./packages.nix
-    (lib.mkAliasOptionModule
-      [ "hj" ]
+    (
+      lib.mkAliasOptionModule
+      ["hj"]
       [
         "hjem"
         "users"
@@ -91,7 +90,7 @@ in
       misc = {
         docker.enable = true;
         gaming.enable = true;
-        vm.enable = false;
+        vm.enable = true;
         git.enable = true;
       };
     };
@@ -118,8 +117,10 @@ in
       niri.enable = true;
     };
   };
-  networking.firewall.allowedUDPPorts = [ 10999 ]; # 10999 for don't starve together
-  networking.firewall.allowedTCPPorts = [ 10999 ];
+  networking.firewall = {
+    allowedUDPPorts = [10999]; # 10999 for don't starve together
+    allowedTCPPorts = [10999];
+  };
 
   environment.variables = {
     PROTONPATH = "GE-Proton";
