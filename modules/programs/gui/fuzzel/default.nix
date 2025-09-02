@@ -20,7 +20,7 @@ in {
           terminal = "foot -e";
           icon-theme = "Dracula";
           dpi-aware = "no";
-          width = "15";
+          width = "20";
           font = "${fonts.sans.name}weight:bold:size=10";
           line-height = "20";
           fields = "name,generic,comment,categories,filename,keywords";
