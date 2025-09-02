@@ -55,7 +55,13 @@ in {
       nvidia = {
         #package = mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
         #package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
-        package = mkDefault config.boot.kernelPackages.nvidiaPackages.latest;
+        package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+          version = "575.64.05";
+          sha256_64bit = "sha256-hfK1D5EiYcGRegss9+H5dDr/0Aj9wPIJ9NVWP3dNUC0=";
+          openSha256 = "sha256-mcbMVEyRxNyRrohgwWNylu45vIqF+flKHnmt47R//KU=";
+          usePersistenced = false;
+          useSettings = false;
+        };
         modesetting.enable = mkDefault true;
 
         powerManagement = {
@@ -64,8 +70,8 @@ in {
         };
 
         open = mkDefault false;
-        nvidiaSettings = true; # add nvidia-settings to pkgs, useless on nixos
-        nvidiaPersistenced = true;
+        nvidiaSettings = false; # add nvidia-settings to pkgs, useless on nixos
+        nvidiaPersistenced = false;
         forceFullCompositionPipeline = true;
       };
 
