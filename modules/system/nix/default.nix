@@ -33,6 +33,7 @@
   };
   environment.systemPackages = [
     pkgs.nixd
+    pkgs.package-version-server
     pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
     pkgs.nixos-rebuild-ng
   ];

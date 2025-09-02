@@ -2,13 +2,16 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in {
+in
+{
   hj.packages = [
+
     pkgs.galculator # Calculator
     pkgs.nautilus # Apparently required for file picking
     pkgs.scarab # Hollow knight modder
@@ -23,7 +26,8 @@ in {
     #pkgs.oneshot # for zeditor
     pkgs.bitwarden-desktop
     #pkgs.onlyoffice-desktopeditors
-    pkgs.zed-editor-fhs
+    pkgs.zed-editor
+    pkgs.zed-discord-presence
     pkgs.waypaper
     pkgs.swaybg
     pkgs-stable.swww
@@ -64,7 +68,7 @@ in {
     #pkgs.fzf
     #pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override {cudaSupport = true;})
+    (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.tldr
     pkgs.eza

@@ -103,7 +103,8 @@ in
 
   spawn-at-startup "${lib.getExe auto-start-script}"
   spawn-at-startup "${browser}"
-  spawn-at-startup "vesktop"
+  spawn-at-startup "noctalia-shell"
+  spawn-at-startup "discord"
   cursor {
       xcursor-theme "${cursor.name}"
       xcursor-size ${toString cursor.size}
@@ -123,7 +124,7 @@ in
        //off
 
       // Slow down all animations by this factor. Values below 1 speed them up instead.
-      // slowdown 3.0
+       slowdown 0.75
   }
   window-rule {
       // This regular expression is intentionally made as specific as possible,
@@ -193,7 +194,8 @@ in
   }
   layer-rule {
       match namespace="^wallpaper$"
-
+      match namespace="^quickshell-wallpaper$"
+      match namespace="^quickshell-overview$"
       place-within-backdrop true
   }
   layer-rule {
@@ -213,8 +215,10 @@ in
 
       // Suggested binds for running programs: terminal, app launcher, screen locker.
       Mod+Q { spawn "${terminal}"; }
+      Mod+G { spawn "noctalia-shell" "ipc" "call" "sidePanel" "toggle"; }
       Mod+Shift+Q { spawn "ghostty"; }
-      Mod+R { spawn "fuzzel"; }
+      Mod+R { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+      Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
       Super+Alt+L { spawn "swaylock"; }
       Mod+W { spawn "${browser}"; }
 
@@ -224,10 +228,10 @@ in
 
       // Example volume keys mappings for PipeWire & WirePlumber.
       // The allow-when-locked=true property makes them work even when the session is locked.
-      XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-      XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-      XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-      XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+      XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
+      XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+      XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+      XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
       XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
       XF86AudioStop allow-when-locked=true { spawn "playerctl" "stop"; }
       XF86AudioNext allow-when-locked=true { spawn "playerctl" "next";}
@@ -404,7 +408,7 @@ in
       // Makes the column "fill the rest of the space".
       //Mod+Ctrl+F { expand-column-to-available-width; }
 
-      Mod+B { center-column; }
+      Mod+N { center-column; }
 
       // Finer width adjustments.
       // This command can also:
@@ -421,9 +425,10 @@ in
       Mod+Shift+Minus { set-window-height "-10%"; }
       Mod+Shift+Equal { set-window-height "+10%"; }
 
+
       // Move the focused window between the floating and the tiling layout.
-      Mod+V       { toggle-window-floating; }
-      Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+      Mod+B       { toggle-window-floating; }
+      Mod+Shift+B { switch-focus-between-floating-and-tiling; }
 
       // Toggle tabbed column display mode.
       // Windows in this column will appear as vertical tabs,

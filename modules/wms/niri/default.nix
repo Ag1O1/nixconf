@@ -38,6 +38,10 @@ in
     };
     #programs.niri.package = inputs.niri.packages.niri;
     hj = {
+      packages = [
+        inputs.noctalia.packages.${pkgs.system}.default
+        inputs.quickshell.packages.${pkgs.system}.default
+      ];
       files = {
         ".config/niri/config.kdl".text = niri-config;
       };

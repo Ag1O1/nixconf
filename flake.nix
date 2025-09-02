@@ -31,9 +31,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # aylur's gtk kit
+    # aylur's gtk kit | Currently not using
+    /*
     ags = {
       url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    */
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
+
+    quickshell = {
+      url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

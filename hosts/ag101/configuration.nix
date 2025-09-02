@@ -70,7 +70,7 @@ in {
         eden.enable = true;
         firefox.enable = true;
         discord.enable = true;
-        fuzzel.enable = true;
+        fuzzel.enable = false;
         spicetify.enable = true;
         #sober.enable = false;
         obs.enable = true;
