@@ -78,6 +78,7 @@ in {
       };
 
       tui = {
+        starship.enable = true;
         ghostty.enable = true;
         foot.enable = true;
 
