@@ -7,11 +7,11 @@
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
 
-  gtk-theme-pkg = pkgs.dracula-theme;
-  gtk-icon-pkg = pkgs.dracula-icon-theme;
+  gtk-theme-pkg = pkgs.tokyonight-gtk-theme;
+  gtk-icon-pkg = pkgs.kanagawa-icon-theme;
   gtk-fallback-icon-pkg = pkgs.kdePackages.breeze-icons;
 
-  gtk-theme-name = "Dracula";
+  gtk-theme-name = "Tokyonight-Dark";
   gtk-icon-name = "Papirus";
   gtk-fallback-icon-name = "breeze-dark";
   # I have no idea if this is correct.

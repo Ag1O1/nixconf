@@ -67,10 +67,11 @@ in {
   modules = {
     programs = {
       gui = {
+        #walker.enable = true;
         eden.enable = true;
         firefox.enable = true;
         discord.enable = true;
-        fuzzel.enable = false;
+        fuzzel.enable = true;
         spicetify.enable = true;
         #sober.enable = false;
         obs.enable = true;
@@ -78,7 +79,7 @@ in {
       };
 
       tui = {
-        starship.enable = true;
+        #starship.enable = true;
         ghostty.enable = true;
         foot.enable = true;
 

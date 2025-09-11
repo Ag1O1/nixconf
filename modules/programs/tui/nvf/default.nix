@@ -129,7 +129,8 @@ in {
 
         theme = {
           enable = true;
-          name = "dracula";
+          name = "tokyonight";
+          style = "night";
           base16-colors = colors;
           transparent = false;
         };

@@ -2,18 +2,14 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in
-{
-  hj.packages = [
-
+in {
+  environment.systemPackages = [
     pkgs.galculator # Calculator
-    pkgs.nautilus # Apparently required for file picking
     pkgs.scarab # Hollow knight modder
     pkgs.ungoogled-chromium
     pkgs.element-desktop
@@ -51,7 +47,7 @@ in
     pkgs.mission-center
     #pkgs.azahar #Fail to build
     pkgs.godot
-    pkgs.godot-export-templates-bin
+    #pkgs.godot-export-templates-bin
 
     (pkgs.blender.override {
       cudaSupport = true;
@@ -68,7 +64,7 @@ in
     #pkgs.fzf
     #pkgs.atuin
     pkgs.dust
-    (pkgs.btop.override { cudaSupport = true; })
+    (pkgs.btop.override {cudaSupport = true;})
     pkgs.bat
     pkgs.tldr
     pkgs.eza

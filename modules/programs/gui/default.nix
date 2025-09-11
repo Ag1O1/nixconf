@@ -8,5 +8,6 @@
     ./obs
     ./mako
     ./eden
+    ./walker
   ];
 }

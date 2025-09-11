@@ -41,6 +41,8 @@ in
       packages = [
         inputs.noctalia.packages.${pkgs.system}.default
         inputs.quickshell.packages.${pkgs.system}.default
+        pkgs.nautilus # Apparently required for file picking
+        pkgs.wlsunset
       ];
       files = {
         ".config/niri/config.kdl".text = niri-config;

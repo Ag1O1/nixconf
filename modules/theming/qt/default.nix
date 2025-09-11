@@ -1,7 +1,8 @@
 {pkgs, ...}: {
   qt = {
     enable = true;
-    style = "gtk2";
+    style = "kvantum";
+    #style = "gtk2"; #if theme doesn't have kvantum version
     platformTheme = "qt5ct";
   };
   hj = {

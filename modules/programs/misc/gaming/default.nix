@@ -45,6 +45,7 @@ in
           ];
       })
       winePackages.waylandFull
+      (wine.override { wineBuild = "wine64"; })
       winetricks
     ];
 

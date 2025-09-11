@@ -3,18 +3,17 @@
   lib,
   config,
   ...
-}:
-let
-  auto-start-script = import ./autostart.nix { inherit pkgs; };
+}: let
+  auto-start-script = import ./autostart.nix {inherit pkgs;};
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
-  inherit (config.modules.services.mime)
+  inherit
+    (config.modules.services.mime)
     browser
     terminal
     file-manager
     ;
-in
-''
+in ''
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -103,8 +102,6 @@ in
 
   spawn-at-startup "${lib.getExe auto-start-script}"
   spawn-at-startup "${browser}"
-  spawn-at-startup "noctalia-shell"
-  spawn-at-startup "discord"
   cursor {
       xcursor-theme "${cursor.name}"
       xcursor-size ${toString cursor.size}
@@ -217,8 +214,8 @@ in
       Mod+Q { spawn "${terminal}"; }
       Mod+G { spawn "noctalia-shell" "ipc" "call" "sidePanel" "toggle"; }
       Mod+Shift+Q { spawn "ghostty"; }
-      Mod+R { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-      Mod+V { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+      Mod+R { spawn "fuzzel" "--no-mouse"; }
+      Mod+B { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
       Super+Alt+L { spawn "swaylock"; }
       Mod+W { spawn "${browser}"; }
 
@@ -233,7 +230,7 @@ in
       XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
       XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
       XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
-      XF86AudioStop allow-when-locked=true { spawn "playerctl" "stop"; }
+      //XF86AudioStop allow-when-locked=true { spawn "playerctl" "stop"; }
       XF86AudioNext allow-when-locked=true { spawn "playerctl" "next";}
       XF86AudioPrev allow-when-locked=true { spawn "playerctl" "previous"; }
 
@@ -427,8 +424,8 @@ in
 
 
       // Move the focused window between the floating and the tiling layout.
-      Mod+B       { toggle-window-floating; }
-      Mod+Shift+B { switch-focus-between-floating-and-tiling; }
+      Mod+V       { toggle-window-floating; }
+      Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
       // Toggle tabbed column display mode.
       // Windows in this column will appear as vertical tabs,
@@ -444,7 +441,6 @@ in
       // Mod+Shift+Space { switch-layout "prev"; }
 
       Print { screenshot; }
-      Shift+Print { spawn "niri msg action screenshot | ${lib.getExe pkgs.drawing}"; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
 
