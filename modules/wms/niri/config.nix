@@ -107,7 +107,6 @@ in ''
       xcursor-size ${toString cursor.size}
   }
   environment {
-      DISPLAY ":0"
       PROTONPATH "GE-Proton"
       SSH_AUTH_SOCK "/home/amr/.bitwarden-ssh-agent.sock"
   }
@@ -121,7 +120,7 @@ in ''
        //off
 
       // Slow down all animations by this factor. Values below 1 speed them up instead.
-       slowdown 0.75
+       slowdown 0.7
   }
   window-rule {
       // This regular expression is intentionally made as specific as possible,

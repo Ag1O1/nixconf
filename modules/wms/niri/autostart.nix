@@ -5,13 +5,11 @@ pkgs.writeShellApplication {
     pkgs.udiskie
     pkgs.waypaper
     pkgs.swaybg
-    pkgs.xwayland-satellite
   ];
   text =
     # bash
     ''
       noctalia-shell &
-      xwayland-satellite &
       xrdb ~/.Xresources &
       xsettingsd &
       udiskie &
