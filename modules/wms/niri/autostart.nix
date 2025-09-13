@@ -17,6 +17,7 @@ pkgs.writeShellApplication {
       swaybg &
       waypaper --restore &
       sleep 3 && discord &
+      sleep 2 && zapzap &
       sleep 2 && bitwarden &
       cd /home/amr/projects/rust/discord-ollama && target/release/discord-ollama &
       docker run -d --device=nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama &
