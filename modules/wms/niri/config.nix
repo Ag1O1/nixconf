@@ -443,6 +443,7 @@ in ''
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
+      Shift+Print { spawn-sh "${lib.getExe' pkgs.grim "grim"} -g \"$(${lib.getExe' pkgs.slurp "slurp"})\" - | ${lib.getExe' pkgs.satty "satty"} -f -"; }
 
       // Applications such as remote-desktop clients and software KVM switches may
       // request that niri stops processing the keyboard shortcuts defined here
