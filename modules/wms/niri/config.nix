@@ -213,7 +213,8 @@ in ''
       Mod+Q { spawn "${terminal}"; }
       Mod+G { spawn "noctalia-shell" "ipc" "call" "sidePanel" "toggle"; }
       Mod+Shift+Q { spawn "ghostty"; }
-      Mod+R { spawn "fuzzel" "--no-mouse"; }
+      //Mod+R { spawn "fuzzel" "--no-mouse"; }
+      Mod+R {spawn-sh "noctalia-shell ipc call launcher toggle"; }
       Mod+B { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
       Super+Alt+L { spawn "swaylock"; }
       Mod+W { spawn "${browser}"; }
