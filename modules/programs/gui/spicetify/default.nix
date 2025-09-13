@@ -30,7 +30,7 @@ in {
         lyricsPlus
         newReleases
       ];
-      theme = spicePkgs.themes.dracula;
+      theme = spicePkgs.themes.comfy;
     };
   };
 }
