@@ -144,7 +144,15 @@ in {
     #package = pkgs.openrgb-hardwaresync;
     motherboard = "amd";
   };
-
-  services.displayManager.ly.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "niri-session";
+        user = "amr";
+      };
+      default_session = initial_session;
+    };
+  };
   system.stateVersion = "24.05";
 }
