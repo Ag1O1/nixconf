@@ -3,9 +3,7 @@
   config,
   lib,
   ...
-}:
-{
-
+}: {
   boot = {
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelPackages = pkgs.linuxPackages_cachyos-lto;
@@ -21,14 +19,14 @@
 
       # system fails to boot via limine
       /*
-        limine = {
-          enable = true;
-          efiSupport = true;
-          extraConfig = "default_entry=2";
-          style = {
-            #branding = "";
-          };
-          };
+      limine = {
+        enable = true;
+        efiSupport = true;
+        extraConfig = "default_entry=2";
+        style = {
+          #branding = "";
+        };
+        };
       */
 
       grub = {
@@ -41,8 +39,8 @@
     };
     plymouth = {
       enable = true;
-      themePackages = [ pkgs.adi1090x-plymouth-themes ];
-      theme = "cubes";
+      themePackages = [pkgs.adi1090x-plymouth-themes];
+      theme = "angular_alt";
     };
   };
 }
