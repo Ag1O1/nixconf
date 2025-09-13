@@ -9,6 +9,7 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.zapzap # Whatsapp client
     pkgs.galculator # Calculator
     pkgs.scarab # Hollow knight modder
     pkgs.ungoogled-chromium
@@ -75,7 +76,7 @@ in {
     pkgs.simple-scan
     #pkgs.gnome-calendar
     #pkgs.element-desktop
-    pkgs.aseprite
+    #pkgs.aseprite CURRENTLY BROKEN
     #pkgs.kdePackages.kdenlive
     #pkgs.uget-integrator
     pkgs.gparted
