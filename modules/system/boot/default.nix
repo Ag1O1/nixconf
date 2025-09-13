@@ -13,6 +13,7 @@
       "sysrq_always_enabled=0"
       "ftrace_enabled=0"
     ];
+    systemd.services.wpa_supplicant.serviceConfig.TimeoutSec = "10";
     loader = {
       efi = {
         canTouchEfiVariables = true;
