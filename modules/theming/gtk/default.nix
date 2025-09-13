@@ -59,6 +59,8 @@ in {
     */
     packages = [
       gtk-icon-pkg
+      pkgs.dracula-icon-theme
+      pkgs.papirus-icon-theme
       gtk-theme-pkg
       pkgs.bibata-cursors
       pkgs.xsettingsd
