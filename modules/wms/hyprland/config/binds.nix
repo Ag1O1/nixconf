@@ -5,42 +5,49 @@
   ...
 }: {
   config = lib.mkIf config.modules.wms.hyprland.enable {
-    hj.rum.programs.hyprland.settings = {
+    hj.rum.desktops.hyprland.settings = {
       "$mainMod" = "SUPER"; # Sets "Windows" key as main modifier
       bind =
         [
           "$mainMod, Q, exec, $terminal"
           "$mainMod SHIFT, C, killactive,"
-          "$mainMod SHIFT, M, exit,"
           "$mainMod, E, exec, $fileManager"
           "$mainMod, W, exec, $browser"
-          "$mainMod, F, togglefloating,"
+          "$mainMod, V, togglefloating,"
           "$mainMod SHIFT, F,fullscreen,"
           "$mainMod ALT, F, fullscreenstate, -1 2"
           "$mainMod, R, exec, $menu"
-          "$mainMod, V, exec, ${lib.getExe' pkgs.clipman "clipman"} pick -t STDOUT | fuzzel --dmenu | ${lib.getExe' pkgs.wl-clipboard "wl-copy"}"
+          "$mainMod SHIFT, V, exec, noctalia-shell ipc call launcher clipboard"
+          "$mainMod, C, exec, noctalia-shell ipc call launcher calculator"
+          "$mainMod, DEL, exec, noctalia-shell ipc call lockScreen toggle"
           "$mainMod, P, pseudo, "
-          "$mainMod, J, togglesplit, "
+          "$mainMod, M, togglesplit, "
 
           ",Print, exec, ${lib.getExe pkgs.grimblast} --freeze copy area"
           "SHIFT, Print, exec , ${lib.getExe pkgs.grimblast} --freeze save area - | ${lib.getExe pkgs.satty} -f -"
 
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
+          "$mainMod, H, movefocus, l"
+          "$mainMod, L, movefocus, r"
+          "$mainMod, K, movefocus, u"
+          "$mainMod, J, movefocus, d"
 
           "$mainMod, S, togglespecialworkspace, magic"
           "$mainMod SHIFT, S, movetoworkspace, special:magic"
           "$mainMod , I, togglespecialworkspace"
           "$mainMod SHIFT, I, movetoworkspacesilent, special"
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+          "$mainMod, mouse_down, workspace, e-1"
+          "$mainMod, mouse_up, workspace, e+1"
 
           "$mainMod , I, togglespecialworkspace"
           "$mainMod SHIFT, I, movetoworkspacesilent, special"
           "$mainMod,KP_Home, exec, hyprctl keyword cursor:use_cpu_buffer 0"
           "$mainMod,KP_Up, exec, hyprctl keyword cursor:use_cpu_buffer 1"
+          "$mainMod,X,workspace,e+1"
+          "$mainMod SHIFT,X,movetoworkspace,e+1"
+          "$mainMod ALT,X,movetoworkspacesilent,e+1"
+          "$mainMod,Z,workspace,e-1"
+          "$mainMod SHIFT,Z,movetoworkspace,e-1"
+          "$mainMod ALT,Z,movetoworkspacesilent,e-1"
         ]
         /*
         ++ (
@@ -64,8 +71,8 @@
               i: let
                 ws = i + 1;
               in [
-                "ALT, code:1${toString i}, split:workspace, ${toString ws}"
-                "ALT SHIFT, code:1${toString i}, split:movetoworkspace, ${toString ws}"
+                "$mainMod, code:1${toString i}, workspace, ${toString ws}"
+                "$mainMod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
               ]
             )
             9
@@ -86,9 +93,9 @@
         "$mainMod, mouse:273, resizewindow"
       ];
       bindel = [
-        ",XF86AudioRaiseVolume,exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-        ",XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ",XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ",XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
+        ",XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
+        ",XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
         ",XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} play-pause"
         ",XF86AudioStop, exec, ${lib.getExe pkgs.playerctl} Stop"
         ",XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} next"

@@ -14,8 +14,15 @@ in {
     enable = lib.mkEnableOption "hyprland";
   };
   config = mkIf cfg.enable {
-    hj.rum.programs.hyprland = {
-      plugins = [pkgs.hyprlandPlugins.hyprsplit];
+    hj.packages = [
+      inputs.noctalia.packages.${pkgs.system}.default
+      inputs.quickshell.packages.${pkgs.system}.default
+      pkgs.nautilus # Apparently required for file picking
+      pkgs.wlsunset
+      pkgs.app2unit
+    ];
+    hj.rum.desktops.hyprland = {
+      #plugins = [pkgs.hyprlandPlugins.hyprsplit];
       enable = true;
     };
     programs.hyprland = {
@@ -24,10 +31,10 @@ in {
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     hardware.graphics = {
-      package = pkgs-unstable.mesa.drivers;
+      package = pkgs-unstable.mesa;
 
       enable32Bit = true;
-      package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+      package32 = pkgs-unstable.pkgsi686Linux.mesa;
     };
     xdg.portal = {
       enable = true;

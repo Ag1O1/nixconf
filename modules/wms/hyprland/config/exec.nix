@@ -3,22 +3,23 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  auto-start-script = import ./autostart.nix {inherit pkgs;};
+in {
   config = lib.mkIf config.modules.wms.hyprland.enable {
-    hj.rum.programs.hyprland.settings = {
+    hj.rum.desktops.hyprland.settings = {
+      #exec-once = [auto-start-script];
       exec-once = [
-        "ags -c ~/.config/ags/config.js"
-        "sleep 8 ; discord"
-        "ngrok http --url=goose-neat-sponge.ngrok-free.app 8080"
-        "hyprctl setcursor Bibata-Modern-Ice 24"
-        "hyprpaper"
-        "$browser"
-        "cd /home/amr/projects/rust/discord-ollama/flake && nix develop"
-        "[workspace 3] zapzap"
-        "${lib.getExe' pkgs.udiskie "udiskie"}"
-        "${pkgs.pantheon.pantheon-agent-polkit}/libexec/policykit-1-pantheon/io.elementary.desktop.agent-polkit"
-        "${lib.getExe' pkgs.wl-clipboard "wl-paste"} -t text --watch ${lib.getExe' pkgs.clipman "clipman"} store --no-persist"
-        "/home/amr/projects/rust/discord-ollama/target/release/discord-ollama"
+        "noctalia-shell"
+        "xrdb ~/.Xresources"
+        "xsettingsd"
+        "udiskie"
+        "sleep 3 && discord"
+        "sleep 2 && zapzap"
+        "sleep 2 && bitwarden"
+        "cd /home/amr/projects/rust/discord-ollama && target/release/discord-ollama"
+        "docker run -d --device=nvidia.com/gpu=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama"
+        "cd /home/amr/.local/share/self-hosting/searxng-docker/searxng/ && docker compose up -d"
       ];
 
       windowrulev2 = [

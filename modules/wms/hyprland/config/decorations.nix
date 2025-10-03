@@ -4,7 +4,7 @@
   ...
 }: {
   config = lib.mkIf config.modules.wms.hyprland.enable {
-    hj.rum.programs.hyprland.settings = {
+    hj.rum.desktops.hyprland.settings = {
       general = {
         gaps_in = 0; # 3
         gaps_out = 0; # 6
