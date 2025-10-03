@@ -10,12 +10,12 @@ in {
     enable = lib.mkEnableOption "sober";
   };
   config = mkIf cfg.enable {
-    services.flatpak = {
-      enable = true;
-      packages = [
-        ":${./sober.flatpakref}"
-      ];
-    };
+    #services.flatpak = {
+    #  enable = true;
+    #  packages = [
+    #    ":${./sober.flatpakref}"
+    #  ];
+    #};
     /*
     hj.files = {
       ".var/app/org.vinegarhq.Sober/data/sober/exe/ClientSettings/hm_ClientAppSettings.json".text = ''
