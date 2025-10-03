@@ -76,7 +76,7 @@ in {
         spicetify.enable = true;
         #sober.enable = false;
         obs.enable = true;
-        mako.enable = true;
+        #mako.enable = true;
       };
 
       tui = {
@@ -118,6 +118,7 @@ in {
     };
     wms = {
       niri.enable = true;
+      #hyprland.enable = true;
     };
   };
   networking.firewall = {
@@ -143,6 +144,8 @@ in {
     #package = pkgs.openrgb-hardwaresync;
     motherboard = "amd";
   };
+  programs.labwc.enable = true;
+  virtualisation.waydroid.enable = true;
   services.greetd = {
     enable = true;
     settings = rec {
