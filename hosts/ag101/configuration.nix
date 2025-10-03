@@ -133,8 +133,6 @@ in {
   environment.shellAliases = {
     os-rebuild = "sudo nixos-rebuild switch --flake /home/amr/nixos#ag101";
     os-rebuild-boot = "sudo nixos-rebuild boot --flake /home/amr/nixos#ag101";
-    ls = "${lib.getExe pkgs.lsd}";
-    cat = "${lib.getExe pkgs.bat}";
     grep = "grep --color=auto";
   };
 
