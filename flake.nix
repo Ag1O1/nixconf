@@ -54,7 +54,7 @@
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
 
     # Declarative flatpaks
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
+    #flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
 
     # Cosmic desktop (beta)
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
@@ -68,7 +68,6 @@
       #inputs.rust-overlay.follows = "";
     };
     # hyprland stuff
-    /*
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     hyprpicker.url = "github:hyprwm/hyprpicker";
@@ -81,7 +80,6 @@
         systems.follows = "hyprland/systems";
       };
     };
-    */
   };
 
   outputs = {
@@ -102,7 +100,7 @@
       nvf.nixosModules.default
       chaotic.nixosModules.default
 
-      flatpaks.nixosModule
+      #flatpaks.nixosModule
     ];
     inherit (builtins) concatLists;
   in {
