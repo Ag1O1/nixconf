@@ -19,6 +19,7 @@ in {
           swtpm.enable = true;
           ovmf.enable = true;
           ovmf.packages = [pkgs.OVMFFull.fd];
+          vhostUserPackages = [pkgs.virtiofsd];
         };
       };
       spiceUSBRedirection.enable = true;
@@ -34,7 +35,6 @@ in {
       quickemu
       guestfs-tools
       libvirt-glib
-      virtiofsd
       #virtio-win
       #win-spice
     ];
