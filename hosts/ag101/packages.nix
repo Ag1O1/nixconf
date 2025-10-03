@@ -9,6 +9,8 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.parsec-bin
+    pkgs.davinci-resolve
     pkgs.zapzap # Whatsapp client
     pkgs.galculator # Calculator
     pkgs.scarab # Hollow knight modder
