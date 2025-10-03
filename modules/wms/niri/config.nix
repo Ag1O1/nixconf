@@ -43,7 +43,7 @@ in ''
       }
 
       mouse {
-           accel-speed -0.2
+           accel-speed -0.3
            accel-profile "flat"
       }
   }
@@ -72,10 +72,10 @@ in ''
       }
       border {
           width 2
-          active-color " #4f2211 "
-          inactive-color "#505050"
+          active-color " #775117"
+          inactive-color "#00165A"
 
-           active-gradient from="#d16d17" to="#775117" angle=140 relative-to="workspace-view"
+           active-gradient from="#A5B9FF" to="#0D45C2" angle=140 relative-to="workspace-view"
            inactive-gradient from="#404040" to="#202020" angle=140 relative-to="workspace-view"
       }
 
@@ -136,6 +136,7 @@ in ''
       // - host Firefox (app-id is "firefox")
       // - Flatpak Firefox (app-id is "org.mozilla.firefox")
       match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+      match app-id="com.gabm.satty"
       open-floating true
   }
 
@@ -211,7 +212,7 @@ in ''
 
       // Suggested binds for running programs: terminal, app launcher, screen locker.
       Mod+Q { spawn "${terminal}"; }
-      Mod+G { spawn "noctalia-shell" "ipc" "call" "sidePanel" "toggle"; }
+      Mod+G { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
       Mod+Shift+Q { spawn "ghostty"; }
       //Mod+R { spawn "fuzzel" "--no-mouse"; }
       Mod+R {spawn-sh "noctalia-shell ipc call launcher toggle"; }
@@ -228,7 +229,8 @@ in ''
       XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
       XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
       XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-      XF86AudioMicMute     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+      Mod+Alt+X     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+      XF86Calculator     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
       XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
       //XF86AudioStop allow-when-locked=true { spawn "playerctl" "stop"; }
       XF86AudioNext allow-when-locked=true { spawn "playerctl" "next";}
@@ -443,7 +445,8 @@ in ''
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
-      Shift+Print { spawn-sh "${lib.getExe' pkgs.grim "grim"} -g \"$(${lib.getExe' pkgs.slurp "slurp"})\" - | ${lib.getExe' pkgs.satty "satty"} -f -"; }
+      Shift+Print { spawn-sh "${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png | ${lib.getExe' pkgs.satty "satty"} -f -"; }
+      //Shift+Print { spawn-sh "${lib.getExe' pkgs.grim "grim"} -g \"$(${lib.getExe' pkgs.slurp "slurp"})\" - | ${lib.getExe' pkgs.satty "satty"} -f -"; }
 
       // Applications such as remote-desktop clients and software KVM switches may
       // request that niri stops processing the keyboard shortcuts defined here

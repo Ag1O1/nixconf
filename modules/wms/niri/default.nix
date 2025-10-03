@@ -8,10 +8,10 @@
   cfg = config.modules.wms.niri;
   niri-config = import ./config.nix {inherit pkgs lib config;};
 in {
-  #imports = [
-  #  inputs.niri.nixosModules.niri
-  #  inputs.niri.lib.internal.settings-module
-  #];
+  imports = [
+    inputs.niri.nixosModules.niri
+    #  inputs.niri.lib.internal.settings-module
+  ];
 
   options.modules.wms.niri = {
     enable = lib.mkEnableOption "niri wm";
@@ -21,6 +21,7 @@ in {
     programs.xwayland.enable = lib.mkForce true;
     programs.niri = {
       enable = true;
+      package = inputs.niri.packages.${pkgs.system}.niri-unstable;
     };
     xdg.portal = {
       enable = true;
@@ -35,6 +36,8 @@ in {
       ];
     };
     #programs.niri.package = inputs.niri.packages.niri;
+    services.upower.enable = true; # Required to change power profiles
+    services.power-profiles-daemon.enable = true;
     hj = {
       packages = [
         inputs.noctalia.packages.${pkgs.system}.default
@@ -42,7 +45,8 @@ in {
         pkgs.nautilus # Apparently required for file picking
         pkgs.wlsunset
         pkgs.app2unit
-        pkgs.xwayland-satellite
+        #pkgs.xwayland-satellite
+        inputs.niri.packages.${pkgs.system}.xwayland-satellite-unstable
       ];
       files = {
         ".config/niri/config.kdl".text = niri-config;
