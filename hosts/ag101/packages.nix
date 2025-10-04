@@ -9,6 +9,7 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.ghostty
     pkgs.parsec-bin
     pkgs.davinci-resolve
     pkgs.zapzap # Whatsapp client
@@ -28,8 +29,6 @@ in {
     pkgs.zed-editor
     pkgs.zed-discord-presence
     pkgs.waypaper
-    pkgs.swaybg
-    pkgs-stable.swww
     pkgs.playerctl
     pkgs.udiskie
     # cosmic apps currently broken (unresponsive)
