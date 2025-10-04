@@ -11,7 +11,8 @@
   gtk-icon-pkg = pkgs.kanagawa-icon-theme;
   gtk-fallback-icon-pkg = pkgs.kdePackages.breeze-icons;
 
-  gtk-theme-name = "Tokyonight-Dark";
+  #TODO: rewrite
+  gtk-theme-name = "adw-gtk3";
   gtk-icon-name = "Papirus";
   gtk-fallback-icon-name = "breeze-dark";
   # I have no idea if this is correct.
@@ -59,6 +60,7 @@ in {
     */
     packages = [
       gtk-icon-pkg
+      pkgs.adw-gtk3
       pkgs.dracula-icon-theme
       pkgs.papirus-icon-theme
       gtk-theme-pkg
