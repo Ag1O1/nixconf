@@ -212,7 +212,7 @@ in ''
       // Suggested binds for running programs: terminal, app launcher, screen locker.
       Mod+Q { spawn "${terminal}"; }
       Mod+G { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
-      Mod+Shift+Q { spawn "ghostty"; }
+      //Mod+Shift+Q { spawn "ghostty"; }
       //Mod+R { spawn "fuzzel" "--no-mouse"; }
       Mod+R {spawn-sh "noctalia-shell ipc call launcher toggle"; }
       Mod+B { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
