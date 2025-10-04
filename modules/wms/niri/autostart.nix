@@ -13,8 +13,8 @@ pkgs.writeShellApplication {
       xrdb ~/.Xresources &
       xsettingsd &
       udiskie &
-      swww-daemon &
-      swaybg &
+      #swww-daemon &
+      #swaybg &
       waypaper --restore &
       sleep 3 && discord &
       sleep 6 && zapzap &
