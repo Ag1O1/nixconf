@@ -9,5 +9,6 @@
     ./mako
     ./eden
     ./walker
+    ./noctalia
   ];
 }

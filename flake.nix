@@ -47,6 +47,10 @@
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    matugen = {
+      url = "github:InioX/matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     walker.url = "github:abenz1267/walker";
 
     # spicetify flake
@@ -68,6 +72,7 @@
       #inputs.rust-overlay.follows = "";
     };
     # hyprland stuff
+    /*
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
     hyprpicker.url = "github:hyprwm/hyprpicker";
@@ -80,6 +85,7 @@
         systems.follows = "hyprland/systems";
       };
     };
+    */
   };
 
   outputs = {
