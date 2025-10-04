@@ -16,6 +16,7 @@ with lib; let
     audio
     svg
     zip
+    file-manager
     ;
 in {
   imports = [./options.nix];
@@ -24,6 +25,7 @@ in {
       enable = true;
       defaultApplications = {
         "text/*" = "${text}.desktop";
+        "inode/directory" = "${file-manager}";
 
         "image/*" = "${image}.desktop";
         "video/*" = "${video}.desktop";
