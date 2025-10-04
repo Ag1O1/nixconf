@@ -216,7 +216,7 @@ in ''
       //Mod+R { spawn "fuzzel" "--no-mouse"; }
       Mod+R {spawn-sh "noctalia-shell ipc call launcher toggle"; }
       Mod+B { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-      Super+Alt+L { spawn "swaylock"; }
+      Super+Alt+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "toggle"; }
       Mod+W { spawn "${browser}"; }
 
       // You can also use a shell. Do this if you need pipes, multiple commands, etc.
