@@ -3,8 +3,6 @@ pkgs.writeShellApplication {
   name = "auto-start-script";
   runtimeInputs = [
     pkgs.udiskie
-    pkgs.waypaper
-    pkgs.swaybg
   ];
   text =
     # bash
@@ -13,9 +11,6 @@ pkgs.writeShellApplication {
       xrdb ~/.Xresources &
       xsettingsd &
       udiskie &
-      #swww-daemon &
-      #swaybg &
-      waypaper --restore &
       sleep 3 && discord &
       sleep 6 && zapzap &
       sleep 2 && bitwarden &

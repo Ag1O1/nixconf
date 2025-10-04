@@ -28,7 +28,6 @@ in {
     #pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
     pkgs.zed-discord-presence
-    pkgs.waypaper
     pkgs.playerctl
     pkgs.udiskie
     # cosmic apps currently broken (unresponsive)
