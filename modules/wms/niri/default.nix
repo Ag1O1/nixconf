@@ -36,17 +36,10 @@ in {
       ];
     };
     #programs.niri.package = inputs.niri.packages.niri;
-    services.upower.enable = true; # Required to change power profiles
-    services.power-profiles-daemon.enable = true;
     hj = {
       packages = [
-        inputs.noctalia.packages.${pkgs.system}.default
-        inputs.quickshell.packages.${pkgs.system}.default
         pkgs.nautilus # Apparently required for file picking
-        pkgs.wlsunset
-        pkgs.app2unit
-        #pkgs.xwayland-satellite
-        inputs.niri.packages.${pkgs.system}.xwayland-satellite-unstable
+        pkgs.xwayland-satellite
       ];
       files = {
         ".config/niri/config.kdl".text = niri-config;
