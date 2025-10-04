@@ -71,6 +71,7 @@ in {
         eden.enable = true;
         firefox.enable = true;
         discord.enable = true;
+        noctalia.enable = true;
         #fuzzel.enable = true;
 
         spicetify.enable = true;
@@ -81,8 +82,8 @@ in {
 
       tui = {
         #starship.enable = true;
-        ghostty.enable = true;
-        foot.enable = true;
+        #ghostty.enable = true;
+        #foot.enable = true;
 
         tmux.enable = true;
         nvf.enable = true;
