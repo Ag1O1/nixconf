@@ -12,8 +12,6 @@ in {
     enable = lib.mkEnableOption "foot";
   };
   config = mkIf cfg.enable {
-    # FIXME: for some reason this modules isn't generating a foot.ini
-
     programs.foot = {
       enable = true;
       enableFishIntegration = true;

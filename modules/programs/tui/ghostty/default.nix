@@ -17,7 +17,6 @@ in {
         font-family = fonts.monospace.name;
         font-size = 14;
         theme = "custom";
-        ##  FIXME: using config.theme.colors
       };
       themes = {
         custom = {
