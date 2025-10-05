@@ -122,6 +122,16 @@
           ]
         ];
       };
+      lap = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = concatLists [
+          moduleInputs
+          [
+            ./hosts/Lap/configuration.nix
+            ./modules
+          ]
+        ];
+      };
     };
     devShells.x86_64-linux.default = pkgs.mkShell {
       packages = with pkgs; [
