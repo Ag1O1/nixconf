@@ -33,7 +33,7 @@ in {
         }
       ];
       systemPackages = with pkgs; [
-        nvtopPackages.nvidia
+        #nvtopPackages.nvidia # no idea what this is but it fails to build
 
         # mesa
         mesa
