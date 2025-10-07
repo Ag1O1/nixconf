@@ -4,6 +4,7 @@ pkgs.writeShellApplication {
   runtimeInputs = [
     pkgs.udiskie
   ];
+  # TODO: option to set custom autostart for each device(?)
   text =
     # bash
     ''
@@ -11,7 +12,7 @@ pkgs.writeShellApplication {
       xrdb ~/.Xresources &
       xsettingsd &
       udiskie &
-      sleep 3 && discord &
+      #sleep 3 && discord &
       sleep 6 && zapzap &
       sleep 2 && bitwarden &
       cd /home/amr/projects/rust/discord-ollama && target/release/discord-ollama &
