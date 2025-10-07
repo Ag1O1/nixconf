@@ -9,6 +9,7 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.resources
     pkgs.ghostty
     pkgs.parsec-bin
     pkgs.davinci-resolve
