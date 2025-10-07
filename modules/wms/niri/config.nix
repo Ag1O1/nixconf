@@ -440,7 +440,10 @@ in ''
       // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
       // Mod+Space       { switch-layout "next"; }
       // Mod+Shift+Space { switch-layout "prev"; }
-
+      XF86Launch3 { screenshot; }
+      Ctrl+XF86Launch3 { screenshot-screen; }
+      Alt+XF86Launch3 { screenshot-window; }
+      Shift+XF86Launch3 { spawn-sh "${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png | ${lib.getExe' pkgs.satty "satty"} -f -"; }
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
