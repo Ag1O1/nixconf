@@ -113,6 +113,7 @@ in {
     allowedUDPPorts = [10999]; # 10999 for don't starve together
     allowedTCPPorts = [10999];
   };
+  hardware.nvidia.open = true;
 
   environment.variables = {
     PROTONPATH = "GE-Proton";
