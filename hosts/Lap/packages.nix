@@ -9,6 +9,7 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.resources
     pkgs.ghostty
     pkgs.zapzap # Whatsapp client
     pkgs.galculator # Calculator
@@ -32,12 +33,14 @@ in {
     pkgs.mission-center
     pkgs.godot
 
+/*
     (pkgs.blender.override {
       cudaSupport = true;
       waylandSupport = true;
     })
+    */
 
-    pkgs.gimp3
+    #pkgs.gimp3
     pkgs.nemo-with-extensions # file manager
     pkgs.pavucontrol
     #pkgs.qbittorrent
