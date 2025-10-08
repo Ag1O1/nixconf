@@ -10,9 +10,9 @@
 in {
   environment.systemPackages = [
     pkgs.resources
+    pkgs.foot
     pkgs.ghostty
     pkgs.parsec-bin
-    pkgs.davinci-resolve
     pkgs.zapzap # Whatsapp client
     pkgs.galculator # Calculator
     pkgs.scarab # Hollow knight modder
@@ -22,11 +22,11 @@ in {
     pkgs.r2modman
     pkgs.xp-pen-g430-driver
     pkgs.distrobox
-    pkgs.cemu # wii u emulator
+    #pkgs.cemu # wii u emulator
     pkgs.grayjay
     #pkgs.oneshot # for zeditor
     pkgs.bitwarden-desktop
-    #pkgs.onlyoffice-desktopeditors
+    pkgs.onlyoffice-desktopeditors
     pkgs.zed-editor
     pkgs.zed-discord-presence
     pkgs.playerctl
@@ -73,7 +73,7 @@ in {
     #pkgs.uget # download manager
     #pkgs.scrcpy
     #pkgs.nixfmt-rfc-style
-    pkgs.libreoffice
+    pkgs-stable.libreoffice
     pkgs.simple-scan
     #pkgs.gnome-calendar
     #pkgs.element-desktop
