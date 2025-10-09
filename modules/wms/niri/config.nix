@@ -40,6 +40,8 @@ in ''
       touchpad {
           tap
           natural-scroll
+          accel-speed 0.6
+          accel-profile "flat"
       }
 
       mouse {
