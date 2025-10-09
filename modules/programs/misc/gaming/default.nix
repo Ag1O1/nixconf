@@ -8,6 +8,10 @@
 with lib;
 let
   cfg = config.modules.programs.misc.gaming;
+  pkgs-stable = import inputs.nixpkgs-stable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
 in
 {
   options.modules.programs.misc.gaming = {
@@ -26,11 +30,11 @@ in
       };
     };
     programs.steam.gamescopeSession.enable = true;
-    environment.systemPackages = with pkgs; [
-      prismlauncher
-      love # to run love2d games
-      mangohud
-      (lutris.override {
+    environment.systemPackages =[
+      pkgs.prismlauncher
+      pkgs.love # to run love2d games
+      pkgs.mangohud
+      (pkgs-stable.lutris.override {
         extraPkgs =
           pkgs: with pkgs; [
             # Workaround xorg cursor issue
@@ -44,9 +48,9 @@ in
             bibata-cursors
           ];
       })
-      winePackages.waylandFull
-      (wine.override { wineBuild = "wine64"; })
-      winetricks
+      pkgs.winePackages.waylandFull
+      (pkgs.wine.override { wineBuild = "wine64"; })
+      pkgs.winetricks
     ];
 
     programs.gamemode.enable = true;
