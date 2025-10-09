@@ -1,9 +1,9 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
-}:
-{
+}: {
   nixpkgs.config.permittedInsecurePackages = [
     "dotnet-sdk-6.0.428"
   ];
@@ -35,10 +35,13 @@
     pkgs.nixd
     pkgs.package-version-server
     pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
-    pkgs.nixos-rebuild-ng
   ];
-  environment.shellAliases = {
-    nixos-rebuild = "nixos-rebuild --flake ~/nixos#ag101 --use-remote-sudo";
+  # My configuration uses nh as a replacement for the default nixos rebuild command
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = lib.mkDefault "/home/amr/nixos"; # This is the location for the config in all my devices but can be overwritten
   };
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

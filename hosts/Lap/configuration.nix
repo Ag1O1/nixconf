@@ -121,8 +121,8 @@ in {
     GAMEID = "0";
   };
   environment.shellAliases = {
-    os-rebuild = "sudo nixos-rebuild switch --flake /home/amr/nixos#lap";
-    os-rebuild-boot = "sudo nixos-rebuild boot --flake /home/amr/nixos#lap";
+    os-rebuild = "nh os switch /home/amr/nixos -H lap";
+    os-rebuild-boot = "nh os boot /home/amr/nixos -H lap";
     grep = "grep --color=auto";
   };
 
