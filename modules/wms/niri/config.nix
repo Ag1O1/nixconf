@@ -3,17 +3,18 @@
   lib,
   config,
   ...
-}: let
-  auto-start-script = import ./autostart.nix {inherit pkgs;};
+}:
+let
+  auto-start-script = import ./autostart.nix { inherit pkgs; };
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
-  inherit
-    (config.modules.services.mime)
+  inherit (config.modules.services.mime)
     browser
     terminal
     file-manager
     ;
-in ''
+in
+''
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -40,7 +41,7 @@ in ''
       touchpad {
           tap
           natural-scroll
-          accel-speed 0.6
+          accel-speed 0.7
           accel-profile "flat"
       }
 
