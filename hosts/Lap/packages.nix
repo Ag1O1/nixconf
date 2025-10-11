@@ -9,6 +9,7 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.zoom-us
     pkgs.resources
     pkgs.ghostty
     pkgs.zapzap # Whatsapp client
@@ -50,7 +51,7 @@ in {
     (pkgs.btop.override {cudaSupport = true;})
     pkgs.bat
     pkgs.eza
-    pkgs.libreoffice
+    pkgs-stable.libreoffice
     pkgs.simple-scan
 
     pkgs.gparted
