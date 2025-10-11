@@ -68,7 +68,7 @@ in {
     programs = {
       gui = {
         #walker.enable = true;
-        eden.enable = true;
+        #eden.enable = true;
         firefox.enable = true;
         discord.enable = true;
         noctalia.enable = true;
