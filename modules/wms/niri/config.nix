@@ -230,6 +230,9 @@ in
       // The allow-when-locked=true property makes them work even when the session is locked.
       XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
       XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
+      XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+      XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
+
       XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
       Mod+Alt+X     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
       XF86Calculator     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
