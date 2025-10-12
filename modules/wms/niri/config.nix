@@ -234,6 +234,8 @@ in
       XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
 
       XF86AudioMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+      XF86AudioMicMute        allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+
       Mod+Alt+X     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
       XF86Calculator     allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "launcher" "calculator"; }
       XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
