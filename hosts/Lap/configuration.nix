@@ -73,7 +73,7 @@ in {
         discord.enable = true;
         noctalia.enable = true;
         spicetify.enable = true;
-        obs.enable = false;
+        obs.enable = true;
       };
 
       tui = {
