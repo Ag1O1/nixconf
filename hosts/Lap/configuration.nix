@@ -7,16 +7,17 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   user = "amr";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
-    #./hardware
+    ./hardware
     ./packages.nix
-    (
-      lib.mkAliasOptionModule
-      ["hj"]
+    (lib.mkAliasOptionModule
+      [ "hj" ]
       [
         "hjem"
         "users"
@@ -40,8 +41,6 @@ in {
   networking.hostName = "nixos";
   #networking.useDHCP = lib.mkDefault true;
 
-  # encrypted device | temp location
-  boot.initrd.luks.devices."luks-40f7a02e-be74-48d1-b150-a3aef34c9b5e".device = "/dev/disk/by-uuid/40f7a02e-be74-48d1-b150-a3aef34c9b5e";
   # user
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -110,8 +109,8 @@ in {
     };
   };
   networking.firewall = {
-    allowedUDPPorts = [10999]; # 10999 for don't starve together
-    allowedTCPPorts = [10999];
+    allowedUDPPorts = [ 10999 ]; # 10999 for don't starve together
+    allowedTCPPorts = [ 10999 ];
   };
   hardware.nvidia.open = true;
 
@@ -137,16 +136,16 @@ in {
   services.desktopManager.gnome.enable = true;
   programs.labwc.enable = true;
   /*
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "niri-session";
-        user = "amr";
+    services.greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "niri-session";
+          user = "amr";
+        };
+        default_session = initial_session;
       };
-      default_session = initial_session;
     };
-  };
   */
   system.stateVersion = "24.05";
 }
