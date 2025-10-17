@@ -3,18 +3,17 @@
   lib,
   config,
   ...
-}:
-let
-  auto-start-script = import ./autostart.nix { inherit pkgs; };
+}: let
+  auto-start-script = import ./autostart.nix {inherit pkgs;};
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
-  inherit (config.modules.services.mime)
+  inherit
+    (config.modules.services.mime)
     browser
     terminal
     file-manager
     ;
-in
-''
+in ''
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -64,7 +63,7 @@ in
     position x=-300 y=300
   }
   layout {
-      gaps 3
+      gaps 4
       //center-focused-column "on-overflow"
       default-column-width { proportion 0.5; }
       focus-ring {
@@ -74,7 +73,7 @@ in
           inactive-color "#505050"
       }
       border {
-          width 2
+          width 3
           active-color " #775117"
           inactive-color "#00165A"
 
@@ -451,6 +450,7 @@ in
       //Mod+Ctrl+R { reset-window-height; }
       Mod+F { maximize-column; }
       Mod+Shift+F { fullscreen-window; }
+      Mod+Alt+F { maximize-window-to-edges; }
       Mod+Ctrl+F { toggle-windowed-fullscreen; }
 
       // Expand the focused column to space not taken up by other fully visible columns.
