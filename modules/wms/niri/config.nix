@@ -60,8 +60,8 @@ in ''
   }
   output "HDMI-A-1" {
     mode "1920x1080@60.000"
-    position x=-300 y=300
-  }
+    position x=0 y=0
+    }
   layout {
       gaps 4
       //center-focused-column "on-overflow"
