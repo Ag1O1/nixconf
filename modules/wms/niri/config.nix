@@ -182,6 +182,7 @@ in ''
       // - Flatpak Firefox (app-id is "org.mozilla.firefox")
       match app-id=r#"firefox$"# title="^Picture-in-Picture$"
       match app-id="com.gabm.satty"
+      match app-id="packettracer.exe"
       open-floating true
   }
 
