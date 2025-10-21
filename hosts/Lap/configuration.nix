@@ -112,7 +112,21 @@ in
     allowedUDPPorts = [ 10999 ]; # 10999 for don't starve together
     allowedTCPPorts = [ 10999 ];
   };
-  hardware.nvidia.open = true;
+  # TODO: Put in its own hardware config file
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+  ];
+  hardware.nvidia = {
+    open = true;
+    powerManagement.finegrained = false;
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      nvidiaBusId = "PCI:1:0:0";
+      amdgpuBusId = "PCI:102:0:0";
+    };
+  };
 
   environment.variables = {
     PROTONPATH = "GE-Proton";
