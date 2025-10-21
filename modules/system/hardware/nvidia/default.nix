@@ -67,14 +67,14 @@ in {
         modesetting.enable = mkDefault true;
 
         powerManagement = {
-          enable = mkDefault true;
+          enable = mkDefault false;
           finegrained = mkDefault false;
         };
 
         open = mkDefault false;
-        nvidiaSettings = false; # add nvidia-settings to pkgs, useless on nixos
-        nvidiaPersistenced = false;
-        forceFullCompositionPipeline = true;
+        nvidiaSettings = mkDefault false; # add nvidia-settings to pkgs, useless on nixos
+        nvidiaPersistenced = mkDefault false;
+        forceFullCompositionPipeline = mkDefault false;
       };
 
       graphics = {
