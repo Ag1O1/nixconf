@@ -147,7 +147,8 @@ in
     motherboard = "amd";
   };
   services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  #services.desktopManager.gnome.enable = true;
+  services.gnome.evolution-data-server.enable = true;
   programs.labwc.enable = true;
   /*
     services.greetd = {
