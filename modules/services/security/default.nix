@@ -19,6 +19,7 @@ in
     services = {
       clamav = {
         daemon.enable = true;
+        updater.enable = true;
         scanner.enable = true;
       };
       fail2ban.enable = true;
