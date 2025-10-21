@@ -54,6 +54,10 @@ in ''
     focus-at-startup
     position x=0 y=0
   }
+  // laptop screen
+  output "BOE NE160WUM-NXA Unknown" {
+    variable-refresh-rate
+  }
   output "DVI-D-1" {
     mode "1600x900@60.000"
     position x=1920 y=110
