@@ -2,7 +2,7 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.devmon.enable = true;
-  services.asusd.enable = true;
+  #services.asusd.enable = true;
 
   # TODO
   #fileSystems."/run/media/amr/Disk" = {
