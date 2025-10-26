@@ -30,11 +30,11 @@ in
       };
     };
     programs.steam.gamescopeSession.enable = true;
-    environment.systemPackages =[
-      pkgs.prismlauncher
+    environment.systemPackages = [
+      pkgs.prismlauncher # Minecraft
       pkgs.love # to run love2d games
       pkgs.mangohud
-      (pkgs-stable.lutris.override {
+      (pkgs.lutris.override {
         extraPkgs =
           pkgs: with pkgs; [
             # Workaround xorg cursor issue
@@ -48,8 +48,8 @@ in
             bibata-cursors
           ];
       })
-      pkgs.winePackages.waylandFull
-      (pkgs.wine.override { wineBuild = "wine64"; })
+      #pkgs.winePackages.waylandFull
+      (pkgs.winePackages.waylandFull.override { wineBuild = "wine64"; })
       pkgs.winetricks
     ];
 
