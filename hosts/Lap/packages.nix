@@ -32,7 +32,7 @@ in {
 
     pkgs.unrar
     pkgs.mission-center
-    pkgs.godot
+    #pkgs.godot Fails to build
 
 /*
     (pkgs.blender.override {
