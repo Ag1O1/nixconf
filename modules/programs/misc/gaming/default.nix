@@ -5,15 +5,13 @@
   inputs,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.modules.programs.misc.gaming;
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.system;
     config.allowUnfree = true;
   };
-in
-{
+in {
   options.modules.programs.misc.gaming = {
     enable = lib.mkEnableOption "gaming";
   };
@@ -22,8 +20,8 @@ in
     programs.steam = {
       enable = true;
       package = pkgs.steam.override {
-        extraPkgs =
-          pkgs: with pkgs; [
+        extraPkgs = pkgs:
+          with pkgs; [
             # Workaround xorg cursor issue
             bibata-cursors
           ];
@@ -42,8 +40,8 @@ in
           ];
       })
       (inputs.umu.packages.x86_64-linux.umu-launcher.override {
-        extraPkgs =
-          pkgs: with pkgs; [
+        extraPkgs = pkgs:
+          with pkgs; [
             # Workaround xorg cursor issue
             bibata-cursors
           ];
