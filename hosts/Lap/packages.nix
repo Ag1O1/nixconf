@@ -52,6 +52,7 @@ in {
     pkgs.bat
     pkgs.eza
     pkgs-stable.libreoffice
+    pkgs.onlyoffice-bin
     pkgs.simple-scan
 
     pkgs.gparted
