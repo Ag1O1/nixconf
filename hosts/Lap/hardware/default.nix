@@ -1,1 +1,6 @@
-{imports = [./fs.nix];}
+{
+  imports = [
+    ./fs.nix
+    ./hardware.nix
+  ];
+}
