@@ -34,12 +34,10 @@ in {
     pkgs.mission-center
     #pkgs.godot Fails to build
 
-/*
     (pkgs.blender.override {
       cudaSupport = true;
       waylandSupport = true;
     })
-    */
 
     #pkgs.gimp3
     pkgs.nemo-with-extensions # file manager
