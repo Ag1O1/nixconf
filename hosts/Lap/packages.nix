@@ -71,6 +71,7 @@ in {
     unifont
     cascadia-code
     fira-code
+    fira-sans
     inter
     roboto-serif
     noto-fonts-color-emoji
