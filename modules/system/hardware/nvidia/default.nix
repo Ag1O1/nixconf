@@ -54,7 +54,7 @@ in {
       nvidia-container-toolkit.enable = true;
       nvidia = {
         #package = mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
-        package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+        package = mkDefault config.boot.kernelPackages.nvidiaPackages.stable;
         /*
         package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
           version = "575.64.05";
