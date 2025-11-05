@@ -9,6 +9,17 @@
   };
 in {
   environment.systemPackages = [
+    pkgs.qbittorrent
+    pkgs.wireshark
+    # required dependencies for doom emacs TODO: put int its own module
+    pkgs.git
+    pkgs.emacs    # Emacs 27.2
+    pkgs.ripgrep
+    # optional dependencies
+    pkgs.coreutils # basic GNU utilities
+    pkgs.fd
+    pkgs.clang
+    ####################################
     pkgs.zoom-us
     pkgs.resources
     pkgs.ghostty
