@@ -14,6 +14,9 @@
     file-manager
     ;
 in ''
+  debug {
+      honor-xdg-activation-with-invalid-serial
+  }
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -40,7 +43,7 @@ in ''
       touchpad {
           tap
           natural-scroll
-          accel-speed 0.7
+          accel-speed 0.8
           accel-profile "flat"
       }
 
@@ -67,7 +70,7 @@ in ''
     position x=0 y=0
     }
   layout {
-      gaps 4
+      gaps 6
       //center-focused-column "on-overflow"
       default-column-width { proportion 0.5; }
       focus-ring {
@@ -241,7 +244,7 @@ in ''
   }
   layer-rule {
       match namespace="^wallpaper$"
-      match namespace="^quickshell-overview$"
+      match namespace="^noctalia-overview*"
       place-within-backdrop true
   }
   layer-rule {
