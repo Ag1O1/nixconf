@@ -142,6 +142,8 @@ in
   #services.desktopManager.gnome.enable = true;
   services.gnome.evolution-data-server.enable = true;
   programs.labwc.enable = true;
+  programs.wireshark.enable = true;
+
   /*
     services.greetd = {
       enable = true;
