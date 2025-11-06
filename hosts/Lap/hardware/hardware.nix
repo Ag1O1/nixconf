@@ -3,7 +3,6 @@
   services.tlp = {
     enable = true;
     settings = {
-      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth wifi wwan";
       NMI_WATCHDOG = 0; # Set to 1 if debugging
       CPU_DRIVER_OPMODE_ON_AC = "active";
       CPU_DRIVER_OPMODE_ON_BAT = "active";
