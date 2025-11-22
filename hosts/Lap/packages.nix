@@ -4,11 +4,14 @@
   ...
 }: let
   pkgs-stable = import inputs.nixpkgs-stable {
-    system = pkgs.system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in {
   environment.systemPackages = [
+    #pkgs.aseprite
+    pkgs.godotPackages_4_5.godot
+    pkgs.element-desktop
     pkgs.qbittorrent
     pkgs.wireshark
     # required dependencies for doom emacs TODO: put int its own module
@@ -50,7 +53,7 @@ in {
       waylandSupport = true;
     })
 
-    #pkgs.gimp3
+    pkgs.gimp3
     pkgs.nemo-with-extensions # file manager
     pkgs.pavucontrol
     #pkgs.qbittorrent
