@@ -6,14 +6,13 @@
 }: {
   boot = {
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    #kernelPackages = pkgs.linuxPackages_cachyos-lto;
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    #kernelPackages = pkgs.linuxPackages_cachyos;
     #kernelPackages = pkgs.linuxPackages_cachyos-rc;
     kernelParams = [
       "sysrq_always_enabled=0"
       "ftrace_enabled=0"
     ];
-    kernelModules = ["ip_tables" "iptable_nat"];
     loader = {
       efi = {
         canTouchEfiVariables = true;

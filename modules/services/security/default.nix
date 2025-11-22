@@ -16,6 +16,10 @@ in
     environment.systemPackages = [
 
     ];
+    networking.wireless.extraConfig = ''
+      openssl_ciphers=DEFAULT@SECLEVEL=0
+    '';
+    networking.nftables.enable = true;
     services = {
       clamav = {
         daemon.enable = true;

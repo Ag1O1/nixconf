@@ -14,7 +14,7 @@ in
   };
   config = mkIf cfg.enable {
     environment.systemPackages = [
-      #   inputs.umu.packages.${pkgs.system}.umu
+      #   inputs.umu.packages.${pkgs.stdenv.hostPlatform.system}.umu
       (pkgs.writers.writeFishBin "nrun" ''
         if echo "$argv[1]" | grep -Eq '^[a-z]+:.+/.+$'
             nix run $argv[1] -- $argv[2..]

@@ -15,8 +15,8 @@ in {
   };
   config = mkIf cfg.enable {
     hj.packages = [
-      inputs.noctalia.packages.${pkgs.system}.default
-      inputs.quickshell.packages.${pkgs.system}.default
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
       pkgs.nautilus # Apparently required for file picking
       pkgs.wlsunset
       pkgs.app2unit

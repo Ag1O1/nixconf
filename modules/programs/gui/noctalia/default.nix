@@ -17,9 +17,9 @@ in {
     services.power-profiles-daemon.enable = true;
     hj = {
       packages = [
-        inputs.noctalia.packages.${pkgs.system}.default
-        inputs.quickshell.packages.${pkgs.system}.default
-        inputs.matugen.packages.${pkgs.system}.default
+        inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+        inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default
+        inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default
         pkgs.wlsunset
         pkgs.app2unit
         pkgs.glib

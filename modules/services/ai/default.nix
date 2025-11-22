@@ -8,7 +8,7 @@
 with lib; let
   cfg = config.modules.services.ai;
   nixpkgs-stable = import inputs.nixpkgs-stable {
-    system = pkgs.system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in {
@@ -25,10 +25,9 @@ in {
       openFirewall = true;
       };
       */
-      /*
       ollama = {
         enable = true;
-        acceleration = false;
+        acceleration = "cuda";
         host = "0.0.0.0";
         port = 11434;
         rocmOverrideGfx = "10.3.0";
@@ -37,7 +36,6 @@ in {
           OLLAMA_KV_CACHE_TYPE = "q4_0";
         };
       };
-      */
       open-webui = {
         enable = true;
         package = nixpkgs-stable.open-webui;

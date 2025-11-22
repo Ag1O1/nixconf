@@ -17,6 +17,8 @@ in {
         font-family = fonts.monospace.name;
         font-size = 14;
         theme = "custom";
+        working-directory = "home";
+        window-inherit-working-directory = false;
       };
       themes = {
         custom = {

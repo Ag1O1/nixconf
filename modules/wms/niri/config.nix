@@ -14,9 +14,19 @@
     file-manager
     ;
 in ''
+  switch-events {
+  lid-close {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend";}
+  }
   debug {
       honor-xdg-activation-with-invalid-serial
+      render-drm-device "/dev/dri/renderD129"
+      ignore-drm-device "/dev/dri/renderD128"
   }
+  //overview {
+  //  workspace-shadow {
+  //    off
+  //  }
+  //}
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -57,9 +67,13 @@ in ''
     focus-at-startup
     position x=0 y=0
   }
+  output "PNP(UGD) Artist 156    0x00000001" {
+    position x=1921 y=0
+  }
   // laptop screen
   output "BOE NE160WUM-NXA Unknown" {
     variable-refresh-rate
+    position x=0 y=0
   }
   output "DVI-D-1" {
     mode "1600x900@60.000"
@@ -70,6 +84,7 @@ in ''
     position x=0 y=0
     }
   layout {
+      background-color "transparent"
       gaps 6
       //center-focused-column "on-overflow"
       default-column-width { proportion 0.5; }
@@ -200,6 +215,8 @@ in ''
       match app-id=r#"^org\.gnome\.World\.Secrets$"#
       match app-id="Bitwarden"
       match title="Bitwarden"
+      match app-id="com.rtosta.zapzap"
+      match title="ZapZap"
 
       block-out-from "screen-capture"
 
@@ -245,6 +262,7 @@ in ''
   layer-rule {
       match namespace="^wallpaper$"
       match namespace="^noctalia-overview*"
+      match namespace="^noctalia-wallpaper*"
       place-within-backdrop true
   }
   layer-rule {
@@ -258,6 +276,7 @@ in ''
   hotkey-overlay {
       skip-at-startup
   }
+
 
   binds {
       Mod+Shift+Slash { show-hotkey-overlay; }

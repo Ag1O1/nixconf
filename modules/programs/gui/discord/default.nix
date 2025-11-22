@@ -9,7 +9,7 @@ with lib;
 let
   cfg = config.modules.programs.gui.discord;
   pkgs-stable = import inputs.nixpkgs-stable {
-    system = pkgs.system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
   discord-wrapped =
