@@ -90,6 +90,7 @@ in
     };
 
     services = {
+      ai.enable = true;
       pipewire.enable = true;
       bluetooth.enable = true;
       polkit.enable = true;
