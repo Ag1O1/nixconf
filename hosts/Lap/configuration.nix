@@ -59,6 +59,7 @@ in
         "kvm"
         "libvirt"
         "docker"
+        "wireshark"
       ];
     };
   };
