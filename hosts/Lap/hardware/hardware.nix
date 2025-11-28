@@ -32,8 +32,8 @@
 
       USB_AUTOSUSPEND = 1;
 
-      START_CHARGE_THRESH_BAT1 = 85;
-      STOP_CHARGE_THRESH_BAT1 = 90;
+      START_CHARGE_THRESH_BAT1 = 75;
+      STOP_CHARGE_THRESH_BAT1 = 80;
     };
   };
   services.power-profiles-daemon.enable = lib.mkForce false;
@@ -52,8 +52,8 @@
   ];
   hardware.nvidia = {
     open = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    #powerManagement.enable = true;
+    #powerManagement.finegrained = true;
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;

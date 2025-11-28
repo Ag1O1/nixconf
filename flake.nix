@@ -103,7 +103,6 @@
       #hjem-rum.nixosModules.default
       #spicetify-nix.nixosModules.default
       nvf.nixosModules.default
-      chaotic.nixosModules.default
 
       #flatpaks.nixosModule
     ];

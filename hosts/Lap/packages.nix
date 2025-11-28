@@ -2,21 +2,24 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   pkgs-stable = import inputs.nixpkgs-stable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
-in {
+in
+{
   environment.systemPackages = [
+    #pkgs.godot
     #pkgs.aseprite
-    pkgs.godotPackages_4_5.godot
+    pkgs.equibop
     pkgs.element-desktop
     pkgs.qbittorrent
     pkgs.wireshark
     # required dependencies for doom emacs TODO: put int its own module
     pkgs.git
-    pkgs.emacs    # Emacs 27.2
+    pkgs.emacs # Emacs 27.2
     pkgs.ripgrep
     # optional dependencies
     pkgs.coreutils # basic GNU utilities
@@ -46,21 +49,20 @@ in {
 
     pkgs.unrar
     pkgs.mission-center
-    #pkgs.godot Fails to build
 
     (pkgs.blender.override {
       cudaSupport = true;
       waylandSupport = true;
     })
 
-    pkgs.gimp3
+    #pkgs.gimp3
     pkgs.nemo-with-extensions # file manager
     pkgs.pavucontrol
     #pkgs.qbittorrent
     pkgs.kdePackages.ark
 
     pkgs.dust
-    (pkgs.btop.override {cudaSupport = true;})
+    (pkgs.btop.override { cudaSupport = true; })
     pkgs.bat
     pkgs.eza
     pkgs-stable.libreoffice

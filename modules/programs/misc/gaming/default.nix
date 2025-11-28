@@ -35,6 +35,7 @@ in
       pkgs.love # to run love2d games
       pkgs.mangohud
       pkgs-stable.lutris
+      /*
       (inputs.umu.packages.x86_64-linux.umu-launcher.override {
         extraPkgs =
           pkgs: with pkgs; [
@@ -42,6 +43,7 @@ in
             bibata-cursors
           ];
       })
+      */
       #pkgs.winePackages.waylandFull
       (pkgs.winePackages.waylandFull.override { wineBuild = "wine64"; })
       pkgs.winetricks

@@ -53,13 +53,14 @@ in
         "networkmanager"
         "wheel"
         "libvirtd"
-        "scanner"
+        "scanner" # printer scanner
         "lp"
         "video"
         "kvm"
-        "libvirt"
+        "libvirt" # some virtualization thing
         "docker"
-        "wireshark"
+        "wireshark" # for wireshark to work
+        "dialout" # for arduino to work
       ];
     };
   };
@@ -73,7 +74,7 @@ in
         discord.enable = true;
         noctalia.enable = true;
         spicetify.enable = true;
-        obs.enable = true;
+        #obs.enable = true;
       };
 
       tui = {
@@ -90,7 +91,7 @@ in
     };
 
     services = {
-      ai.enable = true;
+      #ai.enable = true;
       pipewire.enable = true;
       bluetooth.enable = true;
       polkit.enable = true;

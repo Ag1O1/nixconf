@@ -1,9 +1,11 @@
 {
   pkgs,
+  inputs,
   config,
   lib,
   ...
 }: {
+  imports = [inputs.chaotic.nixosModules.default];
   boot = {
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelPackages = pkgs.linuxPackages_cachyos-lto;
