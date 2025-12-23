@@ -50,6 +50,7 @@ in
       shell = pkgs.fish;
       isNormalUser = true;
       extraGroups = [
+        "ydotool"
         "networkmanager"
         "wheel"
         "libvirtd"
@@ -71,7 +72,6 @@ in
     programs = {
       gui = {
         firefox.enable = true;
-        discord.enable = true;
         noctalia.enable = true;
         spicetify.enable = true;
         #obs.enable = true;
@@ -87,6 +87,7 @@ in
       misc = {
         gaming.enable = true;
         git.enable = true;
+        vm.enable = true;
       };
     };
 
@@ -111,6 +112,7 @@ in
       niri.enable = true;
     };
   };
+  virtualisation.podman.enable = true;
   services.emacs.enable = true;
   programs.yazi = {
     enable = true;
@@ -121,7 +123,6 @@ in
   };
   virtualisation.waydroid.enable = true;
   # TODO: Put in its own hardware config file
-
 
   environment.variables = {
     PROTONPATH = "GE-Proton";

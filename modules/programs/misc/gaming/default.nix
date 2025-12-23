@@ -35,6 +35,7 @@ in
       pkgs.love # to run love2d games
       pkgs.mangohud
       pkgs-stable.lutris
+      pkgs.umu-launcher
       /*
       (inputs.umu.packages.x86_64-linux.umu-launcher.override {
         extraPkgs =

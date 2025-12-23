@@ -4,11 +4,12 @@
   config,
   lib,
   ...
-}: {
-  imports = [inputs.chaotic.nixosModules.default];
+}:
+{
   boot = {
+    kernelPackages = pkgs.linuxPackages_lqx;
     #kernelPackages = pkgs.linuxPackages_xanmod_latest;
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    #kernelPackages = pkgs.linuxPackages_cachyos-lto;
     #kernelPackages = pkgs.linuxPackages_cachyos;
     #kernelPackages = pkgs.linuxPackages_cachyos-rc;
     kernelParams = [
@@ -22,14 +23,14 @@
 
       # system fails to boot via limine
       /*
-      limine = {
-        enable = true;
-        efiSupport = true;
-        extraConfig = "default_entry=2";
-        style = {
-          #branding = "";
-        };
-        };
+        limine = {
+          enable = true;
+          efiSupport = true;
+          extraConfig = "default_entry=2";
+          style = {
+            #branding = "";
+          };
+          };
       */
 
       grub = {
@@ -42,7 +43,7 @@
     };
     plymouth = {
       enable = true;
-      themePackages = [pkgs.adi1090x-plymouth-themes];
+      themePackages = [ pkgs.adi1090x-plymouth-themes ];
       theme = "angular_alt";
     };
   };

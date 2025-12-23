@@ -11,9 +11,14 @@ let
 in
 {
   environment.systemPackages = [
-    #pkgs.godot
+    pkgs.distrobox
+    pkgs.mpv
     #pkgs.aseprite
+    #pkgs.grayjay
     pkgs.equibop
+    pkgs.pywalfox-native
+    pkgs.godot
+    pkgs.gimp
     pkgs.element-desktop
     pkgs.qbittorrent
     pkgs.wireshark
@@ -49,13 +54,13 @@ in
 
     pkgs.unrar
     pkgs.mission-center
+    pkgs.blender
 
-    (pkgs.blender.override {
-      cudaSupport = true;
-      waylandSupport = true;
-    })
+    #(pkgs.blender.override {
+    #  cudaSupport = true;
+    #  waylandSupport = true;
+    #})
 
-    #pkgs.gimp3
     pkgs.nemo-with-extensions # file manager
     pkgs.pavucontrol
     #pkgs.qbittorrent
@@ -74,7 +79,6 @@ in
 
     pkgs.microfetch
     pkgs.obsidian
-    pkgs.vlc
     pkgs.udiskie
     pkgs.gvfs
     pkgs.udisks

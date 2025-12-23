@@ -38,7 +38,7 @@ in {
     };
     video = mkOption {
       type = str;
-      default = "vlc";
+      default = "mpv";
       description = "Defines video player";
     };
     audio = mkOption {

@@ -5,9 +5,11 @@
   inputs,
   ...
 }:
-with lib; let
+with lib;
+let
   cfg = config.modules.programs.gui.noctalia;
-in {
+in
+{
   options.modules.programs.gui.noctalia = {
     enable = lib.mkEnableOption "noctalia shell";
   };
@@ -15,6 +17,7 @@ in {
   config = mkIf cfg.enable {
     services.upower.enable = true; # Required to change power profiles
     services.power-profiles-daemon.enable = true;
+    programs.ydotool.enable = true; # virtual keyboard
     hj = {
       packages = [
         inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default

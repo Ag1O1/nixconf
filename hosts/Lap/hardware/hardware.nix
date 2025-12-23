@@ -50,6 +50,7 @@
     "amdgpu"
     "nvidia"
   ];
+  hardware.graphics.enable32Bit = true;
   hardware.nvidia = {
     open = true;
     #powerManagement.enable = true;

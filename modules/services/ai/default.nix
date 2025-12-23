@@ -26,11 +26,11 @@ in {
       };
       */
       ollama = {
+        package = pkgs.ollama-cuda;
         enable = true;
-        acceleration = "cuda";
         host = "0.0.0.0";
         port = 11434;
-        rocmOverrideGfx = "10.3.0";
+        #rocmOverrideGfx = "10.3.0";
         environmentVariables = {
           OLLAMA_FLASH_ATTENTION = "1";
           OLLAMA_KV_CACHE_TYPE = "q4_0";

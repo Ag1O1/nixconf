@@ -11,6 +11,7 @@
     optimise.automatic = true;
 
     settings = {
+      cores = 8;
       substituters = [
         #"https://hyprland.cachix.org"
         #"https://cosmic.cachix.org"
@@ -29,7 +30,6 @@
   programs.nix-ld.enable = true;
   nixpkgs.config = {
     allowUnfree = true; # its a pain to manage a system without unfree software
-    cudaSupport = true;
   };
   environment.systemPackages = [
     pkgs.nixd

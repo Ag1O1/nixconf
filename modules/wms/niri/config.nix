@@ -3,30 +3,30 @@
   lib,
   config,
   ...
-}: let
-  auto-start-script = import ./autostart.nix {inherit pkgs;};
+}:
+let
+  auto-start-script = import ./autostart.nix { inherit pkgs; };
   inherit (config.theme) fonts cursor;
   inherit (builtins) toString;
-  inherit
-    (config.modules.services.mime)
+  inherit (config.modules.services.mime)
     browser
     terminal
     file-manager
     ;
-in ''
+in
+''
   switch-events {
   lid-close {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend";}
   }
   debug {
       honor-xdg-activation-with-invalid-serial
-      render-drm-device "/dev/dri/renderD129"
-      ignore-drm-device "/dev/dri/renderD128"
   }
-  //overview {
-  //  workspace-shadow {
-  //    off
-  //  }
-  //}
+  overview {
+    zoom 0.45
+    //workspace-shadow {
+    //  off
+    //}
+  }
   workspace "browser" {
       open-on-output "DP-1"
   }
@@ -73,6 +73,7 @@ in ''
   // laptop screen
   output "BOE NE160WUM-NXA Unknown" {
     variable-refresh-rate
+    mode "1920x1200@165"
     position x=0 y=0
   }
   output "DVI-D-1" {
@@ -99,8 +100,8 @@ in ''
           active-color " #775117"
           inactive-color "#00165A"
 
-           active-gradient from="#A5B9FF" to="#0D45C2" angle=140 relative-to="workspace-view"
-           inactive-gradient from="#404040" to="#202020" angle=140 relative-to="workspace-view"
+           //active-gradient from="#A5B9FF" to="#0D45C2" angle=140 relative-to="workspace-view"
+           //inactive-gradient from="#404040" to="#202020" angle=140 relative-to="workspace-view"
       }
 
       shadow {
@@ -546,4 +547,5 @@ in ''
       // moving the mouse or pressing any other key.
       Mod+Shift+P { power-off-monitors; }
       }
+      include "noctalia.kdl"
 ''
