@@ -9,15 +9,13 @@
       self.nixosModules.core
       self.nixosModules.laptopHardware
       self.nixosModules.laptopModule
+      self.nixosModules.laptopPackages
       #self.nixosModules.testModule
       self.nixosModules.niri
     ];
   };
-  flake.nixosModules.laptopModule = {pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      godot
-      equibop
-    ];
+  flake.nixosModules.laptopModule = {...}: {
+    programs.yazi.enable = true;
   };
 
   flake.nixosModules.laptopHardware = {
