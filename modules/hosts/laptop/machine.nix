@@ -12,10 +12,20 @@
       self.nixosModules.laptopPackages
       #self.nixosModules.testModule
       self.nixosModules.niri
+      self.nixosModules.pipewire
     ];
   };
   flake.nixosModules.laptopModule = {...}: {
-    programs.yazi.enable = true;
+    services.greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "niri-session";
+          user = "amr";
+        };
+        default_session = initial_session;
+      };
+    };
   };
 
   flake.nixosModules.laptopHardware = {
