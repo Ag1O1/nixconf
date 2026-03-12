@@ -1,5 +1,5 @@
-{inputs, ...}: {
-  flake.nixosModules.testModule = {pkgs, ...}: {
+{...}: {
+  flake.nixosModules.testModule = {
     programs.firefox.enable = true;
   };
 }

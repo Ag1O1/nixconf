@@ -1,5 +1,5 @@
-{ ... }: {
-  flake.nixosModules.core = {pkgs, ...} {
+{...}: {
+  flake.nixosModules.core = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       git
       tree

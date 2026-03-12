@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.niri = {pkgs, ...}: {
+  flake.nixosModules.niri = {...}: {
     programs.niri.enable = true;
   };
 }
