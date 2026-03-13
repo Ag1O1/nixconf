@@ -10,6 +10,8 @@
       self.nixosModules.laptopHardware
       self.nixosModules.laptopModule
       self.nixosModules.laptopPackages
+      self.modules.nixos.nvidia
+      self.modules.nixos.printing
       #self.nixosModules.testModule
       self.nixosModules.niri
       self.nixosModules.pipewire
@@ -37,6 +39,10 @@
       initialPassword = "test";
     };
     users.users.root.initialPassword = "root";
+    hardware.nvidia.prime = {
+      amdgpuBusId = "PCI:102:0:0";
+      nvidiaBusId = "PCI:01:0:0";
+    };
     # Temp fake hardware for testing
     fileSystems."/" = {
       device = "/dev/disk/by-label/nixos";
