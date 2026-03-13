@@ -68,6 +68,10 @@
       };
     };
 
+    services.gvfs.enable = true;
+    services.udisks2.enable = true;
+    services.devmon.enable = true;
+
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "btrfs";
