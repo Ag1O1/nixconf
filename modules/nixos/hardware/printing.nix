@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  flake.modules.nixos.printing = {
+{...}: {
+  flake.modules.nixos.printing = {pkgs, ...}: {
     services.printing = {
       enable = true;
       drivers = [pkgs.hplipWithPlugin];
