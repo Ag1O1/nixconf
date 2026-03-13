@@ -15,6 +15,7 @@
       # User
       self.modules.nixos.user-amr
       # Modules
+      self.modules.nixos.theming
       self.modules.nixos.pipewire
       self.modules.nixos.networking
       self.modules.nixos.nvidia
@@ -31,7 +32,8 @@
       self.modules.nixos.firefox
     ];
   };
-  flake.modules.nixos.laptopModule = { ...}: {
+  flake.modules.nixos.laptopModule = {pkgs, ...}: {
+    boot.kernelPackages = pkgs.linuxPackages_zen;
     environment.shellAliases = {
       os-rebuild = "nh os switch /home/amr/nixos -H laptop";
       os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
