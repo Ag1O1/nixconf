@@ -16,10 +16,13 @@
       self.modules.nixos.user-amr
       # Modules
       self.modules.nixos.pipewire
+      self.modules.nixos.networking
       self.modules.nixos.nvidia
       self.modules.nixos.tlp
       self.modules.nixos.fish
       self.modules.nixos.printing
+      self.modules.nixos.keyd
+      self.modules.nixos.direnv
 
       self.modules.nixos.niri
       self.modules.nixos.noctalia
@@ -27,16 +30,16 @@
       self.modules.nixos.yazi
     ];
   };
-  flake.modules.nixos.laptopModule = {...}: {
-    services.greetd = {
+  flake.modules.nixos.laptopModule = { ...}: {
+    environment.shellAliases = {
+      os-rebuild = "nh os switch /home/amr/nixos -H laptop";
+      os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
+      grep = "grep --color=auto";
+    };
+    services.displayManager.sddm = {
       enable = true;
-      settings = rec {
-        initial_session = {
-          command = "niri-session";
-          user = "amr";
-        };
-        default_session = initial_session;
-      };
+      wayland.enable = true;
+      #theme = "${pkgs.catppuccin-sddm}/share/sddm/themes/catppuccin-mocha-mauve";
     };
   };
 
