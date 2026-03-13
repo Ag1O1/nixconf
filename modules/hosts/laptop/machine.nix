@@ -3,7 +3,7 @@
   self,
   ...
 }: {
-  flake.nixosConfigurations.laptop = inputs.nixkgs.lib.nixosSystem {
+  flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       self.nixosModules.core
