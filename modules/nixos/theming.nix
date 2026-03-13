@@ -5,6 +5,7 @@
       pkgs.dracula-icon-theme
       pkgs.papirus-icon-theme
       pkgs.bibata-cursors
+      pkgs.nwg-look
       pkgs.xsettingsd
       pkgs.xorg.xrdb
     ];
