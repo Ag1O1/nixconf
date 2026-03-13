@@ -32,7 +32,7 @@
 
   flake.nixosModules.laptopHardware = {
     system.stateVersion = "25.11";
-    hardware.facter.reportPath = "./facter.json";
+    hardware.facter.reportPath = ./facter.json;
     users.users.test = {
       isNormalUser = true;
       extraGroups = ["wheel"];
