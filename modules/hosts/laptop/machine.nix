@@ -13,6 +13,7 @@
       self.nixosModules.laptopPackages
       self.modules.nixos.nvidia
       self.modules.nixos.printing
+      self.modules.nixos.user-amr
       #self.nixosModules.testModule
       self.nixosModules.niri
       self.nixosModules.pipewire
@@ -34,17 +35,21 @@
   flake.nixosModules.laptopHardware = {
     system.stateVersion = "25.11";
     hardware.facter.reportPath = ./facter.json;
-    users.users.test = {
-      isNormalUser = true;
-      extraGroups = ["wheel"];
-      initialPassword = "test";
-    };
+    time.timeZone = "Africa/Cairo";
+    i18n.defaultLocale = "en_US.UTF-8";
     users.users.root.initialPassword = "root";
+
     hardware.nvidia.prime = {
       amdgpuBusId = "PCI:102:0:0";
       nvidiaBusId = "PCI:01:0:0";
     };
-    boot.loader.grub.enable = false;
+
+    boot.loader.grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+      efiCanTouchEfiVariables = false;
+    };
 
     fileSystems."/" = {
       device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";
