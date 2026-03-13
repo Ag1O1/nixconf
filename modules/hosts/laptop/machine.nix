@@ -15,11 +15,14 @@
       self.modules.nixos.user-amr
       # Modules
       self.modules.nixos.pipewire
-      self.modules.nixos.yazi
-      self.modules.nixos.fish
       self.modules.nixos.nvidia
+      self.modules.nixos.fish
       self.modules.nixos.printing
+
       self.modules.nixos.niri
+      self.modules.nixos.noctalia
+
+      self.modules.nixos.yazi
     ];
   };
   flake.modules.nixos.laptopModule = {...}: {

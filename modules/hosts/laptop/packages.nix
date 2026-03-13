@@ -5,6 +5,8 @@
       equibop
       blender
       ghostty
+      bibata-cursors
+      noctalia-shell
     ];
   };
 }
