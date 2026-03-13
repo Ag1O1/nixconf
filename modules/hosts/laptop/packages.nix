@@ -4,6 +4,7 @@
       godot
       equibop
       blender
+      ghostty
     ];
   };
 }
