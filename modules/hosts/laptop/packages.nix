@@ -1,5 +1,5 @@
 {...}: {
-  flake.modules.nixos.laptopPackages = {pkgs, ...}: {
+  flake.modules.nixos.laptopPackages = { pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       zed-editor
       btop

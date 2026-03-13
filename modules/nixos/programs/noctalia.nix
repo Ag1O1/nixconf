@@ -7,6 +7,7 @@
       wlsunset
       app2unit
       glib
+      adw-gtk3
     ];
   };
 }

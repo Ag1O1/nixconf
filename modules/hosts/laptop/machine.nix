@@ -28,6 +28,7 @@
       self.modules.nixos.noctalia
 
       self.modules.nixos.yazi
+      self.modules.nixos.firefox
     ];
   };
   flake.modules.nixos.laptopModule = { ...}: {
@@ -54,6 +55,7 @@
       amdgpuBusId = "PCI:102:0:0";
       nvidiaBusId = "PCI:01:0:0";
     };
+    services.asusd.enable = true;
 
     boot.loader = {
       efi.canTouchEfiVariables = true;
