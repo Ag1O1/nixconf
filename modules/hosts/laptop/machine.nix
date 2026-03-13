@@ -9,6 +9,7 @@
       self.nixosModules.core
       self.nixosModules.laptopHardware
       self.nixosModules.laptopModule
+      self.nixosModules.yazi
       self.nixosModules.laptopPackages
       self.modules.nixos.nvidia
       self.modules.nixos.printing
@@ -43,6 +44,7 @@
       amdgpuBusId = "PCI:102:0:0";
       nvidiaBusId = "PCI:01:0:0";
     };
+    boot.loader.grub.enable = false;
 
     fileSystems."/" = {
       device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";

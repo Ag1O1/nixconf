@@ -1,11 +1,11 @@
-{pkgs, ...}: {
-  flake.nixosModules.laptopModule = {...}: {
+{...}: {
+  flake.nixosModules.yazi = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
-      plugins = with pkgs.yaziPlugins; [
-        mount
-        compress
-      ];
+      plugins = {
+        mount = pkgs.yaziPlugins.mount;
+        compress = pkgs.yaziPlugins.compress;
+      };
     };
   };
 }
