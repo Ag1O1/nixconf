@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.theming = {pkgs, ...}: {
-    environment.systempackages = [
+    environment.systemPackages = [
       pkgs.adw-gtk3
       pkgs.dracula-icon-theme
       pkgs.papirus-icon-theme
