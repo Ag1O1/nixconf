@@ -8,6 +8,7 @@
       app2unit
       glib
       adw-gtk3
+      gpu-screen-recorder
     ];
   };
 }
