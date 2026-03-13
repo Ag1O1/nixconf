@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./nvidia
-    ./printing
-    ./opentablet
-  ];
-}

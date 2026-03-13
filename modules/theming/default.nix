@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./gtk
-    ./qt
-    ./theme
-  ];
-}
