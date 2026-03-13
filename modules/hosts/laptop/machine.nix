@@ -16,6 +16,7 @@
       # Modules
       self.modules.nixos.pipewire
       self.modules.nixos.nvidia
+      self.modules.nixos.tlp
       self.modules.nixos.fish
       self.modules.nixos.printing
 
