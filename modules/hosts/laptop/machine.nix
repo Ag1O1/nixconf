@@ -7,7 +7,8 @@
     system = "x86_64-linux";
     modules = [
       # Core
-      self.modules.nixos.core
+      self.modules.nixos.nix
+      self.modules.nixos.core-packages
       self.modules.nixos.laptopHardware
       self.modules.nixos.laptopPackages
       self.modules.nixos.laptopModule
