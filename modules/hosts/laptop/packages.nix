@@ -1,9 +1,9 @@
 {...}: {
-  flake.modules.nixos.laptopPackages = { pkgs, ...}: {
+  flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
+      zapzap
       zed-editor
       btop
-      firefox-bin
       nemo
       godot
       equibop
