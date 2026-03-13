@@ -6,20 +6,21 @@
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      self.nixosModules.core
-      self.nixosModules.laptopHardware
-      self.nixosModules.laptopModule
-      self.nixosModules.yazi
-      self.nixosModules.laptopPackages
+      self.modules.nixos.core
+      self.modules.nixos.laptopHardware
+      self.modules.nixos.laptopModule
+      self.modules.nixos.yazi
+      self.modules.nixos.fish
+      self.modules.nixos.laptopPackages
       self.modules.nixos.nvidia
       self.modules.nixos.printing
       self.modules.nixos.user-amr
-      #self.nixosModules.testModule
-      self.nixosModules.niri
-      self.nixosModules.pipewire
+      #self.modules.nixos.testModule
+      self.modules.nixos.niri
+      self.modules.nixos.pipewire
     ];
   };
-  flake.nixosModules.laptopModule = {...}: {
+  flake.modules.nixos.laptopModule = {...}: {
     services.greetd = {
       enable = true;
       settings = rec {
@@ -32,7 +33,7 @@
     };
   };
 
-  flake.nixosModules.laptopHardware = {
+  flake.modules.nixos.laptopHardware = {
     system.stateVersion = "25.11";
     hardware.facter.reportPath = ./facter.json;
     time.timeZone = "Africa/Cairo";
@@ -44,11 +45,13 @@
       nvidiaBusId = "PCI:01:0:0";
     };
 
-    boot.loader.grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      efiCanTouchEfiVariables = false;
+    boot.loader = {
+      efi.canTouchEfiVariables = false;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+      };
     };
 
     fileSystems."/" = {

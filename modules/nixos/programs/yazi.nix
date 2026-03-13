@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.yazi = {pkgs, ...}: {
+  flake.modules.nixos.yazi = {pkgs, ...}: {
     programs.yazi = {
       enable = true;
       plugins = {
