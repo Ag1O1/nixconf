@@ -30,6 +30,7 @@
 
       self.modules.nixos.yazi
       self.modules.nixos.firefox
+      self.modules.nixos.gaming
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
@@ -127,7 +128,7 @@
     };
 
     fileSystems."/home/amr/drive" = {
-      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
+      device = "/dev/disk/by-uuid/b75ce50d-1020-4784-824a-dae35069d641";
       fsType = "ext4";
       options = ["defaults" "noatime"];
     };
