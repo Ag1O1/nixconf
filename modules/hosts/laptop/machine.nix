@@ -6,18 +6,20 @@
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
+      # Core
       self.modules.nixos.core
       self.modules.nixos.laptopHardware
+      self.modules.nixos.laptopPackages
       self.modules.nixos.laptopModule
+      # User
+      self.modules.nixos.user-amr
+      # Modules
+      self.modules.nixos.pipewire
       self.modules.nixos.yazi
       self.modules.nixos.fish
-      self.modules.nixos.laptopPackages
       self.modules.nixos.nvidia
       self.modules.nixos.printing
-      self.modules.nixos.user-amr
-      #self.modules.nixos.testModule
       self.modules.nixos.niri
-      self.modules.nixos.pipewire
     ];
   };
   flake.modules.nixos.laptopModule = {...}: {
@@ -46,7 +48,7 @@
     };
 
     boot.loader = {
-      efi.canTouchEfiVariables = false;
+      efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
         device = "nodev";
@@ -55,7 +57,7 @@
     };
 
     fileSystems."/" = {
-      device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";
+      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "btrfs";
       options = [
         "subvol=@nixos"
@@ -67,7 +69,7 @@
     };
 
     fileSystems."/home" = {
-      device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";
+      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "btrfs";
       options = [
         "subvol=@home"
@@ -79,7 +81,7 @@
     };
 
     fileSystems."/nix" = {
-      device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";
+      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "btrfs";
       options = [
         "subvol=@nix"
@@ -90,7 +92,7 @@
     };
 
     fileSystems."/mnt/swap" = {
-      device = "UUID=430c366d-f6d8-4592-a26a-561a29d94de1";
+      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "btrfs";
       options = [
         "subvol=@swap"
@@ -102,8 +104,14 @@
       {device = "/mnt/swap/swapfile";}
     ];
 
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-uuid/66E7-77B4";
+      fsType = "vfat";
+      options = ["fmask=0077" "dmask=0077"];
+    };
+
     fileSystems."/home/amr/drive" = {
-      device = "UUID=b75ce50d-1020-4784-824a-dae35069d641";
+      device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
       fsType = "ext4";
       options = ["defaults" "noatime"];
     };
