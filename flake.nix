@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    linuxmobile-pkgs = {
+      url = "github:linuxmobile/mynixpkgs"; #extra packages
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
