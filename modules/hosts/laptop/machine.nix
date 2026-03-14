@@ -31,6 +31,7 @@
       self.modules.nixos.yazi
       self.modules.nixos.firefox
       self.modules.nixos.gaming
+      self.modules.nixos.discord
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {

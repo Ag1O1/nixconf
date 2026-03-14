@@ -8,7 +8,6 @@
       btop
       nemo
       godot
-      equibop
       blender
       ghostty
       bibata-cursors
