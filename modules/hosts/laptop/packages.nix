@@ -1,6 +1,10 @@
 {...}: {
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
+      obs-studio
+      equibop
+      pavucontrol
+      file-roller
       btrfs-progs
       bitwarden-desktop
       zapzap
