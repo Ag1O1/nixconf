@@ -33,6 +33,7 @@
       self.modules.nixos.gaming
       self.modules.nixos.discord
       self.modules.nixos.virt-manager
+      self.modules.nixos.emacs
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
