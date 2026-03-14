@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   flake.modules.nixos.nix = {
     pkgs,
     lib,
@@ -25,6 +25,9 @@
       pkgs.package-version-server
       pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
     ];
+    nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
+    nix.settings.substituters = ["https://attic.xuyh0120.win/lantian"];
+    nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="];
     # My configuration uses nh as a replacement for the default nixos rebuild command
     programs.nh = {
       enable = true;

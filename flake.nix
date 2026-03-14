@@ -24,6 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

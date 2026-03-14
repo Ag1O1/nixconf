@@ -37,7 +37,7 @@
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
-    boot.kernelPackages = pkgs.linuxPackages_zen;
+    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     environment.shellAliases = {
       os-rebuild = "nh os switch /home/amr/nixos -H laptop";
       os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
