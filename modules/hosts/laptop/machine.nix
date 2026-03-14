@@ -5,34 +5,34 @@
 }: {
   flake.nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    modules = [
+    modules = with self.modules.nixos; [
       # Core
-      self.modules.nixos.nix
-      self.modules.nixos.core-packages
-      self.modules.nixos.laptopHardware
-      self.modules.nixos.laptopPackages
-      self.modules.nixos.laptopModule
+      nix
+      core-packages
+      laptopHardware
+      laptopPackages
+      laptopModule
       # User
-      self.modules.nixos.user-amr
+      user-amr
       # Modules
-      self.modules.nixos.theming
-      self.modules.nixos.pipewire
-      self.modules.nixos.networking
-      self.modules.nixos.nvidia
-      self.modules.nixos.tlp
-      self.modules.nixos.fish
-      self.modules.nixos.printing
-      self.modules.nixos.keyd
-      self.modules.nixos.direnv
+      theming
+      pipewire
+      networking
+      nvidia
+      tlp
+      fish
+      printing
+      keyd
+      direnv
 
-      self.modules.nixos.niri
-      self.modules.nixos.noctalia
+      niri
+      noctalia
 
-      self.modules.nixos.yazi
-      self.modules.nixos.firefox
-      self.modules.nixos.gaming
-      self.modules.nixos.virt-manager
-      self.modules.nixos.emacs
+      yazi
+      firefox
+      gaming
+      virt-manager
+      emacs
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
