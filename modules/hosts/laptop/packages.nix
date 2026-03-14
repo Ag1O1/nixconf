@@ -5,6 +5,7 @@
       bitwarden-desktop
       zapzap
       zed-editor
+      zed-discord-presence
       btop
       nemo
       godot
