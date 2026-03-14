@@ -1,6 +1,8 @@
 {...}: {
   flake.modules.nixos.fish = {pkgs, ...}: {
     environment.systemPackages = [
+      pkgs.fishPlugins.tide
+      pkgs.fishPlugins.done
       (pkgs.writers.writeFishBin "nrun" ''
         if echo "$argv[1]" | grep -Eq '^[a-z]+:.+/.+$'
             nix run $argv[1] -- $argv[2..]
