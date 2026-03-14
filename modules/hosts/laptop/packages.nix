@@ -2,6 +2,7 @@
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       obs-studio
+      gnome-calendar
       equibop
       pavucontrol
       file-roller
