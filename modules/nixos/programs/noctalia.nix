@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
       (inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {calendarSupport = true;})
       wlsunset
+      wl-clipboard-rs
       satty
       app2unit
       glib
