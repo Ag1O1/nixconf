@@ -5,6 +5,7 @@
         enable = true;
         qemu = {
           package = pkgs.qemu_kvm;
+          vhostUserPackages = [pkgs.virtiofsd];
           swtpm.enable = true;
         };
       };
