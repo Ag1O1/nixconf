@@ -7,7 +7,7 @@
       pkgs.bibata-cursors
       pkgs.nwg-look
       pkgs.xsettingsd
-      pkgs.xorg.xrdb
+      pkgs.xrdb
     ];
     environment.sessionVariables = {
       GTK_THEME = "adw-gtk3";
