@@ -38,6 +38,10 @@
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+    services.logind.settings.Login.HandleLidSwitch = "ignore";
+    services.flatpak.enable = true;
+    virtualisation.waydroid.enable = true;
+
     environment.shellAliases = {
       os-rebuild = "nh os switch /home/amr/nixos -H laptop";
       os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
