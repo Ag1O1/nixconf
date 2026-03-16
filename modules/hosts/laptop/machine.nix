@@ -33,6 +33,7 @@
       gaming
       virt-manager
       emacs
+      logisim
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
