@@ -1,7 +1,12 @@
 {...}: {
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
+      kdePackages.kdenlive
+      audacity
       obs-studio
+
+      protonvpn-gui
+      mpv
       gnome-calendar
       equibop
       pavucontrol
