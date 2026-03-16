@@ -67,12 +67,18 @@
     };
     services.asusd.enable = true;
 
-    boot.loader = {
-      efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
+    boot = {
+      kernelParams = [
+        "zswap.enabled=0"
+      ];
+      loader = {
+        efi.canTouchEfiVariables = true;
+        grub = {
+          enable = true;
+          useOSProber = true;
+          device = "nodev";
+          efiSupport = true;
+        };
       };
     };
 
