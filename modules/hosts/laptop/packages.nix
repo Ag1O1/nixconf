@@ -4,6 +4,7 @@
       kdePackages.kdenlive
       audacity
       obs-studio
+      resources
 
       protonvpn-gui
       mpv
