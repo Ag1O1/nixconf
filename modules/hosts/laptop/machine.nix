@@ -41,6 +41,7 @@
     services.logind.settings.Login.HandleLidSwitch = "ignore";
     services.flatpak.enable = true;
     virtualisation.waydroid.enable = true;
+    programs.kdeconnect.enable = true;
 
     environment.shellAliases = {
       os-rebuild = "nh os switch /home/amr/nixos -H laptop";
