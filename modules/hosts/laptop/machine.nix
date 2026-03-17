@@ -70,6 +70,7 @@
     boot = {
       kernelParams = [
         "zswap.enabled=0"
+        "amdgpu.dcdebugmask=0x10"
       ];
       loader = {
         efi.canTouchEfiVariables = true;
