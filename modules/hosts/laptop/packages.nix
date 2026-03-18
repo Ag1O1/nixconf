@@ -5,6 +5,7 @@
       audacity
       obs-studio
       resources
+      onlyoffice-desktopeditors
 
       protonvpn-gui
       mpv
