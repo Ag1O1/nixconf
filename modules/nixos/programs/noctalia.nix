@@ -11,6 +11,7 @@
       glib
       adw-gtk3
       gpu-screen-recorder
+      kdePackages.qttools
     ];
   };
 }
