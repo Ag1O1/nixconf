@@ -48,11 +48,9 @@
       os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
       grep = "grep --color=auto";
     };
-    services.displayManager.sddm = {
+    services.greetd = {
       enable = true;
-      wayland.enable = true;
-      #theme = "${pkgs.catppuccin-sddm}/share/sddm/themes/catppuccin-mocha-mauve";
-    };
+      useTextGreeter = true;
   };
 
   flake.modules.nixos.laptopHardware = {
