@@ -51,6 +51,7 @@
     services.greetd = {
       enable = true;
       useTextGreeter = true;
+    };
   };
 
   flake.modules.nixos.laptopHardware = {
