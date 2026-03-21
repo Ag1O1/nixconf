@@ -6,6 +6,7 @@
       obs-studio
       resources
       onlyoffice-desktopeditors
+      qbittorrent-enhanced
 
       protonvpn-gui
       mpv
