@@ -4,6 +4,6 @@
       enable = true;
       package = inputs.linuxmobile-pkgs.packages.${pkgs.stdenv.hostPlatform.system}.niri;
     };
-    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key];
+    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key pkgs.wooz];
   };
 }
