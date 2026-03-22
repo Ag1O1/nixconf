@@ -48,10 +48,7 @@
       os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
       grep = "grep --color=auto";
     };
-    services.greetd = {
-      enable = true;
-      useTextGreeter = true;
-    };
+    services.displayManager.ly.enable = true;
   };
 
   flake.modules.nixos.laptopHardware = {
