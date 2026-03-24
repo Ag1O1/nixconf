@@ -23,12 +23,14 @@
       nemo
       godot
       blender
-      ghostty
+      foot
       bibata-cursors
       noctalia-shell
     ];
     fonts.packages = with pkgs; [
       wineWow64Packages.fonts
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
       corefonts
       vista-fonts
       unifont
