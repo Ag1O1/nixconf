@@ -22,6 +22,7 @@
       btop
       nemo
       godot
+      netcat # for godot zed
       blender
       foot
       bibata-cursors
