@@ -16,7 +16,22 @@
       };
     };
     nix.channel.enable = false; # nix channels are not needed when using flakes
-    programs.nix-ld.enable = true;
+    programs = {
+      nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+          stdenv.cc.cc.lib
+          zlib
+        ];
+      };
+    };
+
+    services = {
+      envfs = {
+        enable = true;
+      };
+    };
+
     nixpkgs.config = {
       allowUnfree = true; # its a pain to manage a system without unfree software
     };
