@@ -41,8 +41,6 @@
       pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
     ];
     nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
-    nix.settings.substituters = ["https://attic.xuyh0120.win/lantian" "https://linuxmobile.cachix.org"];
-    nix.settings.trusted-public-keys = ["lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" "linuxmobile.cachix.org-1:2K7KEjzbd3U+qMQRte/DGqttosw8EGgGVvu8vKu8D6A="];
     # My configuration uses nh as a replacement for the default nixos rebuild command
     programs.nh = {
       enable = true;
