@@ -39,6 +39,19 @@
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     services.logind.settings.Login.HandleLidSwitch = "ignore";
+
+    services.linux-enable-ir-emitter.enable = true;
+    services.howdy = {
+      enable = true;
+      control = "sufficient";
+      settings = {
+        video = {
+          certainty = 2;
+          dark_threshold = 80;
+        };
+      };
+    };
+
     services.flatpak.enable = true;
     virtualisation.waydroid.enable = true;
     programs.kdeconnect.enable = true;
@@ -66,7 +79,7 @@
 
     boot = {
       kernelParams = [
-        "zswap.enabled=0"
+        #"zswap.enabled=0"
         "amdgpu.dcdebugmask=0x410"
         "amdgpu.sg_display=0"
       ];
