@@ -14,6 +14,7 @@
       laptopModule
       # User
       user-amr
+      mime
       # Modules
       theming
       pipewire
@@ -51,6 +52,7 @@
         };
       };
     };
+    programs.firejail.enable = true;
 
     services.flatpak.enable = true;
     virtualisation.waydroid.enable = true;
