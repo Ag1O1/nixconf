@@ -1,7 +1,10 @@
 {lib, ...}: {
-  flake.modules.nixos.mimeOptions = with lib; let
-    inherit (options) mkOption;
-    inherit (types) str;
+  flake.modules.nixos.mimeOptions = {config, ...}: let
+    # Don't `with lib`, instead selectively inherit
+    inherit (lib.options) mkOption;
+    inherit (lib.types) str;
+
+    # This is in your nixos `config` and not the flake `config`
     inherit (config.modules.services.mime) browser video;
   in {
     options.modules.services.mime = {

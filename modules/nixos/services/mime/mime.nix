@@ -1,6 +1,10 @@
-{lib, ...}: {
-  flake.modules.nixos.mime = with lib; let
+{config, ...}: let
+  # Deconflict the namespace by pulling flake out of it
+  inherit (config) flake;
+in {
+  flake.modules.nixos.mime = {config, ...}: let
     inherit
+      # These are nixos modules options and not a member of flake
       (config.modules.services.mime)
       text
       browser
@@ -13,7 +17,8 @@
       file-manager
       ;
   in {
-    imports = [self.modules.mimeOptions];
+    # This cames from the flake parts module
+    imports = [flake.modules.nixos.mimeOptions];
     xdg.mime = {
       enable = true;
       defaultApplications = {
