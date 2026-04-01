@@ -8,7 +8,7 @@
       onlyoffice-desktopeditors
       qbittorrent-enhanced
 
-      protonvpn-gui
+      proton-vpn
       mpv
       gnome-calendar
       equibop
