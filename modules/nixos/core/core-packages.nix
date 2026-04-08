@@ -6,6 +6,7 @@
       tree
       vim
       wget
+      unzip
     ];
   };
 }
