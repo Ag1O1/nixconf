@@ -2,6 +2,9 @@
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       kdePackages.kdenlive
+      zathura #PDF viewer
+      qimgv #image viewer
+      gimp
       audacity
       obs-studio
       resources

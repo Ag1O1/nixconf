@@ -27,12 +27,12 @@
       };
       pdf = mkOption {
         type = str;
-        default = browser;
+        default = "org.pwmt.zathura";
         description = "Defines pdf viewer";
       };
       image = mkOption {
         type = str;
-        default = browser;
+        default = "qimgv";
         description = "Defines image viewer";
       };
       video = mkOption {
