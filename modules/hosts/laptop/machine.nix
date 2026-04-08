@@ -53,6 +53,7 @@
       };
     };
     programs.firejail.enable = true;
+    programs.zoxide.enable = true;
 
     services.flatpak.enable = true;
     virtualisation.waydroid.enable = true;
