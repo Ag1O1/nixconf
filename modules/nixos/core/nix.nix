@@ -6,6 +6,7 @@
   }: {
     nix = {
       optimise.automatic = true;
+      package = pkgs.lix;
 
       settings = {
         cores = 8;
