@@ -25,6 +25,7 @@
       printing
       keyd
       direnv
+      AI
 
       niri
       noctalia
