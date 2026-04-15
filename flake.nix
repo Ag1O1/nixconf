@@ -12,6 +12,7 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
