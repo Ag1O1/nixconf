@@ -4,7 +4,7 @@
       ollama = {
         enable = true;
         openFirewall = true;
-        package = pkgs.ollama-vulkan;
+        package = pkgs.ollama-cuda;
       };
       open-webui.enable = true;
     };
