@@ -26,6 +26,7 @@
       keyd
       direnv
       AI
+      searx
 
       niri
       noctalia
