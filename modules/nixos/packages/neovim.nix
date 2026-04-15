@@ -175,7 +175,7 @@
 
                 minimap = {
                   minimap-vim.enable = false;
-                  codewindow.enable = true; # lighter, faster, and uses lua for configuration
+                  codewindow.enable = false; # lighter, faster, and uses lua for configuration
                 };
 
                 dashboard = {
