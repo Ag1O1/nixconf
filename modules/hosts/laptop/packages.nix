@@ -1,7 +1,7 @@
-{...}: {
+{self, ...}: {
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
-      self.packages.${pkgs.system}.myNeovim
+      self.packages.${pkgs.stdenv.hostPlatform.system}.myNeovim
       kdePackages.kdenlive
       zathura #PDF viewer
       qimgv #image viewer
