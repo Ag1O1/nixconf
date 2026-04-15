@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.searx = {
-    searx = {
+    services.searx = {
       enable = true;
       openFirewall = true;
       settings = {
