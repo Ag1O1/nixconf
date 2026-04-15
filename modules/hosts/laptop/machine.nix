@@ -43,6 +43,7 @@
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     services.logind.settings.Login.HandleLidSwitch = "ignore";
 
+    /*
     services.linux-enable-ir-emitter.enable = true;
     services.howdy = {
       enable = true;
@@ -54,6 +55,7 @@
         };
       };
     };
+    */
     programs.firejail.enable = true;
     programs.zoxide.enable = true;
 
