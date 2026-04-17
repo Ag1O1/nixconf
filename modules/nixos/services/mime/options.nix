@@ -12,7 +12,7 @@
 
       text = mkOption {
         type = str;
-        default = "zed";
+        default = "nvim";
         description = "Defines text editor";
       };
       terminal = mkOption {
