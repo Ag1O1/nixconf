@@ -3,7 +3,7 @@
     programs.lazygit = {
       enable = true;
       settings = {
-        autoFetch = false;
+        git.autoFetch = false;
       };
     };
   };
