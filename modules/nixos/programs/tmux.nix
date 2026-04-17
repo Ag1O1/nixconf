@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.tmux = {
-    programes.tmux = {
+    programs.tmux = {
       enable = true;
       baseIndex = 1;
     };
