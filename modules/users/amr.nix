@@ -19,11 +19,11 @@
           "wireshark" # for wireshark to work
           "dialout" # for arduino to work
         ];
-        environment.sessionVariables = {
-          EDITOR = "nvim";
-          TERMINAL = "foot";
-        };
       };
+    };
+    environment.sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "foot";
     };
   };
 }
