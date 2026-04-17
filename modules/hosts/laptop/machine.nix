@@ -27,7 +27,6 @@
       direnv
       AI
       searx
-      tmux
 
       niri
       noctalia
@@ -38,6 +37,8 @@
       virt-manager
       emacs
       logisim
+      tmux
+      lazygit
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {
