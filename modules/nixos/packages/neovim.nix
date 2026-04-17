@@ -25,6 +25,53 @@
                 };
                 keymaps = [
                   {
+                    key = "<S-l>";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLineCycleNext<CR>";
+                  }
+                  {
+                    key = "<S-h>";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLineCyclePrev<CR>";
+                  }
+                  {
+                    key = "<space>bd";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLinePickClose<CR>";
+                  }
+
+                  {
+                    key = "<space>bo";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLineCloseOthers<CR>";
+                  }
+
+                  {
+                    key = "<space>bl";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLineCloseLeft<CR>";
+                  }
+
+                  {
+                    key = "<space>br";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLineCloseRight<CR>";
+                  }
+
+                  {
+                    key = "<space>bp";
+                    mode = "n";
+                    silent = true;
+                    action = ":BufferLinePick<CR>";
+                  }
+
+                  {
                     key = "<SPACE>a";
                     mode = "n";
                     silent = true;
@@ -55,6 +102,10 @@
                     action = ":CellularAutomaton slide<CR>";
                   }
                 ];
+                clipboard = {
+                  enable = true;
+                  providers.wl-copy.enable = true;
+                };
 
                 lsp = {
                   # This must be enabled for the language modules to hook into
