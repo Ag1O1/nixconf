@@ -17,6 +17,44 @@
 
                 # vim.opts and vim.options are aliased
                 opts.expandtab = true;
+                options = {
+                  expandtab = true;
+                  shiftwidth = 2;
+                  tabstop = 2;
+                  softtabstop = 2;
+                };
+                keymaps = [
+                  {
+                    key = "<SPACE>a";
+                    mode = "n";
+                    silent = true;
+                    action = ":Neotree<CR>";
+                  }
+                  {
+                    key = "<SPACE>j";
+                    mode = "n";
+                    silent = true;
+                    action = ":CellularAutomaton make_it_rain<CR>";
+                  }
+                  {
+                    key = "<SPACE>k";
+                    mode = "n";
+                    silent = true;
+                    action = ":CellularAutomaton scramble<CR>";
+                  }
+                  {
+                    key = "<SPACE>u";
+                    mode = "n";
+                    silent = true;
+                    action = ":CellularAutomaton game_of_life<CR>";
+                  }
+                  {
+                    key = "<SPACE>i";
+                    mode = "n";
+                    silent = true;
+                    action = ":CellularAutomaton slide<CR>";
+                  }
+                ];
 
                 lsp = {
                   # This must be enabled for the language modules to hook into
@@ -46,7 +84,10 @@
                   enableExtraDiagnostics = true;
 
                   # Languages that will be supported in default and maximal configurations.
-                  nix.enable = true;
+                  nix = {
+                    enable = true;
+                    lsp.servers = ["nixd" "nil"];
+                  };
                   markdown.enable = true;
 
                   # Languages that are enabled in the maximal configuration.
@@ -115,10 +156,10 @@
 
                   highlight-undo.enable = true;
                   blink-indent.enable = true;
-                  indent-blankline.enable = true;
+                  indent-blankline.enable = false; #conflicts with blink
 
                   # Fun
-                  cellular-automaton.enable = false;
+                  cellular-automaton.enable = true;
                 };
 
                 statusline = {
