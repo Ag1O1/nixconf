@@ -8,7 +8,7 @@
     ];
     services.emacs = {
       enable = true;
-      defaultEditor = true;
+      #defaultEditor = true;
     };
   };
 }
