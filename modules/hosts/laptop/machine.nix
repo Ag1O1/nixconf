@@ -27,6 +27,7 @@
       direnv
       AI
       searx
+      tmux
 
       niri
       noctalia
