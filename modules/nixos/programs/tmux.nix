@@ -3,6 +3,7 @@
     programs.tmux = {
       enable = true;
       baseIndex = 1;
+      shortcut = "Space";
     };
   };
 }
