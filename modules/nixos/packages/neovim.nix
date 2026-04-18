@@ -15,14 +15,20 @@
                   logFile = "/tmp/nvim.log";
                 };
 
-                # vim.opts and vim.options are aliased
-                opts.expandtab = true;
+                luaConfigRC.myconfig =
+                  # lua
+                  ''
+                    vim.o.timeoutlen = 150
+                  '';
                 options = {
+                  timeoutlen = 150;
                   expandtab = true;
                   shiftwidth = 2;
                   tabstop = 2;
                   softtabstop = 2;
                 };
+
+                globals.mapleader = " ";
                 keymaps = [
                   {
                     key = "<S-l>";
@@ -37,69 +43,75 @@
                     action = ":BufferLineCyclePrev<CR>";
                   }
                   {
-                    key = "<space>bd";
+                    key = "<leader>bd";
                     mode = "n";
                     silent = true;
                     action = ":BufferLinePickClose<CR>";
                   }
 
                   {
-                    key = "<space>bo";
+                    key = "<leader>bo";
                     mode = "n";
                     silent = true;
                     action = ":BufferLineCloseOthers<CR>";
                   }
 
                   {
-                    key = "<space>bl";
+                    key = "<leader>bl";
                     mode = "n";
                     silent = true;
                     action = ":BufferLineCloseLeft<CR>";
                   }
 
                   {
-                    key = "<space>br";
+                    key = "<leader>br";
                     mode = "n";
                     silent = true;
                     action = ":BufferLineCloseRight<CR>";
                   }
 
                   {
-                    key = "<space>bp";
+                    key = "<leader>bp";
                     mode = "n";
                     silent = true;
                     action = ":BufferLinePick<CR>";
                   }
 
                   {
-                    key = "<SPACE>a";
+                    key = "<leader>a";
                     mode = "n";
                     silent = true;
                     action = ":Neotree<CR>";
                   }
                   {
-                    key = "<SPACE>j";
+                    key = "<leader>j";
                     mode = "n";
                     silent = true;
                     action = ":CellularAutomaton make_it_rain<CR>";
                   }
                   {
-                    key = "<SPACE>k";
+                    key = "<leader>k";
                     mode = "n";
                     silent = true;
                     action = ":CellularAutomaton scramble<CR>";
                   }
                   {
-                    key = "<SPACE>u";
+                    key = "<leader>u";
                     mode = "n";
                     silent = true;
                     action = ":CellularAutomaton game_of_life<CR>";
                   }
                   {
-                    key = "<SPACE>i";
+                    key = "<leader>i";
                     mode = "n";
                     silent = true;
                     action = ":CellularAutomaton slide<CR>";
+                  }
+                  {
+                    key = "<leader>ca";
+                    mode = "n";
+                    silent = true;
+                    action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
                   }
                 ];
                 clipboard = {
@@ -114,7 +126,7 @@
 
                   formatOnSave = true;
                   lspkind.enable = false;
-                  lightbulb.enable = true;
+                  lightbulb.enable = false;
                   lspsaga.enable = false;
                   trouble.enable = true;
                   otter-nvim.enable = true;
@@ -137,7 +149,7 @@
                   # Languages that will be supported in default and maximal configurations.
                   nix = {
                     enable = true;
-                    lsp.servers = ["nixd" "nil"];
+                    lsp.servers = ["nixd"];
                   };
                   markdown.enable = true;
 
@@ -162,11 +174,11 @@
                     extensions.crates-nvim.enable = true;
                   };
                   toml.enable = true;
+                  assembly.enable = true;
 
                   # Language modules that are not as common.
                   openscad.enable = false;
                   arduino.enable = false;
-                  assembly.enable = false;
                   astro.enable = false;
                   nu.enable = false;
                   csharp.enable = false;
@@ -292,17 +304,28 @@
                   icon-picker.enable = false;
 
                   motion = {
-                    hop.enable = true;
+                    hop.enable = false;
                     leap.enable = true;
                   };
                   images = {
                     image-nvim.enable = false;
-                    img-clip.enable = true;
+                    img-clip.enable = false;
                   };
                 };
 
                 notes = {
-                  #neorg.enable = true;
+                  neorg = {
+                    enable = true;
+
+                    treesitter.enable = true;
+
+                    setupOpts = {
+                      load = {
+                        "core.defaults".enable = true;
+                        "core.concealer".enable = true;
+                      };
+                    };
+                  };
                   #orgmode.enable = true;
                   mind-nvim.enable = true;
                   todo-comments.enable = true;
