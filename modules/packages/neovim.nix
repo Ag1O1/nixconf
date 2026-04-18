@@ -163,7 +163,6 @@
                     format.enable = false;
                     extensions = {
                       render-markdown-nvim.enable = true;
-                      markview-nvim.enable = true;
                     };
                   };
 
@@ -316,6 +315,7 @@
                   yanky-nvim.enable = false;
                   qmk-nvim.enable = false; # requires hardware specific options
                   icon-picker.enable = false;
+                  preview.markdownPreview.enable = true;
 
                   motion = {
                     hop.enable = false;
