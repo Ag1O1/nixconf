@@ -158,7 +158,10 @@
                     enable = true;
                     lsp.servers = ["nixd"];
                   };
-                  markdown.enable = true;
+                  markdown = {
+                    enable = true;
+                    extensions.render-markdown-nvim.enable = true;
+                  };
 
                   # Languages that are enabled in the maximal configuration.
                   bash.enable = true;
