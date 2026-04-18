@@ -160,6 +160,7 @@
                   };
                   markdown = {
                     enable = true;
+                    config.vim.languages.enableFormat = false;
                     extensions.render-markdown-nvim.enable = true;
                   };
 
