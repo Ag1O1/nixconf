@@ -23,6 +23,8 @@
                 options = {
                   timeoutlen = 150;
                   expandtab = true;
+                  conceallevel = 2;
+
                   shiftwidth = 2;
                   tabstop = 2;
                   softtabstop = 2;
@@ -82,6 +84,11 @@
                     mode = "n";
                     silent = true;
                     action = ":Neotree<CR>";
+                  }
+                  {
+                    key = "<leader>e";
+                    mode = "n";
+                    action = ":Neotree toggle<CR>";
                   }
                   {
                     key = "<leader>j";
