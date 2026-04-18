@@ -161,7 +161,10 @@
                   markdown = {
                     enable = true;
                     format.enable = false;
-                    extensions.render-markdown-nvim.enable = true;
+                    extensions = {
+                      render-markdown-nvim.enable = true;
+                      markview-nvim.enable = true;
+                    };
                   };
 
                   # Languages that are enabled in the maximal configuration.
