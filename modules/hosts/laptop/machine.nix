@@ -39,6 +39,7 @@
       logisim
       tmux
       lazygit
+      obs
     ];
   };
   flake.modules.nixos.laptopModule = {pkgs, ...}: {

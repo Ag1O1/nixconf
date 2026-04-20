@@ -7,7 +7,6 @@
       qimgv #image viewer
       gimp
       audacity
-      obs-studio
       resources
       onlyoffice-desktopeditors
       qbittorrent-enhanced
