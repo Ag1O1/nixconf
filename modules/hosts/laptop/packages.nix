@@ -2,6 +2,13 @@
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       self.packages.${pkgs.stdenv.hostPlatform.system}.myNeovim
+      arduino
+      arduino-cli
+      arduino-ide
+      inkscape
+      eden
+      rar
+      ryubing
       kdePackages.kdenlive
       zathura #PDF viewer
       qimgv #image viewer
