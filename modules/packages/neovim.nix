@@ -170,6 +170,7 @@
                   extensions = {
                     render-markdown-nvim.enable = true;
                   };
+                  format.type = ["mdformat"];
                 };
 
                 # Languages that are enabled in the maximal configuration.
