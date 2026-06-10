@@ -35,8 +35,12 @@
 
     nixpkgs.config = {
       allowUnfree = true; # its a pain to manage a system without unfree software
+      permittedInsecurePackages = [
+        "electron-39.8.10"
+      ];
     };
     environment.systemPackages = [
+      pkgs.nix-search-tv
       pkgs.nixd
       pkgs.package-version-server
       pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config

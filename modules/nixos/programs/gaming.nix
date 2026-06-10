@@ -1,5 +1,14 @@
 {
-  flake.modules.nixos.gaming = {pkgs, ...}: {
+  inputs,
+  system,
+  ...
+}: {
+  flake.modules.nixos.gaming = {pkgs, ...}: let
+    pkgsStable = import inputs.nixpkgs-stable {
+      system = pkgs.stdenv.hostPlatform.system;
+      config.allowUnfree = true;
+    };
+  in {
     programs.appimage.enable = true;
     programs.steam = {
       enable = true;
@@ -16,7 +25,22 @@
       pkgs.prismlauncher # Minecraft
       pkgs.love # to run love2d games
       pkgs.mangohud
-      pkgs.lutris
+      (pkgs.lutris.override {
+        # Intercept buildFHSEnv to modify target packages
+        buildFHSEnv = args:
+          pkgs.buildFHSEnv (args
+            // {
+              multiPkgs = envPkgs: let
+                # Fetch original package list
+                originalPkgs = args.multiPkgs envPkgs;
+
+                # Disable tests for openldap
+                customLdap = envPkgs.openldap.overrideAttrs (_: {doCheck = false;});
+              in
+                # Replace broken openldap with the custom one
+                builtins.filter (p: (p.pname or "") != "openldap") originalPkgs ++ [customLdap];
+            });
+      })
       pkgs.umu-launcher
       (pkgs.winePackages.waylandFull.override {wineBuild = "wine64";})
       pkgs.winetricks
