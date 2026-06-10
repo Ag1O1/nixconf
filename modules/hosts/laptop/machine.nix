@@ -44,7 +44,7 @@
         obs
       ];
     };
-    flake.modules.nixos.laptopModule = {lib, ...}: {
+    modules.nixos.laptopModule = {lib, ...}: {
       boot.initrd = {
         includeDefaultModules = lib.mkForce false;
         availableKernelModules = [
