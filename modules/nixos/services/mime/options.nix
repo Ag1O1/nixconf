@@ -17,7 +17,7 @@
       };
       terminal = mkOption {
         type = str;
-        default = "foot";
+        default = "ghostty";
         description = "Defines terminal";
       };
       browser = mkOption {

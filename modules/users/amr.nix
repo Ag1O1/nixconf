@@ -23,7 +23,7 @@
     };
     environment.sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "foot";
+      TERMINAL = "ghostty";
     };
   };
 }

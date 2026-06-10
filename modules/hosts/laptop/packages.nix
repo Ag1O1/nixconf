@@ -34,7 +34,7 @@
       godot
       netcat # for godot zed
       blender
-      foot
+      ghostty
       bibata-cursors
     ];
     fonts.packages = with pkgs; [
