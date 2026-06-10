@@ -19,6 +19,8 @@
     );
 
     boot.kernelPatches = [
+      # NOTE: This configuration was partly made using claude AI.
+      # It would take too much time to configure every single option one by one manually.
       {
         name = "asus-tuf-a16-optimized";
         patch = null;
