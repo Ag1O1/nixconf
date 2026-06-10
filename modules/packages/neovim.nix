@@ -348,7 +348,6 @@
                   };
                 };
                 #orgmode.enable = true;
-                mind-nvim.enable = true;
                 todo-comments.enable = true;
               };
 
