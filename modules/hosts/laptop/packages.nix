@@ -36,7 +36,6 @@
       blender
       foot
       bibata-cursors
-      noctalia-shell
     ];
     fonts.packages = with pkgs; [
       wineWow64Packages.fonts
