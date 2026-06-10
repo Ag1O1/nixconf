@@ -1,5 +1,6 @@
 {
-  flake.modules.nixos.tlp = {
+  flake.modules.nixos.tlp = {lib, ...}: {
+    services.power-profiles-daemon.enable = lib.mkForce false;
     services.tlp = {
       enable = true;
       pd.enable = true;
