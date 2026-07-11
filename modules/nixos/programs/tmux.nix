@@ -6,7 +6,7 @@
       escapeTime = 0;
       shortcut = "Space";
       keyMode = "vi";
-      #plugins = [pkgs.tmuxp];
+      plugins = [pkgs.tmuxPlugins.resurrect];
     };
   };
 }
