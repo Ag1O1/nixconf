@@ -35,6 +35,7 @@
 
         yazi
         firefox
+        helium
         gaming
         virt-manager
         emacs
