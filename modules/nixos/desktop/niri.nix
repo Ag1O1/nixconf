@@ -385,8 +385,8 @@ in {
             content.spawn-sh = "wlr-which-key";
           };
           "Mod+W" = _: {
-            props.hotkey-overlay-title = "Open Browser: Librewolf";
-            content.spawn-sh = "librewolf";
+            props.hotkey-overlay-title = "Open Browser";
+            content.spawn-sh = "helium";
           };
           "Mod+Alt+L" = _: {
             props.hotkey-overlay-title = "Lock Screen: swaylock";
