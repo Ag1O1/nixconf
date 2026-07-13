@@ -20,8 +20,9 @@
       audacity
       resources
       onlyoffice-desktopeditors
-      qbittorrent-enhanced
+      motrix-next
 
+      dolphin-emu
       proton-vpn
       mpv
       gnome-calendar
@@ -30,7 +31,6 @@
       file-roller
       btrfs-progs
       bitwarden-desktop
-      zapzap
       zed-editor
       zed-discord-presence
       btop
