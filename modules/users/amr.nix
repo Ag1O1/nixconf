@@ -1,5 +1,24 @@
-{
-  flake.modules.nixos.user-amr = {pkgs, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.user-amr = {
+    pkgs,
+    lib,
+    ...
+  }: let
+    user = "amr";
+  in {
+    imports = [
+      inputs.hjem.nixosModules.default
+
+      (
+        lib.mkAliasOptionModule
+        ["hj"]
+        [
+          "hjem"
+          "users"
+          "${user}"
+        ]
+      )
+    ];
     users.users = {
       amr = {
         initialPassword = "password";
