@@ -1,5 +1,9 @@
 {inputs, ...}: {
   perSystem = {
+    pkgs,
+    lib,
+    ...
+  }: {
     packages.myNeovim =
       (inputs.nvf.lib.neovimConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
@@ -15,6 +19,7 @@
               };
               diagnostics = {
                 enable = true;
+                presets.cpplint.enable = lib.mkForce false;
                 config = {
                   virtual_text = true;
                   signs = true;
@@ -39,6 +44,12 @@
 
               globals.mapleader = " ";
               keymaps = [
+                {
+                  key = "<leader>p";
+                  mode = "n";
+                  silent = true;
+                  action = "<cmd>PasteImage<cr>";
+                }
                 {
                   key = "<S-l>";
                   mode = "n";
@@ -131,6 +142,15 @@
               clipboard = {
                 enable = true;
                 providers.wl-copy.enable = true;
+              };
+
+              extraPlugins = {
+                nvim-lspconfig = {
+                  package = pkgs.vimPlugins.nvim-lspconfig;
+                  setup = ''
+                    vim.lsp.enable('gdscript')
+                  '';
+                };
               };
 
               lsp = {
@@ -266,7 +286,24 @@
               # enable blink-cmp in maximal because it needs to build its rust fuzzy
               # matcher library.
               autocomplete = {
-                blink-cmp.enable = true;
+                blink-cmp = {
+                  enable = true;
+                  setupOpts = {
+                    sources.default = [
+                      "lsp"
+                      "path"
+                      "snippets"
+                    ];
+                    completion = {
+                      list = {
+                        selection = {
+                          preselect = false;
+                          auto_insert = false;
+                        };
+                      };
+                    };
+                  };
+                };
               };
 
               snippets.luasnip.enable = true;
@@ -329,8 +366,11 @@
                   leap.enable = true;
                 };
                 images = {
-                  image-nvim.enable = false;
-                  img-clip.enable = false;
+                  image-nvim = {
+                    enable = true;
+                    setupOpts.backend = "kitty";
+                  };
+                  img-clip.enable = true;
                 };
               };
 
