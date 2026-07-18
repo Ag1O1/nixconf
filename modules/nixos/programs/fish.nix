@@ -17,6 +17,9 @@
           nix shell nixpkgs#$argv[1] -- $argv[2..]
         end
       '')
+      (pkgs.writers.writeFishBin "nedit" ''
+        nix edit nixpkgs#$argv[1]
+      '')
     ];
     programs.fish = {
       enable = true;
