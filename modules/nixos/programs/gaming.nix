@@ -12,6 +12,7 @@
     programs.appimage.enable = true;
     programs.steam = {
       enable = true;
+      /*
       package = pkgs.steam.override {
         extraPkgs = pkgs:
           with pkgs; [
@@ -19,6 +20,7 @@
             bibata-cursors
           ];
       };
+      */
     };
     programs.steam.gamescopeSession.enable = true;
     environment.systemPackages = [
