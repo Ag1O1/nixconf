@@ -13,11 +13,12 @@
         laptopHardware
         laptopPackages
         laptopModule
-        laptopKernel
+        #laptopKernel
         # User
         user-amr
         mime
         # Modules
+        nix-search-tv
         theming
         pipewire
         networking
@@ -38,14 +39,31 @@
         helium
         gaming
         virt-manager
-        emacs
         logisim
         tmux
         lazygit
         obs
       ];
     };
-    modules.nixos.laptopModule = {lib, ...}: {
+    modules.nixos.laptopModule = {
+      lib,
+      pkgs,
+      ...
+    }: {
+      imports = [
+        inputs.distro-grub-themes.nixosModules.x86_64-linux.default
+      ];
+      distro-grub-themes = {
+        enable = true;
+        theme = "nixos";
+      };
+
+      boot.extraModprobeConfig =
+        lib.mkAfter
+        ''
+          options v4l2loopback exclusive_caps=1 card_label="OBS Virtual Camera" max_buffers=2
+        '';
+
       boot.initrd = {
         includeDefaultModules = lib.mkForce false;
         availableKernelModules = [
@@ -66,6 +84,10 @@
           */
         ];
       };
+      #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+      #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
+      #boot.kernelPackages = pkgs.linuxPackages_latest;
 
       services = {
         logind.settings.Login.HandleLidSwitch = "ignore";
@@ -84,6 +106,7 @@
       environment.shellAliases = {
         os-rebuild = "nh os switch /home/amr/nixos -H laptop";
         os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
+        nsearch = "nix search nixpkgs";
         grep = "grep --color=auto";
       };
     };
@@ -104,6 +127,9 @@
       boot = {
         kernelParams = [
           #"zswap.enabled=0"
+          "zswap.enabled=1"
+          "zswap.compressor=zstd"
+          "zswap.max_pool_percent=30"
           "amdgpu.dcdebugmask=0x410"
           "amdgpu.sg_display=0"
           "nvidia.NVreg_DynamicPowerManagement=0x02"
@@ -181,6 +207,12 @@
           ];
         };
       };
+      swapDevices = [
+        {
+          device = "/mnt/swap/swapfile";
+          size = 24576; # MiB
+        }
+      ];
     };
   };
 }

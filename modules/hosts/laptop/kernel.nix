@@ -1,3 +1,5 @@
+{}
+/*
 {
   flake.modules.nixos.laptopKernel = {
     lib,
@@ -17,7 +19,6 @@
           });
       }
     );
-
     boot.kernelPatches = [
       # NOTE: This configuration was partly made using claude AI.
       # It would take too much time to configure every single option one by one manually.
@@ -242,6 +243,7 @@
           INTEL_TDX_GUEST = lib.mkForce no;
 
           # Debug & Tracing (disables for performance)
+          DEBUG_INFO_BTF = lib.mkForce no;
           DEBUG_FS = lib.mkForce no;
           DEBUG_KERNEL = lib.mkForce no;
           DEBUG_INFO = lib.mkForce no;
@@ -261,3 +263,5 @@
     ];
   };
 }
+*/
+
