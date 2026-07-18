@@ -149,6 +149,11 @@
                   package = pkgs.vimPlugins.nvim-lspconfig;
                   setup = ''
                     vim.lsp.enable('gdscript')
+                    local gdproject = io.open(vim.fn.getcwd()..'/project.godot', 'r')
+                    if gdproject then
+                        io.close(gdproject)
+                        vim.fn.serverstart('./godothost')
+                    end
                   '';
                 };
               };
@@ -329,8 +334,15 @@
 
               git = {
                 enable = true;
-                gitsigns.enable = true;
-                gitsigns.codeActions.enable = false; # throws an annoying debug message
+                gitsigns = {
+                  enable = true;
+                  setupOpts = {
+                    current_line_blame = true;
+                    current_line_blame_opts = {
+                      delay = 300;
+                    };
+                  };
+                };
                 neogit.enable = true;
               };
 
