@@ -2,16 +2,9 @@
   inputs,
   self,
   pkgs,
+  lib,
   ...
-}: let
-  mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
-  fileNames = builtins.attrNames (builtins.readDir ./scripts);
-  scripts = builtins.listToAttrs (map (name: {
-      inherit name;
-      value = mkScript name;
-    })
-    fileNames);
-in {
+}: {
   flake.modules.nixos.niri = {pkgs, ...}: {
     programs.niri = {
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
@@ -30,9 +23,18 @@ in {
   perSystem = {
     pkgs,
     lib,
+    config,
     self',
     ...
-  }: {
+  }: let
+    mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
+    fileNames = builtins.attrNames (builtins.readDir ./scripts);
+    scripts = builtins.listToAttrs (map (name: {
+        name = lib.removeSuffix ".sh" name;
+        value = mkScript name;
+      })
+      fileNames);
+  in {
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       settings = {
@@ -333,7 +335,7 @@ in {
         # ════════════════════════════════════════════════════════════
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
         spawn-sh-at-startup = [
-          scripts.todo
+          "${scripts.todo}"
           "xwayland-satellite"
           "/usr/lib/polkit-kde-authentication-agent-1 &"
           "equibop"
