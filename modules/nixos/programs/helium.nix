@@ -14,7 +14,6 @@
         "PasswordManagerEnabled" = false;
         "SyncDisabled" = true;
         "DefaultSearchProviderEnabled" = true;
-        "DefaultSearchProviderSearchURL" = "http://localhost:8081/search?q={searchTerms}";
         "SpellcheckEnabled" = true;
         "SpellcheckLanguage" = ["en-US"];
       };
