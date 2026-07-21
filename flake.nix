@@ -11,7 +11,7 @@
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hjem = {
