@@ -1,12 +1,14 @@
 {
-  flake.modules.nixos.searx = {
+  flake.modules.nixos.searx = {config, ...}: {
     services.searx = {
       enable = true;
       openFirewall = true;
       settings = {
-        server.port = 8081;
-        server.bind_address = "127.0.0.1";
-        server.secret_key = "62a09dc1c46b8c078a43a94f270d931007c8546826bf63906f569ae53968697c"; # DO NOT COMMIT
+        server = {
+          port = 8081;
+          bind_address = "127.0.0.1";
+          secret_key = config.sops.secrets.searxng_key.path;
+        };
         engines = [
           {
             name = "google";

@@ -9,6 +9,11 @@
     };
     import-tree.url = "github:vic/import-tree";
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      nixpkgs.follows = "nixpkgs";
+    };
+
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
