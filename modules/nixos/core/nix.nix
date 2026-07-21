@@ -47,7 +47,9 @@
       pkgs.package-version-server
       pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
     ];
-    nixpkgs.overlays = [inputs.nix-cachyos-kernel.overlays.pinned];
+    nixpkgs.overlays = [
+      inputs.nix-cachyos-kernel.overlays.pinned
+    ];
     # My configuration uses nh as a replacement for the default nixos rebuild command
     programs.nh = {
       enable = true;
