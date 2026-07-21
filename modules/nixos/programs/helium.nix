@@ -14,6 +14,7 @@
         "PasswordManagerEnabled" = false;
         "SyncDisabled" = true;
         "DefaultSearchProviderEnabled" = true;
+        "DefaultSearchProviderSearchURL" = "https://searxng.amr-ashraf.me/search?q={searchTerms}";
         "SpellcheckEnabled" = true;
         "SpellcheckLanguage" = ["en-US"];
       };
