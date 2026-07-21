@@ -18,6 +18,7 @@
         user-amr
         mime
         # Modules
+        sops
         nix-search-tv
         theming
         pipewire
@@ -29,13 +30,11 @@
         keyd
         direnv
         AI
-        searx
 
         niri
         noctalia
 
         yazi
-        firefox
         helium
         gaming
         virt-manager
