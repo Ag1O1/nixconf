@@ -11,7 +11,6 @@
 
       secrets = {
         searxng_key = {};
-        searxng_url = {};
       };
     };
   };
