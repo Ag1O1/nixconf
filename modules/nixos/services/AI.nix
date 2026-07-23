@@ -15,10 +15,13 @@
         openFirewall = true;
         package = pkgs.ollama-cuda;
       };
+      # For some reason openwebUI started hogging all of the internet
+      /*
       open-webui = {
         enable = true;
         package = pkgsStable.open-webui;
       };
+      */
     };
   };
 }
