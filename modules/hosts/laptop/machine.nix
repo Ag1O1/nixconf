@@ -190,7 +190,19 @@
         "/home/amr/drive" = {
           device = "/dev/disk/by-uuid/b75ce50d-1020-4784-824a-dae35069d641";
           fsType = "ext4";
-          options = ["defaults" "noatime"];
+          options = ["defaults" "noatime" "nofail"];
+        };
+        "/home/amr/Downloads" = {
+          device = "/home/amr/drive/downloads";
+          fsType = "none";
+          options = ["bind"];
+          depends = ["/home/amr/drive"];
+        };
+        "/home/amr/Games" = {
+          device = "/home/amr/drive/Games";
+          fsType = "none";
+          options = ["bind"];
+          depends = ["/home/amr/drive"];
         };
         "/mnt/swap" = {
           device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
