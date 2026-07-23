@@ -88,6 +88,11 @@
       boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
       #boot.kernelPackages = pkgs.linuxPackages_latest;
 
+      boot.plymouth = {
+        enable = true;
+        themePackages = [pkgs.adi1090x-plymouth-themes];
+        theme = "angular_alt";
+      };
       services = {
         logind.settings.Login.HandleLidSwitch = "ignore";
         openssh.enable = true;
