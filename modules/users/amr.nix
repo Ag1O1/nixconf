@@ -2,6 +2,7 @@
   flake.modules.nixos.user-amr = {
     pkgs,
     lib,
+    config,
     ...
   }: let
     user = "amr";
@@ -21,7 +22,7 @@
     ];
     users.users = {
       amr = {
-        initialPassword = "password";
+        hashedPasswordFile = config.sops.secrets.user_pass.path;
         shell = pkgs.fish;
         isNormalUser = true;
         extraGroups = [

@@ -51,10 +51,38 @@
     }: {
       imports = [
         inputs.distro-grub-themes.nixosModules.x86_64-linux.default
+        inputs.preservation.nixosModules.default
       ];
       distro-grub-themes = {
         enable = true;
         theme = "nixos";
+      };
+      preservation = {
+        enable = true;
+        preserveAt."/persistent" = {
+          files = [
+            {
+              file = "/etc/machine-id";
+              inInitrd = true;
+            }
+            {
+              file = "/etc/supergfxd.conf";
+            }
+          ];
+          directories = [
+            "/var/lib/nixos"
+            "/var/lib/systemd/timers"
+            "/var/lib/NetworkManager"
+            "/var/lib/bluetooth"
+            "/var/lib/libvirt"
+            "/var/lib/waydroid"
+            "/etc/cups"
+            "/var/lib/flatpak"
+            "/var/log"
+            "/etc/NetworkManager/system-connections"
+            "/etc/asusd"
+          ];
+        };
       };
 
       boot.extraModprobeConfig =
@@ -115,12 +143,14 @@
       };
     };
 
-    modules.nixos.laptopHardware = {
+    modules.nixos.laptopHardware = {config, ...}: {
       system.stateVersion = "25.11";
       hardware.facter.reportPath = ./facter.json;
       time.timeZone = "Africa/Cairo";
       i18n.defaultLocale = "en_US.UTF-8";
-      users.users.root.initialPassword = "root";
+
+      users.mutableUsers = false;
+      users.users.root.hashedPasswordFile = config.sops.secrets.root_pass.path;
 
       hardware.nvidia.prime = {
         amdgpuBusId = "PCI:102:0:0";
@@ -160,6 +190,7 @@
       };
 
       fileSystems = {
+        /*
         "/" = {
           device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
           fsType = "btrfs";
@@ -169,6 +200,16 @@
             "noatime"
             "discard=async"
             "autodefrag"
+          ];
+        };
+        */
+        "/" = {
+          device = "tmpfs";
+          fsType = "tmpfs";
+          options = [
+            "defaults"
+            "size=4G"
+            "mode=755"
           ];
         };
         "/boot" = {
@@ -185,6 +226,15 @@
             "noatime"
             "discard=async"
             "autodefrag"
+          ];
+        };
+        "/persistent" = {
+          device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
+          fsType = "btrfs";
+          options = [
+            "subvol=@persistent"
+            "compress=zstd:1"
+            "noatime"
           ];
         };
         "/home/amr/drive" = {

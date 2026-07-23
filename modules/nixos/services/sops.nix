@@ -11,6 +11,12 @@
 
       secrets = {
         searxng_key = {};
+        user_pass = {
+          neededForUsers = true;
+        };
+        root_pass = {
+          neededForUsers = true;
+        };
       };
     };
   };
