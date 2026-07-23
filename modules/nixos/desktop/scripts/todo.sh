@@ -30,21 +30,22 @@ if [[ -f "$yesterday" ]]; then
 fi
 
 {
-  echo "#TODO"
+  echo "# $(date +%F)"
+  echo "## TODO"
   echo
-  echo "- "
+  echo "- [ ]"
   echo
-  echo "#Weekly Notes"
+  echo "## Journal"
+  echo
+  echo
+  echo
+  echo "## Weekly Notes"
   echo
   if [[ -n "$weekly" ]]; then
     echo "$weekly"
   else
     echo "- "
   fi
-  echo
-  echo "#Journal"
-  echo
-  echo "- "
   echo
 } >"$today"
 
