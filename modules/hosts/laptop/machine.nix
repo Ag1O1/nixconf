@@ -3,6 +3,7 @@
   self,
   ...
 }: {
+  # TODO cleanup this file
   flake = {
     nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -57,6 +58,7 @@
         enable = true;
         theme = "nixos";
       };
+      systemd.services.systemd-machine-id-commit.enable = false;
       preservation = {
         enable = true;
         preserveAt."/persistent" = {
@@ -64,6 +66,7 @@
             {
               file = "/etc/machine-id";
               inInitrd = true;
+              how = "symlink";
             }
             {file = "/etc/supergfxd.conf";}
             {file = "/etc/ly/save";}
@@ -76,8 +79,8 @@
             "/var/lib/libvirt"
             "/var/lib/waydroid"
             "/var/lib/flatpak"
+            "/var/lib/cups"
             "/var/log"
-            "/etc/cups"
             "/etc/ssh"
             "/etc/NetworkManager/system-connections"
             "/etc/asusd"
