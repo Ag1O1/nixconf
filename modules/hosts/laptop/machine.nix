@@ -65,9 +65,8 @@
               file = "/etc/machine-id";
               inInitrd = true;
             }
-            {
-              file = "/etc/supergfxd.conf";
-            }
+            {file = "/etc/supergfxd.conf";}
+            {file = "/etc/ly/save";}
           ];
           directories = [
             "/var/lib/nixos"
@@ -76,9 +75,10 @@
             "/var/lib/bluetooth"
             "/var/lib/libvirt"
             "/var/lib/waydroid"
-            "/etc/cups"
             "/var/lib/flatpak"
             "/var/log"
+            "/etc/cups"
+            "/etc/ssh"
             "/etc/NetworkManager/system-connections"
             "/etc/asusd"
           ];
@@ -231,6 +231,7 @@
         "/persistent" = {
           device = "/dev/disk/by-uuid/430c366d-f6d8-4592-a26a-561a29d94de1";
           fsType = "btrfs";
+          neededForBoot = true;
           options = [
             "subvol=@persistent"
             "compress=zstd:1"
