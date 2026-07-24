@@ -195,7 +195,7 @@
                   extensions = {
                     render-markdown-nvim.enable = true;
                   };
-                  format.type = ["mdformat"];
+                  format.type = ["prettierd"];
                 };
 
                 # Languages that are enabled in the maximal configuration.
