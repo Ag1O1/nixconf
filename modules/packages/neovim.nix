@@ -32,6 +32,19 @@
                 ''
                   vim.o.timeoutlen = 150
                 '';
+              luaConfigRC.markdown-indent =
+                # lua
+                ''
+                  vim.api.nvim_create_autocmd("FileType", {
+                    pattern = "markdown",
+                    callback = function()
+                      vim.bo.expandtab = true
+                      vim.bo.shiftwidth = 2
+                      vim.bo.tabstop = 2
+                      vim.bo.softtabstop = 2
+                    end,
+                  })
+                '';
               options = {
                 timeoutlen = 150;
                 expandtab = true;
@@ -178,6 +191,22 @@
                 };
               };
 
+              formatter.conform-nvim = {
+                enable = true;
+                setupOpts = {
+                  formatters.rumdl.append_args = [
+                    "--config"
+                    "MD013.line-length=80"
+
+                    "--config"
+                    "MD013.reflow=true"
+
+                    "--config"
+                    "MD007.indent=2"
+                  ];
+                };
+              };
+
               # This section does not include a comprehensive list of available language modules.
               # To list all available language module options, please visit the nvf manual.
               languages = {
@@ -195,9 +224,8 @@
                   extensions = {
                     render-markdown-nvim.enable = true;
                   };
-                  format.type = ["prettierd"];
+                  format.type = ["rumdl" "injected"];
                 };
-
                 # Languages that are enabled in the maximal configuration.
                 bash.enable = true;
                 clang.enable = true;
@@ -208,7 +236,6 @@
                 sql.enable = true;
                 java.enable = true;
                 kotlin.enable = true;
-                ts.enable = true;
                 go.enable = true;
                 lua.enable = true;
                 zig.enable = true;
@@ -244,7 +271,6 @@
                 make.enable = false;
                 qml.enable = false;
                 jinja.enable = false;
-                tailwind.enable = false;
                 svelte.enable = false;
                 liquid.enable = false;
                 tera.enable = false;
