@@ -10,7 +10,7 @@
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
       enable = true;
     };
-    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key pkgs.hyprmagnifier];
+    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key]; #pkgs.hyprmagnifier];
     xdg.portal = {
       enable = true;
       extraPortals = [
@@ -335,7 +335,6 @@
         # ════════════════════════════════════════════════════════════
         xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
         spawn-sh-at-startup = [
-          "${scripts.todo}"
           "xwayland-satellite"
           "/usr/lib/polkit-kde-authentication-agent-1 &"
           "equibop"
@@ -397,6 +396,10 @@
           "Mod+E" = _: {
             props.hotkey-overlay-title = "File Manager: yazi";
             content.spawn-sh = "ghostty -e yazi";
+          };
+          "Mod+T" = _: {
+            props.hotkey-overlay-title = "Open TODO";
+            content.spawn-sh = "ghostty -e ${scripts.todo}";
           };
 
           # ─── Audio Controls ───────────────────────────────────────────────────
@@ -509,8 +512,8 @@
             content.move-column-to-workspace-up = _: {};
           };
 
-          "Mod+WheelScrollRight".focus-column-right = _: {};
-          "Mod+WheelScrollLeft".focus-column-left = _: {};
+          "Mod+MouseForward".focus-column-right = _: {};
+          "Mod+MouseBack".focus-column-left = _: {};
           "Mod+Ctrl+WheelScrollRight".move-column-right = _: {};
           "Mod+Ctrl+WheelScrollLeft".move-column-left = _: {};
 

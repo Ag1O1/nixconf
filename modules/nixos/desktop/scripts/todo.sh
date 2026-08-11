@@ -5,7 +5,8 @@ DIR="$HOME/Documents/0.Personal/0.Journal/daily"
 mkdir -p "$DIR"
 
 today="$DIR/$(date +%F).md"
-yesterday="$DIR/$(date -d 'yesterday' +%F).md"
+# No longer really yesterday but the latest documented day from before
+yesterday="$DIR/$(ls "$DIR" | tail -n 1)"
 
 if [[ -f "$today" ]]; then
   nvim "$today"
@@ -19,7 +20,9 @@ extract_section() {
   awk -v h="$header" -v h2="$header2" '$0 ~"^## (" h "|" h2 ")$" {flag=1;next}/^## /{flag=0} flag' "$file"
 }
 
-preserve=$(extract_section "$yesterday" "Preserve" "Weekly Notes")
+if [[ -f $yesterday ]]; then
+  preserve=$(extract_section "$yesterday" "Preserve" "Weekly Notes")
+fi
 
 final="# $(date +%F)
 
@@ -31,6 +34,8 @@ final="# $(date +%F)
 
 
 ## Preserve
-$preserve"
+${preserve:-}"
 
 echo "$final" >"$today"
+
+nvim "$today"
