@@ -10,6 +10,7 @@
         modules = [
           {
             config.vim = {
+              extraPackages = [pkgs.gdtoolkit_4];
               viAlias = true;
               vimAlias = true;
               debugMode = {
@@ -19,9 +20,17 @@
               };
               diagnostics = {
                 enable = true;
+                nvim-lint = {
+                  enable = true;
+                  lint_after_save = true;
+                  linters_by_ft.gdscript = ["gdlint"];
+                };
                 presets.cpplint.enable = lib.mkForce false;
                 config = {
-                  virtual_text = true;
+                  virtual_text = false;
+                  virtual_lines = {
+                    current_line = true;
+                  };
                   signs = true;
                   underline = true;
                 };
@@ -194,6 +203,12 @@
               formatter.conform-nvim = {
                 enable = true;
                 setupOpts = {
+                  formatters_by_ft.gdscript = ["gdformat"];
+                  formatters.gdformat = {
+                    command = "gdformat";
+                    args = ["-"]; # read from stdin, write to stdout
+                    stdin = true;
+                  };
                   formatters.rumdl.append_args = [
                     "--config"
                     "MD013.line-length=80"
