@@ -12,7 +12,7 @@
           modesetting.enable = true;
           open = mkDefault true;
           powerManagement.finegrained = mkDefault false;
-          package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
+          package = mkDefault config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
         };
       };
     };
