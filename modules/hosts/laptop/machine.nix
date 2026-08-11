@@ -58,6 +58,10 @@
         enable = true;
         theme = "nixos";
       };
+      services.input-remapper.enable = true;
+      hardware.uinput.enable = true;
+      programs.ydotool.enable = true;
+      services.ratbagd.enable = true;
       systemd.services.systemd-machine-id-commit.enable = false;
       preservation = {
         enable = true;
@@ -80,6 +84,8 @@
             "/var/lib/waydroid"
             "/var/lib/flatpak"
             "/var/lib/cups"
+            "/var/lib/private/ollama"
+            "/var/lib/private/open-webui"
             "/var/log"
             "/etc/ssh"
             "/etc/NetworkManager/system-connections"
