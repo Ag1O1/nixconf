@@ -2,6 +2,7 @@
   flake.modules.nixos.laptopPackages = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       self.packages.${pkgs.stdenv.hostPlatform.system}.myNeovim
+      piper
       gparted
       comma
       wl-mirror
@@ -34,7 +35,9 @@
       zed-editor
       zed-discord-presence
       btop
-      nemo
+      (nemo-with-extensions.override {
+        extensions = with pkgs; [nemo-fileroller];
+      })
       godot
       netcat # for godot zed
       blender
