@@ -21,11 +21,20 @@
         nix edit nixpkgs#$argv[1]
       '')
     ];
+    environment.etc."fish/conf.d/aliases.fish".text = ''
+      alias os-rebuild "nh os switch /home/amr/nixos -H laptop"
+      alias os-rebuild-boot "nh os boot /home/amr/nixos -H laptop"
+      alias nsearch "nix search nixpkgs"
+      alias grep "grep --color=auto"
+    '';
+    programs.fish.enable = true;
+    /*
     programs.fish = {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
     };
+    */
   };
 }

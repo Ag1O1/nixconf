@@ -6,7 +6,7 @@
     sops = {
       defaultSopsFile = "${inputs.self}/secrets/secrets.yaml";
       defaultSopsFormat = "yaml";
-      useSystemdActivation = true;
+      #useSystemdActivation = true;
 
       gnupg.sshKeyPaths = [];
       age = {

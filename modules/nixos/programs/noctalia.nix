@@ -11,6 +11,7 @@
       adw-gtk3
       gpu-screen-recorder
     ];
+    /*
     systemd.services.pre-sleep-hook = {
       description = "Run a command before suspend/sleep";
       before = ["sleep.target"];
@@ -32,5 +33,6 @@
         ''}";
       };
     };
+    */
   };
 }

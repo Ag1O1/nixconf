@@ -5,7 +5,8 @@
 }: {
   # TODO cleanup this file
   flake = {
-    nixosConfigurations.laptop = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.laptop = inputs.finix.lib.finixSystem {
+      lib = inputs.nixpkgs.lib;
       system = "x86_64-linux";
       modules = with self.modules.nixos; [
         # Core
@@ -19,7 +20,7 @@
         user-amr
         mime
         # Modules
-        sops
+        #sops
         nix-search-tv
         theming
         pipewire
@@ -27,9 +28,9 @@
         nvidia
         tlp
         fish
-        printing
+        #printing
         keyd
-        direnv
+        #direnv
         AI
 
         niri
@@ -50,58 +51,25 @@
       pkgs,
       ...
     }: {
-      imports = [
-        inputs.distro-grub-themes.nixosModules.x86_64-linux.default
-        inputs.preservation.nixosModules.default
-      ];
-      distro-grub-themes = {
-        enable = true;
-        theme = "nixos";
-      };
       services.input-remapper.enable = true;
       hardware.uinput.enable = true;
       programs.ydotool.enable = true;
       services.ratbagd.enable = true;
-      systemd.services.systemd-machine-id-commit.enable = false;
-      preservation = {
-        enable = true;
-        preserveAt."/persistent" = {
-          files = [
-            {
-              file = "/etc/machine-id";
-              inInitrd = true;
-              how = "symlink";
-            }
-            {file = "/etc/supergfxd.conf";}
-            {file = "/etc/ly/save";}
-          ];
-          directories = [
-            "/var/lib/nixos"
-            "/var/lib/systemd/timers"
-            "/var/lib/NetworkManager"
-            "/var/lib/bluetooth"
-            "/var/lib/libvirt"
-            "/var/lib/waydroid"
-            "/var/lib/flatpak"
-            "/var/lib/cups"
-            "/var/lib/private/ollama"
-            "/var/lib/private/open-webui"
-            "/var/log"
-            "/etc/ssh"
-            "/etc/NetworkManager/system-connections"
-            "/etc/asusd"
-          ];
-        };
-      };
+      #systemd.services.systemd-machine-id-commit.enable = false;
 
+      /*
       boot.extraModprobeConfig =
         lib.mkAfter
         ''
           options v4l2loopback exclusive_caps=1 card_label="OBS Virtual Camera" max_buffers=2
         '';
+      */
+      environment.etc."modprobe.d/v4l2loopback.conf".text = ''
+        options v4l2loopback exclusive_caps=1 card_label="OBS Virtual Camera" max_buffers=2
+      '';
 
       boot.initrd = {
-        includeDefaultModules = lib.mkForce false;
+        #includeDefaultModules = lib.mkForce false;
         availableKernelModules = [
           "nvme"
           "xhci_pci"
@@ -125,11 +93,11 @@
       #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
       #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-      boot.plymouth = {
-        enable = true;
-        themePackages = [pkgs.adi1090x-plymouth-themes];
-        theme = "deus_ex";
-      };
+      #boot.plymouth = {
+      #enable = true;
+      #themePackages = [pkgs.adi1090x-plymouth-themes];
+      #theme = "deus_ex";
+      #};
 
       services = {
         logind.settings.Login.HandleLidSwitch = "ignore";
@@ -138,29 +106,22 @@
         displayManager.ly.enable = true;
       };
       programs = {
-        droidcam.enable = true;
-        firejail.enable = true;
+        #droidcam.enable = true;
+        #firejail.enable = true;
         zoxide.enable = true;
         kdeconnect.enable = true;
       };
       virtualisation.waydroid.enable = true;
-
-      environment.shellAliases = {
-        os-rebuild = "nh os switch /home/amr/nixos -H laptop";
-        os-rebuild-boot = "nh os boot /home/amr/nixos -H laptop";
-        nsearch = "nix search nixpkgs";
-        grep = "grep --color=auto";
-      };
     };
 
     modules.nixos.laptopHardware = {config, ...}: {
       system.stateVersion = "25.11";
-      hardware.facter.reportPath = ./facter.json;
+      #hardware.facter.reportPath = ./facter.json;
       time.timeZone = "Africa/Cairo";
       i18n.defaultLocale = "en_US.UTF-8";
 
       users.mutableUsers = false;
-      users.users.root.hashedPasswordFile = config.sops.secrets.root_pass.path;
+      users.users.root.password = "test";
 
       hardware.nvidia.prime = {
         amdgpuBusId = "PCI:102:0:0";
@@ -182,13 +143,11 @@
         ];
         loader = {
           efi.canTouchEfiVariables = true;
-          grub = {
-            enable = true;
-            useOSProber = true;
-            device = "nodev";
-            efiSupport = true;
-          };
         };
+      };
+      programs.limine = {
+        enable = true;
+        efiSupport = true;
       };
 
       ##### File system configuration #####

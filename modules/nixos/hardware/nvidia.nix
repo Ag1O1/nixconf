@@ -5,13 +5,13 @@
     ...
   }:
     with lib; {
-      services.xserver.videoDrivers = ["nvidia"];
       hardware = {
         graphics.enable = true;
         nvidia = {
+          enable = true; # required — no equivalent to services.xserver.videoDrivers gating this
           modesetting.enable = true;
-          open = mkDefault true;
-          powerManagement.finegrained = mkDefault false;
+          kernelModule = mkDefault "open";
+          power.runtime.enable = mkDefault false; # renamed from powerManagement.finegrained
           package = mkDefault config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
         };
       };

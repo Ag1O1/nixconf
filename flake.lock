@@ -19,6 +19,21 @@
         "type": "github"
       }
     },
+    "finix": {
+      "locked": {
+        "lastModified": 1786811382,
+        "narHash": "sha256-SNaqhco+byhYb1LUe2s7QBAjdjJlAV5sXUlQgGoa6g0=",
+        "owner": "finix-community",
+        "repo": "finix",
+        "rev": "ca9b9db42f46ed81e7d6f224c52c8459437df5c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "finix-community",
+        "repo": "finix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -350,6 +365,7 @@
     "root": {
       "inputs": {
         "distro-grub-themes": "distro-grub-themes",
+        "finix": "finix",
         "flake-parts": "flake-parts",
         "helium-flake": "helium-flake",
         "hjem": "hjem",

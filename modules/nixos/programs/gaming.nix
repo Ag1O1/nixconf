@@ -9,7 +9,7 @@
       config.allowUnfree = true;
     };
   in {
-    programs.appimage.enable = true;
+    #programs.appimage.enable = true;
     programs.steam = {
       enable = true;
       /*

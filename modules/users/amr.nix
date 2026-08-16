@@ -22,7 +22,7 @@
     ];
     users.users = {
       amr = {
-        hashedPasswordFile = config.sops.secrets.user_pass.path;
+        Password = "test";
         shell = pkgs.fish;
         isNormalUser = true;
         extraGroups = [
@@ -41,7 +41,7 @@
         ];
       };
     };
-    environment.sessionVariables = {
+    environment.variables = {
       EDITOR = "nvim";
       TERMINAL = "ghostty";
     };

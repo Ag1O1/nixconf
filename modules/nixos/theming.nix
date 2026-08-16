@@ -11,7 +11,7 @@
       pkgs.xsettingsd
       pkgs.xrdb
     ];
-    environment.sessionVariables = {
+    environment.variables = {
       GTK_THEME = "adw-gtk3";
     };
     qt = {
