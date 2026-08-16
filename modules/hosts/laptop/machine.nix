@@ -128,7 +128,7 @@
       boot.plymouth = {
         enable = true;
         themePackages = [pkgs.adi1090x-plymouth-themes];
-        theme = "angular_alt";
+        theme = "deus_ex";
       };
       services = {
         logind.settings.Login.HandleLidSwitch = "ignore";
