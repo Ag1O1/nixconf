@@ -1,12 +1,10 @@
-{}
-/*
 {
   flake.modules.nixos.laptopKernel = {
     lib,
     pkgs,
     ...
   }: {
-    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto.extend (
+    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4.extend (
       _lp-self: lp-super: {
         kernel =
           (lp-super.kernel.override {
@@ -38,9 +36,10 @@
           SCHED_CLASS_EXT = yes;
           PREEMPT = yes;
           PREEMPT_DYNAMIC = yes;
-          NO_HZ_FULL = yes;
-          HZ_1000 = yes;
-          HZ = freeform "1000";
+          NO_HZ_IDLE = yes;
+          #NO_HZ_FULL = no;
+          #HZ_1000 = yes;
+          #HZ = freeform "1000";
 
           # ─── AMD Power & Frequency ─────────────────────────────────────────────
           X86_AMD_PSTATE = yes;
@@ -69,7 +68,7 @@
 
           # ─── Storage ──────────────────────────────────────────────────────────
           BLK_DEV_NVME = module;
-          NVME_MULTIPATH = yes;
+          NVME_MULTIPATH = lib.mkForce no;
           BTRFS_FS = yes;
           BTRFS_FS_POSIX_ACL = yes;
           EXT4_FS = yes;
@@ -168,7 +167,7 @@
           WLAN_VENDOR_ZYDAS = lib.mkForce no;
 
           # ─── Webcam & Virtual Camera Support ───────────────────────────────────
-          SND_SOC = lib.mkForce no;
+          SND_SOC = module;
           MEDIA_SUPPORT = module;
           MEDIA_CAMERA_SUPPORT = yes;
           VIDEO_DEV = module;
@@ -243,7 +242,7 @@
           INTEL_TDX_GUEST = lib.mkForce no;
 
           # Debug & Tracing (disables for performance)
-          DEBUG_INFO_BTF = lib.mkForce no;
+          DEBUG_INFO_BTF = yes;
           DEBUG_FS = lib.mkForce no;
           DEBUG_KERNEL = lib.mkForce no;
           DEBUG_INFO = lib.mkForce no;
@@ -254,7 +253,7 @@
           FTRACE = lib.mkForce no;
           KPROBES = lib.mkForce no;
           UPROBES = lib.mkForce no;
-          MAGIC_SYSRQ = lib.mkForce no;
+          MAGIC_SYSRQ = yes;
           SLUB_DEBUG = lib.mkForce no;
           KFENCE = lib.mkForce no;
           PRINTK_TIME = lib.mkForce no;
@@ -263,5 +262,3 @@
     ];
   };
 }
-*/
-
