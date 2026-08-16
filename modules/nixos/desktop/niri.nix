@@ -10,7 +10,7 @@
       package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
       enable = true;
     };
-    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key]; #pkgs.hyprmagnifier];
+    environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key pkgs.hyprmag];
     xdg.portal = {
       enable = true;
       extraPortals = [
@@ -544,7 +544,7 @@
           "Mod+Ctrl+9".move-column-to-workspace = 9;
 
           "Mod+Tab".toggle-overview = _: {};
-          "Mod+a".spawn-sh = "hyprmagnifier --size 3840x2400 -r";
+          "Mod+a".spawn-sh = "hyprmag -r 2000";
 
           # ─── Layout Controls ──────────────────────────────────────────────────
           "Mod+F".maximize-column = _: {};
