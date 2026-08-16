@@ -14,7 +14,7 @@
         laptopHardware
         laptopPackages
         laptopModule
-        #laptopKernel
+        laptopKernel
         # User
         user-amr
         mime
@@ -122,7 +122,7 @@
       };
       #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
       #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
-      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
+      #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
       #boot.kernelPackages = pkgs.linuxPackages_latest;
 
       boot.plymouth = {
