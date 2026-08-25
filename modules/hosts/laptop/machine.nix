@@ -34,6 +34,7 @@
 
         niri
         noctalia
+        umbriel
 
         yazi
         helium
