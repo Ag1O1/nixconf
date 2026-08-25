@@ -7,6 +7,9 @@
       enable = true;
       portalPackage = inputs.xdg-desktop-portal-umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
+    hj.imports = [
+      inputs.self.modules.hjem.umbriel
+    ];
     /*
     xdg.portal = {
       enable = true;
@@ -31,6 +34,10 @@
         general.autostart = ["noctalia"];
         layout.gap = 5;
         input = {
+          focus = {
+            follows_mouse = true;
+            follows_mouse_max_scroll = 0.5;
+          };
           touchpad = {
             natural_scroll = true;
             #accel_profile = "flat";
@@ -56,6 +63,7 @@
         keybinds = {
           "Mod+Shift+O" = "config-reload";
           "Mod+Shift+DELETE" = "session-quit";
+          "Mod+Space" = "keyboard-layout-next";
           # Apps #
           "Mod+Q" = "spawn:ghostty";
           "Mod+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-on.sh";

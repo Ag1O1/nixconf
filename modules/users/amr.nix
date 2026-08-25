@@ -48,9 +48,6 @@
     };
     hj = {
       enable = true;
-      imports = [
-        self.modules.hjem.umbriel
-      ];
     };
     environment.sessionVariables = {
       EDITOR = "nvim";
