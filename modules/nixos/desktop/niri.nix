@@ -184,8 +184,6 @@
           focus-ring = {
             on = _: {}; # bare `on` identifier — matches original `on //ring`
             width = 3;
-            active-color = "#00ac89";
-            inactive-color = "#505050";
           };
 
           border = {
@@ -203,7 +201,6 @@
                 y = 5;
               };
             };
-            color = "#0007";
           };
 
           struts = _: {}; # empty block
@@ -589,10 +586,10 @@
           workspace "main1"
           workspace "main2"
           workspace "chat"
-          include optional=true "/home/amr/.config/niri/noctalia.kdl"
           include optional=true "/home/amr/.config/niri/layout.kdl"
           include optional=true "/home/amr/.config/niri/window-rules.kdl"
           include optional=true "/home/amr/.config/niri/animations.kdl"
+          include optional=true "/home/amr/.config/niri/noctalia.kdl"
 
         '';
       };
