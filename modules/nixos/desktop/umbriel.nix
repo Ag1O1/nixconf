@@ -27,7 +27,7 @@
     programs.umbriel = {
       enable = true;
       settings = {
-        layout.mode = "dwindle";
+        layout.mode = "scrolling";
         general.autostart = ["noctalia"];
         layout.gap = 5;
         input = {
@@ -41,6 +41,17 @@
             repeat_delay = 300;
             layout = "us,eg";
           };
+        };
+        environment = {
+          PROTONPATH = "GE-Proton";
+          SSH_AUTH_SOCK = "/home/amr/.bitwarden-ssh-agent.sock";
+          DISPLAY = ":1";
+          ELECTRON_OZONE_PLATFORM_HINT = "auto";
+          QT_QPA_PLATFORMTHEME = "qt6ct";
+          QT_QPA_PLATFORM = "wayland";
+          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+          XDG_SESSION_TYPE = "wayland";
+          XDG_CURRENT_DESKTOP = "niri";
         };
         keybinds = {
           "Mod+Shift+O" = "config-reload";
