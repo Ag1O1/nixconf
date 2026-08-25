@@ -33,8 +33,9 @@
         AI
 
         niri
-        noctalia
         umbriel
+        noctalia
+        mango
 
         yazi
         helium
