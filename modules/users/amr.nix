@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  self,
+  ...
+}: {
   flake.modules.nixos.user-amr = {
     pkgs,
     lib,
@@ -22,6 +26,7 @@
     ];
     users.users = {
       amr = {
+        enable = true;
         hashedPasswordFile = config.sops.secrets.user_pass.path;
         shell = pkgs.fish;
         isNormalUser = true;
@@ -40,6 +45,12 @@
           "dialout" # for arduino to work
         ];
       };
+    };
+    hj = {
+      enable = true;
+      imports = [
+        self.modules.hjem.umbriel
+      ];
     };
     environment.sessionVariables = {
       EDITOR = "nvim";
