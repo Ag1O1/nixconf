@@ -387,10 +387,10 @@
                 neogit.enable = true;
               };
 
-              minimap = {
-                minimap-vim.enable = false;
-                codewindow.enable = false; # lighter, faster, and uses lua for configuration
-              };
+              #minimap = {
+              #minimap-vim.enable = false;
+              #codewindow.enable = false; # lighter, faster, and uses lua for configuration
+              #};
 
               dashboard = {
                 dashboard-nvim.enable = false;
