@@ -10,14 +10,6 @@
     hj.imports = [
       inputs.self.modules.hjem.umbriel
     ];
-    /*
-    xdg.portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
-    };
-    */
   };
   flake.modules.hjem.umbriel = {
     pkgs,
@@ -40,8 +32,8 @@
           };
           touchpad = {
             natural_scroll = true;
-            #accel_profile = "flat";
-            #sensitivity = 0.3;
+            accel_profile = "flat";
+            sensitivity = 1.5;
           };
           keyboard = {
             repeat_rate = 30;
@@ -58,7 +50,7 @@
           QT_QPA_PLATFORM = "wayland";
           QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
           XDG_SESSION_TYPE = "wayland";
-          XDG_CURRENT_DESKTOP = "niri";
+          XDG_CURRENT_DESKTOP = "umbriel";
         };
         keybinds = {
           "Mod+Shift+O" = "config-reload";
