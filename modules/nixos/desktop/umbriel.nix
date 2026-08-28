@@ -15,7 +15,15 @@
     pkgs,
     lib,
     ...
-  }: {
+  }: let
+    mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
+    fileNames = builtins.attrNames (builtins.readDir ./scripts);
+    scripts = builtins.listToAttrs (map (name: {
+        name = lib.removeSuffix ".sh" name;
+        value = mkScript name;
+      })
+      fileNames);
+  in {
     imports = [
       inputs.umbriel.hjemModules.default
     ];
@@ -23,7 +31,7 @@
       enable = true;
       settings = {
         layout.mode = "scrolling";
-        general.autostart = ["noctalia"];
+        general.autostart = ["noctalia" "openrgb --profile /home/amr/.config/OpenRGB/keyboard.orp"];
         layout.gap = 5;
         input = {
           focus = {
@@ -33,7 +41,10 @@
           touchpad = {
             natural_scroll = true;
             accel_profile = "flat";
-            sensitivity = 1.5;
+            sensitivity = 1;
+          };
+          mouse = {
+            accel_profile = "flat";
           };
           keyboard = {
             repeat_rate = 30;
@@ -56,26 +67,28 @@
           "Mod+Shift+O" = "config-reload";
           "Mod+Shift+DELETE" = "session-quit";
           "Mod+Space" = "keyboard-layout-next";
-          # Apps #
+
+          ### Apps ###
           "Mod+Q" = "spawn:ghostty";
           "Mod+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-on.sh";
           "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
           "Mod+Shift+C" = "window-close";
-          "Mod+S" = "spawn:wlr-which-key";
+          "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
           "Mod+W" = "spawn:helium";
-          "Mod+E" = "spawn:yazi";
-          "Mod+A" = "spawn:${lib.getExe pkgs.hyprmag} -r 2000";
+          "Mod+E" = "spawn:ghostty -e yazi";
+          "Mod+A" = "spawn:${lib.getExe pkgs.hyprmag} -r 2500";
+          "Mod+T" = "spawn:ghostty -e ${scripts.todo}";
 
           "Mod+G" = "spawn:noctalia msg panel-toggle control-center";
           "Mod+R" = "spawn:noctalia msg panel-toggle launcher";
           "Mod+CTRL+R" = "spawn:noctalia msg panel-toggle control-center";
           "Mod+Shift+R" = "spawn:noctalia msg panel-toggle clipboard";
 
-          "Mod+Shift+S" = ''spawn:${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp})" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} --type image/png && notify-send "Screenshot copied to clipboard!"'';
+          "Mod+Shift+S" = "spawn:noctalia msg screenshot-region";
+          "Mod+Shift+Alt+S" = "spawn:noctalia msg screenshot-fullscreen";
           "Mod+Shift+Ctrl+S" = ''spawn:${lib.getExe' pkgs.wl-clipboard "wl-paste"} | ${lib.getExe pkgs.satty} --filename -'';
-          "Mod+Shift+Alt+S" = ''spawn:${lib.getExe pkgs.grim} -g "$(${lib.getExe pkgs.slurp} -o)" - | ${lib.getExe' pkgs.wl-clipboard "wl-copy"} --type image/png && notify-send "Screenshoted window copied to clipboard!"'';
 
-          # XF86 Keys #
+          ### XF86 Keys ###
           "XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up";
           "XF86AudioLowerVolume" = "spawn:noctalia msg volume-down";
           "XF86AudioMute" = "spawn:noctalia msg volume-mute";
@@ -86,7 +99,8 @@
           "XF86AudioPrev" = "spawn:noctalia msg media previous";
           "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up";
           "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
-          # Workspaces #
+
+          ### Workspaces ###
           "Mod+1" = "workspace-switch:1";
           "Mod+2" = "workspace-switch:2";
           "Mod+3" = "workspace-switch:3";
@@ -112,6 +126,10 @@
           "Mod+D" = "workspace-previous";
           "Mod+C" = "workspace-next";
 
+          "Mod+Ctrl+1" = "workspace-set-layout:scrolling";
+          "Mod+Ctrl+2" = "workspace-set-layout:dwindle";
+          "Mod+Ctrl+3" = "workspace-set-layout:master";
+
           "Mod+F" = "window-toggle-maximize";
           "Mod+ALT+F" = "window-toggle-maximize-to-edges";
           "Mod+Shift+F" = "window-toggle-fullscreen";
@@ -120,16 +138,42 @@
 
           "Mod+TAB" = "overview-toggle";
         };
+        hot_corners.top_left = {
+          enabled = true;
+          delay_ms = 200;
+          action = "overview-toggle";
+        };
+
+        ### Rules ###
+        layer_rule = [
+          {
+            match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$";
+            blur = true;
+            blur_ignore_alpha = 0.5;
+            blur_popups = true;
+          }
+        ];
+        window_rule = [
+          {
+            blur = true;
+            blur_optimized = true;
+          }
+        ];
+
+        ### Appearance ###
         appearance.blur = {
           enabled = true;
           optimized = true;
-          passes = 3;
+          passes = 4;
           radius = 5;
-          noise = 0.02;
-          brightness = 0.9;
-          contrast = 0.9;
-          saturation = 1.1;
+          noise = 0.03;
+          brightness = 0.75;
+          contrast = 0.8;
+          saturation = 1.15;
         };
+
+        # Noctalia theme colors
+        include.files = ["~/.config/umbriel/noctalia.toml"];
       };
     };
   };
