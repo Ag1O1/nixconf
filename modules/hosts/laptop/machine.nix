@@ -60,6 +60,7 @@
         enable = true;
         theme = "nixos";
       };
+      services.gnome.gnome-keyring.enable = true;
       services.input-remapper.enable = true;
       hardware.uinput.enable = true;
       programs.ydotool.enable = true;
