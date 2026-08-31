@@ -155,7 +155,12 @@
       };
     };
 
-    modules.nixos.laptopHardware = {config, ...}: {
+    modules.nixos.laptopHardware = {
+      config,
+      lib,
+      pkgs,
+      ...
+    }: {
       system.stateVersion = "25.11";
       hardware.facter.reportPath = ./facter.json;
       time.timeZone = "Africa/Cairo";
@@ -168,7 +173,22 @@
         amdgpuBusId = "PCI:102:0:0";
         nvidiaBusId = "PCI:01:0:0";
       };
+
       services.asusd.enable = true;
+      services.hardware.openrgb.enable = true;
+
+      # Fix for laptop backlight
+      # Source: @RPochyly4 in https://gitlab.com/asus-linux/asusctl/-/work_items/682
+      systemd.services.asus-keyboard-ec-mode = {
+        description = "Initialize ASUS keyboard RGB controller";
+
+        wantedBy = ["multi-user.target"];
+
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${lib.getExe pkgs.hidapitester} --vidpid 0B05:19B6 --open --send-feature 70,1";
+        };
+      };
 
       boot = {
         kernelParams = [
