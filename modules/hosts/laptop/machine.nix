@@ -32,10 +32,10 @@
         direnv
         AI
 
-        niri
+        #niri
         umbriel
         noctalia
-        mango
+        #mango
 
         yazi
         helium
