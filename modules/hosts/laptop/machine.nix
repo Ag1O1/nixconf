@@ -65,6 +65,9 @@
       programs.ydotool.enable = true;
       services.ratbagd.enable = true;
       systemd.services.systemd-machine-id-commit.enable = false;
+
+      security.sudo-rs.enable = true;
+      security.sudo.enable = false;
       preservation = {
         enable = true;
         preserveAt."/persistent" = {
