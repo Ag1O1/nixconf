@@ -11,14 +11,6 @@
       enable = true;
     };
     environment.systemPackages = [pkgs.xwayland-satellite pkgs.wlr-which-key pkgs.hyprmag];
-    xdg.portal = {
-      enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk
-      ];
-      config.common.default = ["gnome"];
-    };
   };
   perSystem = {
     pkgs,

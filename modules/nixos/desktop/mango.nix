@@ -10,24 +10,6 @@
       hj.imports = [
         inputs.self.modules.hjem.mango
       ];
-      xdg.portal = {
-        enable = true;
-        wlr.enable = true;
-        wlr.settings = {
-          screencast = {
-            chooser_type = "dmenu";
-            chooser_cmd = "noctalia dmenu";
-          };
-        };
-        extraPortals = [
-          pkgs.xdg-desktop-portal-gtk
-          pkgs.xdg-desktop-portal-wlr
-        ];
-        config.mango = {
-          "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-          "org.freedesktop.impl.portal.Screenshot" = "wlr";
-        };
-      };
     };
     hjem.mango = {
       lib,
