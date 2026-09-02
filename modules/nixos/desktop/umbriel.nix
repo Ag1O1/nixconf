@@ -31,7 +31,7 @@
       enable = true;
       settings = {
         layout.mode = "scrolling";
-        general.autostart = ["noctalia" "openrgb --noautoconnect -p keyboard"];
+        general.autostart = ["noctalia"];
         layout.gap = 5;
         input = {
           focus = {
@@ -159,7 +159,6 @@
 
         ### Appearance ###
         appearance.blur = {
-          enabled = true;
           optimized = true;
           passes = 4;
           radius = 5;
@@ -169,8 +168,15 @@
           saturation = 1.15;
         };
 
+        ## Outputs ##
+        output.eDP-1 = {
+          mode = "1920x1200@165";
+          vrr = "always";
+          direct_scanout = true;
+        };
+
         # Noctalia theme colors
-        include.files = ["~/.config/umbriel/noctalia.toml"];
+        include.files = ["~/.config/umbriel/noctalia.toml" "~/.config/umbriel/writable.toml"];
       };
     };
   };
