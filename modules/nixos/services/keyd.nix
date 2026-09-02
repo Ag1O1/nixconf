@@ -1,14 +1,33 @@
 {
-  flake.modules.nixos.keyd = {
+  flake.modules.nixos.keyd = {pkgs, ...}: let
+    toggleTouchpad =
+      pkgs.writeShellScript "toggletouchpad" #bash
+      
+      ''
+        #!/bin/bash
+        DEVICE="i2c-ASCP1200:00"
+        DRIVER_PATH="/sys/bus/i2c/drivers/i2c_hid_acpi"
+
+        if [ -L "/sys/bus/i2c/devices/$DEVICE/driver" ]; then
+            echo "$DEVICE" > "$DRIVER_PATH/unbind"
+        else
+            echo "$DEVICE" > "$DRIVER_PATH/bind"
+        fi
+      '';
+  in {
+    systemd.services.keyd.serviceConfig = {
+      ReadWritePaths = ["/sys/bus/i2c/drivers/i2c_hid_acpi"];
+    };
     services.keyd = {
       enable = true;
       keyboards.default = {
         ids = ["*"];
         settings = {
           main = {
-            capslock = "layerm(nav, macro(esc+15ms))";
+            capslock = "overload(nav, macro(esc+15ms))";
             "\\" = "backspace";
             backspace = "\\";
+            f21 = "command(${toggleTouchpad})";
           };
           "shift:S" = {
             capslock = "capslock";
