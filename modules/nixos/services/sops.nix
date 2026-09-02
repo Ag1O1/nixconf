@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.sops = {
+  flake.modules.nixos.sops = {config, ...}: {
     imports = [
       inputs.sops-nix.nixosModules.sops
     ];
@@ -18,6 +18,10 @@
         user_pass.neededForUsers = true;
         root_pass.neededForUsers = true;
       };
+    };
+    users = {
+      mutableUsers = false;
+      users.root.hashedPasswordFile = config.sops.secrets.root_pass.path;
     };
   };
 }
