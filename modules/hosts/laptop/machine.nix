@@ -32,6 +32,7 @@
         keyd
         direnv
         AI
+        openrgb
 
         #niri
         ly
@@ -140,7 +141,6 @@
 
       services = {
         asusd.enable = true;
-        hardware.openrgb.enable = true;
       };
 
       # Fix for laptop backlight
