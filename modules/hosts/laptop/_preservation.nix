@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  import = [inputs.preservation.nixosModules.default];
+  imports = [inputs.preservation.nixosModules.default];
   preservation = {
     enable = true;
     preserveAt."/persistent" = {

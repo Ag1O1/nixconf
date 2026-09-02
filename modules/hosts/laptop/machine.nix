@@ -55,7 +55,7 @@
     }: {
       imports = [
         inputs.distro-grub-themes.nixosModules.x86_64-linux.default
-        ./preservation.nix
+        ./_preservation.nix
       ];
       distro-grub-themes = {
         enable = true;
