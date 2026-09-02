@@ -210,6 +210,7 @@
           "nvidia.NVreg_DynamicPowerManagement=0x02"
           "nvidia.NVreg_EnableS0ixPowerManagement=1"
           "nvidia.NVreg_DynamicPowerManagementVideoMemoryThreshold=200"
+          "pcie_aspm=force"
         ];
         loader = {
           efi.canTouchEfiVariables = true;
