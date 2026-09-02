@@ -15,6 +15,7 @@
         laptopPackages
         laptopModule
         laptopKernel
+        laptopPreservation
         # User
         user-amr
         mime
@@ -55,7 +56,6 @@
     }: {
       imports = [
         inputs.distro-grub-themes.nixosModules.x86_64-linux.default
-        ./_preservation.nix
       ];
       distro-grub-themes = {
         enable = true;
