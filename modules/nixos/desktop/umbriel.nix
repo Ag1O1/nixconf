@@ -31,7 +31,7 @@
       enable = true;
       settings = {
         layout.mode = "scrolling";
-        general.autostart = ["noctalia" "openrgb --profile /home/amr/.config/OpenRGB/keyboard.orp"];
+        general.autostart = ["noctalia" "openrgb --noautoconnect -p keyboard"];
         layout.gap = 5;
         input = {
           focus = {
