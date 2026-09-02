@@ -9,6 +9,7 @@
         NMI_WATCHDOG = 0;
         TLP_DEFAULT_MODE = "BAL";
         TLP_AUTO_SWITCH = 2;
+        RUNTIME_PM_DRIVER_DENYLIST = "";
 
         # Battery Longevity
         START_CHARGE_THRESH_BAT0 = 75;
