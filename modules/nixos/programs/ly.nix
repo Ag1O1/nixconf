@@ -10,6 +10,7 @@
       settings = {
         animation = "dur_file";
         dur_file_path = "${animation-dur}";
+        full_color = true;
       };
     };
   };
