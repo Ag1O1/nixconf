@@ -100,8 +100,8 @@
         logind.settings.Login.HandleLidSwitch = "ignore";
         openssh.enable = true;
         flatpak.enable = true;
-        services.gnome.gnome-keyring.enable = true;
-        services.ratbagd.enable = true;
+        gnome.gnome-keyring.enable = true;
+        ratbagd.enable = true;
       };
       programs = {
         droidcam.enable = true;
