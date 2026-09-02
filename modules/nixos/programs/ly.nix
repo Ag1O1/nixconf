@@ -2,7 +2,7 @@
   flake.modules.nixos.ly = {pkgs, ...}: let
     animation-dur = pkgs.fetchurl {
       url = "https://codeberg.org/fairyglade/ly-community/raw/branch/main/animations/dur/blackhole-smooth-240x67.dur";
-      hash = "";
+      hash = "sha256-wo3FzPtngCsg/bRSDTYHQqKnMp4vY+Btm14vakJERBU=";
     };
   in {
     services.displayManager.ly = {
