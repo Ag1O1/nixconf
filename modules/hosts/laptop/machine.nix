@@ -175,8 +175,12 @@
       users.users.root.hashedPasswordFile = config.sops.secrets.root_pass.path;
 
       hardware.nvidia.prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
         amdgpuBusId = "PCI:102:0:0";
-        nvidiaBusId = "PCI:01:0:0";
+        nvidiaBusId = "PCI:1:0:0";
       };
 
       services.asusd.enable = true;

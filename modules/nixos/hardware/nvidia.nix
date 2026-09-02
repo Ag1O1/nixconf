@@ -1,4 +1,4 @@
-{...}: {
+{
   flake.modules.nixos.nvidia = {
     config,
     lib,
@@ -11,8 +11,9 @@
         nvidia = {
           modesetting.enable = true;
           open = mkDefault true;
-          powerManagement.finegrained = mkDefault false;
           package = mkDefault config.boot.kernelPackages.nvidiaPackages.bleeding_edge;
+          powerManagement.enable = true;
+          powerManagement.finegrained = true;
         };
       };
     };
