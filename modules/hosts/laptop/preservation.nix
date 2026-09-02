@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.nixos.laptopPreservation = {
+  flake.modules.nixos.laptopPreservation = {
     imports = [inputs.preservation.nixosModules.default];
     preservation = {
       enable = true;
