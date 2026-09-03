@@ -168,7 +168,15 @@
           saturation = 1.15;
         };
 
-        ## Outputs ##
+        ### Overview ###
+        overview = {
+          zoom = 0.5;
+          background_blur = true;
+          workspace_wallpaper = true;
+          shortcuts = false;
+        };
+
+        ### Outputs ###
         output.eDP-1 = {
           mode = "1920x1200@165";
           vrr = "always";
