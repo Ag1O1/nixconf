@@ -47,7 +47,7 @@ in {
       enable = true;
       inherit defaultApplications;
     };
-    hj.files.".config/mimeapps.list".text = lib.generators.toINI {} {
+    hj.xdg.config.files.".config/mimeapps.list".text = lib.generators.toINI {} {
       "Default Applications" = defaultApplications;
     };
   };
