@@ -42,6 +42,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+
     distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
   };
 

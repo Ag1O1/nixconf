@@ -12,6 +12,7 @@
     programs.appimage.enable = true;
     programs.steam = {
       enable = true;
+      package = inputs.millennium.packages."${pkgs.system}".millennium-steam;
       /*
       package = pkgs.steam.override {
         extraPkgs = pkgs:
