@@ -71,7 +71,7 @@
           "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
           "Mod+Shift+C" = "window-close";
           "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
-          "Mod+W" = "spawn:helium";
+          "Mod+W" = "spawn:qutebrowser";
           "Mod+E" = "spawn:ghostty -e yazi";
           "Mod+A" = "spawn:${lib.getExe pkgs.hyprmag} -r 2500";
           "Mod+T" = "spawn:ghostty -e ${scripts.todo}";

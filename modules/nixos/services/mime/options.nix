@@ -22,7 +22,7 @@
       };
       browser = mkOption {
         type = str;
-        default = "helium";
+        default = "qutebrowser";
         description = "Defines browser";
       };
       pdf = mkOption {
