@@ -22,7 +22,7 @@
       };
       browser = mkOption {
         type = str;
-        default = "qutebrowser";
+        default = "org.qutebrowser.qutebrowser";
         description = "Defines browser";
       };
       pdf = mkOption {
