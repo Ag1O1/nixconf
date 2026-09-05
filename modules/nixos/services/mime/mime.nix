@@ -19,6 +19,8 @@ in {
       svg
       zip
       file-manager
+      torrent
+      terminal
       ;
 
     defaultApplications = {
@@ -31,6 +33,8 @@ in {
 
       "x-scheme-handler/http" = "${browser}.desktop";
       "x-scheme-handler/https" = "${browser}.desktop";
+      "x-scheme-handler/magnet" = "${torrent}.desktop";
+      "x-scheme-handler/terminal" = "${terminal}.desktop";
 
       "application/zip" = "${zip}.desktop";
       "application/x-rar-compressed" = "${zip}.desktop";
@@ -38,6 +42,7 @@ in {
       "application/pdf" = "${pdf}.desktop";
       "application/x-blender" = "blender.desktop";
       "application/x-godot-project" = "org.godotengine.Godot4.desktop";
+
       "image/svg+xml" = "${svg}.desktop";
     };
   in {
@@ -47,7 +52,7 @@ in {
       enable = true;
       inherit defaultApplications;
     };
-    hj.xdg.config.files.".config/mimeapps.list".text = lib.generators.toINI {} {
+    hj.xdg.config.files."mimeapps.list".text = lib.generators.toINI {} {
       "Default Applications" = defaultApplications;
     };
   };

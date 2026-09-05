@@ -60,6 +60,11 @@
         default = "nemo";
         description = "Defines file manager";
       };
+      torrent = mkOption {
+        type = str;
+        default = "MotrixNext";
+        description = "Defines torrent/download manager";
+      };
     };
   };
 }
