@@ -7,6 +7,11 @@
       shortcut = "Space";
       keyMode = "vi";
       plugins = [pkgs.tmuxPlugins.resurrect];
+
+      extraConfig = ''
+        bind -n M-j previous-window
+        bind -n M-k next-window
+      '';
     };
   };
 }
