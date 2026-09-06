@@ -29,6 +29,7 @@
     ];
     programs.umbriel = {
       enable = true;
+      validateConfig = false;
       settings = {
         layout.mode = "scrolling";
         general.autostart = ["noctalia"];
@@ -122,6 +123,10 @@
           "Mod+X" = "window-focus-right";
           "Mod+D" = "workspace-previous";
           "Mod+C" = "workspace-next";
+          "Mod+h" = "window-focus-left";
+          "Mod+l" = "window-focus-right";
+          "Mod+k" = "workspace-previous";
+          "Mod+j" = "workspace-next";
 
           "Mod+Ctrl+1" = "workspace-set-layout:scrolling";
           "Mod+Ctrl+2" = "workspace-set-layout:dwindle";
@@ -183,7 +188,8 @@
           direct_scanout = true;
         };
 
-        # Noctalia theme colors
+        # Noctalia theme colors & writable for some script stuff
+
         include.files = ["~/.config/umbriel/noctalia.toml" "~/.config/umbriel/writable.toml"];
       };
     };
