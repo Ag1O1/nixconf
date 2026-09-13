@@ -4,25 +4,26 @@
   programs.limine = {
     enable = true;
     settings = {
+      wallpaper = ./nixo.jpg;
       # UI
       interface_branding = "finix";
-      interface_branding_colour = 5;
-      interface_help_hidden = false;
+      interface_branding_colour = 7;
+      interface_help_hidden = true;
       interface_resolution = "1920x1200";
 
       # Font
-      #term_font = "boot():/EFI/limine/SCRWL---.F16";
       term_font_size = "8x16";
       term_font_scale = "2x2";
       term_font_spacing = 1;
-      term_margin = 0;
+      term_margin = 80;
       term_margin_gradient = 0;
 
       # Terminal colors
-      term_palette = "1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;bac2de";
-      term_palette_bright = "585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4";
-      term_foreground = "cdd6f4";
-      term_foreground_bright = "cdd6f4";
+      term_palette = "16181d;d16969;8fbf7f;d8a657;7daea3;d3869b;89b8c2;c5c8c6";
+      term_palette_bright = "34373e;e68183;a8c98b;e5c07b;8ec07c;d3869b;8fbcbb;e6e9ef";
+
+      term_foreground = "d6d9df";
+      term_foreground_bright = "ffffff";
 
       # Editor
       editor_enabled = true;

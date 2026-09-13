@@ -1,12 +1,12 @@
 {
   fm,
+  config,
   cm,
   lib,
   pkgs,
   ...
 }: {
-  imports = [fm.gnome-keyring fm.bash fm.sysklogd fm.polkit fm.getty fm.iwd cm.fastfetch];
-  #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
+  imports = [fm.gnome-keyring fm.bash fm.sysklogd fm.polkit fm.getty fm.iwd cm.fastfetch fm.sessiond-uaccess fm.zzz fm.brightnessctl];
   boot = {
     initrd = {
       #includeDefaultModules = lib.mkForce false;
@@ -28,24 +28,52 @@
 
   users.users.root.password = "$y$j9T$6xDOxYv1styslfWtv5Dgd.$JVn13FwJ/NyGGJ/urZB0SaeJG7ok3Ul9HcSKxzZVIA8";
 
-  services.polkit.enable = true;
-  services.getty.enable = true;
-  services.udev.enable = true;
-  services.sysklogd.enable = true;
-  services.dbus.enable = true;
+  services = {
+    sysklogd.enable = true;
+    getty.enable = true;
+    dbus.enable = true;
 
-  services.elogind = {
-    enable = true;
-    settings.Login = {
-      HandleLidSwitch = "ignore";
-      HandleLidSwitchExternalPower = "ignore";
-      HandleLidSwitchDocked = "ignore";
-    };
+    udev.enable = true;
+    seatd.enable = true;
+
+    sessiond.enable = true;
+    sessiond-uaccess.enable = true;
+
+    polkit.enable = true;
+  };
+  programs.zzz.enable = true;
+
+  providers = {
+    resumeAndSuspend.backend = "zzz";
+
+    privileges.rules = [
+      {
+        command = "/run/current-system/sw/bin/poweroff";
+        groups = [config.services.seatd.group];
+        requirePassword = false;
+      }
+      {
+        command = "/run/current-system/sw/bin/reboot";
+        groups = [config.services.seatd.group];
+        requirePassword = false;
+      }
+      {
+        command = "/run/current-system/sw/bin/zzz";
+        groups = [config.services.seatd.group];
+        requirePassword = false;
+      }
+      {
+        command = "/run/current-system/sw/bin/ZZZ";
+        groups = [config.services.seatd.group];
+        requirePassword = false;
+      }
+    ];
   };
 
   programs = {
     bash.enable = true;
     gnome-keyring.enable = true;
+    brightnessctl.enable = true;
   };
 
   hj.xdg.config.files."fish/conf.d/aliases.fish".text = ''
