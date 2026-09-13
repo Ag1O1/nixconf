@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # TODO: rework more declaratively
   environment.systemPackages = [
     pkgs.adw-gtk3
 

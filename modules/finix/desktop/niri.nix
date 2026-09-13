@@ -14,37 +14,23 @@
   myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
     inherit pkgs;
     settings = {
-      # ════════════════════════════════════════════════════════════
-      # Debug
-      # ════════════════════════════════════════════════════════════
+      ### Debug ###
       debug.honor-xdg-activation-with-invalid-serial = _: {};
 
-      # ════════════════════════════════════════════════════════════
-      # Workspaces
-      # ════════════════════════════════════════════════════════════
-
-      # ════════════════════════════════════════════════════════════
-      # Overview
-      # ════════════════════════════════════════════════════════════
+      ### Overview ###
       overview.zoom = 0.50;
 
-      # ════════════════════════════════════════════════════════════
-      # Cursor
-      # ════════════════════════════════════════════════════════════
+      ### Cursor ###
       cursor.xcursor-theme = "Bibata-Modern-Ice";
 
-      # ════════════════════════════════════════════════════════════
-      # Miscellaneous
-      # ════════════════════════════════════════════════════════════
+      ### Miscellaneous ###
       prefer-no-csd = _: {};
 
       screenshot-path = null;
 
       hotkey-overlay.skip-at-startup = _: {};
 
-      # ════════════════════════════════════════════════════════════
-      # Global Blur Defaults
-      # ════════════════════════════════════════════════════════════
+      ### Global Blur Defaults ###
       blur = {
         passes = 4;
         offset = 2.0;
@@ -52,9 +38,7 @@
         saturation = 1.25;
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Layer Rules
-      # ════════════════════════════════════════════════════════════
+      ### Layer Rules ###
       layer-rules = [
         {
           matches = [{namespace = "^noctalia-backdrop";}];
@@ -62,9 +46,7 @@
         }
       ];
 
-      # ════════════════════════════════════════════════════════════
-      # Window Rules
-      # ════════════════════════════════════════════════════════════
+      ### Window Rules ###
       window-rules = [
         # Global blur — no matches = applies to all windows
         {
@@ -81,7 +63,6 @@
         {
           draw-border-with-background = false;
         }
-        # Float Firefox PiP and satty
         {
           matches = [
             {
@@ -111,9 +92,7 @@
         }
       ];
 
-      # ════════════════════════════════════════════════════════════
-      # Input
-      # ════════════════════════════════════════════════════════════
+      ### Input ###
       input = {
         keyboard = {
           xkb = {
@@ -127,8 +106,8 @@
         touchpad = {
           accel-speed = 1.0;
           accel-profile = "flat";
-          tap = _: {}; # bare KDL node
-          natural-scroll = _: {}; # bare KDL node
+          tap = _: {};
+          natural-scroll = _: {};
         };
 
         mouse = {
@@ -136,17 +115,14 @@
           accel-speed = 0.25;
         };
 
-        # `focus-follows-mouse max-scroll-amount="10%"` — node with a KDL property
         focus-follows-mouse = _: {
           props.max-scroll-amount = "10%";
         };
 
-        workspace-auto-back-and-forth = _: {}; # bare KDL node
+        workspace-auto-back-and-forth = _: {};
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Layout
-      # ════════════════════════════════════════════════════════════
+      ### Layout ###
       layout = {
         gaps = 16;
         center-focused-column = "on-overflow";
@@ -158,19 +134,18 @@
         ];
 
         focus-ring = {
-          on = _: {}; # bare `on` identifier — matches original `on //ring`
+          on = _: {};
           width = 3;
         };
 
         border = {
-          off = _: {}; # bare `off` identifier — disables border
+          off = _: {};
           width = 5;
         };
 
         shadow = {
           softness = 30;
           spread = 5;
-          # `offset x=0 y=5` — node with KDL properties
           offset = _: {
             props = {
               x = 0;
@@ -182,14 +157,11 @@
         struts = _: {}; # empty block
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Outputs
-      # ════════════════════════════════════════════════════════════
+      ### Outputs ###
       outputs = {
         "eDP-2" = {
           mode = "1920x1200@165";
-          variable-refresh-rate = _: {}; # bare KDL node
-          # `position x=0 y=0` — node with KDL properties
+          variable-refresh-rate = _: {};
           position = _: {
             props = {
               x = 0;
@@ -211,12 +183,8 @@
         };
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Animations
-      # ════════════════════════════════════════════════════════════
+      ### Animations ###
       animations = {
-        # `spring damping-ratio=0.75 stiffness=600 epsilon=0.001`
-        # spring's params are KDL properties (inline key=val), so use `props`
         overview-open-close.spring = _: {
           props = {
             damping-ratio = 0.75;
@@ -246,7 +214,6 @@
           };
         };
 
-        # Custom easing animation — duration-ms/curve/custom-shader are child nodes
         window-close = {
           duration-ms = 700;
           curve = "linear";
@@ -288,9 +255,7 @@
         };
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Environment Variables
-      # ════════════════════════════════════════════════════════════
+      ### Environment Variables ###
       environment = {
         PROTONPATH = "GE-Proton";
         SSH_AUTH_SOCK = "/home/amr/.bitwarden-ssh-agent.sock";
@@ -303,9 +268,7 @@
         XDG_CURRENT_DESKTOP = "niri";
       };
 
-      # ════════════════════════════════════════════════════════════
-      # Startup Applications
-      # ════════════════════════════════════════════════════════════
+      ### Startup Applications ###
       xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
       spawn-sh-at-startup = [
         "xwayland-satellite"
@@ -317,20 +280,7 @@
         "gentoo-pipewire-launcher"
       ];
 
-      # ════════════════════════════════════════════════════════════
-      # Keybindings
-      #
-      # Simple bind (no bind-level flags):
-      #   "Mod+H".focus-column-left = _: { };
-      #
-      # Bind with flags (repeat / allow-when-locked / cooldown-ms / hotkey-overlay-title):
-      #   "Mod+P" = _: {
-      #     props.repeat = false;          ← KDL property on the bind node itself
-      #     content.spawn-sh = "...";      ← the action as child node
-      #   };
-      # ════════════════════════════════════════════════════════════
       binds = {
-        # ─── Performance Toggles ──────────────────────────────────────────────
         "Mod+P" = _: {
           props.repeat = false;
           content.spawn-sh = "/home/amr/.config/noctalia/hooks/performance-on.sh";
@@ -345,7 +295,7 @@
         };
         "Mod+Shift+Escape".show-hotkey-overlay = _: {};
 
-        # ─── Applications ─────────────────────────────────────────────────────
+        # Applications
         "Mod+Q" = _: {
           props.hotkey-overlay-title = "Open Terminal: Ghostty";
           content.spawn-sh = "ghostty";
@@ -375,7 +325,7 @@
           content.spawn-sh = "ghostty -e ${scripts.todo}";
         };
 
-        # ─── Audio Controls ───────────────────────────────────────────────────
+        # Audio Controls
         "XF86AudioRaiseVolume" = _: {
           props.allow-when-locked = true;
           content.spawn-sh = "noctalia msg volume-up";
@@ -417,7 +367,7 @@
           content.spawn-sh = "noctalia msg brightness-down";
         };
 
-        # ─── Window Management ────────────────────────────────────────────────
+        ### Window Management ###
         "Mod+Shift+C".close-window = _: {};
 
         "Mod+Ctrl+Equal".spawn-sh = ".config/niri/scripts/incZoom.sh";
@@ -467,7 +417,6 @@
         "Mod+Shift+Ctrl+Up".move-column-to-monitor-up = _: {};
         "Mod+Shift+Ctrl+Down".move-column-to-monitor-down = _: {};
 
-        # ─── Workspace Switching ──────────────────────────────────────────────
         "Mod+WheelScrollDown" = _: {
           props.cooldown-ms = 150;
           content.focus-workspace-down = _: {};
@@ -519,7 +468,7 @@
         "Mod+Tab".toggle-overview = _: {};
         "Mod+a".spawn-sh = "hyprmag -r 2000";
 
-        # ─── Layout Controls ──────────────────────────────────────────────────
+        ### Layout Controls ###
         "Mod+F".maximize-column = _: {};
         "Mod+Ctrl+C".center-visible-columns = _: {};
         "Mod+Minus".set-column-width = "-10%";
@@ -527,30 +476,28 @@
         "Mod+Shift+Minus".set-window-height = "-10%";
         "Mod+Shift+Equal".set-window-height = "+10%";
 
-        # ─── Noctalia Panels ──────────────────────────────────────────────────
+        ### Noctalia Panels ###
         "Mod+G".spawn-sh = "noctalia msg panel-toggle control-center";
         "Mod+R".spawn-sh = "noctalia msg panel-toggle launcher";
         "Mod+Ctrl+R".spawn-sh = "noctalia msg panel-toggle emoji";
         "Mod+Shift+R".spawn-sh = "noctalia msg panel-toggle clipboard";
 
-        # ─── Window Modes ─────────────────────────────────────────────────────
+        ### Window Modes ###
         "Mod+V".toggle-window-floating = _: {};
         "Mod+Shift+F".fullscreen-window = _: {};
         "Mod+Alt+F".maximize-window-to-edges = _: {};
         "Mod+Ctrl+F".toggle-windowed-fullscreen = _: {};
 
-        # ─── Screenshots ──────────────────────────────────────────────────────
+        ### Screenshots ###
         "Mod+Shift+S".screenshot = _: {};
         "Mod+Shift+Alt+S".screenshot-window = _: {};
         "Mod+Shift+Ctrl+S".spawn-sh = "wl-paste --type image/png | satty -f -";
 
-        # ─── Emergency Escape ─────────────────────────────────────────────────
         "Mod+Escape" = _: {
           props.allow-inhibiting = false;
           content.toggle-keyboard-shortcuts-inhibit = _: {};
         };
 
-        # ─── Exit / Power ─────────────────────────────────────────────────────
         "Ctrl+Alt+Delete".quit = _: {};
         "Mod+O" = _: {
           props.repeat = false;

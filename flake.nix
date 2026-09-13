@@ -69,7 +69,7 @@
     };
 
     m = haumea.lib.load {
-      src = ./modules/nixos;
+      src = ./modules/finix;
       loader = haumea.lib.loaders.path;
       inputs = {inherit inputs;};
     };

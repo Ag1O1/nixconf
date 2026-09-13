@@ -1,7 +1,10 @@
 # Nixconf
 
-This is my nix configuration, It has been rewritten multiple times and I have
-learned a significant amount of functional language and linux over time with it.
+This is my [Finix](https://github.com/finix-community/finix) configuration. My
+config has been rewritten many times. Sometimes to make it cleaner, or convert
+to different management styles until I stuck to Haumea, and converted the entire
+NixOS configuration to Finix. and I have learned a significant amount of
+functional language, linux, and system management over time with it.
 
 > [!Note]
 > This configuration is just for my personal use on my devices. You can
@@ -29,8 +32,8 @@ declaratively (yet), and themes are currently set by
 | modules/ | Main modules |
 | -> hosts/ | Contains host specifics |
 | -> users/ | Contains user configuration |
-| -> nixos/ | Custom nixos modules |
-| --> core/ | Main modules which should be used by all hosts |
+| -> finix/ | Custom Finix modules |
+| --> core/ | Main modules, usually needed for core system stuff |
 | --> hardware/ | Hardware related modules |
 | --> desktop/ | Window manager configurations |
 | --> programs/ | Most program configurations |

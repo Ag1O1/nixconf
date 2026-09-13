@@ -19,11 +19,6 @@
     '';
 in {
   imports = [fm.keyd];
-  /*
-  systemd.services.keyd.serviceConfig = {
-    ReadWritePaths = ["/sys/bus/i2c/drivers/i2c_hid_acpi"];
-  };
-  */
   services.keyd = {
     enable = true;
     keyboards.default = {

@@ -5,12 +5,10 @@
 }: {
   imports = [cm.openrgb];
   services.hardware.openrgb.enable = true;
-  finit.services.openrgb-profile = {
+  finit.task.openrgb-profile = {
     description = "Apply OpenRGB profile at boot";
     runlevels = "2345";
-    conditions = "service/syslogd/ready";
     command = "${pkgs.openrgb}/bin/openrgb --noautoconnect -p keyboard";
-    restart = 0;
     user = "amr";
   };
 }

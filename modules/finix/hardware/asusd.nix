@@ -8,8 +8,8 @@
   ];
   services.dbus.packages = [pkgs.asusctl];
   finit.services.asusd = {
-    description = "ASUS ROG/TUF hardware control daemon";
-    runlevels = "2345";
+    description = "asusd";
+    runlevels = "S";
     command = "${lib.getExe' pkgs.asusctl "asusd"}";
   };
   custom.persist = {

@@ -6,6 +6,8 @@
   ...
 }: {
   imports = [cm.steam fm.gamemode];
+  # We use ntsync rather than esync, disable esync in lutris.
+  boot.kernelModules = ["ntsync"];
   programs.steam = {
     enable = true;
     package = inputs.millennium.packages."${pkgs.system}".millennium-steam;
@@ -24,22 +26,7 @@
     pkgs.appimage-run
     pkgs.love # to run love2d games
     pkgs.mangohud
-    (pkgs.lutris.override {
-      # Intercept buildFHSEnv to modify target packages
-      buildFHSEnv = args:
-        pkgs.buildFHSEnv (args
-          // {
-            multiPkgs = envPkgs: let
-              # Fetch original package list
-              originalPkgs = args.multiPkgs envPkgs;
-
-              # Disable tests for openldap
-              customLdap = envPkgs.openldap.overrideAttrs (_: {doCheck = false;});
-            in
-              # Replace broken openldap with the custom one
-              builtins.filter (p: (p.pname or "") != "openldap") originalPkgs ++ [customLdap];
-          });
-    })
+    pkgs.lutris
     pkgs.umu-launcher
     (pkgs.winePackages.waylandFull.override {wineBuild = "wine64";})
     pkgs.winetricks

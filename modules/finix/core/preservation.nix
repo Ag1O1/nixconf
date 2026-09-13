@@ -36,11 +36,7 @@ in {
           ++ cfg.files;
         directories =
           [
-            "/var/lib/nixos"
-            "/var/lib/systemd/timers"
-            "/var/lib/bluetooth"
             "/var/log"
-            "/etc/ssh"
           ]
           ++ cfg.directories;
       };

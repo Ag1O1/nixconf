@@ -1,3 +1,5 @@
+# Tmp module copied from https://github.com/finix-community/finix/pull/236.
+# Until it gets merged.
 {
   config,
   pkgs,

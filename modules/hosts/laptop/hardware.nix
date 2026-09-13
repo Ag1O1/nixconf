@@ -19,9 +19,9 @@
 
   # Fix for laptop backlight
   # Source: @RPochyly4 in https://gitlab.com/asus-linux/asusctl/-/work_items/682
-  finit.services.asus-keyboard-ec-mode = {
+  finit.task.asus-keyboard-ec-mode = {
     description = "Initialize ASUS keyboard RGB controller";
-    runlevels = "2345";
+    runlevels = "S";
     command = "${lib.getExe pkgs.hidapitester} --vidpid 0B05:19B6 --open --send-feature 70,1";
   };
 
@@ -38,13 +38,9 @@
 
       "pcie_aspm=force"
     ];
-kernelModules = ["kvm-amd" "amdgpu"];
+    kernelModules = ["kvm-amd" "amdgpu"];
   };
-
   hardware.firmware = [pkgs.linux-firmware];
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
-  boot.initrd.kernelModules = [];
-  boot.extraModulePackages = [];
 
   ##### File system configuration #####
 
