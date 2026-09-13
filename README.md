@@ -38,7 +38,7 @@ declaratively (yet), and themes are currently set by
 | --> desktop/ | Window manager configurations |
 | --> programs/ | Most program configurations |
 | --> services/ | Services, which mainly run in the background |
-| --> theming.nix | simple theme related configuration |
+| --> theming.nix | simple theme configuration |
 
 ## Credits and references
 

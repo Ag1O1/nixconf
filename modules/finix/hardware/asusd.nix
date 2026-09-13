@@ -9,7 +9,7 @@
   services.dbus.packages = [pkgs.asusctl];
   finit.services.asusd = {
     description = "asusd";
-    runlevels = "S";
+    runlevels = "2345";
     command = "${lib.getExe' pkgs.asusctl "asusd"}";
   };
   custom.persist = {
