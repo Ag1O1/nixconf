@@ -188,7 +188,6 @@ in {
 
         ### Overview ###
         overview = {
-          zoom = 0.5;
           background_blur = true;
           workspace_wallpaper = true;
           shortcuts = false;
