@@ -1,59 +1,10 @@
 {
   description = "My nixconf";
 
-  inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
+  outputs = {self, ...}: let
+    inputs = import ./.tack;
+    inherit (inputs) nixpkgs finix haumea community-modules;
 
-    finix.url = "path:/home/amr/Projects/Personal/finix";
-    community-modules.url = "github:finix-community/community-modules";
-
-    haumea = {
-      url = "github:nix-community/haumea";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    preservation.url = "github:nix-community/preservation";
-
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
-    xdg-desktop-portal-umbriel.url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
-
-    wrapper-modules = {
-      url = "github:BirdeeHub/nix-wrapper-modules";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helium-flake = {
-      url = "github:oxcl/nix-flake-helium-browser";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-  };
-
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    finix,
-    haumea,
-    community-modules,
-    ...
-  }: let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;

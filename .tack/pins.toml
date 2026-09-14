@@ -1,0 +1,69 @@
+# tack pins
+# edit by hand or with tack add / rm / alias
+# nix reads pins.lock.json
+# this file drives tack update
+
+# shorturl schemes
+# scheme rest expands rest into {path}
+[shorturls]
+gh = "github:{path}"
+
+# all_follow maps input names to the top-level pin they follow
+# opt out per-input with exclude_follow
+[all_follow]
+nixpkgs = "nixpkgs"
+# nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
+
+# inputs.<name> fields
+#   url             required, shorturl ok, ?rev=<sha> pins an exact commit
+#   type            flake (default), fetch, or fixed
+#   flake           legacy false means type = "fetch"
+#   follows         { child = "pin" } override map
+#   exclude_follow  all_follow names to skip
+#   dir             subdir holding flake.nix
+#   submodules      fetch git submodules
+#   unpack          fixed-only tarball or file
+[inputs.nixpkgs]
+url = "gh:NixOS/nixpkgs/nixos-unstable"
+
+[inputs.nixpkgs-stable]
+url = "gh:NixOS/nixpkgs/nixos-26.05"
+
+[inputs.finix]
+url = "gh:Ag1O1/finix"
+
+[inputs.community-modules]
+url = "gh:finix-community/community-modules"
+
+[inputs.haumea]
+url = "gh:nix-community/haumea"
+
+[inputs.preservation]
+url = "gh:nix-community/preservation"
+
+[inputs.hjem]
+url = "gh:feel-co/hjem"
+
+[inputs.nvf]
+url = "gh:notashelf/nvf"
+
+[inputs.umbriel]
+url = "git+https://github.com/noctalia-dev/umbriel"
+
+[inputs.xdg-desktop-portal-umbriel]
+url = "gh:noctalia-dev/xdg-desktop-portal-umbriel"
+
+[inputs.noctalia]
+url = "gh:noctalia-dev/noctalia-shell"
+
+[inputs.nix-cachyos-kernel]
+url = "gh:xddxdd/nix-cachyos-kernel/release"
+
+[inputs.wrapper-modules]
+url = "gh:BirdeeHub/nix-wrapper-modules"
+
+[inputs.helium-flake]
+url = "gh:oxcl/nix-flake-helium-browser"
+
+[inputs.millennium]
+url = "gh:SteamClientHomebrew/Millennium?dir=packages/nix"
