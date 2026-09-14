@@ -43,7 +43,7 @@ in {
         input = {
           focus = {
             follows_mouse = true;
-            follows_mouse_max_scroll = 0.5;
+            follows_mouse_max_scroll = 0.1;
           };
           touchpad = {
             natural_scroll = true;
