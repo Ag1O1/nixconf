@@ -74,7 +74,7 @@
       inputs = {inherit inputs;};
     };
     sharedModules = [
-      m.core.nix
+      m.core.core
       m.core.networking
       m.core.core-packages
       m.core.preservation

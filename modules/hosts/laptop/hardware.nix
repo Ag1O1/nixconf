@@ -5,8 +5,6 @@
   ...
 }: {
   imports = [fm.gvfs fm.udisks2];
-  time.timeZone = "Africa/Cairo";
-  i18n.defaultLocale = "en_US.UTF-8";
 
   hardware.nvidia.prime = {
     offload = {
