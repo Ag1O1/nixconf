@@ -1,13 +1,20 @@
 {
   inputs,
   pkgs,
+  config,
   fm,
   ...
 }: {
   imports = [fm.upower];
   services.upower.enable = true;
+
   environment.systemPackages = with pkgs; [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (
+      # For polkit to work correctly on finix
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+        polkit = config.services.polkit.package;
+      }
+    )
     libnotify
     wl-clipboard-rs
     satty
