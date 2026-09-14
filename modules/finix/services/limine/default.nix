@@ -4,13 +4,13 @@
   programs.limine = {
     enable = true;
     settings = {
-      interface_branding = "";
+      interface_branding = "Finix";
       interface_help_hidden = true;
       interface_resolution = "1920x1200";
 
       term_font = "boot():/EFI/limine/font.F16";
       term_font_size = "8x16";
-      term_font_scale = "1x1";
+      term_font_scale = "2x2";
       term_font_spacing = 1;
       term_margin = 80;
       term_margin_gradient = 0;
