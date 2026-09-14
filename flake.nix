@@ -81,7 +81,7 @@
       m.core.sudo
       m.services.mime
 
-      m.services.boot
+      m.services.limine.default
       m.services.plymouth
 
       m.programs.fish
