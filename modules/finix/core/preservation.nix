@@ -1,26 +1,11 @@
 {
   cm,
-  lib,
   config,
   ...
 }: let
   cfg = config.custom.persist;
-  inherit (lib.options) mkOption;
-  inherit (lib.types) listOf anything;
 in {
   imports = [cm.preservation];
-  options.custom.persist = {
-    files = mkOption {
-      type = listOf anything;
-      default = [];
-      description = "Files to persist";
-    };
-    directories = mkOption {
-      type = listOf anything;
-      default = [];
-      description = "Directories to persist";
-    };
-  };
   config = {
     preservation = {
       enable = true;

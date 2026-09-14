@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   fm,
   cm,
@@ -25,8 +26,7 @@
     gnome-keyring.enable = true;
     brightnessctl.enable = true;
   };
-  # TODO: only on laptops
-  programs.zzz.enable = true;
+  programs.zzz.enable = config.custom.machine.type == "laptop";
 
   environment.systemPackages = with pkgs; [
     microfetch

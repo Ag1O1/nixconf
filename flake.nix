@@ -73,22 +73,20 @@
       loader = haumea.lib.loaders.path;
       inputs = {inherit inputs;};
     };
-    sharedModules = [
-      m.core.core
-      m.core.networking
-      m.core.core-packages
-      m.core.preservation
-      m.core.sudo
-      m.services.mime
+    sharedModules =
+      [
+        m.services.mime
 
-      m.services.limine.default
-      m.services.plymouth
+        m.services.limine.default
+        m.services.plymouth
 
-      m.programs.fish
-      m.programs.neovim
-      m.theming
-      ./modules/users/amr.nix
-    ];
+        m.programs.fish
+        m.programs.neovim
+        m.theming
+        ./modules/users/amr.nix
+      ]
+      ++ pkgs.lib.attrValues m.options
+      ++ pkgs.lib.attrValues m.core;
   in {
     nixosConfigurations = {
       laptop = finix.lib.finixSystem {

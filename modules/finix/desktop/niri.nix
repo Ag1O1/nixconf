@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   lib,
   ...
@@ -158,30 +159,14 @@
       };
 
       ### Outputs ###
-      outputs = {
-        "eDP-2" = {
-          mode = "1920x1200@165";
+      outputs = lib.mapAttrs (_: display:
+        {
+          inherit (display) mode;
+        }
+        // lib.optionalAttrs (display.vrr != "disabled") {
           variable-refresh-rate = _: {};
-          position = _: {
-            props = {
-              x = 0;
-              y = 0;
-            };
-          };
-          scale = 1.0;
-        };
-        "eDP-1" = {
-          mode = "1920x1200@165";
-          variable-refresh-rate = _: {};
-          position = _: {
-            props = {
-              x = 0;
-              y = 0;
-            };
-          };
-          scale = 1.0;
-        };
-      };
+        })
+      config.custom.machine.displays;
 
       ### Animations ###
       animations = {

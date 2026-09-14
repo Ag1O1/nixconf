@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   lib,
   ...
 }: let
@@ -77,6 +78,7 @@ in {
 
           ### Apps ###
           "Mod+Q" = "spawn:ghostty";
+          "Mod+Shift+Q" = "spawn:${lib.getExe pkgs.foot}";
           "Mod+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-on.sh";
           "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
           "Mod+Shift+C" = "window-close";
@@ -193,13 +195,9 @@ in {
         };
 
         ### Outputs ###
-        output.eDP-1 = {
-          mode = "1920x1200@165";
-          vrr = "always";
-          direct_scanout = true;
-        };
+        output = config.custom.machine.displays;
         drm = {
-          ignored_pci_addresses = ["0000:01:00.0"];
+          ignored_pci_addresses = config.custom.machine.drm_ignored_pci_addresses;
         };
 
         # Noctalia theme colors & writable for some script stuff
