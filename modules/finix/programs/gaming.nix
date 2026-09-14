@@ -11,15 +11,6 @@
   programs.steam = {
     enable = true;
     package = inputs.millennium.packages."${pkgs.system}".millennium-steam;
-    /*
-    package = pkgs.steam.override {
-      extraPkgs = pkgs:
-        with pkgs; [
-          # Workaround xorg cursor issue
-          bibata-cursors
-        ];
-    };
-    */
   };
   environment.systemPackages = [
     pkgs.prismlauncher # Minecraft

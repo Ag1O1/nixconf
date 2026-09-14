@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     initrd = {
       availableKernelModules = lib.mkForce [
@@ -28,8 +32,5 @@
 
   users.users.root.password = "$y$j9T$6xDOxYv1styslfWtv5Dgd.$JVn13FwJ/NyGGJ/urZB0SaeJG7ok3Ul9HcSKxzZVIA8";
 
-  hj.xdg.config.files."fish/conf.d/aliases.fish".text = ''
-    alias os-rebuild="nh os switch /home/amr/nixos -H laptop"
-    alias os-rebuild-boot="nh os boot /home/amr/nixos -H laptop"
-  '';
+  environment.variables.NH_FILE = "/home/amr/nixos/hosts/laptop/system.nix";
 }

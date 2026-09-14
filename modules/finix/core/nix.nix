@@ -8,7 +8,7 @@
   imports = [cm.nix-ld cm.nh fm.nix-daemon];
   services.nix-daemon = {
     enable = true;
-    package = pkgs.lix;
+    # note: DO NOT USE LIX ON FINIX IT BREAKS REBUILDING NIX.
 
     settings = {
       substituters = ["https://attic.xuyh0120.win/lantian" "https://finix.cachix.org"];

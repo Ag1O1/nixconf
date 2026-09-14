@@ -1,5 +1,10 @@
 # Nixconf
 
+## TODO: REWRITE THIS
+
+> [!Warning]
+> Most of this is no longer accurate, I switched my config to flakeless
+
 This is my [Finix](https://github.com/finix-community/finix) configuration. My
 config has been rewritten many times. Sometimes to make it cleaner, or convert
 to different management styles until I stuck to Haumea, and converted the entire
@@ -13,7 +18,7 @@ functional language, linux, and system management over time with it.
 > Also, if you use my code it'd be appreciated if you star the repo and
 > give me credit.
 
-## Structure
+### Structure
 
 My configuration uses [Haumea](https://github.com/nix-community/haumea) to
 automatically load modules into "m." and avoid having to manually write imports
@@ -40,7 +45,7 @@ declaratively (yet), and themes are currently set by
 | --> services/ | Services, which mainly run in the background |
 | --> theming.nix | simple theme configuration |
 
-## Credits and references
+### Credits and references
 
 In places where I copy someone else's code or heavily took inspiration from I
 will either list here or in that code file. Though, most of these were replaced

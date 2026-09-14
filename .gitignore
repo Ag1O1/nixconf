@@ -1,4 +1,5 @@
 # referenced from nyx https://github.com/NotAShelf/nyx/blob/main/.gitignore
+.env
 
 # Ignore nix stuff
 result
