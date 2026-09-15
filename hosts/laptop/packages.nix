@@ -47,7 +47,7 @@
     godot
     netcat # for godot zed
     blender
-    ghostty
+    foot
     bibata-cursors
   ];
   fonts = {

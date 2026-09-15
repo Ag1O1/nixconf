@@ -77,16 +77,16 @@ in {
           "Mod+Space" = "keyboard-layout-next";
 
           ### Apps ###
-          "Mod+Q" = "spawn:ghostty";
-          "Mod+Shift+Q" = "spawn:${lib.getExe pkgs.foot}";
+          "Mod+Q" = "spawn:foot";
+          "Mod+Shift+Q" = "spawn:${lib.getExe pkgs.ghostty}";
           "Mod+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-on.sh";
           "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
           "Mod+Shift+C" = "window-close";
           "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
           "Mod+W" = "spawn:librewolf";
-          "Mod+E" = "spawn:ghostty -e yazi";
+          "Mod+E" = "spawn:foot -e yazi";
           "Mod+A" = "spawn:${lib.getExe pkgs.hyprmag} -r 2500";
-          "Mod+T" = "spawn:ghostty -e ${scripts.todo}";
+          "Mod+T" = "spawn:foot -e ${scripts.todo}";
 
           "Mod+G" = "spawn:noctalia msg panel-toggle control-center";
           "Mod+R" = "spawn:noctalia msg panel-toggle launcher";

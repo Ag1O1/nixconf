@@ -51,6 +51,6 @@ in {
   };
   environment.variables = {
     EDITOR = "nvim";
-    TERMINAL = "ghostty";
+    TERMINAL = "foot";
   };
 }
