@@ -30,6 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     microfetch
+    tack
     git
     tree
     vim
