@@ -22,6 +22,7 @@
 
   custom.machine = {
     type = "laptop";
+    system_module = "/home/amr/nixos/hosts/laptop/system.nix";
     displays."BOE NE160WUM-NXA" = {
       mode = "1920x1200@165";
       vrr = "always";

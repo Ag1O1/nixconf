@@ -29,5 +29,9 @@ in {
       type = listOf str;
       default = [];
     };
+    system_module = mkOption {
+      type = str;
+      description = "The system module of the machine (for NH_FILE)";
+    };
   };
 }

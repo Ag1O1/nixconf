@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   lib,
   fm,
   ...
@@ -41,6 +42,11 @@
       alias ll="${lib.getExe pkgs.eza} --icons=always --long"
       alias la="${lib.getExe pkgs.eza} --icons=always --long --all"
       alias lt="${lib.getExe pkgs.eza} --icons=always --tree"
+    '';
+    "fish/config.fish".text = ''
+      direnv hook fish | source
+      set -gx NH_FILE ${config.custom.machine.system_module}
+
     '';
   };
 }
