@@ -48,7 +48,6 @@
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = lib.mkDefault "/home/amr/nixos"; # This is the location for the config in all my devices but can be overwritten
     };
   };
 }

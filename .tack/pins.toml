@@ -66,5 +66,8 @@ url = "github:BirdeeHub/nix-wrapper-modules"
 url = "github:oxcl/nix-flake-helium-browser"
 
 [inputs.millennium]
-url = "github:SteamClientHomebrew/Millennium/a3d675611b68c5658a0b5ffd25b9f1b57c6d32ff"
+url = "github:SteamClientHomebrew/Millennium"
 dir = "packages/nix"
+
+[inputs.fluxer]
+url = "github:Hy4ri/fluxer-flake"

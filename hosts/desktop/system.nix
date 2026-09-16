@@ -5,14 +5,11 @@ in
     system = "x86_64-linux";
     modules = m: [
       ./hardware.nix
-      ./kernel.nix
       ./machine.nix
       ./packages.nix
 
       # Hardware
       m.hardware.nvidia
-      m.hardware.asusd
-      m.hardware.tlp
       m.hardware.bluetooth
 
       # Programs
@@ -23,7 +20,6 @@ in
       m.programs.tmux
       m.programs.lazygit
       m.programs.obs
-      m.programs.waydroid
       m.programs.ly
       m.programs.noctalia
       m.programs.yazi
@@ -31,7 +27,6 @@ in
       m.programs.firefox
 
       # Services
-      m.services.preservation
       m.services.pipewire
       m.services.ssh
       m.services.flatpak

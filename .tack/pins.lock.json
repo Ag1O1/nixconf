@@ -15,6 +15,14 @@
     "narHash": "sha256-67w0jBrDDrh/rD/06nzxH1yqfBVNqnhKrFTSG6t1wV8=",
     "lastModified": 1789235756
   },
+  "fluxer": {
+    "type": "github",
+    "owner": "Hy4ri",
+    "repo": "fluxer-flake",
+    "rev": "4a40d30c4e1d1c3d9098878f0856f1eae08bd111",
+    "narHash": "sha256-YLvFYch/oqgm6oTKfUPcpL2QIyRjc8SGgqswH0BmSII=",
+    "lastModified": 1789418599
+  },
   "haumea": {
     "type": "github",
     "owner": "nix-community",
@@ -43,9 +51,9 @@
     "type": "github",
     "owner": "SteamClientHomebrew",
     "repo": "Millennium",
-    "rev": "a3d675611b68c5658a0b5ffd25b9f1b57c6d32ff",
-    "narHash": "sha256-NiFndFWVN/sOMLUN1iEFEmqMpdcC0hnyPQSEs9eMGdo=",
-    "lastModified": 1788314497
+    "rev": "41f7356df31043e8c1429382dda95445530da987",
+    "narHash": "sha256-FWRCpoKQ8TywKkcCFleTSZRQhbL12JmbFdisaeIRIJU=",
+    "lastModified": 1789326337
   },
   "nix-cachyos-kernel": {
     "type": "github",
@@ -75,9 +83,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia-shell",
-    "rev": "2856ec3b1b384f243770240261a11831de51a923",
-    "narHash": "sha256-n5lAaFSofJDpBrzRks4H9moBNAOAyQ0GMnlYWSQl8uo=",
-    "lastModified": 1789389682
+    "rev": "e4eb0ff97743c1d07d0f5a0d5770b277b6485b03",
+    "narHash": "sha256-/Dy5P/7nCIss+uAhdF+8I59ww5WQUF4EBs1QJCB1aec=",
+    "lastModified": 1789436433
   },
   "nvf": {
     "type": "github",
@@ -99,9 +107,9 @@
     "type": "git",
     "url": "https://github.com/noctalia-dev/umbriel",
     "ref": "HEAD",
-    "rev": "11c0c99b85c5aa579224cf0d2302f4f7356ac5c4",
-    "narHash": "sha256-Ot18ZKFwRSPzyXhSkDhLOI8nAXfeoFPuB04Jk5DkzV4=",
-    "lastModified": 1789350857
+    "rev": "6ca1d08c7fe49f396fe68eb65386ab59f5ca7c6e",
+    "narHash": "sha256-vP3tvE94SUyppw2hfgaCtLIa7pUMrenYlJQrFB8WbG4=",
+    "lastModified": 1789485319
   },
   "wrapper-modules": {
     "type": "github",
