@@ -6,6 +6,7 @@
     #pkgs.dracula-icon-theme
     (pkgs.papirus-icon-theme.override {color = "yellow";})
 
+    pkgs.gsettings-desktop-schemas
     pkgs.bibata-cursors
     pkgs.nwg-look
     pkgs.xsettingsd

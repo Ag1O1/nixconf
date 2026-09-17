@@ -8,12 +8,12 @@
     "lastModified": 1789343672
   },
   "finix": {
-    "type": "github",
-    "owner": "Ag1O1",
-    "repo": "finix",
-    "rev": "df9fb84ef5aff5019e9eb1f92ef62369b2aae4bf",
-    "narHash": "sha256-67w0jBrDDrh/rD/06nzxH1yqfBVNqnhKrFTSG6t1wV8=",
-    "lastModified": 1789235756
+    "type": "path",
+    "path": "/home/amr/Projects/Personal/finix",
+    "lastModified": 1789664790,
+    "mtimeNanos": 1789664790841675746,
+    "treeSize": 6652486,
+    "treeEntries": 516
   },
   "fluxer": {
     "type": "github",
@@ -46,6 +46,14 @@
     "rev": "e5e30b4320a8cbcd6cdfc65f044763669a8f0363",
     "narHash": "sha256-0nvWuRbgL4GEKpR8Y4wsB3kmsVgyd0cW8kLHc2BqlTc=",
     "lastModified": 1789234255
+  },
+  "hjem-rum": {
+    "type": "github",
+    "owner": "snugnug",
+    "repo": "hjem-rum",
+    "rev": "4194064c687bf6ca7a79cbe127cbe5a3f51ed5d5",
+    "narHash": "sha256-ntcojKoFfndHu9/cw6zRyan2AECyxMwJ0e1Qr7a+m40=",
+    "lastModified": 1789576270
   },
   "millennium": {
     "type": "github",

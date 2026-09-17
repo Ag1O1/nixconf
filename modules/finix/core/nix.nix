@@ -18,7 +18,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "flake-self-attrs"
       ];
       trusted-users = [
         "root"

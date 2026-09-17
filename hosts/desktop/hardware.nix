@@ -1,10 +1,15 @@
 {
   pkgs,
+  config,
   fm,
   ...
 }: {
   imports = [fm.gvfs fm.udisks2];
   hardware.firmware = [pkgs.linux-firmware];
+  hardware.nvidia = {
+    kernelModule = "closed";
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
+  };
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid"];
   boot.kernelModules = ["kvm-intel"];

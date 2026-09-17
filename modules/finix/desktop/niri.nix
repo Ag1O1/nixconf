@@ -3,6 +3,7 @@
   config,
   pkgs,
   lib,
+  fm,
   ...
 }: let
   mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
@@ -503,6 +504,7 @@
     };
   };
 in {
+  imports = [fm.niri];
   programs.niri = {
     package = myNiri;
     enable = true;

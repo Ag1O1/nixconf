@@ -14,9 +14,7 @@
     comma
     wl-mirror
     jq
-    arduino
     arduino-cli
-    arduino-ide
     inkscape
     eden
     rar

@@ -6,13 +6,19 @@
 }: {
   imports = [fm.gvfs fm.udisks2];
 
-  hardware.nvidia.prime = {
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+  hardware.nvidia = {
+    power = {
+      suspend.enable = true;
+      runtime.enable = true;
     };
-    amdgpuBusId = "PCI:102:0:0";
-    nvidiaBusId = "PCI:1:0:0";
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      amdgpuBusId = "PCI:102:0:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   # Fix for laptop backlight

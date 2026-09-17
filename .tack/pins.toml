@@ -12,6 +12,7 @@ gh = "github:{path}"
 # opt out per-input with exclude_follow
 [all_follow]
 nixpkgs = "nixpkgs"
+hjem    = "hjem"
 # nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
 
 # inputs.<name> fields
@@ -30,7 +31,7 @@ url = "github:NixOS/nixpkgs/nixos-unstable"
 url = "github:NixOS/nixpkgs/nixos-26.05"
 
 [inputs.finix]
-url = "github:Ag1O1/finix"
+url = "path:/home/amr/Projects/Personal/finix"
 
 [inputs.community-modules]
 url = "github:finix-community/community-modules"
@@ -43,6 +44,9 @@ url = "github:nix-community/preservation"
 
 [inputs.hjem]
 url = "github:feel-co/hjem"
+
+[inputs.hjem-rum]
+url = "github:snugnug/hjem-rum"
 
 [inputs.nvf]
 url = "github:notashelf/nvf"

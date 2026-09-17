@@ -29,9 +29,11 @@ in
       m.programs.yazi
       m.programs.helium
       m.programs.firefox
+      m.programs.zoxide
 
       # Services
       m.services.preservation
+      m.services.nix-serve
       m.services.pipewire
       m.services.ssh
       m.services.flatpak

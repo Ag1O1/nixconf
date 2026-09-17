@@ -4,7 +4,9 @@
   lib,
   fm,
   ...
-}: {
+}: let
+  eza = lib.getExe pkgs.eza;
+in {
   imports = [fm.fish];
   programs.fish.enable = true;
 
@@ -38,10 +40,11 @@
     "fish/conf.d/aliases.fish".text = ''
       alias nsearch="nix search nixpkgs"
       alias grep="grep --color=auto"
-      alias ls="${lib.getExe pkgs.eza} --icons=always"
-      alias ll="${lib.getExe pkgs.eza} --icons=always --long"
-      alias la="${lib.getExe pkgs.eza} --icons=always --long --all"
-      alias lt="${lib.getExe pkgs.eza} --icons=always --tree"
+      alias ls="${eza} --icons=always"
+      alias ll="${eza} --icons=always --long"
+      alias la="${eza} --icons=always --long --all"
+      alias lt="${eza} --icons=always --tree"
+      alias lc="${eza} --icons=always --code"
     '';
     "fish/config.fish".text = ''
       direnv hook fish | source

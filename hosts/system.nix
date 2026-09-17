@@ -3,7 +3,7 @@
   modules,
 }: let
   inputs = import ../.tack;
-  inherit (inputs) nixpkgs finix haumea community-modules;
+  inherit (inputs) nixpkgs finix haumea community-modules hjem-rum;
   pkgs = import nixpkgs {
     inherit system;
     config = {
@@ -41,6 +41,7 @@ in
         m.programs.fish
         m.programs.neovim
         m.theming
+
         ../modules/users/amr.nix
       ]
       ++ modules m

@@ -46,6 +46,9 @@ in {
       ];
     };
   };
+  hjem.extraModules = [
+    inputs.hjem-rum.hjemModules.default
+  ];
   hj = {
     enable = true;
   };

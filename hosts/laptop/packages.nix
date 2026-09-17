@@ -4,7 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    #inputs.fluxer.packages.${pkgs.system}.fluxer
+    inputs.fluxer.packages.${pkgs.system}.fluxer-canary
 
     gnused
     wlr-randr

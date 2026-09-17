@@ -37,5 +37,6 @@ in
 
       # Desktop
       m.desktop.umbriel
+      m.desktop.niri
     ];
   }
