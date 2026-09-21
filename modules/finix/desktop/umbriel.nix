@@ -109,7 +109,7 @@ in {
           "XF86AudioPrev" = "spawn:noctalia msg media previous";
           "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up";
           "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
-          "XF86Sleep" = "spawn:sudo zzz";
+          "XF86Sleep" = "spawn:sessionctl suspend";
 
           ### Workspaces ###
           "Mod+1" = "workspace-switch:1";
