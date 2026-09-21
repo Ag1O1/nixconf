@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [fm.tlp];
-  environment.systemPackages = [pkgs.tlp-pd];
   services.tlp = {
     enable = true;
     pd.enable = true;

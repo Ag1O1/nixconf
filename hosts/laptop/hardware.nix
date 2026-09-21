@@ -25,7 +25,7 @@
   # Source: @RPochyly4 in https://gitlab.com/asus-linux/asusctl/-/work_items/682
   finit.tasks.asus-keyboard-ec-mode = {
     description = "Initialize ASUS keyboard RGB controller";
-    runlevels = "S";
+    runlevels = "3";
     command = "${lib.getExe pkgs.hidapitester} --vidpid 0B05:19B6 --open --send-feature 70,1";
   };
 

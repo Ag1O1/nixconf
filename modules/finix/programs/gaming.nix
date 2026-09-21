@@ -12,7 +12,7 @@
     enable = true;
     package = inputs.millennium.packages."${pkgs.system}".millennium-steam;
   };
-  environment.systemPackages = [
+  hj.packages = [
     pkgs.prismlauncher # Minecraft
     pkgs.appimage-run
     pkgs.love # to run love2d games

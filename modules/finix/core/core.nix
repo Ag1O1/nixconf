@@ -1,11 +1,24 @@
 {
+  inputs,
   config,
   pkgs,
   fm,
   cm,
   ...
 }: {
-  imports = [fm.gnome-keyring fm.bash fm.sysklogd fm.polkit fm.getty fm.iwd cm.fastfetch fm.sessiond-uaccess fm.zzz fm.brightnessctl];
+  imports = [
+    fm.gnome-keyring
+    fm.bash
+    fm.sysklogd
+    fm.polkit
+    fm.getty
+    fm.iwd
+    cm.fastfetch
+    fm.sessiond-uaccess
+    fm.zzz
+    fm.brightnessctl
+  ];
+
   finit.runlevel = 3;
   services = {
     sysklogd.enable = true;
@@ -35,6 +48,12 @@
     tree
     vim
     wget
+    zip
     unzip
+    curl
+    fd
+    file
+    whois
+    wget
   ];
 }

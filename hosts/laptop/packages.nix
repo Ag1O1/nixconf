@@ -3,9 +3,10 @@
   inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  hj.packages = with pkgs; [
     inputs.fluxer.packages.${pkgs.system}.fluxer-canary
 
+    aseprite
     gnused
     wlr-randr
     calibre

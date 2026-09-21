@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = [pkgs.qutebrowser];
+  hj.packages = [pkgs.qutebrowser];
   hj.xdg.config.files."qutebrowser/config.py".text =
     #python
     ''

@@ -1,11 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
-  environment.systemPackages = with pkgs; [
-    #inputs.fluxer.packages.${pkgs.system}.fluxer
-
+{pkgs, ...}: {
+  hj.packages = with pkgs; [
     gnused
     wlr-randr
     calibre

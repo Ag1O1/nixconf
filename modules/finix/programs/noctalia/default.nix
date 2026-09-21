@@ -8,7 +8,7 @@
   imports = [fm.upower];
   services.upower.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  hj.packages = with pkgs; [
     (
       # For polkit to work correctly on finix
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
@@ -22,4 +22,5 @@
     adw-gtk3
     gpu-screen-recorder
   ];
+  hj.xdg.config.files."noctalia/config.toml".source = ./config.toml;
 }

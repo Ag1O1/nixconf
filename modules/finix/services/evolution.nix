@@ -9,7 +9,7 @@ in {
   services.dbus.packages = [package];
 
   finit.services.evolution = {
-    description = "ASUS ROG/TUF hardware control daemon";
+    description = "Evolution service";
     runlevels = "2345";
     command = "${lib.getExe' package "evolution"}";
   };

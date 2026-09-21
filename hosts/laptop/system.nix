@@ -25,7 +25,7 @@ in
       m.programs.obs
       m.programs.waydroid
       m.programs.ly
-      m.programs.noctalia
+      m.programs.noctalia.default
       m.programs.yazi
       m.programs.helium
       m.programs.firefox

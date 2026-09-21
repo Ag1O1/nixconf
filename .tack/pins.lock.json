@@ -3,17 +3,17 @@
     "type": "github",
     "owner": "finix-community",
     "repo": "community-modules",
-    "rev": "31ba0adf47877c5e47e212892620dc64089e6672",
-    "narHash": "sha256-EAIc41I23LN3Asbn2qOW+/owbZLzXODZpgOJCh0RIgI=",
-    "lastModified": 1789343672
+    "rev": "d3e5474e3d40081ef49ffa2c9dcc91aaf7c8a9f5",
+    "narHash": "sha256-QVzLjx/57OyPC9aFUdJOvXTO6vVgbxRHQjGzu3bwUOY=",
+    "lastModified": 1789495304
   },
   "finix": {
     "type": "path",
     "path": "/home/amr/Projects/Personal/finix",
-    "lastModified": 1789664790,
-    "mtimeNanos": 1789664790841675746,
-    "treeSize": 6652486,
-    "treeEntries": 516
+    "lastModified": 1789703226,
+    "mtimeNanos": 1789703226712046037,
+    "treeSize": 6668285,
+    "treeEntries": 543
   },
   "fluxer": {
     "type": "github",
@@ -35,9 +35,9 @@
     "type": "github",
     "owner": "oxcl",
     "repo": "nix-flake-helium-browser",
-    "rev": "7d7117d1154f9837913ae6216a25ebed96536478",
-    "narHash": "sha256-ldHrGfwWiL8DwnP07DsqgGpppIPdXg/rF/FjDEXMNvI=",
-    "lastModified": 1789214328
+    "rev": "c4fc526e08fd5a5a8639eb81bfb36a9536f1d5ce",
+    "narHash": "sha256-fntAX/+3dwTi344E/JBW/B/xTfzdGRzHUZaMExz7V6Y=",
+    "lastModified": 1789650228
   },
   "hjem": {
     "type": "github",
@@ -75,33 +75,33 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "ef34387ddd751e1ab8857adf4676492d32eb24ec",
-    "narHash": "sha256-eiEK7cKZORNEvX0GeF3RtNEF/JXhgf2RqSp3230q13E=",
-    "lastModified": 1789286504
+    "rev": "e554fab72f81915600f3f449b786fd9af40439a5",
+    "narHash": "sha256-ZKhUe/2IJUq1JhKxKMu8rbkgSGmPP2ZCqlIPn40aGCM=",
+    "lastModified": 1789684949
   },
   "nixpkgs-stable": {
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "c3eea5b2156db11c7eeeada3dc737711255b253e",
-    "narHash": "sha256-vdhpDJ3Lr24lkZ+fDCjmBRRtw9/vcSzkqGJOJyF5h2U=",
-    "lastModified": 1789344334
+    "rev": "ecc58f32d1069a3e3f8a991e2233d365689f748d",
+    "narHash": "sha256-vrwAiXmz+0hs/IWXZalFG/Ws6xQRcW+gClUDlfvcfjQ=",
+    "lastModified": 1789654592
   },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia-shell",
-    "rev": "e4eb0ff97743c1d07d0f5a0d5770b277b6485b03",
-    "narHash": "sha256-/Dy5P/7nCIss+uAhdF+8I59ww5WQUF4EBs1QJCB1aec=",
-    "lastModified": 1789436433
+    "rev": "960d4d46bd3149a556504e7c40ecd87abb251a36",
+    "narHash": "sha256-KjnprW4lpS4ISCBnoNxlI9++LACjxlsQV7WWNT4cju8=",
+    "lastModified": 1789735339
   },
   "nvf": {
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "2d6b480abfa9fcf84841e62c27922bfa3f3d0d2b",
-    "narHash": "sha256-C9GsjXostGh50d62SYEXVJOSDTwk7RjAumJmwzkJKEY=",
-    "lastModified": 1789333536
+    "rev": "cdc7e7aaa7eb521bba1b38f54c3228d52cc31703",
+    "narHash": "sha256-umec9LKkWjK89Yx4XpvQStkgfKvhK7GjVf5m21bjzKU=",
+    "lastModified": 1789510188
   },
   "preservation": {
     "type": "github",
@@ -111,13 +111,29 @@
     "narHash": "sha256-mMI9IanU+Xw+pVogD2oT0I2kTmvz2Un/Apc5+CwUpEY=",
     "lastModified": 1757436102
   },
+  "sessiond-login1-proxy": {
+    "type": "git",
+    "url": "https://tangled.org/r0chd.pl/sessiond-login1-proxy",
+    "ref": "HEAD",
+    "rev": "3db507e6c283f8bd9e8d26101403803b6996fb05",
+    "narHash": "sha256-pu89wjNKOBhAQqRinQQgy9Z5PZQIfXvM8je57R/tpwM=",
+    "lastModified": 1789916562
+  },
+  "sessiond-power": {
+    "type": "git",
+    "url": "https://tangled.org/r0chd.pl/sessiond-power",
+    "ref": "HEAD",
+    "rev": "74ab605897c821711a5f40ace2f183faa4e13b47",
+    "narHash": "sha256-5Bp3sbct06er+URAg35h0VSjfRhbAKfgXrBovo6aK3I=",
+    "lastModified": 1788704536
+  },
   "umbriel": {
     "type": "git",
     "url": "https://github.com/noctalia-dev/umbriel",
     "ref": "HEAD",
-    "rev": "6ca1d08c7fe49f396fe68eb65386ab59f5ca7c6e",
-    "narHash": "sha256-vP3tvE94SUyppw2hfgaCtLIa7pUMrenYlJQrFB8WbG4=",
-    "lastModified": 1789485319
+    "rev": "127014591eb461196de9c2a6e1260719b6381fd8",
+    "narHash": "sha256-zm0edChb49wP5jrqjx5FppzczRtJNFv6vH2h9JAklDg=",
+    "lastModified": 1789736810
   },
   "wrapper-modules": {
     "type": "github",

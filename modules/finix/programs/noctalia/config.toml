@@ -1,0 +1,780 @@
+config_version = 14
+
+[audio]
+enable_overdrive = true
+enable_sounds    = true
+sound_volume     = 1.0
+
+[backdrop]
+enabled        = true
+tint_intensity = 0.5
+
+[bar]
+order = ["default", "bar"]
+
+[bar.bar]
+background_opacity = 0.74999998323619366
+capsule            = true
+capsule_radius     = 4
+center             = ["group:g2"]
+enabled            = true
+end                = ["group:g5", "group:g4", "battery"]
+margin_ends        = 0
+position           = "bottom"
+radius             = 0
+radius_top_left    = 12
+radius_top_right   = 12
+scale              = 1.1500000096857548
+start              = ["group:g1"]
+widget_spacing     = 10
+
+[[bar.bar.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g1"
+members             = ["cpu", "temp", "ram", "sysmon", "network_rx", "network_tx"]
+opacity             = 1.0
+padding             = 6.0
+
+[[bar.bar.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g2"
+members             = ["clock", "text_2", "bar"]
+opacity             = 1.0
+padding             = 8.0
+
+[[bar.bar.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g4"
+members             = ["bar_2", "mirror", "notifications"]
+opacity             = 1.0
+padding             = 6.0
+radius              = 4.0
+
+[[bar.bar.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g5"
+members             = ["tray", "keyboard_layout"]
+opacity             = 1.0
+padding             = 6.0
+radius              = 4.0
+
+[bar.default]
+background_opacity = 0.74999998323619366
+capsule            = true
+capsule_radius     = 4
+center             = ["group:g2"]
+end                = ["group:g3"]
+margin_edge        = 0
+margin_ends        = 24
+scale              = 1.1500000096857548
+start              = ["group:g1", "group:g4"]
+widget_spacing     = 12
+
+[[bar.default.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g1"
+members             = ["control-center", "workspaces"]
+opacity             = 1.0
+padding             = 6.0
+radius              = 4.0
+
+[[bar.default.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g2"
+members             = ["recorder", "active_window", "wallpaper"]
+opacity             = 1.0
+padding             = 6.0
+radius              = 4.0
+
+[[bar.default.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g4"
+members             = ["volume", "input_volume", "network", "bluetooth", "privacy"]
+opacity             = 1.0
+padding             = 6.0
+radius              = 4.0
+
+[[bar.default.capsule_group]]
+accordion           = false
+accordion_direction = "end"
+enabled             = true
+fill                = "surface_variant"
+id                  = "g3"
+members             = ["audio_visualizer", "media"]
+opacity             = 1.0
+padding             = 6.0
+
+[calendar]
+enabled = true
+
+[calendar.account.local_calendar]
+name = "Local calendar"
+path = ".local/share/evolution/calendar/"
+type = "vdir"
+
+[calendar.account.uni_cal]
+name = "Uni"
+type = "google"
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[desktop_widgets]
+enabled = false
+schema_version = 1
+widget_order = [
+  "desktop-widget-0000000000000006",
+  "desktop-widget-0000000000000008",
+  "desktop-widget-0000000000000002",
+  "desktop-widget-0000000000000003",
+  "desktop-widget-0000000000000004",
+  "desktop-widget-0000000000000005",
+  "desktop-widget-0000000000000007",
+]
+
+[desktop_widgets.grid]
+cell_size      = 64
+major_interval = 4
+visible        = true
+
+[desktop_widgets.widget.desktop-widget-0000000000000002]
+box_height       = 201.8062744140625
+box_width        = 504.51571655273438
+cx               = 341.483642578125
+cy               = 1001.006591796875
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "weather"
+
+[desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+background = false
+
+[desktop_widgets.widget.desktop-widget-0000000000000003]
+box_height       = 163.82453918457031
+box_width        = 256.7774658203125
+cx               = 1678.1884765625
+cy               = 639.65777587890625
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "sysmon"
+
+[desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+background = true
+stat2      = "cpu_temp"
+
+[desktop_widgets.widget.desktop-widget-0000000000000004]
+box_height       = 164.61019897460938
+box_width        = 258.384521484375
+cx               = 1678.6392822265625
+cy               = 831.514404296875
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "sysmon"
+
+[desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+stat  = "ram_pct"
+stat2 = "swap_pct"
+
+[desktop_widgets.widget.desktop-widget-0000000000000005]
+box_height       = 164.20948791503906
+box_width        = 257.56488037109375
+cx               = 1678.1884765625
+cy               = 1023.4136352539062
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "sysmon"
+
+[desktop_widgets.widget.desktop-widget-0000000000000005.settings]
+stat  = "net_rx"
+stat2 = "net_tx"
+
+[desktop_widgets.widget.desktop-widget-0000000000000006]
+box_height       = 896.0
+box_width        = 896.0
+cx               = 369.62890625
+cy               = 283.814453125
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = -0.0
+type             = "fancy_audio_visualizer"
+
+[desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+background         = false
+bloom_intensity    = 0.60000000000000009
+fade_when_idle     = false
+inner_diameter     = 0.70000000000000007
+ring_opacity       = 0.5
+visualization_mode = "wave_rings"
+wave_thickness     = 0.90000000000000013
+
+[desktop_widgets.widget.desktop-widget-0000000000000007]
+box_height       = 182.5
+box_width        = 458.25
+cx               = 1578.70654296875
+cy               = 307.25
+enabled          = false
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "media_player"
+
+[desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+background         = true
+hide_when_no_media = true
+layout             = "horizontal"
+
+[desktop_widgets.widget.desktop-widget-0000000000000008]
+box_height       = 376.37109375
+box_width        = 355.2578125
+cx               = 369.62890625
+cy               = 283.814453125
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "clock"
+
+[desktop_widgets.widget.desktop-widget-0000000000000008.settings]
+background         = false
+background_padding = 0.0
+clock_style        = "analog"
+shadow             = true
+
+[dock]
+auto_hide         = true
+launcher_position = "start"
+reserve_space     = false
+
+[hooks]
+colors_changed = "~/.config/noctalia/hooks/wallpaper-change.sh"
+
+[idle]
+behavior_order          = ["screen-off", "lock", "suspend"]
+pre_action_fade_seconds = 4.0
+
+[idle.behavior.lock]
+action  = "lock"
+enabled = true
+timeout = 660.0
+
+[idle.behavior.screen-off]
+action  = "screen_off"
+enabled = true
+timeout = 600.0
+
+[idle.behavior.suspend]
+action         = "lock_and_suspend"
+enabled        = true
+resume_command = "sessionctl suspend ; noctalia msg session lock"
+timeout        = 900.0
+
+[location]
+auto_locate = true
+
+[lockscreen]
+blurred_desktop = true
+fingerprint     = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 1
+widget_order = [
+  "lockscreen-login-box@eDP-2",
+  "lockscreen-login-box@winit",
+  "lockscreen-login-box@Unknown-1",
+  "lockscreen-login-box@WL-1",
+  "lockscreen-login-box@HDMI-A-1",
+  "lockscreen-widget-0000000000000003",
+  "lockscreen-login-box@eDP-1",
+  "lockscreen-widget-0000000000000002",
+  "lockscreen-widget-0000000000000005",
+]
+
+[lockscreen_widgets.grid]
+cell_size      = 24
+major_interval = 4
+visible        = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 960.0
+cy               = 898.0
+output           = "HDMI-A-1"
+placement_height = 1080.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+background_color     = "surface_variant"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@Unknown-1"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 960.0
+cy               = 1018.0
+output           = "Unknown-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@Unknown-1".settings]
+background_color     = "surface_variant"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@WL-1"]
+box_height       = 196.0
+box_width        = 720.0
+cx               = 955.000244140625
+cy               = 940.00006103515625
+output           = "WL-1"
+placement_height = 1122.0
+placement_width  = 1910.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
+background_color     = "surface_variant"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 960.0
+cy               = 838.0
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+center_password_text = true
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = false
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-2"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 960.0
+cy               = 1018.0
+output           = "eDP-2"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@eDP-2".settings]
+background_color     = "surface_variant"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget."lockscreen-login-box@winit"]
+box_height       = 196.0
+box_width        = 810.0
+cx               = 640.0
+cy               = 618.0
+output           = "winit"
+placement_height = 800.0
+placement_width  = 1280.0
+rotation         = 0.0
+type             = "login_box"
+
+[lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+background_color     = "surface_variant"
+background_opacity   = 0.88
+background_radius    = 12.0
+center_password_text = false
+input_opacity        = 1.0
+input_radius         = 6.0
+layout               = "regular"
+show_caps_lock       = true
+show_keyboard_layout = true
+show_login_button    = true
+show_media           = true
+show_session_buttons = true
+show_unlock_hint     = true
+show_weather         = true
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+box_height       = 288.0
+box_width        = 576.0
+cx               = 360.0
+cy               = 994.5
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "weather"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+background_opacity = 0.0
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+box_height       = 288.0
+box_width        = 552.0
+cx               = 348.0
+cy               = 130.5
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "clock"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
+background_opacity = 0.0
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
+box_height       = 240.0
+box_width        = 816.0
+cx               = 960.0
+cy               = 576.0
+output           = "eDP-1"
+placement_height = 1200.0
+placement_width  = 1920.0
+rotation         = 0.0
+type             = "audio_visualizer"
+
+[lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
+background     = false
+bands          = 36.0
+centered       = false
+show_when_idle = true
+
+[notification]
+background_opacity = 0.8399999737739563
+layer              = "overlay"
+scale              = 1.1500000096857548
+
+[osd]
+position = "top_center"
+scale    = 1.1500000953674316
+
+[plugin_settings."avivbintangaringga/nix-monitor"]
+clean_command  = "nh clean all --keep 5"
+update_command = "nix flake update --flake /home/amr/nixos && nh os switch /home/amr/nixos -H laptop"
+
+[plugin_settings."noctalia/screen_recorder"]
+copy_to_clipboard = true
+
+[plugin_settings."ycf/mawaqit"]
+city             = "Cairo"
+country          = "Egypt"
+method           = "5"
+twelveHourFormat = true
+
+[plugins]
+enabled = [
+  "noctalia/screen_recorder",
+  "noctalia/translator",
+  "ycf/mawaqit",
+  "elijaharch/wl-screen-mirror",
+  "dunarand/tmux-provider",
+  "alexmnrs/github-activity",
+  "noctalia/umbriel-companion",
+]
+
+[shell]
+avatar_path                     = "/home/amr/Pictures/pfp3-edited.png"
+font_family                     = "Cascadia Code"
+launch_apps_as_systemd_services = true
+password_style                  = "random"
+polkit_agent                    = true
+screen_time_enabled             = true
+settings_window_translucent     = true
+show_location                   = false
+telemetry_enabled               = true
+time_format                     = "{:%-I:%M %p}"
+
+[shell.panel]
+open_near_click_control_center = true
+open_near_click_launcher       = true
+open_near_click_wallpaper      = true
+transparency_mode              = "glass"
+
+[shell.screen_corners]
+size = 8
+
+[shell.screenshot]
+confirm_region = true
+save_to_file   = false
+
+[[shell.session.actions]]
+action            = "lock"
+countdown_seconds = 0.0
+enabled           = true
+shortcut          = "1"
+variant           = "default"
+
+[[shell.session.actions]]
+action            = "logout"
+countdown_seconds = 0.0
+enabled           = true
+shortcut          = "2"
+variant           = "default"
+
+[[shell.session.actions]]
+action            = "lock_and_suspend"
+command           = "noctalia msg session lock && sessionctl suspend"
+countdown_seconds = 0.0
+enabled           = true
+shortcut          = "3"
+variant           = "default"
+
+[[shell.session.actions]]
+action            = "reboot"
+command           = "sessionctl reboot"
+countdown_seconds = 0.0
+enabled           = true
+shortcut          = "4"
+variant           = "default"
+
+[[shell.session.actions]]
+action            = "shutdown"
+command           = "sessionctl poweroff"
+countdown_seconds = 0.0
+enabled           = true
+shortcut          = "5"
+variant           = "destructive"
+
+[theme]
+builtin           = "Ayu"
+community_palette = "Ayu Green"
+mode              = "dark"
+source            = "builtin"
+wallpaper_scheme  = "vibrant"
+
+[theme.templates]
+builtin_ids = [
+  "alacritty",
+  "btop",
+  "emacs",
+  "foot",
+  "gtk3",
+  "gtk4",
+  "ghostty",
+  "mango",
+  "niri",
+  "qt",
+  "umbriel",
+]
+community_ids = [
+  "pywalfox",
+  "discord",
+  "blender",
+  "gimp",
+  "steam",
+  "lazygit",
+  "tmux",
+  "yazi",
+]
+
+[wallpaper]
+directory             = "/home/amr/Pictures/Wallpapers"
+transition_on_startup = true
+
+[wallpaper.default]
+path = "/home/amr/Pictures/Wallpapers/etc/cat-vibin.jpg"
+
+[wallpaper.last]
+path = "/home/amr/Pictures/Wallpapers/etc/cat-vibin.jpg"
+
+[wallpaper.monitors.HDMI-A-1]
+path = "/home/amr/Pictures/Wallpapers/etc/orange-cube.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/amr/Pictures/Wallpapers/etc/cat-vibin.jpg"
+
+[wallpaper.monitors.eDP-2]
+path = "/home/amr/Pictures/Wallpapers/etc/cat-vibin.jpg"
+
+[[wallpaper.favorite]]
+palette_source   = "wallpaper"
+path             = "/home/amr/Pictures/Wallpapers/etc/orange-cube.jpg"
+theme_mode       = "dark"
+wallpaper_scheme = "vibrant"
+
+[[wallpaper.favorite]]
+builtin_palette = "Ayu"
+palette_source  = "builtin"
+path            = "/home/amr/Pictures/Wallpapers/etc/cliff-edge.jpg"
+theme_mode      = "dark"
+
+[[wallpaper.favorite]]
+builtin_palette = "Ayu"
+palette_source  = "builtin"
+path            = "/home/amr/Pictures/Wallpapers/etc/cat-vibin.jpg"
+theme_mode      = "dark"
+
+[weather]
+auto_locate = true
+
+[widget.active_window]
+capsule = true
+
+[widget.audio_visualizer]
+color_2        = "tertiary"
+show_when_idle = true
+
+[widget.bar]
+dynamicIcon = true
+type        = "ycf/mawaqit:bar"
+
+[widget.bar_2]
+type = "noctalia/umbriel-companion:bar"
+
+[widget.battery]
+capsule        = true
+capsule_radius = 4
+display_mode   = "graphic"
+
+[widget.cat]
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+format = "{:%-I:%M %p}"
+
+[widget.control-center]
+custom_image = "/home/amr/Pictures/finix.png"
+scale        = 1.3
+
+[widget.input_volume]
+show_label = false
+
+[widget.keyboard_layout]
+scale      = 0.75
+show_glyph = false
+
+[widget.mirror]
+type = "elijaharch/wl-screen-mirror:mirror"
+
+[widget.network]
+show_label = false
+
+[widget.notifications]
+capsule        = true
+capsule_radius = 4
+
+[widget.recorder]
+type = "noctalia/screen_recorder:recorder"
+
+[widget.screen_recorder]
+script       = "scripts/screen_recorder.lua"
+type         = "scripted"
+video_source = "portal"
+
+[widget.sysmon]
+stat = "swap_pct"
+
+[widget.taskbar]
+group_by_workspace    = true
+hide_empty_workspaces = true
+inactive_opacity      = 0.80000000000000004
+scale                 = 1.1000000000000001
+show_workspace_label  = false
+
+[widget.text_2]
+text = "|"
+type = "text"
+
+[widget.tray]
+drawer = true
+
+[widget.volume]
+show_label = false

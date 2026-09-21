@@ -38,7 +38,7 @@ in {
       enable = true;
       settings = {
         layout.mode = "scrolling";
-        general.autostart = ["noctalia" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
+        general.autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
 
         layout.gap = 5;
         input = {
