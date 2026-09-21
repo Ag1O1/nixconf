@@ -6,7 +6,7 @@
 }: let
   myNeovim =
     (inputs.nvf.lib.neovimConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+      inherit pkgs;
       modules = [
         {
           config.vim = {
