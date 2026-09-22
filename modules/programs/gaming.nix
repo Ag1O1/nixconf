@@ -1,5 +1,6 @@
 {
   inputs,
+  system,
   fm,
   cm,
   pkgs,
@@ -10,7 +11,7 @@
   boot.kernelModules = ["ntsync"];
   programs.steam = {
     enable = true;
-    package = inputs.millennium.packages."${pkgs.system}".millennium-steam;
+    package = inputs.millennium.packages."${system}".millennium-steam;
   };
   hj.packages = [
     pkgs.prismlauncher # Minecraft

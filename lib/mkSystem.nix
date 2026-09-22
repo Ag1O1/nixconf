@@ -3,7 +3,7 @@
   modules,
 }: let
   inputs = import ../.tack;
-  inherit (inputs) nixpkgs finix haumea community-modules hjem-rum;
+  inherit (inputs) nixpkgs finix haumea community-modules;
   pkgs = import nixpkgs {
     inherit system;
     config = {
@@ -18,7 +18,7 @@
   };
 
   m = haumea.lib.load {
-    src = ../modules/finix;
+    src = ../modules;
     loader = haumea.lib.loaders.path;
     inputs = {inherit inputs;};
   };
@@ -27,12 +27,15 @@ in
     inherit (pkgs) lib;
     specialArgs = {
       inherit inputs;
+      inherit system;
       fm = finix.nixosModules;
       cm = community-modules.nixosModules;
     };
     modules =
       [
-        {nixpkgs.pkgs = pkgs;}
+        {
+          nixpkgs.pkgs = pkgs;
+        }
         m.services.mime
 
         m.services.limine.default
@@ -42,7 +45,7 @@ in
         m.programs.neovim
         m.theming
 
-        ../modules/users/amr.nix
+        ../users/amr.nix
       ]
       ++ modules m
       ++ pkgs.lib.attrValues m.options

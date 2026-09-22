@@ -1,11 +1,12 @@
 {
   inputs,
+  system,
   pkgs,
   config,
   lib,
   ...
 }: let
-  umbriel = inputs.umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  umbriel = inputs.umbriel.packages.${system}.default;
 
   mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
   fileNames = builtins.attrNames (builtins.readDir ./scripts);
@@ -16,6 +17,7 @@
     fileNames);
 in {
   imports = [./_module.nix];
+  environment.systemPackages = [pkgs.wlr-randr];
   programs.umbriel = {
     enable = true;
     package = umbriel;
@@ -23,7 +25,7 @@ in {
 
   xdg.portal = {
     enable = lib.mkDefault true;
-    portals = [inputs.xdg-desktop-portal-umbriel.packages.${pkgs.stdenv.hostPlatform.system}.default];
+    portals = [inputs.xdg-desktop-portal-umbriel.packages.${system}.default];
   };
   hj = {
     imports = [
@@ -140,6 +142,7 @@ in {
           "Mod+l" = "window-focus-right";
           "Mod+k" = "workspace-previous";
           "Mod+j" = "workspace-next";
+          "Mod+MouseRight" = "layout-scroll-drag";
 
           "Mod+Ctrl+1" = "workspace-set-layout:scrolling";
           "Mod+Ctrl+2" = "workspace-set-layout:dwindle";

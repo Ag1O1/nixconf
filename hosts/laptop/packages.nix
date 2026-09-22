@@ -4,8 +4,6 @@
   ...
 }: {
   hj.packages = with pkgs; [
-    inputs.fluxer.packages.${pkgs.system}.fluxer-canary
-
     aseprite
     gnused
     wlr-randr
@@ -14,12 +12,10 @@
     gparted
     comma
     wl-mirror
-    jq
     arduino
     arduino-cli
     arduino-ide
     inkscape
-    eden
     rar
     ryubing
     kdePackages.kdenlive
@@ -31,7 +27,6 @@
     onlyoffice-desktopeditors
     motrix-next
 
-    dolphin-emu
     proton-vpn
     mpv
     gnome-calendar
@@ -41,16 +36,13 @@
     btrfs-progs
     bitwarden-desktop
     zed-editor
-    zed-discord-presence
     btop
     (nemo-with-extensions.override {
       extensions = with pkgs; [nemo-fileroller];
     })
     godot
-    netcat # for godot zed
     blender
     foot
-    bibata-cursors
   ];
   fonts = {
     packages = with pkgs; [

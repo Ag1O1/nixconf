@@ -48,7 +48,8 @@ in {
     '';
     "fish/config.fish".text = ''
       direnv hook fish | source
-      set -gx NH_FILE ${config.custom.machine.system_module}
+      set -gx NH_FILE /home/amr/nixos/system.nix
+      set -gx NH_ATTRP ${config.networking.hostName}
 
     '';
   };

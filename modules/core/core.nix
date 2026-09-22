@@ -17,6 +17,7 @@
     fm.sessiond-uaccess
     fm.zzz
     fm.brightnessctl
+    fm.fcron
   ];
 
   finit.runlevel = 3;
@@ -32,6 +33,8 @@
     sessiond-uaccess.enable = true;
 
     polkit.enable = true;
+
+    fcron.enable = true;
   };
   programs = {
     fastfetch.enable = true;
@@ -51,6 +54,7 @@
     zip
     unzip
     curl
+    jq
     fd
     file
     whois

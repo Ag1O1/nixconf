@@ -1,5 +1,6 @@
 {
   inputs,
+  system,
   pkgs,
   config,
   fm,
@@ -11,7 +12,7 @@
   hj.packages = with pkgs; [
     (
       # For polkit to work correctly on finix
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
+      inputs.noctalia.packages.${system}.default.override {
         polkit = config.services.polkit.package;
       }
     )

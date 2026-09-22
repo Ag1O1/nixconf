@@ -23,7 +23,6 @@
   custom = {
     machine = {
       type = "laptop";
-      system_module = "/home/amr/nixos/hosts/laptop/system.nix";
       displays."BOE NE160WUM-NXA" = {
         mode = "1920x1200@165";
         vrr = "always";
@@ -46,6 +45,5 @@
   };
 
   users.users.root.password = "$y$j9T$6xDOxYv1styslfWtv5Dgd.$JVn13FwJ/NyGGJ/urZB0SaeJG7ok3Ul9HcSKxzZVIA8";
-
-  environment.variables.NH_FILE = "/home/amr/nixos/hosts/laptop/system.nix";
+  networking.hostName = "laptop";
 }

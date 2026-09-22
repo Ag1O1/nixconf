@@ -9,7 +9,7 @@
 
   services.cups = {
     enable = true;
-    drivers = [pkgs.hplipWithPlugin];
+    drivers = [pkgs.hplip];
   };
 
   environment.systemPackages = [pkgs.simple-scan];

@@ -1,15 +1,18 @@
 let
-  mkSystem = import ../system.nix;
+  mkSystem = import ../../lib/mkSystem.nix;
 in
   mkSystem {
     system = "x86_64-linux";
     modules = m: [
       ./hardware.nix
+      ./kernel.nix
       ./machine.nix
       ./packages.nix
 
       # Hardware
       m.hardware.nvidia
+      m.hardware.asusd
+      m.hardware.tlp
       m.hardware.bluetooth
 
       # Programs
@@ -20,13 +23,17 @@ in
       m.programs.tmux
       m.programs.lazygit
       m.programs.obs
+      m.programs.waydroid
       m.programs.ly
-      m.programs.noctalia
+      m.programs.noctalia.default
       m.programs.yazi
       m.programs.helium
       m.programs.firefox
+      m.programs.zoxide
 
       # Services
+      m.services.preservation
+      m.services.nix-serve
       m.services.pipewire
       m.services.ssh
       m.services.flatpak
@@ -37,6 +44,5 @@ in
 
       # Desktop
       m.desktop.umbriel
-      m.desktop.niri
     ];
   }

@@ -1,6 +1,7 @@
 {
   cm,
   fm,
+  config,
   pkgs,
   lib,
   ...
@@ -27,7 +28,6 @@
   };
 
   environment.systemPackages = [
-    pkgs.nix-search-tv
     pkgs.nixd
     pkgs.package-version-server
     pkgs.nil # Used in basically every project for flake.nix, so makes more sense to have it included in the main config
@@ -48,5 +48,9 @@
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
     };
+  };
+  environment.variables = {
+    NH_FILE = "/home/amr/nixos/system.nix";
+    NH_ATTRP = config.networking.hostName;
   };
 }
