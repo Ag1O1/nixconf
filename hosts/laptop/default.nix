@@ -30,6 +30,7 @@ in
       m.programs.helium
       m.programs.firefox
       m.programs.zoxide
+      m.programs.virt-manager
 
       # Services
       m.services.preservation

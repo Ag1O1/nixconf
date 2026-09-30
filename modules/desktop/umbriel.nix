@@ -4,6 +4,7 @@
   pkgs,
   config,
   lib,
+  fm,
   ...
 }: let
   umbriel = inputs.umbriel.packages.${system}.default;
@@ -16,7 +17,7 @@
     })
     fileNames);
 in {
-  imports = [./_module.nix];
+  imports = [fm.umbriel];
   environment.systemPackages = [pkgs.wlr-randr];
   programs.umbriel = {
     enable = true;
@@ -142,7 +143,6 @@ in {
           "Mod+l" = "window-focus-right";
           "Mod+k" = "workspace-previous";
           "Mod+j" = "workspace-next";
-          "Mod+MouseRight" = "layout-scroll-drag";
 
           "Mod+Ctrl+1" = "workspace-set-layout:scrolling";
           "Mod+Ctrl+2" = "workspace-set-layout:dwindle";

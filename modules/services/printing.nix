@@ -9,12 +9,12 @@
 
   services.cups = {
     enable = true;
-    drivers = [pkgs.hplip];
+    drivers = [pkgs.hplipWithPlugin]; # Note: HAS TO BE WITH PLUGIN OR THE PRINTER WONT WORK
   };
 
   environment.systemPackages = [pkgs.simple-scan];
 
   custom.persist.directories = [
-    "/var/lib/cups"
+    "/etc/cups/"
   ];
 }

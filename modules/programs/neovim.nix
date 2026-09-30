@@ -262,13 +262,14 @@
               };
               toml.enable = true;
               assembly.enable = true;
+              csharp.enable = true;
+              qml.enable = true;
 
               # Language modules that are not as common.
               openscad.enable = false;
               arduino.enable = false;
               astro.enable = false;
               nu.enable = false;
-              csharp.enable = false;
               julia.enable = false;
               vala.enable = false;
               scala.enable = false;
@@ -284,7 +285,6 @@
               fsharp.enable = false;
               just.enable = false;
               make.enable = false;
-              qml.enable = false;
               jinja.enable = false;
               svelte.enable = false;
               liquid.enable = false;
@@ -505,4 +505,5 @@
       .neovim;
 in {
   environment.systemPackages = [myNeovim];
+  programs.sh.package = pkgs.bash; # Temp fix for clang
 }

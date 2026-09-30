@@ -22,6 +22,7 @@ in {
       enable = true;
       inherit (cfg) extraEntries;
       settings = {
+        timeout = 1;
         interface_branding = "Finix";
         interface_help_hidden = true;
         interface_resolution = "1920x1200";
