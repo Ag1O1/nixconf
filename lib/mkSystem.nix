@@ -1,9 +1,10 @@
 {
   system,
-  modules,
+  extraModules ? [],
+  tags ? [],
 }: let
   inputs = import ../.tack;
-  inherit (inputs) nixpkgs finix haumea community-modules;
+  inherit (inputs) nixpkgs finix community-modules;
   pkgs = import nixpkgs {
     inherit system;
     config = {
@@ -17,11 +18,22 @@
     ];
   };
 
-  m = haumea.lib.load {
-    src = ../modules;
-    loader = haumea.lib.loaders.path;
-    inputs = {inherit inputs;};
-  };
+  allFiles = pkgs.lib.filesystem.listFilesRecursive ../modules;
+  isModule = path: let
+    baseName = baseNameOf path;
+  in
+    pkgs.lib.hasSuffix ".nix" baseName && !pkgs.lib.hasPrefix "_" baseName;
+
+  modulePaths = builtins.filter isModule allFiles;
+
+  importedModules = map import modulePaths;
+
+  activeTags = ["options"] ++ tags;
+  hasMatchingTag = mod:
+    mod ? tags && pkgs.lib.any (tag: pkgs.lib.elem tag activeTags) mod.tags;
+
+  matchedModules = pkgs.lib.filter hasMatchingTag importedModules;
+  activeConfigs = map (mod: mod.module) matchedModules;
 in
   finix.lib.finixSystem {
     inherit (pkgs) lib;
@@ -36,18 +48,8 @@ in
         {
           nixpkgs.pkgs = pkgs;
         }
-        m.services.mime
-
-        m.services.limine.default
-        m.services.plymouth
-
-        m.programs.fish
-        m.programs.neovim
-        m.theming
-
         ../users/amr.nix
       ]
-      ++ modules m
-      ++ pkgs.lib.attrValues m.options
-      ++ pkgs.lib.attrValues m.core;
+      ++ activeConfigs
+      ++ extraModules;
   }

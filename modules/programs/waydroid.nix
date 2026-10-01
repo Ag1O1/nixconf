@@ -1,8 +1,11 @@
-{fm, ...}: {
-  imports = [fm.android];
-  virtualisation.android.enable = true;
+{
+  tags = ["virt"];
+  module = {fm, ...}: {
+    imports = [fm.android];
+    virtualisation.android.enable = true;
 
-  custom.persist.directories = [
-    "/var/lib/waydroid"
-  ];
+    custom.persist.directories = [
+      "/var/lib/waydroid"
+    ];
+  };
 }

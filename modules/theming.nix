@@ -1,21 +1,27 @@
-{pkgs, ...}: {
-  # TODO: rework more declaratively
-  environment.systemPackages = [
-    pkgs.adw-gtk3
+{
+  tags = ["graphical"];
+  module = {
+    # TODO: rework more declaratively
+    tags = ["graphical"];
+    module = {pkgs, ...}: {
+      environment.systemPackages = [
+        pkgs.adw-gtk3
 
-    #pkgs.dracula-icon-theme
-    (pkgs.papirus-icon-theme.override {color = "yellow";})
+        #pkgs.dracula-icon-theme
+        (pkgs.papirus-icon-theme.override {color = "yellow";})
 
-    pkgs.gsettings-desktop-schemas
-    pkgs.bibata-cursors
-    pkgs.nwg-look
-    pkgs.xsettingsd
-    pkgs.xrdb
-  ];
-  xdg.icons.enable = true;
-  environment.variables = {
-    GTK_THEME = "adw-gtk3";
-    XCURSOR = "Bibata-Modern-Ice";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
+        pkgs.gsettings-desktop-schemas
+        pkgs.bibata-cursors
+        pkgs.nwg-look
+        pkgs.xsettingsd
+        pkgs.xrdb
+      ];
+      xdg.icons.enable = true;
+      environment.variables = {
+        GTK_THEME = "adw-gtk3";
+        XCURSOR = "Bibata-Modern-Ice";
+        QT_QPA_PLATFORMTHEME = "qt5ct";
+      };
+    };
   };
 }

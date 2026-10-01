@@ -1,35 +1,34 @@
-{pkgs, ...}: {
-  # TODO: Custom module stuff
-  /*
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-        vhostUserPackages = [pkgs.virtiofsd];
-        swtpm.enable = true;
-      };
+{
+  tags = ["virt"];
+  module = {
+    pkgs,
+    lib,
+    ...
+  }: {
+    environment.systemPackages = with pkgs; [
+      virt-manager
+      spice
+      spice-gtk
+      spice-protocol
+      virt-viewer
+      virglrenderer
+      qemu
+      quickemu
+      guestfs-tools
+      libvirt
+      libvirt-glib
+      virtiofsd
+    ];
+    environment.etc."libvirt/qemu.conf".text = ''
+      stdio_handler = "file"
+    '';
+    finit.services.libvirtd = {
+      description = "libvirtd";
+      command = "${lib.getExe' pkgs.libvirt "libvirtd"}";
     };
-    spiceUSBRedirection.enable = true;
+    #programs.virt-manager.enable = true;
+    custom.persist.directories = [
+      "/var/lib/libvirt"
+    ];
   };
-  */
-
-  environment.systemPackages = with pkgs; [
-    virt-manager
-    spice
-    spice-gtk
-    spice-protocol
-    virt-viewer
-    virglrenderer
-    qemu
-    quickemu
-    guestfs-tools
-    libvirt
-    libvirt-glib
-    virtiofsd
-  ];
-  #programs.virt-manager.enable = true;
-  custom.persist.directories = [
-    "/var/lib/libvirt"
-  ];
 }

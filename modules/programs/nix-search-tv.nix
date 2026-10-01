@@ -1,12 +1,16 @@
-{pkgs, ...}: let
-  ns = pkgs.writeShellApplication {
-    name = "ns";
-    runtimeInputs = with pkgs; [
-      fzf
-      nix-search-tv
-    ];
-    text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+{
+  tags = ["graphical"];
+
+  module = {pkgs, ...}: let
+    ns = pkgs.writeShellApplication {
+      name = "ns";
+      runtimeInputs = with pkgs; [
+        fzf
+        nix-search-tv
+      ];
+      text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+    };
+  in {
+    environment.systemPackages = [ns];
   };
-in {
-  environment.systemPackages = [ns];
 }

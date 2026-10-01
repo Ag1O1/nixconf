@@ -45,5 +45,5 @@
   };
 
   users.users.root.password = "$y$j9T$6xDOxYv1styslfWtv5Dgd.$JVn13FwJ/NyGGJ/urZB0SaeJG7ok3Ul9HcSKxzZVIA8";
-  networking.hostName = "laptop";
+  networking.hostName = "rigel";
 }
