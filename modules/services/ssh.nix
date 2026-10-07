@@ -1,5 +1,5 @@
 {
-  tags = ["server"];
+  tags = ["core"];
   module = {fm, ...}: {
     imports = [fm.openssh];
     services.openssh.enable = true;
