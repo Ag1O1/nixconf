@@ -61,7 +61,7 @@ url = "github:noctalia-dev/xdg-desktop-portal-umbriel"
 url = "github:noctalia-dev/noctalia-shell"
 
 [inputs.nix-cachyos-kernel]
-url = "github:xddxdd/nix-cachyos-kernel/879f45ee15a3b06fdbbf9b6dc825c5fbca137fcd"
+url = "github:xddxdd/nix-cachyos-kernel"
 
 [inputs.wrapper-modules]
 url = "github:BirdeeHub/nix-wrapper-modules"
