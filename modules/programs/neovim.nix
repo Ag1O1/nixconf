@@ -60,6 +60,7 @@
                 timeoutlen = 150;
                 expandtab = true;
                 conceallevel = 2;
+                scrolloff = 8;
 
                 shiftwidth = 2;
                 tabstop = 2;
@@ -344,6 +345,10 @@
                 blink-cmp = {
                   enable = true;
                   setupOpts = {
+                    keymap = {
+                      preset = "default";
+                      "<Tab>" = ["snippet_forward" "fallback"];
+                    };
                     sources.default = [
                       "lsp"
                       "path"
@@ -446,9 +451,7 @@
               notes = {
                 neorg = {
                   enable = true;
-
                   treesitter.enable = true;
-
                   setupOpts = {
                     load = {
                       "core.defaults".enable = true;

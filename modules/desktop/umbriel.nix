@@ -43,7 +43,10 @@
         enable = true;
         settings = {
           layout.mode = "scrolling";
-          general.autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
+          general = {
+            show_cheatsheet = false;
+            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
+          };
 
           layout.gap = 5;
           input = {
@@ -97,6 +100,8 @@
             "Mod+R" = "spawn:noctalia msg panel-toggle launcher";
             "Mod+CTRL+R" = "spawn:noctalia msg panel-toggle control-center";
             "Mod+Shift+R" = "spawn:noctalia msg panel-toggle clipboard";
+            "Mod+Shift+E" = "spawn:noctalia msg panel-toggle launcher /emo";
+            "Mod+Shift+N" = "spawn: pkill noctalia && unset XDG_SESSION_ID && noctalia -d";
 
             "Mod+Shift+S" = "spawn:noctalia msg screenshot-region";
             "Mod+Shift+Alt+S" = "spawn:noctalia msg screenshot-fullscreen";

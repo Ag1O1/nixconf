@@ -2,14 +2,11 @@ let
   mkSystem = import ../../lib/mkSystem.nix;
 in
   mkSystem {
-    tags = ["mirzam" "server"];
+    tags = ["mirzam" "core" "server"];
     system = "x86_64-linux";
-    extraModules = m: [
+    extraModules = [
       ./hardware.nix
       ./machine.nix
       ./packages.nix
-
-      # Services
-      m.services.ssh
     ];
   }

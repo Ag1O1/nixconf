@@ -24,6 +24,7 @@
         enable = true;
         inherit (cfg) extraEntries;
         settings = {
+          quiet = true;
           timeout = 1;
           interface_branding = "Finix";
           interface_help_hidden = true;

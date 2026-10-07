@@ -1,11 +1,4 @@
 {
-  lib,
-  cm,
-  fm,
-  pkgs,
-  ...
-}: {
-  imports = [cm.minimal fm.sudo];
   boot.initrd.availableKernelModules = [
     "virtio_pci"
     "virtio_blk"
@@ -13,9 +6,7 @@
   ];
   time.timeZone = "UTC";
   i18n.defaultLocale = "en_US.UTF-8";
-  profiles.minimal.enable = true;
-  profiles.minimal.deviceManager = "mdevd";
-  profiles.minimal.withFlakes = false;
+  services.mdevd.enable = true;
 
   custom = {
     machine = {

@@ -1,4 +1,6 @@
 {
+  # has issues with umbriel
+  #tags = ["graphical"];
   module = {inputs, ...}: {
     imports = [inputs.helium-flake.nixosModules.default];
     programs.helium = {

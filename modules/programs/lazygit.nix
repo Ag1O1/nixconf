@@ -11,5 +11,9 @@
         autoFetch = false;
       };
     };
+    environment.etc."gitconfig".text = ''
+      [init]
+       defaultBranch = main
+    '';
   };
 }

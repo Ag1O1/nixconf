@@ -25,10 +25,15 @@
       ;
 
     defaultApplications = {
-      "text/*" = "${text}.desktop";
       "inode/directory" = "${file-manager}";
 
       "image/*" = "${image}.desktop";
+      "image/png" = "${image}.desktop";
+      "image/jpeg" = "${image}.desktop";
+      "image/gif" = "${image}.desktop";
+      "image/bmp" = "${image}.desktop";
+      "image/webp" = "${image}.desktop";
+
       "video/*" = "${video}.desktop";
       "audio/*" = "${audio}.desktop";
 

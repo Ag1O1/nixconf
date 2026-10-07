@@ -4,6 +4,7 @@
   ...
 }: {
   hj.packages = with pkgs; [
+    concord-tui
     aseprite
     gnused
     wlr-randr
@@ -24,7 +25,10 @@
     gimp
     audacity
     resources
+
     onlyoffice-desktopeditors
+    #libreoffice
+
     motrix-next
 
     proton-vpn

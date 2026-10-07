@@ -1,5 +1,5 @@
 {
-  tag = ["core"];
+  tags = ["core"];
   module = {
     cm,
     fm,

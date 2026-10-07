@@ -1,8 +1,6 @@
 {
   tags = ["core"];
   module = {
-    inputs,
-    config,
     pkgs,
     fm,
     cm,
@@ -12,13 +10,9 @@
       fm.gnome-keyring
       fm.bash
       fm.sysklogd
-      fm.polkit
       fm.getty
       fm.iwd
       cm.fastfetch
-      fm.sessiond-uaccess
-      fm.zzz
-      fm.brightnessctl
       fm.fcron
     ];
 
@@ -27,27 +21,17 @@
       sysklogd.enable = true;
       getty.enable = true;
       dbus.enable = true;
-
-      udev.enable = true;
-      seatd.enable = true;
-
-      sessiond.enable = true;
-      sessiond-uaccess.enable = true;
-
-      polkit.enable = true;
-
       fcron.enable = true;
     };
     programs = {
-      fastfetch.enable = true;
+      fastfetch.enable = true; # yes this is totally a core module
       bash.enable = true;
-      gnome-keyring.enable = true;
-      brightnessctl.enable = true;
     };
-    programs.zzz.enable = config.custom.machine.type == "laptop";
 
     environment.systemPackages = with pkgs; [
       microfetch
+      btop
+      iputils
       tack
       git
       tree
