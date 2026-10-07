@@ -1,7 +1,7 @@
 {
-  laptop = import ./hosts/rigel;
+  rigel = import ./hosts/rigel;
 
-  desktop = import ./hosts/betelgeuse;
+  betelgeuse = import ./hosts/betelgeuse;
 
-  server = import ./hosts/mirzam;
+  mirzam = import ./hosts/mirzam;
 }
