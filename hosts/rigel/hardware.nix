@@ -25,8 +25,17 @@
   # Source: @RPochyly4 in https://gitlab.com/asus-linux/asusctl/-/work_items/682
   finit.tasks.asus-keyboard-ec-mode = {
     description = "Initialize ASUS keyboard RGB controller";
-    runlevels = "3";
+    runlevels = "2345";
     command = "${lib.getExe pkgs.hidapitester} --vidpid 0B05:19B6 --open --send-feature 70,1";
+  };
+
+  # Defining this here specifically for the condition
+  finit.tasks.openrgb-profile = {
+    description = "Apply OpenRGB profile at boot";
+    conditions = ["task/asus-keyboard-ec-mode/success"];
+    runlevels = "2345";
+    command = "${pkgs.openrgb}/bin/openrgb --noautoconnect -p keyboard";
+    user = "amr";
   };
 
   boot = {
