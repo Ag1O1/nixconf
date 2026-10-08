@@ -139,10 +139,15 @@
 
           ### Tags ###
 
-          tagrule=id:1,layout_name:Browser
-          tagrule=id:2,layout_name:Main1
-          tagrule=id:3,layout_name:Main2
-          tagrule=id:4,layout_name:Discord
+          tagrule=id:1,layout_name:scroller
+          tagrule=id:2,layout_name:scroller
+          tagrule=id:3,layout_name:scroller
+          tagrule=id:4,layout_name:scroller
+          tagrule=id:5,layout_name:scroller
+          tagrule=id:6,layout_name:scroller
+          tagrule=id:7,layout_name:scroller
+          tagrule=id:8,layout_name:scroller
+          tagrule=id:9,layout_name:scroller
 
           bind=SUPER,1,comboview,1
           bind=SUPER,2,comboview,2
