@@ -16,8 +16,8 @@
 
     services = {
       seatd.enable = true;
-      #keventd.enable = true;
-      udev.enable = true;
+      keventd.enable = true;
+      #udev.enable = true;
       #mdevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
