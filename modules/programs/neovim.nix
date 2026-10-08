@@ -325,6 +325,10 @@
                 lualine = {
                   enable = true;
                   setupOpts.options.theme = "auto";
+                  integrations.breadcrumbs = {
+                    nvim-navic.enable = true;
+                    navbuddy.enable = true;
+                  };
                 };
               };
 
@@ -378,7 +382,7 @@
                 nvimBufferline.enable = true;
               };
 
-              treesitter.context.enable = true;
+              treesitter.context.enable = false;
 
               binds = {
                 whichKey.enable = true;
@@ -476,12 +480,6 @@
                 colorizer.enable = true;
                 modes-nvim.enable = false; # the theme looks terrible with catppuccin
                 illuminate.enable = true;
-                /*
-                breadcrumbs = {
-                  enable = isMaximal;
-                  navbuddy.enable = isMaximal;
-                };
-                */
                 smartcolumn = {
                   enable = true;
                   setupOpts.custom_colorcolumn = {
