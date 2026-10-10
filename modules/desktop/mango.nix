@@ -26,6 +26,7 @@
 
           no_border_when_single = 1
           no_radius_when_single = 1
+          smartgaps = 1
           borderpx=2
           border_radius=3
           gappih=3
