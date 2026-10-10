@@ -48,7 +48,6 @@ in
         {
           nixpkgs.pkgs = pkgs;
         }
-        ../users/amr.nix
       ]
       ++ activeConfigs
       ++ extraModules;
