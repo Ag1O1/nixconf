@@ -4,6 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    vim
     azure-cli
     cloud-init
     ripgrep
