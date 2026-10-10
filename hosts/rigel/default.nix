@@ -7,7 +7,7 @@ in
     extraModules = [
       ../../users/amr.nix
       ./hardware.nix
-      #./kernel.nix
+      ./kernel.nix
       ./machine.nix
       ./packages.nix
     ];

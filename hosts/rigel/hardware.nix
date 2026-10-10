@@ -38,6 +38,16 @@
     user = "amr";
   };
 
+  finit.tasks.battery-limit = {
+    description = "Sets battery limit to 80";
+    runlevels = "2345";
+    command = let
+      script = pkgs.writeShellScript "battery-limit" ''
+        echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold
+      '';
+    in "${script}";
+  };
+
   boot = {
     kernelParams = [
       "zswap.enabled=1"
@@ -51,7 +61,10 @@
 
       "pcie_aspm=force"
     ];
-    kernelModules = ["kvm-amd" "amdgpu"];
+    kernelModules = [
+      "kvm-amd"
+      "amdgpu"
+    ];
   };
   hardware.firmware = [pkgs.linux-firmware];
 

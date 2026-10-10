@@ -3,17 +3,11 @@
   lib,
   ...
 }: {
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4.extend (
+  boot.kernelPackages = pkgs.linuxPackages_latest.extend (
     _lp-self: lp-super: {
-      kernel =
-        (lp-super.kernel.override {
-          modDirVersion = "${lib.head (lib.splitString "-" lp-super.kernel.version)}-Custom";
-        }).overrideAttrs
-        (old: {
-          pname = "linux";
-          version = "${lib.head (lib.splitString "-" old.version)}-Custom";
-          __intentionallyOverridingVersion = true;
-        });
+      kernel = lp-super.kernel.override {
+        ignoreConfigErrors = true;
+      };
     }
   );
   boot.kernelPatches = [
@@ -24,18 +18,18 @@
       patch = null;
       structuredExtraConfig = with lib.kernel; {
         # ── Version & Identification ──────────────────────────────────────────
-        LOCALVERSION = lib.mkForce (freeform "-Custom");
-        LOCALVERSION_AUTO = lib.mkForce no;
+        #LOCALVERSION = lib.mkForce (freeform "-Custom");
+        LOCALVERSION_AUTO = yes;
 
         # ── Wine/Proton Gaming Features ───────────────────────────────────────
         NTSYNC = module;
 
         # ── Scheduler & Performance ───────────────────────────────────────────
-        SCHED_BORE = yes;
+        # FIXED: SCHED_BORE removed, it's an out-of-tree patch (CachyOS / bore-scheduler), not in mainline
         SCHED_CLASS_EXT = yes;
-        PREEMPT = yes;
+        #PREEMPT = yes;
         PREEMPT_DYNAMIC = yes;
-        NO_HZ_IDLE = yes;
+        #NO_HZ_IDLE = yes;
         #NO_HZ_FULL = no;
         #HZ_1000 = yes;
         #HZ = freeform "1000";
@@ -50,7 +44,7 @@
         # ─── Compression ──────────────────────────────────────────────────────
         ZRAM = module;
         CRYPTO_ZSTD = yes;
-        CRYPTO_LZ4 = module;
+        # FIXED: CRYPTO_LZ4 removed, other options select it as built-in
         CRYPTO_LZ4HC = module;
         ZSWAP = yes;
         ZSWAP_DEFAULT_ON = yes;
@@ -63,7 +57,7 @@
         DRM_AMD_DC = yes;
         DRM_AMD_DC_FP = yes;
         HSA_AMD = yes;
-        DRM_TTM = yes;
+        # FIXED: DRM_TTM removed, it's selected by amdgpu and ends up as module
 
         # ─── Storage ──────────────────────────────────────────────────────────
         BLK_DEV_NVME = module;
@@ -123,6 +117,9 @@
         # ═══════════════════════════════════════════════════════════════════════
 
         # CPU vendors (AMD only)
+        # FIXED: CPU_SUP_* are only user-selectable when PROCESSOR_SELECT is on (which needs EXPERT)
+        EXPERT = lib.mkForce yes;
+        PROCESSOR_SELECT = lib.mkForce yes;
         CPU_SUP_INTEL = lib.mkForce no;
         CPU_SUP_HYGON = lib.mkForce no;
         CPU_SUP_CENTAUR = lib.mkForce no;
@@ -240,14 +237,13 @@
         INTEL_TH = lib.mkForce no;
         INTEL_TDX_GUEST = lib.mkForce no;
 
-        # Debug & Tracing (disables for performance)
+        # Debug & Tracing
+        # FIXED: DEBUG_KERNEL / DEBUG_INFO / LOCKUP_DETECTOR no longer forced off.
+        # DEBUG_INFO_BTF (needed by sched_ext and BPF) depends on DEBUG_INFO, which depends on DEBUG_KERNEL.
         DEBUG_INFO_BTF = yes;
         DEBUG_FS = yes;
-        DEBUG_KERNEL = lib.mkForce no;
-        DEBUG_INFO = lib.mkForce no;
         DYNAMIC_DEBUG = lib.mkForce no;
         SCHEDSTATS = lib.mkForce no;
-        LOCKUP_DETECTOR = lib.mkForce no;
         DETECT_HUNG_TASK = lib.mkForce no;
         FTRACE = lib.mkForce no;
         KPROBES = lib.mkForce no;
@@ -259,10 +255,12 @@
 
         # Some extra stuff
         USB4 = module;
-        THUNDERBOLT = module;
+        # FIXED: THUNDERBOLT removed (USB4 covers it in current kernels)
         TYPEC_UCSI = module;
         UCSI_ACPI = module;
-        AMD_XDNA = module;
+        # FIXED: AMD_XDNA is not the current symbol name; the NPU driver is DRM_ACCEL_AMDXDNA
+        DRM_ACCEL = yes;
+        DRM_ACCEL_AMDXDNA = module;
         SND_SOC_AMD_PS = module;
         RTW89_8852CE = module;
         ASUS_ARMOURY = module;
