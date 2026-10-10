@@ -1,5 +1,5 @@
 {
-  tags = ["graphical" "server"];
+  tags = ["graphical"];
   module = {
     pkgs,
     lib,
