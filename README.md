@@ -45,7 +45,7 @@ unintuitive names like laptop1,laptop2,etc
 ### AI use
 
 I barely use AI in my configuration, the only time I do is when I want to do
-something quickly where I dont have the time to research it at the moment and
+something quickly where I dont have the time to research it at the moment,
 it's mostly a convertion of something and I never let an AI touch my
 configuration outside of what I specifically need.
 
