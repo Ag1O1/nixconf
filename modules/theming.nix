@@ -7,8 +7,6 @@
 
       #pkgs.dracula-icon-theme
       (pkgs.papirus-icon-theme.override {color = "yellow";})
-      pkgs.tela-icon-theme
-      pkgs.tela-circle-icon-theme
 
       pkgs.gsettings-desktop-schemas
       pkgs.bibata-cursors
