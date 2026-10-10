@@ -9,7 +9,28 @@
     fm,
     ...
   }: let
-    umbriel = inputs.umbriel.packages.${system}.default;
+    # Copied from https://github.com/finix-community/finix/blob/9fafdc3f091e963585a0dd4df028d58c2d66d815/modules/programs/umbriel/default.nix
+    udevApi =
+      if config.services.gardendevd.enable
+      then pkgs.libudev-garden
+      else if config.services.mdevd.enable || config.services.keventd.enable
+      then pkgs.libudev-zero
+      else null;
+    libinput = pkgs.libinput.override (
+      lib.optionalAttrs (udevApi != null) {
+        udev = udevApi;
+        wacomSupport = false;
+      }
+    );
+    umbriel = inputs.umbriel.packages.${system}.default.override (
+      o: let
+        wlrootsAttrs = lib.head (lib.filter (lib.hasPrefix "wlroots") (lib.attrNames o));
+      in {
+        inherit libinput;
+        ${wlrootsAttrs} = o.${wlrootsAttrs}.override {inherit libinput;};
+      }
+    );
+    # End of copied code
 
     mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
     fileNames = builtins.attrNames (builtins.readDir ./scripts);
@@ -45,7 +66,7 @@
           layout.mode = "scrolling";
           general = {
             show_cheatsheet = false;
-            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
+            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 8 && wireplumber"];
           };
 
           layout.gap = 5;
@@ -79,6 +100,20 @@
             QT_QPA_PLATFORM = "wayland";
             QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
           };
+          workspace = [
+            {
+              name = "BROWSER";
+            }
+            {
+              name = "MAIN1";
+            }
+            {
+              name = "MAIN2";
+            }
+            {
+              name = "CHAT";
+            }
+          ];
           keybinds = {
             "Mod+Shift+O" = "config-reload";
             "Mod+Shift+DELETE" = "session-quit";
@@ -122,6 +157,9 @@
             "XF86Sleep" = "spawn:sessionctl suspend";
 
             ### Workspaces ###
+
+            "Mod+Alt+S" = "scratchpad-toggle";
+
             "Mod+1" = "workspace-switch:1";
             "Mod+2" = "workspace-switch:2";
             "Mod+3" = "workspace-switch:3";
