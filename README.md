@@ -51,9 +51,9 @@ configuration outside of what I specifically need.
 
 Modules that are currently written using AI:
 
-- asusd libudev-zer-patches
-- virtmanager (converted from nixos module)
-- rigel's custom kernel (converted from a custom kernel I configured myself)
+- asusd libudev-zer-patches.
+- virtmanager (converted from nixos module).
+- rigel's custom kernel (converted from a custom kernel I configured myself).
 
 ### Credits and references
 
@@ -62,10 +62,10 @@ will either list here or in that code file. Though, most of these were replaced
 by my own logic and are no longer in the current version of my configuration.
 
 [Vimjoyer](https://www.vimjoyer.com/) For sops, wrapped packages, and
-impermanent system inspiration
+impermanent system inspiration.
 
 [NotAShelf](https://github.com/NotAShelf) For nvf, hjem, and helping me learn
-nix in the past
+nix in the past.
 
-[Iynaix](https://github.com/iynaix/dotfiles), I took some inspiration from their
+[Iynaix](https://github.com/iynaix/dotfiles) I took some inspiration from their
 config mainly the preservation module.
