@@ -68,4 +68,4 @@ impermanent system inspiration.
 nix in the past.
 
 [Iynaix](https://github.com/iynaix/dotfiles) I took some inspiration from their
-config mainly the preservation module.
+config mainly the preservation module and tag system.
