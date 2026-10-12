@@ -66,7 +66,7 @@
           layout.mode = "scrolling";
           general = {
             show_cheatsheet = false;
-            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 8 && wireplumber"];
+            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
           };
 
           layout.gap = 5;
@@ -142,6 +142,7 @@
             "Mod+Shift+Alt+S" = "spawn:noctalia msg screenshot-fullscreen";
             "Mod+Ctrl+S" = ''spawn:noctalia msg annotate'';
             "Mod+Shift+Ctrl+S" = ''spawn:tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png >"$tmp" && noctalia msg annotate "$tmp"'';
+            "Mod+Alt+S" = ''spawn:${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png > /tmp/clipboard.png && ${lib.getExe pkgs.qimgv} /tmp/clipboard.png'';
 
             ### XF86 Keys ###
             "XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up";
@@ -157,8 +158,6 @@
             "XF86Sleep" = "spawn:sessionctl suspend";
 
             ### Workspaces ###
-
-            "Mod+Alt+S" = "scratchpad-toggle";
 
             "Mod+1" = "workspace-switch:1";
             "Mod+2" = "workspace-switch:2";
