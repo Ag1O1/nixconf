@@ -16,6 +16,7 @@
         "btrfs"
         "evdev"
       ];
+      # Apparently setting these acutally reduces initrd size?
       kernelModules = [
         "evdev"
         "uinput"
