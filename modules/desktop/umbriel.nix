@@ -66,7 +66,7 @@
           layout.mode = "scrolling";
           general = {
             show_cheatsheet = false;
-            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber"];
+            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
           };
 
           layout.gap = 5;
@@ -128,7 +128,8 @@
             "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
             "Mod+W" = "spawn:librewolf";
             "Mod+E" = "spawn:foot -e yazi";
-            "Mod+A" = "spawn:${lib.getExe pkgs.hyprmag} -r 2500";
+            "Mod+A" = "spawn:${lib.getExe' pkgs.miru "miructl toggle"}";
+            "Mod+Shift+A" = "spawn:${lib.getExe' pkgs.miru "miructl loupe"}";
             "Mod+T" = "spawn:foot -e ${scripts.todo}";
 
             "Mod+G" = "spawn:noctalia msg panel-toggle control-center";
