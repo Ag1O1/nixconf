@@ -4,6 +4,8 @@
   ...
 }: {
   hj.packages = with pkgs; [
+    ntfs3g
+    libreoffice
     concord-tui
     aseprite
     gnused
@@ -47,6 +49,7 @@
     godot
     blender
     foot
+    ghostty
   ];
   fonts = {
     packages = with pkgs; [
