@@ -21,6 +21,7 @@
       mdevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
+      sessiond-power.enable = true;
 
       polkit.enable = true;
     };
