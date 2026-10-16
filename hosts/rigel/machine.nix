@@ -40,9 +40,11 @@
       };
       drm_ignored_pci_addresses = ["0000:01:00.0"];
     };
+    /*
     nix-serve = {
       host = "192.168.100.20";
     };
+    */
     limine.extraEntries = "
     /Gentoo
       protocol: efi

@@ -31,7 +31,7 @@
     onlyoffice-desktopeditors
     #libreoffice
 
-    motrix-next
+    rayburst
 
     proton-vpn
     mpv
