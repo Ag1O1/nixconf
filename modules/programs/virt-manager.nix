@@ -125,6 +125,8 @@
       allowedTCPPorts = [53];
     };
 
+    environment.etc."qemu/vhost-user".source = "${pkgs.virtiofsd}/share/qemu/vhost-user";
+
     custom.persist.directories = [
       "/var/lib/libvirt"
       "/etc/libvirt/qemu"
