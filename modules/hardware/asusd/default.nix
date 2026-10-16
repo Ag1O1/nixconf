@@ -25,10 +25,7 @@
         wacomSupport = false;
       }
     );
-    package = pkgs.asusctl.override {
-      inherit libinput;
-      systemd = udevApi;
-    };
+    package = pkgs.asusctl;
   in {
     environment.systemPackages = [
       package

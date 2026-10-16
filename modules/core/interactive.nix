@@ -18,7 +18,8 @@
       seatd.enable = true;
       #keventd.enable = true;
       #udev.enable = true;
-      mdevd.enable = true;
+      #mdevd.enable = true;
+      gardendevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
       sessiond-power.enable = true;
@@ -26,7 +27,6 @@
       polkit.enable = true;
     };
     programs = {
-      fastfetch.enable = true;
       gnome-keyring.enable = true;
       brightnessctl.enable = true;
     };
