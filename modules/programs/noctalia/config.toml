@@ -303,10 +303,9 @@ enabled = true
 timeout = 600.0
 
 [idle.behavior.suspend]
-action         = "lock_and_suspend"
-enabled        = true
-resume_command = "sessionctl suspend ; noctalia msg session lock"
-timeout        = 900.0
+action  = "lock_and_suspend"
+enabled = true
+timeout = 900.0
 
 [location]
 auto_locate = true

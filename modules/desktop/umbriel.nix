@@ -66,7 +66,7 @@
           layout.mode = "scrolling";
           general = {
             show_cheatsheet = false;
-            autostart = ["unset XDG_SESSION_ID && noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
+            autostart = ["noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
           };
 
           layout.gap = 5;
@@ -156,6 +156,8 @@
             "XF86AudioPrev" = "spawn:noctalia msg media previous";
             "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up";
             "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
+            "Shift+XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up 1";
+            "Shift+XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down 1";
             "XF86Sleep" = "spawn:sessionctl suspend";
 
             ### Workspaces ###
@@ -250,6 +252,22 @@
           # Noctalia theme colors & writable for some script stuff
 
           include.files = ["~/.config/umbriel/noctalia.toml" "~/.config/umbriel/writable.toml"];
+
+          animation = {
+            workspaces = {
+              enabled = true;
+            };
+            windows_move = {
+              enabled = true;
+            };
+            windows_in = {
+              enabled = true;
+            };
+
+            windows_out = {
+              enabled = true;
+            };
+          };
         };
       };
     };

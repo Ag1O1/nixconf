@@ -72,16 +72,14 @@
   in {
     environment.systemPackages = with pkgs; [
       virt-manager
-      spice
-      spice-gtk
-      spice-protocol
+      #spice
+      #spice-gtk
+      #spice-protocol
       virt-viewer
       virglrenderer
       qemu
-      quickemu
-      guestfs-tools
       libvirt
-      libvirt-glib
+      #libvirt-glib
       virtiofsd
     ];
 

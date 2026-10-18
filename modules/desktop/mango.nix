@@ -16,6 +16,12 @@
   in {
     imports = [fm.mango];
     programs.mango.enable = true;
+    environment.etc."xdg/xdg-desktop-portal/mango-portals.conf".text = ''
+      [preferred]
+      default=wlr;gtk;
+      org.freedesktop.impl.portal.Screenshot=umbriel;
+      org.freedesktop.impl.portal.ScreenCast=umbriel;
+    '';
     hj = {
       xdg.config.files."mango/config.conf".text =
         #toml
@@ -26,15 +32,15 @@
 
           no_border_when_single = 1
           no_radius_when_single = 1
-          smartgaps = 1
-          borderpx=2
+          smart_gaps = 1
+          border_px=2
           border_radius=3
-          gappih=3
-          gappiv=3
-          gappoh=3
-          gappov=3
+          gap_inner_horizontal=3
+          gap_inner_vertical=3
+          gap_outer_horizontal=3
+          gap_outer_vertical=3
 
-          sloppyfocus=1
+          sloppy_focus=1
 
           repeat_rate=30
           repeat_delay=300
@@ -73,10 +79,10 @@
 
           ### Autostart ###
 
-          exec-once=unset XDG_SESSION_ID && noctalia -d
-          exec-once=pipewire
-          exec-once=pipewire-pulse
-          exec-once=sleep 1 && wireplumber
+          exec_once=unset XDG_SESSION_ID && noctalia -d
+          exec_once=pipewire
+          exec_once=pipewire-pulse
+          exec_once=sleep 1 && wireplumber
 
 
           ### Environment ###
@@ -131,7 +137,6 @@
 
           bind=NONE,XF86AudioNext,spawn,noctalia msg media next
           bind=NONE,XF86AudioPause,spawn,noctalia msg media toggle
-          bind=NONE,XF86AudioPlay,spawn,noctalia msg media toggle
           bind=NONE,XF86AudioPrev,spawn,noctalia msg media previous
 
           bind=NONE,XF86MonBrightnessUp,spawn,noctalia msg brightness-up
@@ -140,15 +145,15 @@
 
           ### Tags ###
 
-          tagrule=id:1,layout_name:scroller
-          tagrule=id:2,layout_name:scroller
-          tagrule=id:3,layout_name:scroller
-          tagrule=id:4,layout_name:scroller
-          tagrule=id:5,layout_name:scroller
-          tagrule=id:6,layout_name:scroller
-          tagrule=id:7,layout_name:scroller
-          tagrule=id:8,layout_name:scroller
-          tagrule=id:9,layout_name:scroller
+          tag_rule=id:1,layout_name:scroller
+          tag_rule=id:2,layout_name:scroller
+          tag_rule=id:3,layout_name:scroller
+          tag_rule=id:4,layout_name:scroller
+          tag_rule=id:5,layout_name:scroller
+          tag_rule=id:6,layout_name:scroller
+          tag_rule=id:7,layout_name:scroller
+          tag_rule=id:8,layout_name:scroller
+          tag_rule=id:9,layout_name:scroller
 
           bind=SUPER,1,comboview,1
           bind=SUPER,2,comboview,2

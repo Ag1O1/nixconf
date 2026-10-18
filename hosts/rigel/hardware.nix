@@ -66,6 +66,7 @@
       "amdgpu"
     ];
   };
+  environment.systemPackages = [pkgs.ntfs3g];
   hardware.firmware = [pkgs.linux-firmware];
 
   ##### File system configuration #####

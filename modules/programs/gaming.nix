@@ -16,7 +16,9 @@
       package = inputs.millennium.packages."${system}".millennium-steam;
     };
     hj.packages = [
-      pkgs.prismlauncher # Minecraft
+      (pkgs.prismlauncher.override {
+        jdks = [pkgs.jdk21];
+      })
       pkgs.appimage-run
       pkgs.love # to run love2d games
       pkgs.mangohud
