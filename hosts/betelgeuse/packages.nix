@@ -34,9 +34,6 @@
     zed-editor
     zed-discord-presence
     btop
-    (nemo-with-extensions.override {
-      extensions = with pkgs; [nemo-fileroller];
-    })
     godot
     netcat # for godot zed
     blender
