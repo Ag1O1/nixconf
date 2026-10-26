@@ -2,8 +2,21 @@
   pkgs,
   lib,
   ...
-}: {
-  boot.kernelPackages = pkgs.linuxPackages_latest.extend (
+}: let
+  linux_7_2_9 = pkgs.linuxKernel.kernels.linux_7_2.override {
+    argsOverride = rec {
+      version = "7.2.9";
+      modDirVersion = "7.2.9";
+
+      src = pkgs.fetchurl {
+        url = "https://cdn.kernel.org/pub/linux/kernel/v7.x/linux-${version}.tar.xz";
+        hash = "sha256-tMXfvlGjZKbH8DhpIA+IyOH3dANTkAXxS3/GvJG42Lo=";
+      };
+    };
+  };
+  linuxPackages_7_2_9 = pkgs.linuxPackagesFor linux_7_2_9;
+in {
+  boot.kernelPackages = linuxPackages_7_2_9.extend (
     _lp-self: lp-super: {
       kernel = lp-super.kernel.override {
         ignoreConfigErrors = true;
