@@ -258,7 +258,7 @@
                 css.enable = true;
                 html.enable = true;
                 json.enable = true;
-                sql.enable = true;
+                #sql.enable = true; sqlfluff broken
                 java.enable = true;
                 kotlin.enable = true;
                 go.enable = true;
@@ -515,6 +515,5 @@
       .neovim;
   in {
     environment.systemPackages = [myNeovim];
-    programs.sh.package = pkgs.bash; # Temp fix for clang
   };
 }
