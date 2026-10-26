@@ -17,12 +17,13 @@
     };
     hj.packages = [
       (pkgs.prismlauncher.override {
-        jdks = [pkgs.jdk21];
+        jdks = [pkgs.jdk25];
       })
       pkgs.appimage-run
       pkgs.love # to run love2d games
       pkgs.mangohud
-      pkgs.lutris
+      #pkgs.lutris
+      pkgs.faugus-launcher
       pkgs.umu-launcher
       (pkgs.winePackages.waylandFull.override {wineBuild = "wine64";})
       pkgs.winetricks
