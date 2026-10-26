@@ -16,10 +16,10 @@
 
     services = {
       seatd.enable = true;
-      #keventd.enable = true;
+      keventd.enable = true;
       #udev.enable = true;
       #mdevd.enable = true;
-      gardendevd.enable = true;
+      #gardendevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
       sessiond-power.enable = true;
@@ -36,12 +36,11 @@
       qimgv #Image viewer
       mpv #Video player
       file-roller #Zip
+      unrar
+      _7zz
       pavucontrol #Audio control
 
       # File manager
-      (nemo-with-extensions.override {
-        extensions = with pkgs; [nemo-fileroller];
-      })
     ];
     programs.zzz.enable = config.custom.machine.type == "laptop";
   };
