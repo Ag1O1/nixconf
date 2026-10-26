@@ -77,7 +77,7 @@
       };
       browser = mkOption {
         type = str;
-        default = "librewolf";
+        default = "helium";
         description = "Defines browser";
       };
       pdf = mkOption {
