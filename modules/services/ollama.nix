@@ -1,5 +1,5 @@
 {
-  tags = ["rigel"];
+  #tags = ["rigel"];
   module = {
     lib,
     pkgs,
