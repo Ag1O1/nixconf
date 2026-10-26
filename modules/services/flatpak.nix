@@ -1,4 +1,5 @@
 {
+  tags = ["rigel"];
   module = {fm, ...}: {
     imports = [fm.flatpak];
     services.flatpak.enable = true;
