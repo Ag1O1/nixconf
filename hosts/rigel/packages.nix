@@ -15,7 +15,7 @@
     arduino-cli
     kdePackages.kdenlive
     gimp
-    audacity
+    #audacity
     resources
 
     rayburst
@@ -25,7 +25,6 @@
     equibop
     btrfs-progs
     bitwarden-desktop
-    zed-editor
     godot
     blender
     foot
