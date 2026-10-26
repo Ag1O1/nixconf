@@ -15,7 +15,7 @@
         "PasswordManagerEnabled" = false;
         "SyncDisabled" = true;
         "DefaultSearchProviderEnabled" = true;
-        "DefaultSearchProviderSearchURL" = "https://searxng.amr-ashraf.me/search?q={searchTerms}";
+        "DefaultSearchProviderSearchURL" = "https://priv.au/search?q={searchTerms}";
         "SpellcheckEnabled" = true;
         "SpellcheckLanguage" = ["en-US"];
       };
