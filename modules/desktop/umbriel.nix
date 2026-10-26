@@ -55,18 +55,19 @@
       imports = [
         inputs.umbriel.hjemModules.default
       ];
-      # idk if this works
       xdg.config.files."xdg-desktop-portal/umbriel-portals.conf".text = ''
         [preferred]
         default=umbriel;gtk
       '';
+      xdg.config.files."umbriel/config.toml".type = "copy";
       programs.umbriel = {
         enable = true;
         settings = {
           layout.mode = "scrolling";
           general = {
+            attach_modal_dialogs = false;
             show_cheatsheet = false;
-            autostart = ["noctalia -d" "pipewire" "pipewire-pulse" "sleep 1 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
+            autostart = ["noctalia -d" "pipewire" "pipewire-pulse" "sleep 8 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
           };
 
           layout.gap = 5;
@@ -115,6 +116,10 @@
             }
           ];
           keybinds = {
+            "Mod+Shift+Space" = "window-move-to-scratchpad";
+            "Mod+Alt+Space" = "scratchpad-toggle";
+            "Mod+Ctrl+Space" = "window-restore-from-scratchpad";
+
             "Mod+Shift+O" = "config-reload";
             "Mod+Shift+DELETE" = "session-quit";
             "Mod+Space" = "keyboard-layout-next";
@@ -126,7 +131,7 @@
             "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
             "Mod+Shift+C" = "window-close";
             "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
-            "Mod+W" = "spawn:librewolf";
+            "Mod+W" = "spawn:helium";
             "Mod+E" = "spawn:foot -e yazi";
             "Mod+A" = "spawn:${lib.getExe' pkgs.miru "miructl toggle"}";
             "Mod+Shift+A" = "spawn:${lib.getExe' pkgs.miru "miructl loupe"}";
@@ -220,6 +225,7 @@
           ];
           window_rule = [
             {
+              default_scrolling_extent = 0.8;
               blur = true;
               blur_optimized = true;
             }
@@ -256,16 +262,25 @@
           animation = {
             workspaces = {
               enabled = true;
+              duration_ms = 300;
+              style = "slide";
+              curve = "0.46,1.0,0.29,0.99";
             };
             windows_move = {
               enabled = true;
+              curve = "0.46,1.0,0.29,0.99";
             };
             windows_in = {
               enabled = true;
+              duration_ms = 250;
+              style = "slide";
+              curve = "0.46,1.0,0.29,0.99";
             };
-
             windows_out = {
               enabled = true;
+              duration_ms = 200;
+              style = "slide";
+              curve = "0.46,1.0,0.29,0.99";
             };
           };
         };
