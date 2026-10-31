@@ -28,6 +28,7 @@
       (pkgs.winePackages.waylandFull.override {wineBuild = "wine64";})
       pkgs.winetricks
     ];
+    providers.firewall.allowedTCPPorts = [25565]; #minecraft
 
     programs.gamemode.enable = true;
   };
