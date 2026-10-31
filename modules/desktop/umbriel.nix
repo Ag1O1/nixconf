@@ -125,67 +125,67 @@
             "Mod+Space" = "keyboard-layout-next";
 
             ### Apps ###
-            "Mod+Q" = "spawn:foot";
-            "Mod+Shift+Q" = "spawn:${lib.getExe pkgs.ghostty}";
-            "Mod+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-on.sh";
-            "Mod+Shift+P" = "spawn:/home/amr/.config/noctalia/hooks/performance-off.sh";
+            "Mod+Q" = "spawn foot";
+            "Mod+Shift+Q" = "spawn ${lib.getExe pkgs.ghostty}";
+            "Mod+P" = "spawn /home/amr/.config/noctalia/hooks/performance-on.sh";
+            "Mod+Shift+P" = "spawn /home/amr/.config/noctalia/hooks/performance-off.sh";
             "Mod+Shift+C" = "window-close";
-            "Mod+S" = "spawn:${lib.getExe pkgs.wlr-which-key}";
-            "Mod+W" = "spawn:helium";
-            "Mod+E" = "spawn:foot -e yazi";
-            "Mod+A" = "spawn:${lib.getExe' pkgs.miru "miructl toggle"}";
-            "Mod+Shift+A" = "spawn:${lib.getExe' pkgs.miru "miructl loupe"}";
-            "Mod+T" = "spawn:foot -e ${scripts.todo}";
+            "Mod+S" = "spawn ${lib.getExe pkgs.wlr-which-key}";
+            "Mod+W" = "spawn helium";
+            "Mod+E" = "spawn foot -e yazi";
+            "Mod+A" = "spawn ${lib.getExe' pkgs.miru "miructl toggle"}";
+            "Mod+Shift+A" = "spawn ${lib.getExe' pkgs.miru "miructl loupe"}";
+            "Mod+T" = "spawn foot -e ${scripts.todo}";
 
-            "Mod+G" = "spawn:noctalia msg panel-toggle control-center";
-            "Mod+R" = "spawn:noctalia msg panel-toggle launcher";
-            "Mod+CTRL+R" = "spawn:noctalia msg panel-toggle control-center";
-            "Mod+Shift+R" = "spawn:noctalia msg panel-toggle clipboard";
-            "Mod+Shift+E" = "spawn:noctalia msg panel-toggle launcher /emo";
-            "Mod+Shift+N" = "spawn: pkill noctalia && unset XDG_SESSION_ID && noctalia -d";
+            "Mod+G" = "spawn noctalia msg panel-toggle control-center";
+            "Mod+R" = "spawn noctalia msg panel-toggle launcher";
+            "Mod+CTRL+R" = "spawn noctalia msg panel-toggle control-center";
+            "Mod+Shift+R" = "spawn noctalia msg panel-toggle clipboard";
+            "Mod+Shift+E" = "spawn noctalia msg panel-toggle launcher /emo";
+            "Mod+Shift+N" = "spawn  pkill noctalia && unset XDG_SESSION_ID && noctalia -d";
 
-            "Mod+Shift+S" = "spawn:noctalia msg screenshot-region";
-            "Mod+Shift+Alt+S" = "spawn:noctalia msg screenshot-fullscreen";
-            "Mod+Ctrl+S" = ''spawn:noctalia msg annotate'';
-            "Mod+Shift+Ctrl+S" = ''spawn:tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png >"$tmp" && noctalia msg annotate "$tmp"'';
-            "Mod+Alt+S" = ''spawn:${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png > /tmp/clipboard.png && ${lib.getExe pkgs.qimgv} /tmp/clipboard.png'';
+            "Mod+Shift+S" = "spawn noctalia msg screenshot-region";
+            "Mod+Shift+Alt+S" = "spawn noctalia msg screenshot-fullscreen";
+            "Mod+Ctrl+S" = ''spawn noctalia msg annotate'';
+            "Mod+Shift+Ctrl+S" = ''spawn tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png >"$tmp" && noctalia msg annotate "$tmp"'';
+            "Mod+Alt+S" = ''spawn ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png > /tmp/clipboard.png && ${lib.getExe pkgs.qimgv} /tmp/clipboard.png'';
 
             ### XF86 Keys ###
-            "XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up";
-            "XF86AudioLowerVolume" = "spawn:noctalia msg volume-down";
-            "XF86AudioMute" = "spawn:noctalia msg volume-mute";
-            "XF86AudioMicMute" = "spawn:noctalia msg mic-mute";
-            "XF86AudioNext" = "spawn:noctalia msg media next";
-            "XF86AudioPause" = "spawn:noctalia msg media toggle";
-            "XF86AudioPlay" = "spawn:noctalia msg media toggle";
-            "XF86AudioPrev" = "spawn:noctalia msg media previous";
-            "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up";
-            "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
-            "Shift+XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up 1";
-            "Shift+XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down 1";
-            "XF86Sleep" = "spawn:sessionctl suspend";
+            "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up";
+            "XF86AudioLowerVolume" = "spawn noctalia msg volume-down";
+            "XF86AudioMute" = "spawn noctalia msg volume-mute";
+            "XF86AudioMicMute" = "spawn noctalia msg mic-mute";
+            "XF86AudioNext" = "spawn noctalia msg media next";
+            "XF86AudioPause" = "spawn noctalia msg media toggle";
+            "XF86AudioPlay" = "spawn noctalia msg media toggle";
+            "XF86AudioPrev" = "spawn noctalia msg media previous";
+            "XF86MonBrightnessUp" = "spawn noctalia msg brightness-up";
+            "XF86MonBrightnessDown" = "spawn noctalia msg brightness-down";
+            "Shift+XF86MonBrightnessUp" = "spawn noctalia msg brightness-up 1";
+            "Shift+XF86MonBrightnessDown" = "spawn noctalia msg brightness-down 1";
+            "XF86Sleep" = "spawn sessionctl suspend";
 
             ### Workspaces ###
 
-            "Mod+1" = "workspace-switch:1";
-            "Mod+2" = "workspace-switch:2";
-            "Mod+3" = "workspace-switch:3";
-            "Mod+4" = "workspace-switch:4";
-            "Mod+5" = "workspace-switch:5";
-            "Mod+6" = "workspace-switch:6";
-            "Mod+7" = "workspace-switch:7";
-            "Mod+8" = "workspace-switch:8";
-            "Mod+9" = "workspace-switch:9";
+            "Mod+1" = "workspace-switch 1";
+            "Mod+2" = "workspace-switch 2";
+            "Mod+3" = "workspace-switch 3";
+            "Mod+4" = "workspace-switch 4";
+            "Mod+5" = "workspace-switch 5";
+            "Mod+6" = "workspace-switch 6";
+            "Mod+7" = "workspace-switch 7";
+            "Mod+8" = "workspace-switch 8";
+            "Mod+9" = "workspace-switch 9";
 
-            "Mod+Shift+1" = "window-move-to-workspace:1";
-            "Mod+Shift+2" = "window-move-to-workspace:2";
-            "Mod+Shift+3" = "window-move-to-workspace:3";
-            "Mod+Shift+4" = "window-move-to-workspace:4";
-            "Mod+Shift+5" = "window-move-to-workspace:5";
-            "Mod+Shift+6" = "window-move-to-workspace:6";
-            "Mod+Shift+7" = "window-move-to-workspace:7";
-            "Mod+Shift+8" = "window-move-to-workspace:8";
-            "Mod+Shift+9" = "window-move-to-workspace:9";
+            "Mod+Shift+1" = "window-move-to-workspace 1";
+            "Mod+Shift+2" = "window-move-to-workspace 2";
+            "Mod+Shift+3" = "window-move-to-workspace 3";
+            "Mod+Shift+4" = "window-move-to-workspace 4";
+            "Mod+Shift+5" = "window-move-to-workspace 5";
+            "Mod+Shift+6" = "window-move-to-workspace 6";
+            "Mod+Shift+7" = "window-move-to-workspace 7";
+            "Mod+Shift+8" = "window-move-to-workspace 8";
+            "Mod+Shift+9" = "window-move-to-workspace 9";
 
             "Mod+Z" = "window-focus-left";
             "Mod+X" = "window-focus-right";
@@ -196,9 +196,9 @@
             "Mod+k" = "workspace-previous";
             "Mod+j" = "workspace-next";
 
-            "Mod+Ctrl+1" = "workspace-set-layout:scrolling";
-            "Mod+Ctrl+2" = "workspace-set-layout:dwindle";
-            "Mod+Ctrl+3" = "workspace-set-layout:master";
+            "Mod+Ctrl+1" = "workspace-set-layout scrolling";
+            "Mod+Ctrl+2" = "workspace-set-layout dwindle";
+            "Mod+Ctrl+3" = "workspace-set-layout master";
 
             "Mod+F" = "window-toggle-maximize";
             "Mod+ALT+F" = "window-toggle-maximize-to-edges";
@@ -206,6 +206,7 @@
             "Mod+V" = "window-toggle-floating";
             "Mod+Shift+V" = "window-toggle-pinned";
 
+            "Mod+Ctrl+TAB" = "spawn noctalia msg window-switcher hold";
             "Mod+TAB" = "overview-toggle";
           };
           hot_corners.top_left = {
@@ -257,7 +258,7 @@
 
           # Noctalia theme colors & writable for some script stuff
 
-          include.files = ["~/.config/umbriel/noctalia.toml" "~/.config/umbriel/writable.toml"];
+          include.files = ["~/.config/umbriel/writable.toml"];
 
           animation = {
             workspaces = {
