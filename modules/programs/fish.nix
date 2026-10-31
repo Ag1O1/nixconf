@@ -39,6 +39,9 @@
         set fish_greeting # Disable greeting
       '';
 
+      "fish/conf.d/correct-arrow.fish".text = ''
+        set -gx tide_character_vi_icon_default "❯"
+      '';
       "fish/conf.d/aliases.fish".text = ''
         alias nsearch="nix search nixpkgs"
         alias grep="grep --color=auto"
