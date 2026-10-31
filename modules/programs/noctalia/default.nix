@@ -19,6 +19,7 @@
         }
       )
       libnotify
+      mpvpaper
       wl-clipboard-rs
       satty
       glib
