@@ -230,6 +230,10 @@
               blur = true;
               blur_optimized = true;
             }
+            {
+              match.app_id = "^bitwarden$";
+              block_capture = true;
+            }
           ];
 
           ### Appearance ###
