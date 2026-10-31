@@ -11,7 +11,6 @@
       fm.bash
       fm.sysklogd
       fm.getty
-      fm.iwd
       cm.fastfetch
       fm.fcron
     ];
@@ -26,26 +25,21 @@
     programs = {
       fastfetch.enable = true; # yes this is totally a core module
       bash.enable = true;
+      coreutils.package = pkgs.busybox;
+      sh.package = pkgs.busybox.overrideAttrs (o: {
+        meta = o.meta // {mainProgram = "ash";};
+      });
     };
 
     environment.systemPackages = with pkgs; [
       microfetch
-      psmisc
       btop
-      iputils
       tack
       git
-      tree
-      vim
-      wget
-      zip
-      unzip
       curl
       jq
       fd
-      file
       whois
-      wget
     ];
   };
 }
