@@ -13,8 +13,8 @@
       enable = true;
 
       settings = {
-        substituters = ["https://finix.cachix.org" "https://cache.xinux.uz"];
-        trusted-public-keys = ["finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c=" "cache.xinux.uz:BXCrtqejFjWzWEB9YuGB7X2MV4ttBur1N8BkwQRdH+0="];
+        substituters = ["https://finix.cachix.org" "https://cache.lantian.pub/lantian"];
+        trusted-public-keys = ["finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c=" "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
         auto-optimise-store = true;
         cores = 4;
         experimental-features = [
