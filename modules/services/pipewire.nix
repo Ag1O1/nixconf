@@ -14,6 +14,7 @@
         extraConfig.pipewire = {
           "10-defaults" = {
             "context.properties" = {
+              "module.x11.bell" = false;
               "default.clock.rate" = 48000;
               "default.clock.allowed-rates" = [44100 48000];
               "default.clock.quantum" = 1024;
