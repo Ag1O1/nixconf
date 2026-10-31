@@ -25,7 +25,7 @@
       ;
 
     defaultApplications = {
-      "inode/directory" = "${file-manager}";
+      "inode/directory" = "${file-manager}.desktop";
 
       "image/*" = "${image}.desktop";
       "image/png" = "${image}.desktop";
