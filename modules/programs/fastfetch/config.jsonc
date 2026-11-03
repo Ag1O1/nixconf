@@ -1,0 +1,177 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "general": {
+        "processingTimeout": 30000
+    },
+    "logo": {
+      	"padding": {
+            "left": 4,
+            "top": 8
+      	},
+    },
+"display": {
+    "separator": "  ",
+
+    "bar": {
+        "width": 14,
+        "char": {
+            "elapsed": "━",
+            "total": "─"
+        },
+        "border": {
+            "left": "[",
+            "right": "]"
+        }
+    },
+
+    "percent": {
+        "type": 3,
+        "ndigits": 0
+    }
+},
+    "modules": [
+        {
+            "key": "╭────────────╮",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#34} User     {#keys}│",
+            "type": "title"
+        },
+                                {
+            "key": "│ {#34}{icon} Host     {#keys}│",
+            "type": "host"
+        },
+                        {
+            "key": "│ {#34}󰅐 Uptime   {#keys}│",
+            "type": "uptime"
+        },
+               {
+            "key": "├────────────┤",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#34} OS       {#keys}│",
+            "type": "os"
+        },
+                {
+            "key": "│ {#34} Kernel   {#keys}│",
+            "type": "kernel"
+        },
+        {
+        "type": "packages",
+        "key": "│ {#34}{icon} Pkgs     {#keys}│",
+        },
+        {
+	    "key": "│ {#34} OS Age   {#keys}│",
+      "type": "command",
+	    "text": "echo $(( ($(date +%s) - $(stat -L -c %Y /etc/machine-id)) / 86400 )) days"
+	},
+               {
+            "key": "├────────────┤",
+            "type": "custom"
+        },        
+        {
+                                                    "key": "│ {#34}󰑣 Initramfs{#keys}│",
+                                                    "type": "command",
+                                                    "shell": "/usr/bin/fish",
+                                                    "text": "printf 'booster %s\\n' (apk query --installed --fields version booster | string replace 'Version: ' '')"
+                                                },
+                                        {
+            "key": "│ {#34} Init     {#keys}│",
+            "type": "command",
+            "text": "initctl --version | head -n 1"
+        },
+        {
+            "key": "│ {#34}󰆍 Userland {#keys}│",
+            "type": "command",
+            "text": "busybox | head -n1 | sed -E 's/ \\([^)]*\\).*//' "
+        },
+	{
+	    "type": "version",
+	    "key": "│ {#34} libc     {#keys}│",
+	    "format": "{libc}"
+	},
+        {
+                    "key": "├────────────┤",
+            "type": "custom"
+        },
+                                        {
+            "key": "│ {#34} WM       {#keys}│",
+            "type": "wm"
+        },
+                                        {
+            "key": "│ {#34} Desktop  {#keys}│",
+            "type": "command",
+            "text": "noctalia --version"
+        },      
+         {
+            "key": "│ {#34}󰍂 Login    {#keys}│",
+            "type": "lm",
+        },
+                {
+                    "key": "├────────────┤",
+            "type": "custom"
+        },
+         {
+            "key": "│ {#34}{icon} Theme    {#keys}│",
+            "type": "theme",
+        },
+        {
+               "key": "│ {#34}{icon} Icons    {#keys}│",
+               "type": "icons",
+        },
+        {
+                "key": "│ {#34}{icon} Font     {#keys}│",
+                "type": "font",
+        },      
+        {
+               "key": "│ {#34}󰇀 Cursor   {#keys}│",
+               "type": "cursor",
+        },     
+                {
+                    "key": "├────────────┤",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#34} Term     {#keys}│",
+            "type": "terminal"
+        },
+        {
+            "key": "│ {#34} Shell    {#keys}│",
+            "type": "shell"
+        },
+        {
+            "key": "│ {#34} TermFont {#keys}│",
+            "type": "terminalfont",
+        },
+               {
+            "key": "├────────────┤",
+            "type": "custom"
+        },
+                        {
+            "key": "│ {#34}󰇄 Display  {#keys}│",
+            "type": "display"
+        },
+        {
+            "key": "│ {#34}{icon} CPU      {#keys}│",
+            "type": "cpu",
+        },
+                {
+            "key": "│ {#34}{icon} GPU      {#keys}│",
+            "type": "gpu",
+        },
+        {
+            "key": "│ {#34} Memory   {#keys}│",
+            "type": "memory"
+        },
+        {
+            "key": "│ {#34}{icon} Disk     {#keys}│",
+            "type": "disk"
+        },
+       {
+          "key": "╰────────────╯",
+            "type": "custom"
+        }
+    ]
+}
