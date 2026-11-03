@@ -1,5 +1,4 @@
 {
-  # has issues with umbriel
   tags = ["graphical"];
   module = {inputs, ...}: {
     imports = [inputs.helium-flake.nixosModules.default];
@@ -8,6 +7,7 @@
 
       flags = [
         "--ozone-platform-hint=auto"
+        "--password-store=gnome-libsecret"
       ];
 
       policies = {
