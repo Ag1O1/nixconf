@@ -7,33 +7,20 @@
     initrd = {
       availableKernelModules = lib.mkForce [
         "nvme"
-        "xhci_pci"
-        "thunderbolt"
-        "ahci"
-        "usbhid"
-        "usb_storage"
-        "sd_mod"
-        "btrfs"
-        "evdev"
       ];
-      # Apparently setting these acutally reduces initrd size?
-      kernelModules = [
-        "evdev"
-        "uinput"
+      kernelModules = lib.mkForce [
         "asus_nb_wmi"
-        "asus_armoury"
       ];
     };
   };
   #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";
 
   custom = {
     machine = {
       type = "laptop";
-      displays."BOE NE160WUM-NXA" = {
+      displays."BOE NE160WUM-NXA Unknown" = {
         mode = "1920x1200@165";
         vrr = "always";
         direct_scanout = true;
