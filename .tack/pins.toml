@@ -60,6 +60,9 @@ url = "github:noctalia-dev/xdg-desktop-portal-umbriel"
 [inputs.noctalia]
 url = "github:noctalia-dev/noctalia-shell"
 
+[inputs.cressida]
+url = "github:Ly-sec/Cressida"
+
 [inputs.nix-cachyos-kernel]
 url = "github:xddxdd/nix-cachyos-kernel"
 

@@ -4,6 +4,7 @@
   ...
 }: {
   hj.packages = with pkgs; [
+    inputs.cressida.packages.${pkgs.stdenv.hostPlatform.system}.default
     libreoffice
     concord-tui
     aseprite
@@ -22,7 +23,7 @@
 
     proton-vpn
     gnome-calendar
-    equibop
+    #equibop
     btrfs-progs
     bitwarden-desktop
     godot
