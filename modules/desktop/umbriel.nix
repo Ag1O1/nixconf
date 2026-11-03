@@ -234,6 +234,19 @@
               match.app_id = "^bitwarden$";
               block_capture = true;
             }
+            {
+              match.title = "WhatsApp";
+              block_capture = true;
+            }
+            {
+              # TODO test: what if we do both is_cast_target and block capture?
+              match.title = "^Save File$";
+              default_floating = true;
+              default_floating_size = {
+                width = 0.4;
+                height = 0.6;
+              };
+            }
           ];
 
           ### Appearance ###
