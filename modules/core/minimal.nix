@@ -7,7 +7,6 @@
     ...
   }: {
     imports = [
-      fm.gnome-keyring
       fm.bash
       fm.sysklogd
       fm.getty

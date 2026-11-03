@@ -7,7 +7,7 @@
     ...
   }: {
     imports = [
-      fm.gnome-keyring
+      #fm.gnome-keyring
       fm.polkit
       fm.sessiond-uaccess
       fm.zzz
@@ -17,9 +17,6 @@
     services = {
       seatd.enable = true;
       keventd.enable = true;
-      #udev.enable = true;
-      #mdevd.enable = true;
-      #gardendevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
       sessiond-power.enable = true;
@@ -27,7 +24,7 @@
       polkit.enable = true;
     };
     programs = {
-      gnome-keyring.enable = true;
+      #gnome-keyring.enable = true;
       brightnessctl.enable = true;
     };
     # Basic graphical apps for desktop envionments
