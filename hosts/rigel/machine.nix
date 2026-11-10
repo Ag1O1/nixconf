@@ -3,16 +3,6 @@
   pkgs,
   ...
 }: {
-  boot = {
-    initrd = {
-      availableKernelModules = lib.mkForce [
-        "nvme"
-      ];
-      kernelModules = lib.mkForce [
-        "asus_nb_wmi"
-      ];
-    };
-  };
   #boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-zen4;
   time.timeZone = "Africa/Cairo";
   i18n.defaultLocale = "en_US.UTF-8";

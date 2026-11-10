@@ -47,6 +47,14 @@
   };
 
   boot = {
+    initrd = {
+      availableKernelModules =
+        lib.mkForce [
+        ];
+      kernelModules = lib.mkForce [
+        "asus_nb_wmi"
+      ];
+    };
     kernelParams = [
       "zswap.enabled=1"
       "zswap.compressor=zstd"
