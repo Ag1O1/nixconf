@@ -31,7 +31,7 @@ url = "github:NixOS/nixpkgs/nixos-unstable"
 url = "github:NixOS/nixpkgs/nixos-26.05"
 
 [inputs.finix]
-url = "github:finix-community/finix"
+url = "path:/home/amr/Projects/Personal/finix"
 
 [inputs.community-modules]
 url = "github:finix-community/community-modules"
