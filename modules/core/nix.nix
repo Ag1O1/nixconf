@@ -17,6 +17,7 @@
         trusted-public-keys = ["finix.cachix.org-1:0ejikHDeCp0UErsduUUHcg9IJczY2/h2e5132Z/As/c=" "lantian:WVGO7vsRMSEN+h7Lp7kv6SAmrkEXgUGbbXm7jMDjBuQ="];
         auto-optimise-store = true;
         cores = 4;
+        max-jobs = 2;
         experimental-features = [
           "nix-command"
           "flakes"
