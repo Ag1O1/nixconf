@@ -1,5 +1,5 @@
 {
-  tags = ["graphical"];
+  #tags = ["graphical"];
   module = {pkgs, ...}: let
     wrappedLogisim = pkgs.symlinkJoin {
       name = "logisim-evolution-wrapped";

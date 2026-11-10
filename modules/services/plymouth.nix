@@ -1,5 +1,5 @@
 {
-  tags = ["graphical"];
+  #tags = ["graphical"];
   module = {pkgs, ...}: {
     programs.plymouth = {
       enable = true;
