@@ -16,7 +16,7 @@
 
     services = {
       seatd.enable = true;
-      keventd.enable = true;
+      gardendevd.enable = true;
       sessiond.enable = true;
       sessiond-uaccess.enable = true;
       sessiond-power.enable = true;
