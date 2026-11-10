@@ -1,22 +1,40 @@
 {
   system,
+  gccArch ? null,
+  extraOverlays ? [],
   extraModules ? [],
   tags ? [],
 }: let
   inputs = import ../.tack;
   inherit (inputs) nixpkgs finix community-modules;
-  pkgs = import nixpkgs {
-    inherit system;
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "electron-39.8.10"
-      ];
-    };
-    overlays = [
-      inputs.nix-cachyos-kernel.overlays.pinned
-    ];
-  };
+  pkgs = import nixpkgs ({
+      inherit system;
+
+      config = {
+        allowUnfree = true;
+
+        permittedInsecurePackages = [
+          "electron-39.8.10"
+        ];
+      };
+
+      overlays =
+        [
+          inputs.nix-cachyos-kernel.overlays.pinned
+          #inputs.finix.overlays.without-systemd
+        ]
+        ++ extraOverlays;
+    }
+    // (
+      if gccArch != null
+      then {
+        gcc = {
+          arch = gccArch;
+          tune = gccArch;
+        };
+      }
+      else {}
+    ));
 
   allFiles = pkgs.lib.filesystem.listFilesRecursive ../modules;
   isModule = path: let
