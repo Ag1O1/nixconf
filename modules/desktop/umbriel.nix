@@ -67,7 +67,7 @@
           general = {
             attach_modal_dialogs = false;
             show_cheatsheet = false;
-            autostart = ["noctalia -d" "pipewire" "pipewire-pulse" "sleep 8 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
+            autostart = ["noctalia -d" "pipewire" "pipewire-pulse" "sleep 2 && wireplumber" "${lib.getExe' pkgs.miru "miru-daemon"}"];
           };
 
           layout.gap = 5;
@@ -91,6 +91,7 @@
               repeat_rate = 30;
               repeat_delay = 300;
               layout = "us,eg";
+              options = "compose:ralt";
             };
           };
           environment = {
@@ -126,7 +127,6 @@
 
             ### Apps ###
             "Mod+Q" = "spawn foot";
-            "Mod+Shift+Q" = "spawn ${lib.getExe pkgs.ghostty}";
             "Mod+P" = "spawn /home/amr/.config/noctalia/hooks/performance-on.sh";
             "Mod+Shift+P" = "spawn /home/amr/.config/noctalia/hooks/performance-off.sh";
             "Mod+Shift+C" = "window-close";
@@ -147,12 +147,14 @@
             "Mod+Shift+S" = "spawn noctalia msg screenshot-region";
             "Mod+Shift+Alt+S" = "spawn noctalia msg screenshot-fullscreen";
             "Mod+Ctrl+S" = ''spawn noctalia msg annotate'';
-            "Mod+Shift+Ctrl+S" = ''spawn tmp=$(mktemp --suffix=.png); trap 'rm -f "$tmp"' EXIT; ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png >"$tmp" && noctalia msg annotate "$tmp"'';
+            "Mod+Shift+Ctrl+S" = ''spawn tmp=$(mktemp); trap 'rm -f "$tmp"' EXIT; ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png >"$tmp" && noctalia msg annotate "$tmp"'';
             "Mod+Alt+S" = ''spawn ${lib.getExe' pkgs.wl-clipboard "wl-paste"} --type image/png > /tmp/clipboard.png && ${lib.getExe pkgs.qimgv} /tmp/clipboard.png'';
 
             ### XF86 Keys ###
             "XF86AudioRaiseVolume" = "spawn noctalia msg volume-up";
             "XF86AudioLowerVolume" = "spawn noctalia msg volume-down";
+            "Shift+XF86AudioRaiseVolume" = "spawn noctalia msg volume-up 1";
+            "Shift+XF86AudioLowerVolume" = "spawn noctalia msg volume-down 1";
             "XF86AudioMute" = "spawn noctalia msg volume-mute";
             "XF86AudioMicMute" = "spawn noctalia msg mic-mute";
             "XF86AudioNext" = "spawn noctalia msg media next";
@@ -206,7 +208,7 @@
             "Mod+V" = "window-toggle-floating";
             "Mod+Shift+V" = "window-toggle-pinned";
 
-            "Mod+Ctrl+TAB" = "spawn noctalia msg window-switcher hold";
+            "Alt+TAB" = "spawn noctalia msg window-switcher hold";
             "Mod+TAB" = "overview-toggle";
           };
           hot_corners.top_left = {
