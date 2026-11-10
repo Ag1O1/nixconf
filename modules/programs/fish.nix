@@ -50,6 +50,7 @@
         alias la="${eza} --icons=always --long --all"
         alias lt="${eza} --icons=always --tree"
         alias lc="${eza} --icons=always --code"
+        alias sudo="doas"
       '';
       "fish/config.fish".text = ''
         direnv hook fish | source
