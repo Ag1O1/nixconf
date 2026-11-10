@@ -1,13 +1,8 @@
 {
-  tags = ["graphical"];
-  module = {
-    pkgs,
-    lib,
-    ...
-  }: let
-    package = pkgs.evolutionWithPlugins;
+  #tags = ["graphical"];
+  module = {pkgs, ...}: let
+    package = pkgs.evolution-data-server;
   in {
-    environment.systemPackages = [package];
     services.dbus.packages = [package];
   };
 }
