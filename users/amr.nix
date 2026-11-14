@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   lib,
   ...
@@ -49,6 +50,6 @@ in {
   };
   environment.variables = {
     EDITOR = "nvim";
-    TERMINAL = "foot";
+    TERMINAL = config.modules.services.mime.terminal;
   };
 }

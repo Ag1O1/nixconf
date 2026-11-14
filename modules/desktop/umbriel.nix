@@ -32,6 +32,8 @@
     );
     # End of copied code
 
+    cursor = config.custom.theming.cursor.name;
+    terminal = config.modules.services.mime.terminal;
     mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
     fileNames = builtins.attrNames (builtins.readDir ./scripts);
     scripts = builtins.listToAttrs (map (name: {
@@ -85,7 +87,7 @@
               accel_profile = "flat";
             };
             cursor = {
-              theme = "Bibata-Modern-Ice";
+              theme = cursor;
             };
             keyboard = {
               repeat_rate = 30;
@@ -126,16 +128,16 @@
             "Mod+Space" = "keyboard-layout-next";
 
             ### Apps ###
-            "Mod+Q" = "spawn foot";
+            "Mod+Q" = "spawn ${terminal}";
             "Mod+P" = "spawn /home/amr/.config/noctalia/hooks/performance-on.sh";
             "Mod+Shift+P" = "spawn /home/amr/.config/noctalia/hooks/performance-off.sh";
             "Mod+Shift+C" = "window-close";
             "Mod+S" = "spawn ${lib.getExe pkgs.wlr-which-key}";
             "Mod+W" = "spawn helium";
-            "Mod+E" = "spawn foot -e yazi";
+            "Mod+E" = "spawn ${terminal} -e yazi";
             "Mod+A" = "spawn ${lib.getExe' pkgs.miru "miructl toggle"}";
             "Mod+Shift+A" = "spawn ${lib.getExe' pkgs.miru "miructl loupe"}";
-            "Mod+T" = "spawn foot -e ${scripts.todo}";
+            "Mod+T" = "spawn ${terminal} -e ${scripts.todo}";
 
             "Mod+G" = "spawn noctalia msg panel-toggle control-center";
             "Mod+R" = "spawn noctalia msg panel-toggle launcher";

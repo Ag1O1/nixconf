@@ -7,6 +7,8 @@
     fm,
     ...
   }: let
+    cursor = config.custom.themes.cursor;
+    terminal = config.modules.services.mime.terminal;
     mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
     fileNames = builtins.attrNames (builtins.readDir ./scripts);
     scripts = builtins.listToAttrs (map (name: {
@@ -24,7 +26,7 @@
         overview.zoom = 0.50;
 
         ### Cursor ###
-        cursor.xcursor-theme = "Bibata-Modern-Ice";
+        cursor.xcursor-theme = cursor.name;
 
         ### Miscellaneous ###
         prefer-no-csd = _: {};
@@ -284,12 +286,8 @@
 
           # Applications
           "Mod+Q" = _: {
-            props.hotkey-overlay-title = "Open Terminal: Ghostty";
-            content.spawn-sh = "ghostty";
-          };
-          "Mod+SHIFT+Q" = _: {
-            props.hotkey-overlay-title = "Open Terminal: Ghostty";
-            content.spawn-sh = lib.getExe pkgs.foot;
+            props.hotkey-overlay-title = "Open Terminal";
+            content.spawn-sh = terminal;
           };
           "Mod+S" = _: {
             props.hotkey-overlay-title = "Open wlr-which-key";
@@ -305,11 +303,11 @@
           };
           "Mod+E" = _: {
             props.hotkey-overlay-title = "File Manager: yazi";
-            content.spawn-sh = "ghostty -e yazi";
+            content.spawn-sh = "${terminal} -e yazi";
           };
           "Mod+T" = _: {
             props.hotkey-overlay-title = "Open TODO";
-            content.spawn-sh = "ghostty -e ${scripts.todo}";
+            content.spawn-sh = "${terminal} -e ${scripts.todo}";
           };
 
           # Audio Controls

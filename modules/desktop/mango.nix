@@ -2,10 +2,13 @@
   #tags = ["rigel"];
   module = {
     fm,
+    config,
     pkgs,
     lib,
     ...
   }: let
+    cursor = config.custom.theming.cursor;
+    terminal = config.modules.services.mime.terminal;
     mkScript = name: pkgs.writeShellScript name (builtins.readFile ./scripts/${name});
     fileNames = builtins.attrNames (builtins.readDir ./scripts);
     scripts = builtins.listToAttrs (map (name: {
@@ -87,10 +90,10 @@
 
           ### Environment ###
 
-          cursor_theme=Bibata-Modern-Ice
-          cursor_size=24
-          env=XCURSOR_THEME,Bibata-Modern-Ice
-          env=XCURSOR_SIZE,24
+          cursor_theme=${cursor.name}
+          cursor_size=${cursor.size}
+          env=XCURSOR_THEME,${cursor.name}
+          env=XCURSOR_SIZE,${cursor.size}
           env=PROTONPATH,GE-Proton
           env=SSH_AUTH_SOCK,/home/amr/.bitwarden-ssh-agent.sock
           env=ELECTRON_OZONE_PLATFORM_HINT,auto
@@ -100,8 +103,8 @@
 
           ### Applications ###
 
-          bind=SUPER,q,spawn,foot
-          bind=SUPER,t,spawn,foot -e ${scripts.todo}
+          bind=SUPER,q,spawn,${terminal}
+          bind=SUPER,t,spawn,${terminal} -e ${scripts.todo}
           bind=SUPER,p,spawn,/home/amr/.config/noctalia/hooks/performance-on.sh
           bind=SUPER+SHIFT,p,spawn,/home/amr/.config/noctalia/hooks/performance-off.sh
 
@@ -109,7 +112,7 @@
 
           bind=SUPER,s,spawn,${lib.getExe pkgs.wlr-which-key}
           bind=SUPER,w,spawn,librewolf
-          bind=SUPER,e,spawn,foot -e yazi
+          bind=SUPER,e,spawn,${terminal} -e yazi
           bind=SUPER,a,spawn,${lib.getExe pkgs.hyprmag} -r 2500
 
 

@@ -72,7 +72,7 @@
       };
       terminal = mkOption {
         type = str;
-        default = "foot";
+        default = "kitty";
         description = "Defines terminal";
       };
       browser = mkOption {
