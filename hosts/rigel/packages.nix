@@ -6,9 +6,8 @@
   hj.packages = with pkgs; [
     inputs.cressida.packages.${pkgs.stdenv.hostPlatform.system}.default
     libreoffice
-    concord-tui
+    open-scq30
     aseprite
-    gnused # for scripts
     wlr-randr
     piper
     comma
@@ -19,17 +18,13 @@
     #audacity
     resources
 
-    rayburst
-
-    proton-vpn
-    gnome-calendar
+    #rayburst
     #equibop
     btrfs-progs
     bitwarden-desktop
     godot
     blender
     foot
-    ghostty
   ];
   fonts = {
     packages = with pkgs; [

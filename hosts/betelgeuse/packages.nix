@@ -38,7 +38,6 @@
     netcat # for godot zed
     blender
     foot
-    bibata-cursors
   ];
   fonts = {
     packages = with pkgs; [
